@@ -6,22 +6,22 @@ import { OrganizationJsonLd, WebsiteJsonLd } from "@/components/JsonLd";
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params;
   const titles: Record<string, string> = {
-    en: "Premium Natural Pigments for Food & Cosmetics",
-    zh: "优质天然色素，应用于食品与化妆品",
-    ja: "食品・化粧品向けプレミアム天然色素",
-    ko: "식품 및 화장품용 프리미엄 천연 색소",
-    es: "Pigmentos Naturales Premium para Alimentos y Cosméticos",
-    fr: "Pigments Naturels Premium pour Alimentaire et Cosmétique",
-    de: "Premium Natürliche Pigmente für Lebensmittel und Kosmetik",
+    en: "EarthHue — Natural Pigments for Industry & Aesthetic Color Stories",
+    zh: "EarthHue — 面向工业的天然色素 与 美学色彩故事",
+    ja: "EarthHue — 産業向け天然色素 と 色彩の美学ストーリー",
+    ko: "EarthHue — 산업용 천연 색소 와 미학 컬러 스토리",
+    es: "EarthHue — Pigmentos Naturales para la Industria e Historias de Color Estéticas",
+    fr: "EarthHue — Pigments Naturels pour l'Industrie et Récits Esthétiques",
+    de: "EarthHue — Natürliche Pigmente für die Industrie und ästhetische Farbgeschichten",
   };
   const descs: Record<string, string> = {
-    en: "Premium natural pigments for food, cosmetics, and pharmaceuticals. EU, FDA, Japan, Korea compliant. Sustainable plant, mineral, and microbial color solutions.",
-    zh: "优质天然色素应用于食品、化妆品和制药。符合欧盟、FDA、日本、韩国法规。可持续的植物、矿物和微生物色彩方案。",
-    ja: "食品・化粧品・製薬向けプレミアム天然色素。EU、FDA、日本、韓国規制対応。持続可能な植物・鉱物・微生物色彩ソリューション。",
-    ko: "식품, 화장품, 제약용 프리미엄 천연 색소. EU, FDA, 일본, 한국 규제 준수. 지속 가능한 식물, 광물, 미생물 색상 솔루션.",
-    es: "Pigmentos naturales premium para alimentos, cosméticos y farmacéuticos. Cumplimiento UE, FDA, Japón, Corea.",
-    fr: "Pigments naturels premium pour l'alimentaire, la cosmétique et la pharmaceutique. Conformité UE, FDA, Japon, Corée.",
-    de: "Premium natürliche Pigmente für Lebensmittel, Kosmetik und Pharmazeutik. EU-, FDA-, Japan-, Korea-konform.",
+    en: "Two zones, one palette of nature. B2B raw-material catalog for formulators; C2C color stories, science, and aesthetic gallery for color enthusiasts.",
+    zh: "同一调色板，两种入口。B 端面向配方师的天然原料；C 端面向色彩爱好者的故事、科学与图库。",
+    ja: "二つのゾーン、一つの天然パレット。B2B は処方者向け原料、C2C は色彩愛好家向けのストーリー・科学・ギャラリー。",
+    ko: "두 개의 존, 하나의 자연 팔레트. B2B는 제형가용 원료, C2C는 컬러 애호가용 스토리·과학·갤러리.",
+    es: "Dos zonas, una paleta de la naturaleza. B2B con catálogo para formuladores; C2C con historias, ciencia y galería.",
+    fr: "Deux zones, une palette de la nature. B2B pour formulateurs ; C2C pour passionnés : histoires, science, galerie.",
+    de: "Zwei Zonen, eine Palette der Natur. B2B für Formulierer; C2C für Farbbegeisterte: Geschichten, Wissenschaft, Galerie.",
   };
 
   return {
@@ -46,6 +46,11 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   };
 }
 
+const zones = [
+  { key: "b2b", icon: "🏭", href: "b2b", accent: "from-earth-700 to-earth-900" },
+  { key: "c2c", icon: "🎨", href: "c2c", accent: "from-sage-600 to-sage-800" },
+] as const;
+
 export default async function HomePage({
   params,
 }: {
@@ -59,39 +64,66 @@ export default async function HomePage({
       <OrganizationJsonLd />
       <WebsiteJsonLd locale={locale} />
 
-      {/* Hero Section */}
+      {/* Hero — B/C Dual-Zone Entry */}
       <section className="relative bg-gradient-to-br from-earth-100 via-earth-50 to-sage-50 section-padding">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <div>
-              <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl font-bold text-earth-900 leading-tight mb-6">
-                {t("hero.title")}
-              </h1>
-              <p className="text-lg md:text-xl text-earth-700 mb-8 max-w-xl">
-                {t("hero.subtitle")}
-              </p>
-              <Link
-                href={`/${locale}/pigments`}
-                className="inline-flex items-center gap-2 bg-sage-600 text-white px-6 py-3 rounded-lg font-medium hover:bg-sage-700 transition-colors"
-              >
-                {t("hero.cta")}
-                <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                </svg>
-              </Link>
-            </div>
-            <div className="relative">
-              <div className="aspect-square rounded-3xl bg-gradient-to-br from-sage-200 via-earth-200 to-terracotta-200 flex items-center justify-center">
-                <div className="w-3/4 h-3/4 rounded-full bg-white/30 backdrop-blur-sm flex items-center justify-center">
-                  <div className="grid grid-cols-3 gap-4 p-8">
-                    {["#C4856B", "#5A7F5A", "#BFA57F", "#8B6F47", "#D4C4A8", "#466646", "#E8DFD0", "#7A9C7A", "#A88A5C"].map((color, i) => (
-                      <div key={i} className="w-12 h-12 md:w-16 md:h-16 rounded-full shadow-lg" style={{ backgroundColor: color }} />
-                    ))}
-                  </div>
-                </div>
-              </div>
-            </div>
+          <div className="text-center mb-12">
+            <p className="text-sage-700 font-medium mb-3 uppercase tracking-wider text-sm">
+              {t("hero.eyebrow")}
+            </p>
+            <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl font-bold text-earth-900 leading-tight mb-6">
+              {t("hero.title")}
+            </h1>
+            <p className="text-lg md:text-xl text-earth-700 max-w-3xl mx-auto">
+              {t("hero.subtitle")}
+            </p>
           </div>
+
+          <div className="grid md:grid-cols-2 gap-6 max-w-5xl mx-auto">
+            {zones.map((z) => (
+              <Link
+                key={z.key}
+                href={`/${locale}/${z.href}`}
+                className={`group relative block bg-gradient-to-br ${z.accent} text-white rounded-2xl p-8 md:p-10 overflow-hidden hover:scale-[1.02] transition-transform`}
+              >
+                <div className="absolute top-4 right-4 text-6xl opacity-20 group-hover:opacity-30 transition-opacity">
+                  {z.icon}
+                </div>
+                <div className="relative">
+                  <p className="text-xs uppercase tracking-widest opacity-80 mb-3">
+                    {t(`hero.zones.${z.key}.eyebrow`)}
+                  </p>
+                  <h2 className="font-serif text-2xl md:text-3xl font-bold mb-4">
+                    {t(`hero.zones.${z.key}.title`)}
+                  </h2>
+                  <p className="opacity-90 mb-6 leading-relaxed">
+                    {t(`hero.zones.${z.key}.desc`)}
+                  </p>
+                  <span className="inline-flex items-center gap-2 font-medium border-b border-white/50 pb-1 group-hover:border-white">
+                    {t(`hero.zones.${z.key}.cta`)} →
+                  </span>
+                </div>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Cross-link strip */}
+      <section className="bg-white py-6 border-b border-earth-200">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-wrap justify-center gap-x-8 gap-y-2 text-sm">
+          <Link href={`/${locale}/pigments`} className="text-earth-700 hover:text-sage-700">
+            {t("quicklinks.pigments")}
+          </Link>
+          <Link href={`/${locale}/regulations`} className="text-earth-700 hover:text-sage-700">
+            {t("quicklinks.regulations")}
+          </Link>
+          <Link href={`/${locale}/about`} className="text-earth-700 hover:text-sage-700">
+            {t("quicklinks.about")}
+          </Link>
+          <Link href={`/${locale}/contact`} className="text-earth-700 hover:text-sage-700">
+            {t("quicklinks.contact")}
+          </Link>
         </div>
       </section>
 

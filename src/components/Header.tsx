@@ -1,55 +1,62 @@
 "use client";
 
 import Link from "next/link";
+import { useState } from "react";
 import { usePathname } from "next/navigation";
 import { useTranslations } from "next-intl";
-import { useState } from "react";
 
 export function Header() {
   const t = useTranslations("nav");
-  const pathname = usePathname();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-
-  // Get current locale from pathname
+  const pathname = usePathname();
   const locale = pathname.split("/")[1] || "en";
 
   const navItems = [
     { href: `/${locale}`, label: t("home") },
-    { href: `/${locale}/about`, label: t("about") },
+    { href: `/${locale}/b2b`, label: t("b2b") },
+    { href: `/${locale}/c2c`, label: t("c2c") },
     { href: `/${locale}/pigments`, label: t("pigments") },
-    { href: `/${locale}/products`, label: t("products") },
     { href: `/${locale}/regulations`, label: t("regulations") },
+    { href: `/${locale}/about`, label: t("about") },
     { href: `/${locale}/contact`, label: t("contact") },
   ];
 
   return (
-    <header className="bg-white/95 backdrop-blur-sm border-b border-earth-200 sticky top-0 z-50">
+    <header className="bg-white border-b border-earth-200 sticky top-0 z-50">
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16 md:h-20">
-          <Link href={`/${locale}`} className="flex items-center gap-2">
-            <div className="w-8 h-8 rounded-full bg-gradient-to-br from-sage-500 to-earth-600" />
-            <span className="font-serif text-xl font-semibold text-earth-900">EarthHue</span>
-          </Link>
-
-          <div className="hidden md:flex items-center gap-8">
-            {navItems.map((item) => (
-              <Link
-                key={item.href}
-                href={item.href}
-                className={`text-sm font-medium transition-colors ${
-                  pathname === item.href ? "text-sage-600" : "text-earth-600 hover:text-earth-900"
-                }`}
-              >
-                {item.label}
-              </Link>
-            ))}
+        <div className="flex items-center justify-between h-16">
+          <div className="flex items-center">
+            <Link href={`/${locale}`} className="flex items-center gap-2">
+              <div className="w-8 h-8 rounded-full bg-gradient-to-br from-sage-500 to-earth-600" />
+              <span className="font-serif text-xl font-semibold text-earth-900">EarthHue</span>
+            </Link>
           </div>
 
-          <div className="flex items-center gap-4">
+          <div className="hidden md:flex items-center gap-6">
+            {navItems.map((item) => {
+              const isActive = pathname === item.href || (item.href !== `/${locale}` && pathname.startsWith(item.href));
+              return (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  className={`text-sm font-medium transition-colors ${
+                    isActive
+                      ? "text-sage-700 border-b-2 border-sage-600 pb-0.5"
+                      : "text-earth-600 hover:text-earth-900"
+                  }`}
+                >
+                  {item.label}
+                </Link>
+              );
+            })}
+            <LanguageSwitcher currentLocale={locale} />
+          </div>
+
+          <div className="md:hidden flex items-center gap-2">
             <LanguageSwitcher currentLocale={locale} />
             <button
-              className="md:hidden p-2 text-earth-600"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              className="p-2 rounded-md text-earth-600 hover:bg-earth-100"
               aria-label="Toggle menu"
             >
               <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">

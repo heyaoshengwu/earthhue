@@ -6,13 +6,30 @@
     "products": "Produkte",
     "regulations": "Regulierungen",
     "resources": "Ressourcen",
-    "contact": "Kontakt"
+    "contact": "Kontakt",
+    "b2b": "For Business",
+    "c2c": "For Creators"
   },
   "home": {
     "hero": {
       "title": "Die Palette der Natur, perfektioniert",
       "subtitle": "Premium natürliche Pigmente für Lebensmittel und Kosmetik — nachhaltig beschafft, globale Standards erfüllend",
-      "cta": "Pigmente entdecken"
+      "cta": "Pigmente entdecken",
+      "eyebrow": "One palette of nature — two ways in",
+      "zones": {
+        "b2b": {
+          "eyebrow": "B2B — Enterprise & Formulators",
+          "title": "Raw-Material Catalog for Industry",
+          "desc": "Natural pigments for food, cosmetics and pharma. Specs, samples, certifications, and direct technical support.",
+          "cta": "Open B2B zone"
+        },
+        "c2c": {
+          "eyebrow": "C2C — Color Enthusiasts",
+          "title": "Color Stories from Nature",
+          "desc": "Plant pigments, natural dyeing experiments, and the science behind every shade — for designers, makers, and the simply curious.",
+          "cta": "Open C2C zone"
+        }
+      }
     },
     "features": {
       "title": "Warum natürlich wählen",
@@ -50,6 +67,12 @@
       "title": "Technische Spezifikationen benötigt?",
       "desc": "Laden Sie unsere Produktdatenblätter und Regulierungsdokumentation herunter",
       "button": "Technische Ressourcen"
+    },
+    "quicklinks": {
+      "pigments": "Pigment catalog",
+      "regulations": "Regulations",
+      "about": "About",
+      "contact": "Contact"
     }
   },
   "about": {
@@ -193,6 +216,353 @@
     "links": {
       "privacy": "Datenschutz",
       "terms": "Nutzungsbedingungen"
+    },
+    "b2b": "For Business",
+    "c2c": "For Creators",
+    "b2bOverview": "B2B overview",
+    "b2bCapability": "Capability",
+    "b2bCertifications": "Certifications",
+    "b2bSamples": "Sample request",
+    "b2bContact": "B2B contact",
+    "c2cOverview": "C2C overview",
+    "c2cStories": "Color stories",
+    "c2cScience": "Science",
+    "c2cGallery": "Gallery"
+  },
+  "b2b": {
+    "sectionTitle": "B2B",
+    "navOverview": "Overview",
+    "navCapability": "Capability",
+    "navCertifications": "Certifications",
+    "navSamples": "Samples",
+    "navFactoryVisit": "Factory visit",
+    "navContact": "Contact",
+    "crossLinkPrompt": "Color-curious? Explore our C2C zone for stories, science and gallery.",
+    "crossLinkCta": "Open C2C zone",
+    "metaTitle": "For Business — Natural Pigment Raw Materials | EarthHue",
+    "metaDescription": "Premium natural pigments for food, cosmetics and pharma. Capability, certifications, samples and direct support for formulators and procurement teams.",
+    "title": "For Business",
+    "eyebrow": "B2B — Enterprise & Formulators",
+    "heroTitle": "Raw-Material Pigments for Industry",
+    "heroSubtitle": "Built for formulators and procurement teams. Specs, samples, certifications, and direct technical support — without the marketing fog.",
+    "learnMore": "Learn more",
+    "catalog": {
+      "title": "Looking for the full pigment catalog?",
+      "desc": "Specs, lead times, and tiered pricing for all natural pigment series are available on request. Reach out and our team will share the catalogue plus COA, MSDS and formulation guidance.",
+      "cta": "Request the catalog"
+    },
+    "modules": {
+      "capability": {
+        "title": "Capability",
+        "desc": "Production capacity, QC processes, R&D strength."
+      },
+      "certifications": {
+        "title": "Certifications",
+        "desc": "Food-grade, cosmetic, pharma, ISO and religious certifications."
+      },
+      "samples": {
+        "title": "Sample Request",
+        "desc": "How to evaluate EarthHue pigments in your lab."
+      },
+      "factoryVisit": {
+        "title": "Factory Visit",
+        "desc": "Book an on-site tour of our facility."
+      },
+      "contact": {
+        "title": "B2B Contact",
+        "desc": "Quote, partnership, sample request — pick a channel."
+      }
+    },
+    "capability": {
+      "metaTitle": "Capability — Production & QC | EarthHue B2B",
+      "metaDescription": "Production capacity, fermentation lines, QC processes and R&D investment.",
+      "title": "Capability",
+      "subtitle": "From raw plant, mineral, and microbial inputs to compliant pigment powder — under one roof.",
+      "stats": {
+        "capacity": {
+          "value": "1,200+ t/yr",
+          "label": "Annual pigment capacity"
+        },
+        "lines": {
+          "value": "8",
+          "label": "Production lines"
+        },
+        "qc": {
+          "value": "30+",
+          "label": "QC checkpoints"
+        },
+        "rd": {
+          "value": "12% revenue",
+          "label": "Reinvested in R&D"
+        }
+      },
+      "factory": {
+        "title": "Factory",
+        "desc": "Located in a GMP-aligned facility covering extraction, fermentation, purification, drying, milling, and packaging. Air-handling and clean-room zones meet food and pharma grade requirements."
+      },
+      "qc": {
+        "title": "Quality Control",
+        "desc": "Every lot is tested for identity, purity, heavy metals, microbiology, and stability — with COA shipped with every shipment.",
+        "list": {
+          "1": "HPLC and UV-Vis identity confirmation",
+          "2": "ICP-MS heavy-metal panel (Pb, As, Cd, Hg)",
+          "3": "Microbial limits per USP/EP",
+          "4": "Accelerated stability (40°C / 75% RH, 6 months)"
+        }
+      },
+      "rd": {
+        "title": "R&D",
+        "desc": "An in-house team focused on microbial pigment fermentation and natural-dye process optimization, with partnerships across two universities."
+      }
+    },
+    "certifications": {
+      "metaTitle": "Certifications | EarthHue B2B",
+      "metaDescription": "Food, cosmetic, pharma, ISO and religious certifications backing every EarthHue pigment.",
+      "title": "Certifications",
+      "subtitle": "Documents available on request — sample COA, MSDS, and statements of compliance.",
+      "groups": {
+        "food": {
+          "title": "Food grade",
+          "desc": "Compliant for use in food and beverage applications.",
+          "items": {
+            "a": "EU Food Grade",
+            "b": "FDA 21 CFR",
+            "c": "GB 2760",
+            "d": "JECFA"
+          }
+        },
+        "cosmetic": {
+          "title": "Cosmetic grade",
+          "desc": "Suitable for color cosmetics and skincare formulations.",
+          "items": {
+            "a": "EU Cosmetics Regulation",
+            "b": "FDA Cosmetic",
+            "c": "China NMPA",
+            "d": "INCI listed"
+          }
+        },
+        "pharma": {
+          "title": "Pharma grade",
+          "desc": "Selected series available in pharma-excipient grade.",
+          "items": {
+            "a": "USP/NF",
+            "b": "EP",
+            "c": "JP",
+            "d": "DMF on request"
+          }
+        },
+        "iso": {
+          "title": "Quality systems",
+          "desc": "Manufacturing under internationally recognized QMS.",
+          "items": {
+            "a": "ISO 9001",
+            "b": "ISO 22000",
+            "c": "FSSC 22000",
+            "d": "ISO 22716"
+          }
+        },
+        "religious": {
+          "title": "Religious / ethical",
+          "desc": "Selected series audited and certified.",
+          "items": {
+            "a": "Halal",
+            "b": "Kosher",
+            "c": "Vegan",
+            "d": "Non-GMO"
+          }
+        }
+      },
+      "downloadHint": "Need a specific certificate? Send a request via the contact form and we'll send the latest PDF."
+    },
+    "samples": {
+      "metaTitle": "Sample Request | EarthHue B2B",
+      "metaDescription": "How to evaluate EarthHue natural pigments — request flow, fees and shipping.",
+      "title": "Sample Request",
+      "subtitle": "Evaluate the pigment in your own formulation before scaling up.",
+      "steps": {
+        "request": {
+          "title": "Submit request",
+          "desc": "Tell us the series, grade and quantity you need for evaluation."
+        },
+        "review": {
+          "title": "Internal review",
+          "desc": "We confirm availability, MOQ and any regulatory documents you'll need."
+        },
+        "ship": {
+          "title": "Ship within 7 days",
+          "desc": "Free for qualified applicants; tracked international shipping."
+        },
+        "feedback": {
+          "title": "Lab feedback loop",
+          "desc": "Our application team is available for formulation tuning."
+        }
+      },
+      "policy": "Up to 5 series × 100 g per request. Larger evaluation quantities available on request.",
+      "cta": "Start a sample request"
+    },
+    "factoryVisit": {
+      "metaTitle": "Factory Visit | EarthHue B2B",
+      "metaDescription": "Tour our extraction, fermentation, QC and packaging lines.",
+      "title": "Factory Visit",
+      "subtitle": "See the production lines, QC lab and packaging in person.",
+      "highlights": {
+        "line": {
+          "title": "Production lines",
+          "desc": "Extraction, fermentation, drying, milling, blending."
+        },
+        "lab": {
+          "title": "Application lab",
+          "desc": "Bench-scale formulation testing for customers."
+        },
+        "warehouse": {
+          "title": "Warehouse",
+          "desc": "Climate-controlled storage for raw materials and finished goods."
+        },
+        "qc": {
+          "title": "QC lab",
+          "desc": "HPLC, ICP-MS, microbiology and stability chambers."
+        }
+      },
+      "booking": {
+        "title": "Booking",
+        "desc": "Visits are by appointment, typically 2-4 weeks in advance. We can arrange airport pickup and a half-day agenda.",
+        "cta": "Request a visit"
+      }
+    },
+    "contact": {
+      "metaTitle": "B2B Contact | EarthHue",
+      "metaDescription": "Reach our B2B team for quotes, samples, partnership and factory visits.",
+      "title": "B2B Contact",
+      "subtitle": "Pick a channel — we route every inquiry to the right specialist within one business day.",
+      "form": {
+        "company": "Company",
+        "name": "Your name",
+        "email": "Work email",
+        "intent": "What can we help with?",
+        "message": "Tell us more — application, volume, target market, timeline…",
+        "submit": "Send inquiry",
+        "note": "We respond within 1 business day. No newsletter, no spam."
+      },
+      "intents": {
+        "quote": "Quote",
+        "sample": "Sample request",
+        "visit": "Factory visit",
+        "partnership": "Partnership / OEM",
+        "other": "Other"
+      }
+    }
+  },
+  "c2c": {
+    "sectionTitle": "C2C",
+    "navOverview": "Overview",
+    "navStories": "Stories",
+    "navScience": "Science",
+    "navGallery": "Gallery",
+    "crossLinkPrompt": "Working on a commercial formulation? Head to the B2B zone for specs, samples and certifications.",
+    "crossLinkCta": "Open B2B zone",
+    "metaTitle": "For Creators — Color Stories, Science, Gallery | EarthHue",
+    "metaDescription": "Plant pigments, natural dyeing, and the science behind every shade — for designers, makers and color enthusiasts.",
+    "title": "For Creators",
+    "eyebrow": "C2C — Color Enthusiasts",
+    "heroTitle": "Color, the Way Nature Makes It",
+    "heroSubtitle": "Stories of plant and microbial pigments, the science behind natural vs synthetic dyes, and a gallery to get you started.",
+    "explore": "Explore",
+    "sections": {
+      "stories": {
+        "title": "Color stories",
+        "desc": "Where every pigment comes from — biology, history, the people who farm it."
+      },
+      "science": {
+        "title": "Science",
+        "desc": "Natural vs synthetic, sustainability, stability, safety — short, sourced, no jargon."
+      },
+      "gallery": {
+        "title": "Aesthetic gallery",
+        "desc": "Dyeing experiments and color references for your next project."
+      }
+    },
+    "stories": {
+      "metaTitle": "Color Stories | EarthHue C2C",
+      "metaDescription": "Where natural pigments come from — biology, history, the people behind them.",
+      "title": "Color Stories",
+      "subtitle": "Every pigment has a plant (or a microbe), a place, and a person behind it.",
+      "items": {
+        "indigo": {
+          "tag": "Indigo",
+          "title": "Indigo — Blue from a Leaf",
+          "lede": "For three thousand years, blue came from one plant.",
+          "body": "Indigofera leaves don't contain blue. They contain indican — a colourless precursor that oxidises into the deep indigo we recognise only after the leaf is crushed, fermented, and exposed to air."
+        },
+        "saffron": {
+          "tag": "Saffron",
+          "title": "Saffron — A Field of Red",
+          "lede": "One hectare of saffron yields about ten kilograms of dried spice.",
+          "body": "Each saffron crocus blooms for a single morning. The red threads are hand-picked from each flower — roughly 150 flowers per gram of dried saffron — which is why it's the most expensive spice on Earth."
+        },
+        "beetroot": {
+          "tag": "Beetroot",
+          "title": "Beetroot — Pink That Won't Quit",
+          "lede": "Betanin is one of the rare natural pigments that survives heat.",
+          "body": "Most plant pigments break down when heated. Betanin — the pigment that makes beetroot red — actually becomes more vivid under heat, which is why it's the workhorse of pink and magenta in plant-based food."
+        },
+        "spirulina": {
+          "tag": "Spirulina",
+          "title": "Spirulina — Blue from a Cyanobacterium",
+          "lede": "Phycocyanin gives spirulina its blue colour.",
+          "body": "Cyanobacteria were among the first oxygen-producing life forms on Earth. Phycocyanin, the blue pigment they share with spirulina, is one of the few natural blues that survives both heat and a neutral pH."
+        }
+      },
+      "cta": "Want to go deeper on the science?",
+      "ctaLink": "Read the science section"
+    },
+    "science": {
+      "metaTitle": "Science | EarthHue C2C",
+      "metaDescription": "Natural vs synthetic, sustainability, stability, safety — short, sourced, no jargon.",
+      "title": "Science",
+      "subtitle": "Short, sourced, jargon-free articles on the questions we get asked most.",
+      "articles": {
+        "natural-vs-synthetic": {
+          "title": "Natural vs synthetic dyes",
+          "lede": "They look the same on the page — but they aren't.",
+          "body": "Natural dyes come from plants, minerals, or microbes. Synthetic dyes are made from petrochemicals. The visible difference can be small, but the production footprint, regulatory framework, and skin-sensitisation profile often aren't."
+        },
+        "sustainability": {
+          "title": "Are natural pigments sustainable?",
+          "lede": "It depends on the source.",
+          "body": "A crop grown for pigment can be a sink for regenerative agriculture, or a monoculture with high water use. Microbial (fermentation) pigments avoid most of the agricultural footprint, but they require energy for fermentation and downstream processing."
+        },
+        "stability": {
+          "title": "Stability — why your dye faded",
+          "lede": "Light, pH, heat, oxygen, and metal ions.",
+          "body": "Most natural pigments are sensitive to one or more of these. A pigment that's stable in food (pH 4-6, opaque, no light) may fade in a clear cosmetic serum (pH 6-8, light-exposed). This is why formulation matters as much as pigment choice."
+        },
+        "safety": {
+          "title": "Are natural pigments safer?",
+          "lede": "Generally, but \"natural\" isn't a regulatory category.",
+          "body": "Some natural pigments (e.g. lawone from henna) are potent skin sensitizers. Some synthetic pigments (e.g. iron oxides) are among the safest colorants we have. The label \"natural\" tells you origin, not safety."
+        }
+      },
+      "externalNote": "Looking for the regulatory view across regions?",
+      "externalLink": "See global compliance"
+    },
+    "gallery": {
+      "metaTitle": "Gallery | EarthHue C2C",
+      "metaDescription": "Dyeing experiments and color references for your next project.",
+      "title": "Gallery",
+      "subtitle": "A small starting set. More coming as our community contributes.",
+      "items": {
+        "earth": {
+          "title": "Earth",
+          "desc": "Mineral pigments — ochre, sienna, umber.",
+          "alt": "Earthy mineral pigment palette"
+        },
+        "hue": {
+          "title": "Hue",
+          "desc": "Plant-dyed fabric samples from our R&D bench.",
+          "alt": "Hue palette from natural dyes"
+        }
+      },
+      "comingSoon": "More curated sets — pigments × fabric, pigments × cosmetics — coming soon."
     }
   }
 }

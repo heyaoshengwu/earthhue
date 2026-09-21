@@ -6,13 +6,30 @@
     "products": "产品中心",
     "regulations": "法规信息",
     "resources": "技术资源",
-    "contact": "联系我们"
+    "contact": "联系我们",
+    "b2b": "企业原料",
+    "c2c": "色彩美学"
   },
   "home": {
     "hero": {
       "title": "自然色彩，尽善尽美",
       "subtitle": "优质天然色素应用于食品与化妆品——可持续来源，符合全球标准",
-      "cta": "探索我们的色素"
+      "cta": "探索我们的色素",
+      "eyebrow": "同一自然调色板，两种入口",
+      "zones": {
+        "b2b": {
+          "eyebrow": "B 端 —— 企业与配方师",
+          "title": "面向工业的天然原料目录",
+          "desc": "食品、化妆品、制药用天然色素。规格书、样品、合规文件、技术支持一站直达。",
+          "cta": "进入企业原料"
+        },
+        "c2c": {
+          "eyebrow": "C 端 —— 色彩爱好者",
+          "title": "来自自然的色彩故事",
+          "desc": "植物色素、天然染色实验、每种色调背后的科学 —— 写给设计师、创作者和好奇的你。",
+          "cta": "进入色彩美学"
+        }
+      }
     },
     "features": {
       "title": "为什么选择天然",
@@ -50,6 +67,12 @@
       "title": "需要技术规格？",
       "desc": "下载我们的产品数据表和法规文档",
       "button": "访问技术资源"
+    },
+    "quicklinks": {
+      "pigments": "色素目录",
+      "regulations": "法规",
+      "about": "关于",
+      "contact": "联系"
     }
   },
   "about": {
@@ -193,6 +216,353 @@
     "links": {
       "privacy": "隐私政策",
       "terms": "使用条款"
+    },
+    "b2b": "企业原料",
+    "c2c": "色彩美学",
+    "b2bOverview": "B 端总览",
+    "b2bCapability": "产能与质控",
+    "b2bCertifications": "资质认证",
+    "b2bSamples": "样品申请",
+    "b2bContact": "B 端联系",
+    "c2cOverview": "C 端总览",
+    "c2cStories": "色彩故事",
+    "c2cScience": "色彩科学",
+    "c2cGallery": "美学图库"
+  },
+  "b2b": {
+    "sectionTitle": "B 端",
+    "navOverview": "总览",
+    "navCapability": "产能",
+    "navCertifications": "认证",
+    "navSamples": "样品",
+    "navFactoryVisit": "参观",
+    "navContact": "联系",
+    "crossLinkPrompt": "对色彩本身感兴趣？去 C 端看看故事、科学和图库。",
+    "crossLinkCta": "进入色彩美学",
+    "metaTitle": "企业原料 —— 天然色素原料目录 | EarthHue",
+    "metaDescription": "食品、化妆品、制药用优质天然色素。规格、样品、认证和直接技术支持，服务配方师与采购团队。",
+    "title": "企业原料",
+    "eyebrow": "B 端 —— 企业与配方师",
+    "heroTitle": "面向工业的天然色素原料",
+    "heroSubtitle": "为配方师与采购团队打造。规格、样品、认证和直接技术支持 —— 没有营销辞令。",
+    "learnMore": "了解更多",
+    "catalog": {
+      "title": "需要完整色素目录？",
+      "desc": "所有天然色素系列的规格、交期和阶梯报价都可以申请获取。联系我们的团队，我们会提供目录以及 COA、MSDS、配方指导。",
+      "cta": "申请目录"
+    },
+    "modules": {
+      "capability": {
+        "title": "产能与质控",
+        "desc": "生产能力、QC 流程、研发实力。"
+      },
+      "certifications": {
+        "title": "资质认证",
+        "desc": "食品级、化妆品级、制药级、ISO、宗教认证。"
+      },
+      "samples": {
+        "title": "样品申请",
+        "desc": "如何在实验室评估 EarthHue 色素。"
+      },
+      "factoryVisit": {
+        "title": "工厂参观",
+        "desc": "预约现场参观我们的生产设施。"
+      },
+      "contact": {
+        "title": "B 端联系",
+        "desc": "报价、合作、样品 —— 任选一种联系方式。"
+      }
+    },
+    "capability": {
+      "metaTitle": "产能与质控 | EarthHue 企业原料",
+      "metaDescription": "生产能力、发酵产线、QC 流程与研发投入。",
+      "title": "产能与质控",
+      "subtitle": "从植物、矿物、微生物原料到合规色素粉末 —— 一体化生产。",
+      "stats": {
+        "capacity": {
+          "value": "1,200+ 吨/年",
+          "label": "色素年产能"
+        },
+        "lines": {
+          "value": "8 条",
+          "label": "产线"
+        },
+        "qc": {
+          "value": "30+ 项",
+          "label": "QC 节点"
+        },
+        "rd": {
+          "value": "12% 营收",
+          "label": "研发再投入"
+        }
+      },
+      "factory": {
+        "title": "工厂",
+        "desc": "GMP 对齐设施，覆盖提取、发酵、纯化、干燥、粉碎、包装。空气处理与洁净区达到食品与制药级要求。"
+      },
+      "qc": {
+        "title": "质量控制",
+        "desc": "每批次检测鉴别、纯度、重金属、微生物和稳定性 —— COA 随货同行。",
+        "list": {
+          "1": "HPLC 与 UV-Vis 鉴别确认",
+          "2": "ICP-MS 重金属谱（Pb、As、Cd、Hg）",
+          "3": "微生物限度（USP/EP）",
+          "4": "加速稳定性（40°C / 75% RH，6 个月）"
+        }
+      },
+      "rd": {
+        "title": "研发",
+        "desc": "内部团队专注微生物色素发酵与天然染料工艺优化，与两所大学建立合作。"
+      }
+    },
+    "certifications": {
+      "metaTitle": "资质认证 | EarthHue 企业原料",
+      "metaDescription": "食品、化妆品、制药、ISO 与宗教类认证，覆盖每一款 EarthHue 色素。",
+      "title": "资质认证",
+      "subtitle": "文档按需提供 —— 样品 COA、MSDS、合规声明。",
+      "groups": {
+        "food": {
+          "title": "食品级",
+          "desc": "适用于食品与饮料用途。",
+          "items": {
+            "a": "欧盟食品级",
+            "b": "FDA 21 CFR",
+            "c": "GB 2760",
+            "d": "JECFA"
+          }
+        },
+        "cosmetic": {
+          "title": "化妆品级",
+          "desc": "适用于彩妆与护肤配方。",
+          "items": {
+            "a": "欧盟化妆品法规",
+            "b": "FDA 化妆品",
+            "c": "中国 NMPA",
+            "d": "INCI 收录"
+          }
+        },
+        "pharma": {
+          "title": "制药级",
+          "desc": "部分系列可提供药用辅料级。",
+          "items": {
+            "a": "USP/NF",
+            "b": "EP",
+            "c": "JP",
+            "d": "DMF 按需"
+          }
+        },
+        "iso": {
+          "title": "质量体系",
+          "desc": "在国际认可的 QMS 下生产。",
+          "items": {
+            "a": "ISO 9001",
+            "b": "ISO 22000",
+            "c": "FSSC 22000",
+            "d": "ISO 22716"
+          }
+        },
+        "religious": {
+          "title": "宗教 / 伦理",
+          "desc": "部分系列已审核认证。",
+          "items": {
+            "a": "清真 Halal",
+            "b": "犹太 Kosher",
+            "c": "纯素 Vegan",
+            "d": "非转基因"
+          }
+        }
+      },
+      "downloadHint": "需要特定证书？通过联系表单发送申请，我们会发送最新 PDF。"
+    },
+    "samples": {
+      "metaTitle": "样品申请 | EarthHue 企业原料",
+      "metaDescription": "如何评估 EarthHue 天然色素 —— 申请流程、费用与运输。",
+      "title": "样品申请",
+      "subtitle": "在放大之前先在自己的配方里评估。",
+      "steps": {
+        "request": {
+          "title": "提交申请",
+          "desc": "告诉我们您需要的系列、级别和评估数量。"
+        },
+        "review": {
+          "title": "内部审核",
+          "desc": "我们确认供货能力、最小起订量与所需合规文件。"
+        },
+        "ship": {
+          "title": "7 天内发出",
+          "desc": "符合资格者免样品费，国际快递可追踪。"
+        },
+        "feedback": {
+          "title": "实验室反馈循环",
+          "desc": "我们的应用团队可协助配方调优。"
+        }
+      },
+      "policy": "每次最多 5 个系列 × 100 g。更大评估数量按需申请。",
+      "cta": "发起样品申请"
+    },
+    "factoryVisit": {
+      "metaTitle": "工厂参观 | EarthHue 企业原料",
+      "metaDescription": "参观我们的提取、发酵、质控与包装产线。",
+      "title": "工厂参观",
+      "subtitle": "亲眼见证产线、QC 实验室与包装现场。",
+      "highlights": {
+        "line": {
+          "title": "产线",
+          "desc": "提取、发酵、干燥、粉碎、混合。"
+        },
+        "lab": {
+          "title": "应用实验室",
+          "desc": "为客户提供桌面级配方测试。"
+        },
+        "warehouse": {
+          "title": "仓储",
+          "desc": "原料与成品的恒温恒湿存储。"
+        },
+        "qc": {
+          "title": "QC 实验室",
+          "desc": "HPLC、ICP-MS、微生物与稳定性培养箱。"
+        }
+      },
+      "booking": {
+        "title": "预约",
+        "desc": "参观需提前 2-4 周预约。我们可安排机场接送与半天议程。",
+        "cta": "申请参观"
+      }
+    },
+    "contact": {
+      "metaTitle": "B 端联系 | EarthHue",
+      "metaDescription": "联系 B 端团队获取报价、样品、合作与参观预约。",
+      "title": "B 端联系",
+      "subtitle": "选择一种方式 —— 我们会在一个工作日内把需求分派给对应专家。",
+      "form": {
+        "company": "公司",
+        "name": "姓名",
+        "email": "工作邮箱",
+        "intent": "我们能为您做什么？",
+        "message": "补充说明 —— 应用、量、目标市场、时间表……",
+        "submit": "发送询盘",
+        "note": "1 个工作日内回复。无订阅、无骚扰。"
+      },
+      "intents": {
+        "quote": "报价",
+        "sample": "样品申请",
+        "visit": "工厂参观",
+        "partnership": "合作 / OEM",
+        "other": "其他"
+      }
+    }
+  },
+  "c2c": {
+    "sectionTitle": "C 端",
+    "navOverview": "总览",
+    "navStories": "故事",
+    "navScience": "科学",
+    "navGallery": "图库",
+    "crossLinkPrompt": "在做商业配方？去 B 端看规格、样品和认证。",
+    "crossLinkCta": "进入企业原料",
+    "metaTitle": "色彩美学 —— 色彩故事、科学、图库 | EarthHue",
+    "metaDescription": "植物色素、天然染色，以及每种色调背后的科学 —— 写给设计师、创作者和色彩爱好者。",
+    "title": "色彩美学",
+    "eyebrow": "C 端 —— 色彩爱好者",
+    "heroTitle": "以自然的方式看颜色",
+    "heroSubtitle": "植物与微生物色素的故事、天然 vs 合成染料的科学，以及帮你起步的图库。",
+    "explore": "探索",
+    "sections": {
+      "stories": {
+        "title": "色彩故事",
+        "desc": "每种色素的来源 —— 生物学、历史和种植它的人。"
+      },
+      "science": {
+        "title": "色彩科学",
+        "desc": "天然 vs 合成、可持续、稳定性、安全性 —— 简短、引用、不堆术语。"
+      },
+      "gallery": {
+        "title": "美学图库",
+        "desc": "染色实验与色彩参考，启发你的下一个项目。"
+      }
+    },
+    "stories": {
+      "metaTitle": "色彩故事 | EarthHue 色彩美学",
+      "metaDescription": "天然色素来自哪里 —— 生物学、历史与背后的人。",
+      "title": "色彩故事",
+      "subtitle": "每种色素背后都有一株植物（或一种微生物）、一片土地、一个具体的人。",
+      "items": {
+        "indigo": {
+          "tag": "靛蓝",
+          "title": "靛蓝 —— 蓝，从一片叶子开始",
+          "lede": "三千年来，蓝色来自这一种植物。",
+          "body": "木兰叶子本身不含蓝色。它含有的是无色的靛蓝母（indicain）—— 只有当叶子被破碎、发酵、与空气接触后，才会氧化为我们熟悉的深靛蓝。"
+        },
+        "saffron": {
+          "tag": "藏红花",
+          "title": "藏红花 —— 一片田的红",
+          "lede": "一公顷藏红花产出大约十公斤干花柱头。",
+          "body": "每朵藏红花只在清晨开放几个小时。红色花丝须由人工一朵一朵摘下 —— 大约 150 朵花才换来一克干藏红花 —— 这也是它成为全球最贵香料的原因。"
+        },
+        "beetroot": {
+          "tag": "甜菜根",
+          "title": "甜菜根 —— 不会褪色的粉",
+          "lede": "甜菜青是少数能耐热的天然色素之一。",
+          "body": "大多数植物色素受热分解。但让甜菜根变红的甜菜青（betanin）在加热后反而更鲜艳 —— 这也是它在植物基食品里成为粉/品红色支柱的原因。"
+        },
+        "spirulina": {
+          "tag": "螺旋藻",
+          "title": "螺旋藻 —— 蓝，来自一种蓝菌",
+          "lede": "藻蓝蛋白赋予了螺旋藻蓝色。",
+          "body": "蓝菌是地球上最早释放氧气的生命形式之一。藻蓝蛋白 —— 这种让螺旋藻变蓝的色素 —— 也是少数能同时耐热和耐中性 pH 的天然蓝色素之一。"
+        }
+      },
+      "cta": "想再深入一点？",
+      "ctaLink": "看色彩科学篇"
+    },
+    "science": {
+      "metaTitle": "色彩科学 | EarthHue 色彩美学",
+      "metaDescription": "天然 vs 合成、可持续、稳定性、安全性 —— 简短、引用、不堆术语。",
+      "title": "色彩科学",
+      "subtitle": "关于被问得最多的问题 —— 简短、引用、不堆术语。",
+      "articles": {
+        "natural-vs-synthetic": {
+          "title": "天然 vs 合成染料",
+          "lede": "在颜色里看是同一种 —— 但其实不是。",
+          "body": "天然染料来自植物、矿物或微生物；合成染料来自石化路线。可见光谱上的差别可能很小，但生产足迹、合规框架和皮肤致敏性往往差别很大。"
+        },
+        "sustainability": {
+          "title": "天然色素可持续吗？",
+          "lede": "取决于来源。",
+          "body": "为色素而种植的作物可以是再生农业的组成部分，也可以是高耗水的单一栽培。微生物（发酵）色素避开了大部分农业足迹，但需要发酵与下游处理的能耗。"
+        },
+        "stability": {
+          "title": "稳定性 —— 为什么你的染色褪了",
+          "lede": "光、pH、热、氧、金属离子。",
+          "body": "大多数天然色素对其中至少一种敏感。在食品里稳定的色素（pH 4-6、避光、不透明）在透明的化妆品精华里可能褪色（pH 6-8、见光）。所以配方和色素选择同样重要。"
+        },
+        "safety": {
+          "title": "天然色素更安全吗？",
+          "lede": "大多数情况是，但「天然」不是合规分类。",
+          "body": "一些天然色素（如指甲花里的散沫花素）是强致敏原；一些合成色素（如铁氧化物）是我们最安全的着色剂之一。「天然」这个标签告诉你的是来源，不是安全性。"
+        }
+      },
+      "externalNote": "想看跨地区的法规视角？",
+      "externalLink": "查看全球合规"
+    },
+    "gallery": {
+      "metaTitle": "图库 | EarthHue 色彩美学",
+      "metaDescription": "染色实验与色彩参考，启发你的下一个项目。",
+      "title": "美学图库",
+      "subtitle": "起步的小集合。社区贡献后会持续扩充。",
+      "items": {
+        "earth": {
+          "title": "土系",
+          "desc": "矿物色素 —— 赭石、棕土、烟褐。",
+          "alt": "矿物土系调色板"
+        },
+        "hue": {
+          "title": "染韵",
+          "desc": "研发实验台上的植物染色布样。",
+          "alt": "天然染料色韵"
+        }
+      },
+      "comingSoon": "更多精选合集 —— 色素 × 织物、色素 × 化妆品 —— 即将上线。"
     }
   }
 }
