@@ -1,0 +1,198 @@
+{
+  "nav": {
+    "home": "홈",
+    "about": "회사 소개",
+    "pigments": "천연 색소",
+    "products": "제품",
+    "regulations": "규제 정보",
+    "resources": "기술 자료",
+    "contact": "문의"
+  },
+  "home": {
+    "hero": {
+      "title": "자연의 팔레트, 완벽하게",
+      "subtitle": "식품 및 화장품용 프리미엄 천연 색소 — 지속 가능한 조달, 글로벌 기준 충족",
+      "cta": "색소 탐색"
+    },
+    "features": {
+      "title": "천연을 선택하는 이유",
+      "trusted": "일관된 품질과 규제 준수로 전 세계 제조사에서 신뢰",
+      "items": [
+        {
+          "title": "규제 준수",
+          "desc": "EU, FDA, 일본, 한국 기준 충족"
+        },
+        {
+          "title": "지속 가능한 조달",
+          "desc": "원산지부터 배송까지 환경 고려"
+        },
+        {
+          "title": "입증된 안정성",
+          "desc": "내열·내광 처방"
+        },
+        {
+          "title": "기술 지원",
+          "desc": "전문 응용 기술 지도"
+        }
+      ]
+    },
+    "applications": {
+      "title": "적용 분야",
+      "food": "식품 및 음료",
+      "foodDesc": "식품 산업용 천연 색소",
+      "cosmetics": "화장품 및 퍼스널 케어",
+      "cosmeticsDesc": "클린 라벨 색상 솔루션",
+      "pharmaceuticals": "제약",
+      "pharmaceuticalsDesc": "규제 준수 제약 색소",
+      "viewPigments": "색소 보기"
+    },
+    "cta": {
+      "title": "기술 사양이 필요하십니까?",
+      "desc": "제품 데이터시트 및 규제 문서를 다운로드하세요",
+      "button": "기술 자료 액세스"
+    }
+  },
+  "about": {
+    "title": "EarthHue 소개",
+    "subtitle": "식품 및 화장품용 프리미엄 천연 색소 — 지속 가능한 조달, 글로벌 기준 충족.",
+    "mission": {
+      "title": "우리의 사명",
+      "desc": "글로벌 시장에서 가장 엄격한 규제 요건을 충족하는 신뢰할 수 있고 지속 가능한 천연 색상 솔루션을 제조사에 제공합니다."
+    },
+    "vision": {
+      "title": "우리의 비전",
+      "desc": "천연 색상이 합성 대체품을 대체하여 사람들과 환경에 더 안전한 제품을 만드는 세계."
+    },
+    "whyChoose": {
+      "title": "왜 천연을 선택해야 하는가?",
+      "desc": "전 세계적으로 클린 라벨 제품에 대한 소비자 수요가 계속 증가하고 있습니다. 천연 색소는 EU, 미국, 일본, 한국, 동남아시아의 엄격한 규제 기준을 충족하면서 합성 색소에 대한 매력적인 대안을 제공합니다."
+    },
+    "commitment": {
+      "title": "우리의 약속",
+      "quality": {
+        "title": "품질 보증",
+        "desc": "모든 배치는 순도, 안정성 및 규제 준수에 대해 엄격한 테스트를 거칩니다."
+      },
+      "sustainable": {
+        "title": "지속 가능한 조달",
+        "desc": "환경 관리를 우선시하는 책임 있는 공급업체와 파트너십을 맺고 있습니다."
+      },
+      "technical": {
+        "title": "기술 지원",
+        "desc": "응용 팀이 고객의 특정 요구에 맞는 색소 선택과 구현을 지원합니다."
+      },
+      "global": {
+        "title": "글로벌 준수",
+        "desc": "모든 주요 시장에 대한 최신 규제 문서를 유지하고 있습니다."
+      }
+    },
+    "certifications": {
+      "title": "인증"
+    }
+  },
+  "pigments": {
+    "title": "천연 색소",
+    "subtitle": "식물, 광물 및 미생물에서 추출한 천연 색상 솔루션 종합 가이드.",
+    "allCategories": "전체 카테고리",
+    "categories": {
+      "plant": "식물 유래",
+      "mineral": "광물 유래",
+      "microbial": "미생물/발효 유래"
+    },
+    "filter": {
+      "search": "색소 검색...",
+      "application": "적용",
+      "region": "목표 시장"
+    },
+    "regulatoryStatus": "규제 상태"
+  },
+  "products": {
+    "title": "제품 카탈로그",
+    "subtitle": "프리미엄 미생물 발효 색소를 포함한 즉시 사용 가능한 천연 색상 처방.",
+    "categories": {
+      "plant": "식물 유래",
+      "microbial": "미생물/발효 유래",
+      "mineral": "광물 유래"
+    },
+    "custom": {
+      "title": "맞춤형 발효 제품이 필요하십니까?",
+      "desc": "미생물 색소 개발을 전문으로 합니다. 발효 팀이 귀하의 특정 요구에 맞는 아스타잔틴, 카로티노이드 및 피코빌리蛋白质 처방을 만들 수 있습니다.",
+      "button": "발효 팀에 문의"
+    }
+  },
+  "regulations": {
+    "title": "규제 정보",
+    "subtitle": "포괄적인 컴플라이언스 가이드로 천연 색소의 글로벌 규제를 탐색하세요.",
+    "standards": "표준 및 규제",
+    "officialResources": "공식 리소스",
+    "guidance": {
+      "title": "지역별 지침이 필요하십니까?",
+      "desc": "규제 담당 팀이 대상 시장에 대한 상세한 컴플라이언스 문서와 지원을 제공할 수 있습니다.",
+      "button": "규제 담당팀에 문의"
+    }
+  },
+  "contact": {
+    "title": "문의",
+    "subtitle": "제품 문의, 기술 지원 또는 규제 질문이 있으시면 연락주세요.",
+    "success": {
+      "title": "메시지 전송 완료!",
+      "desc": "문의해 주셔서 감사합니다. 24-48시간 이내에 답변 드리겠습니다."
+    },
+    "form": {
+      "name": "이름 *",
+      "namePlaceholder": "성명",
+      "email": "이메일 *",
+      "emailPlaceholder": "you@company.com",
+      "company": "회사",
+      "companyPlaceholder": "회사명",
+      "subject": "제목",
+      "message": "메시지 *",
+      "messagePlaceholder": "어떻게 도와드릴까요?",
+      "send": "메시지 보내기",
+      "sending": "전송 중...",
+      "subjects": {
+        "product": "제품 문의",
+        "technical": "기술 지원",
+        "regulatory": "규제 문서",
+        "samples": "샘플 요청",
+        "partnership": "파트너십",
+        "other": "기타"
+      }
+    },
+    "info": {
+      "general": {
+        "title": "일반 문의",
+        "email": "contact@earthhue.net"
+      },
+      "tech": {
+        "title": "기술 지원",
+        "email": "tech@earthhue.net"
+      },
+      "hours": {
+        "title": "업무 시간",
+        "days": "월요일 – 금요일",
+        "time": "오전 9:00 – 오후 6:00 (GMT+8)"
+      },
+      "response": {
+        "title": "응답 시간",
+        "text": "보통 24-48 영업시간 이내에 응답합니다. 긴급 문의 시 메시지에 기재해 주세요."
+      }
+    }
+  },
+  "footer": {
+    "tagline": "자연에서, 세계로",
+    "contact": "contact@earthhue.net",
+    "products": "제품",
+    "company": "회사",
+    "naturalPigments": "천연 색소",
+    "productCatalog": "제품 카탈로그",
+    "regulations": "규제 정보",
+    "aboutUs": "회사 소개",
+    "contactUs": "문의",
+    "technicalResources": "기술 자료",
+    "links": {
+      "privacy": "개인정보처리방침",
+      "terms": "이용약관"
+    }
+  }
+}

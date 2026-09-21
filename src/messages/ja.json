@@ -1,0 +1,198 @@
+{
+  "nav": {
+    "home": "ホーム",
+    "about": "会社概要",
+    "pigments": "天然色素",
+    "products": "製品",
+    "regulations": "規制情報",
+    "resources": "技術資料",
+    "contact": "お問い合わせ"
+  },
+  "home": {
+    "hero": {
+      "title": "自然のパレット、を完美に",
+      "subtitle": "食品・化粧品向けプレミアム天然色素 — 持続可能な調達、グローバル基準対応",
+      "cta": "色素を探す"
+    },
+    "features": {
+      "title": "天然が選ばれる理由",
+      "trusted": "世界中の製造者から安定した品質と規制適合性で信頼されています",
+      "items": [
+        {
+          "title": "規制対応",
+          "desc": "EU、FDA、日本、韓国基準に適合"
+        },
+        {
+          "title": "持続可能な調達",
+          "desc": "起源から納品まで環境配慮"
+        },
+        {
+          "title": "確かな安定性",
+          "desc": "耐熱・耐光処方"
+        },
+        {
+          "title": "技術サポート",
+          "desc": "専門的なアプリケーション指導"
+        }
+      ]
+    },
+    "applications": {
+      "title": "応用分野",
+      "food": "食品・飲料",
+      "foodDesc": "食品産業向け天然着色料",
+      "cosmetics": "化粧品・パーソナルケア",
+      "cosmeticsDesc": "クリーンラベル色彩ソリューション",
+      "pharmaceuticals": "製薬",
+      "pharmaceuticalsDesc": "規制適合型製薬色素",
+      "viewPigments": "色素を見る"
+    },
+    "cta": {
+      "title": "技術仕様が必要ですか？",
+      "desc": "製品データシートと規制文書をダウンロードできます",
+      "button": "技術資料にアクセス"
+    }
+  },
+  "about": {
+    "title": "EarthHueについて",
+    "subtitle": "食品・化粧品向けプレミアム天然色素 — 持続可能な調達、グローバル基準対応。",
+    "mission": {
+      "title": "私たちの使命",
+      "desc": "グローバル市場で最も厳格な規制要件を満たす、信頼性の高い持続可能な天然着色ソリューションを製造者に提供すること。"
+    },
+    "vision": {
+      "title": "私たちのビジョン",
+      "desc": "天然色が合成代替品を置き換え、人々と環境により安全な製品を創造する世界。"
+    },
+    "whyChoose": {
+      "title": "なぜ天然を選ぶのか？",
+      "desc": "世界中でクリーンラベル製品への消費者需要は continues to grow。天然色素はEU、米国、日本、韓国、東南アジアの厳格な規制基準を満たしながら、合成色素に代わる魅力的な代替手段を提供します。"
+    },
+    "commitment": {
+      "title": "私たちの約束",
+      "quality": {
+        "title": "品質保証",
+        "desc": "各バッチは純度、安定性、規制適合性について厳密な検査を受けています。"
+      },
+      "sustainable": {
+        "title": "持続可能な調達",
+        "desc": "環境管理を優先する責任あるサプライヤーと提携しています。"
+      },
+      "technical": {
+        "title": "技術サポート",
+        "desc": "アプリケーションチームがお客様の特定のニーズに適した色素の選択と導入を支援します。"
+      },
+      "global": {
+        "title": "グローバル適合",
+        "desc": "すべての主要市場の最新規制文書を維持しています。"
+      }
+    },
+    "certifications": {
+      "title": "認証"
+    }
+  },
+  "pigments": {
+    "title": "天然色素",
+    "subtitle": "植物、鉱物、微生物由来の天然色彩ソリューションの包括的ガイド。",
+    "allCategories": "全カテゴリー",
+    "categories": {
+      "plant": "植物由来",
+      "mineral": "鉱物由来",
+      "microbial": "微生物/発酵由来"
+    },
+    "filter": {
+      "search": "色素を検索...",
+      "application": "用途",
+      "region": "対象市場"
+    },
+    "regulatoryStatus": "規制状況"
+  },
+  "products": {
+    "title": "製品カタログ",
+    "subtitle": "プレミアム微生物発酵色素を含む即使用可能な天然着色配方。",
+    "categories": {
+      "plant": "植物由来",
+      "microbial": "微生物/発酵由来",
+      "mineral": "鉱物由来"
+    },
+    "custom": {
+      "title": "カスタム発酵製品が必要ですか？",
+      "desc": "微生物色素の開発を専門としています。発酵チームがお客様の特定のニーズに合わせたアスタキサンチン、カロテノイド、フィコビリ蛋白質のカスタム処方を作成できます。",
+      "button": "発酵チームに連絡"
+    }
+  },
+  "regulations": {
+    "title": "規制情報",
+    "subtitle": "天然色のグローバル規制を包括的なコンプライアンスガイドでナビゲート。",
+    "standards": "規格と規制",
+    "officialResources": "公式リソース",
+    "guidance": {
+      "title": "地域固有のガイダンスが必要ですか？",
+      "desc": "規制事務チームがターゲット市場の詳細なコンプライアンス文書とサポートを提供できます。",
+      "button": "規制事務チームに連絡"
+    }
+  },
+  "contact": {
+    "title": "お問い合わせ",
+    "subtitle": "製品に関するお問い合わせ、技術サポート、規制に関するご質問はこちらから。",
+    "success": {
+      "title": "送信完了！",
+      "desc": "お問い合わせありがとうございます。24〜48時間以内に回答いたします。"
+    },
+    "form": {
+      "name": "お名前 *",
+      "namePlaceholder": "フルネーム",
+      "email": "メール *",
+      "emailPlaceholder": "you@company.com",
+      "company": "会社名",
+      "companyPlaceholder": "会社名",
+      "subject": "件名",
+      "message": "メッセージ *",
+      "messagePlaceholder": "どのようにお手伝いできますか？",
+      "send": "送信",
+      "sending": "送信中...",
+      "subjects": {
+        "product": "製品に関するお問い合わせ",
+        "technical": "技術サポート",
+        "regulatory": "規制文書",
+        "samples": "サンプル申請",
+        "partnership": "提携について",
+        "other": "その他"
+      }
+    },
+    "info": {
+      "general": {
+        "title": "一般のお問い合わせ",
+        "email": "contact@earthhue.net"
+      },
+      "tech": {
+        "title": "技術サポート",
+        "email": "tech@earthhue.net"
+      },
+      "hours": {
+        "title": "営業時間",
+        "days": "月曜日〜金曜日",
+        "time": "午前9時〜午後6時 (GMT+8)"
+      },
+      "response": {
+        "title": "返信時間",
+        "text": "通常24〜48営業時間以内に返信いたします。お急ぎの場合は、メッセージにご記載ください。"
+      }
+    }
+  },
+  "footer": {
+    "tagline": "自然から、世界へ",
+    "contact": "contact@earthhue.net",
+    "products": "製品",
+    "company": "会社情報",
+    "naturalPigments": "天然色素",
+    "productCatalog": "製品カタログ",
+    "regulations": "規制情報",
+    "aboutUs": "会社概要",
+    "contactUs": "お問い合わせ",
+    "technicalResources": "技術資料",
+    "links": {
+      "privacy": "プライバシーポリシー",
+      "terms": "利用規約"
+    }
+  }
+}

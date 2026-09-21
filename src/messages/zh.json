@@ -1,0 +1,198 @@
+{
+  "nav": {
+    "home": "首页",
+    "about": "关于我们",
+    "pigments": "天然色素",
+    "products": "产品中心",
+    "regulations": "法规信息",
+    "resources": "技术资源",
+    "contact": "联系我们"
+  },
+  "home": {
+    "hero": {
+      "title": "自然色彩，尽善尽美",
+      "subtitle": "优质天然色素应用于食品与化妆品——可持续来源，符合全球标准",
+      "cta": "探索我们的色素"
+    },
+    "features": {
+      "title": "为什么选择天然",
+      "trusted": "深受全球制造商信赖，品质稳定，合规可靠",
+      "items": [
+        {
+          "title": "法规合规",
+          "desc": "符合欧盟、美国FDA、日本、韩国标准"
+        },
+        {
+          "title": "可持续采购",
+          "desc": "从源头到交付的环保解决方案"
+        },
+        {
+          "title": "稳定性保证",
+          "desc": "耐热、耐光配方"
+        },
+        {
+          "title": "技术支持",
+          "desc": "专业应用指导"
+        }
+      ]
+    },
+    "applications": {
+      "title": "应用领域",
+      "food": "食品与饮料",
+      "foodDesc": "食品行业的天然着色方案",
+      "cosmetics": "化妆品与个人护理",
+      "cosmeticsDesc": "清洁标签色彩解决方案",
+      "pharmaceuticals": "制药",
+      "pharmaceuticalsDesc": "合规制药级色素",
+      "viewPigments": "查看色素"
+    },
+    "cta": {
+      "title": "需要技术规格？",
+      "desc": "下载我们的产品数据表和法规文档",
+      "button": "访问技术资源"
+    }
+  },
+  "about": {
+    "title": "关于 EarthHue",
+    "subtitle": "优质天然色素应用于食品与化妆品——可持续来源，符合全球标准。",
+    "mission": {
+      "title": "我们的使命",
+      "desc": "为制造商提供可靠、可持续的天然着色方案，满足全球市场最严格的法规要求。"
+    },
+    "vision": {
+      "title": "我们的愿景",
+      "desc": "一个天然色彩取代合成替代品的世界，为人类和环境创造更安全的产品。"
+    },
+    "whyChoose": {
+      "title": "为什么选择天然？",
+      "desc": "全球消费者对清洁标签产品的需求持续增长。天然色素在满足欧盟、美国、日本、韩国及东南亚严格法规标准的同时，为合成色素提供了极具吸引力的替代方案。"
+    },
+    "commitment": {
+      "title": "我们的承诺",
+      "quality": {
+        "title": "质量保证",
+        "desc": "每一批次都经过严格的纯度、稳定性和法规合规性测试。"
+      },
+      "sustainable": {
+        "title": "可持续采购",
+        "desc": "我们与重视环境管理的负责任供应商合作。"
+      },
+      "technical": {
+        "title": "技术支持",
+        "desc": "我们的应用团队帮助客户选择并实施适合其特定需求的色素。"
+      },
+      "global": {
+        "title": "全球合规",
+        "desc": "我们为所有主要市场维护最新的法规文件。"
+      }
+    },
+    "certifications": {
+      "title": "资质认证"
+    }
+  },
+  "pigments": {
+    "title": "天然色素",
+    "subtitle": "天然色彩解决方案综合指南，涵盖植物、矿物和微生物来源。",
+    "allCategories": "全部分类",
+    "categories": {
+      "plant": "植物源",
+      "mineral": "矿物源",
+      "microbial": "微生物/发酵源"
+    },
+    "filter": {
+      "search": "搜索色素...",
+      "application": "应用",
+      "region": "目标市场"
+    },
+    "regulatoryStatus": "法规状态"
+  },
+  "products": {
+    "title": "产品中心",
+    "subtitle": "即用型天然色素配方，包括优质微生物发酵色素。",
+    "categories": {
+      "plant": "植物源",
+      "microbial": "微生物/发酵源",
+      "mineral": "矿物源"
+    },
+    "custom": {
+      "title": "需要定制发酵产品？",
+      "desc": "我们专注于微生物色素开发。我们的发酵团队可以根据您的具体需求，定制虾青素、类胡萝卜素和藻蓝蛋白配方。",
+      "button": "联系我们的发酵团队"
+    }
+  },
+  "regulations": {
+    "title": "法规信息",
+    "subtitle": "各地区天然色素合规指南。",
+    "standards": "标准与法规",
+    "officialResources": "官方资源",
+    "guidance": {
+      "title": "需要特定地区的指导？",
+      "desc": "我们的法规事务团队可以为目标市场提供详细的合规文件和支持。",
+      "button": "联系法规事务部"
+    }
+  },
+  "contact": {
+    "title": "联系我们",
+    "subtitle": "如有产品咨询、技术支持或法规问题，请与我们联系。",
+    "success": {
+      "title": "消息已发送！",
+      "desc": "感谢您的来信。我们的团队将在24-48小时内回复。"
+    },
+    "form": {
+      "name": "姓名 *",
+      "namePlaceholder": "您的全名",
+      "email": "邮箱 *",
+      "emailPlaceholder": "you@company.com",
+      "company": "公司",
+      "companyPlaceholder": "您的公司名称",
+      "subject": "主题",
+      "message": "留言 *",
+      "messagePlaceholder": "我们能为您提供什么帮助？",
+      "send": "发送消息",
+      "sending": "发送中...",
+      "subjects": {
+        "product": "产品咨询",
+        "technical": "技术支持",
+        "regulatory": "法规文件",
+        "samples": "样品申请",
+        "partnership": "合作伙伴",
+        "other": "其他"
+      }
+    },
+    "info": {
+      "general": {
+        "title": "一般咨询",
+        "email": "contact@earthhue.net"
+      },
+      "tech": {
+        "title": "技术支持",
+        "email": "tech@earthhue.net"
+      },
+      "hours": {
+        "title": "工作时间",
+        "days": "周一至周五",
+        "time": "上午 9:00 – 下午 6:00 (GMT+8)"
+      },
+      "response": {
+        "title": "响应时间",
+        "text": "我们通常在24-48个工作小时内回复。如需紧急咨询，请在留言中注明。"
+      }
+    }
+  },
+  "footer": {
+    "tagline": "源自自然，走向世界",
+    "contact": "contact@earthhue.net",
+    "products": "产品",
+    "company": "公司",
+    "naturalPigments": "天然色素",
+    "productCatalog": "产品目录",
+    "regulations": "法规信息",
+    "aboutUs": "关于我们",
+    "contactUs": "联系我们",
+    "technicalResources": "技术资源",
+    "links": {
+      "privacy": "隐私政策",
+      "terms": "使用条款"
+    }
+  }
+}

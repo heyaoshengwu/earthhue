@@ -1,0 +1,198 @@
+{
+  "nav": {
+    "home": "Home",
+    "about": "About Us",
+    "pigments": "Natural Pigments",
+    "products": "Products",
+    "regulations": "Regulations",
+    "resources": "Resources",
+    "contact": "Contact"
+  },
+  "home": {
+    "hero": {
+      "title": "Nature's Palette, Perfected",
+      "subtitle": "Premium natural pigments for food and cosmetics — sourced sustainably, meeting global standards",
+      "cta": "Explore Our Pigments"
+    },
+    "features": {
+      "title": "Why Choose Natural",
+      "trusted": "Trusted by manufacturers worldwide for consistent quality and regulatory compliance",
+      "items": [
+        {
+          "title": "Regulatory Compliance",
+          "desc": "Meets EU, FDA, Japan, Korea standards"
+        },
+        {
+          "title": "Sustainable Sourcing",
+          "desc": "Eco-friendly from origin to delivery"
+        },
+        {
+          "title": "Proven Stability",
+          "desc": "Heat and light resistant formulations"
+        },
+        {
+          "title": "Technical Support",
+          "desc": "Expert application guidance"
+        }
+      ]
+    },
+    "applications": {
+      "title": "Applications",
+      "food": "Food & Beverage",
+      "foodDesc": "Natural colors for the food industry",
+      "cosmetics": "Cosmetics & Personal Care",
+      "cosmeticsDesc": "Clean-label color solutions",
+      "pharmaceuticals": "Pharmaceuticals",
+      "pharmaceuticalsDesc": "Regulatory-compliant pigments",
+      "viewPigments": "View pigments"
+    },
+    "cta": {
+      "title": "Need Technical Specifications?",
+      "desc": "Download our comprehensive product data sheets and regulatory documentation",
+      "button": "Access Technical Resources"
+    }
+  },
+  "about": {
+    "title": "About EarthHue",
+    "subtitle": "Premium natural pigments for food and cosmetics — sourced sustainably, meeting global standards.",
+    "mission": {
+      "title": "Our Mission",
+      "desc": "To provide manufacturers with reliable, sustainable natural color solutions that meet the strictest regulatory requirements across global markets."
+    },
+    "vision": {
+      "title": "Our Vision",
+      "desc": "A world where natural colors replace synthetic alternatives, creating safer products for people and the environment."
+    },
+    "whyChoose": {
+      "title": "Why Choose Natural?",
+      "desc": "Consumer demand for clean-label products continues to grow globally. Natural pigments offer a compelling alternative to synthetic colors while meeting stringent regulatory standards across the EU, US, Japan, Korea, and Southeast Asia."
+    },
+    "commitment": {
+      "title": "Our Commitment",
+      "quality": {
+        "title": "Quality Assurance",
+        "desc": "Every batch undergoes rigorous testing for purity, stability, and regulatory compliance."
+      },
+      "sustainable": {
+        "title": "Sustainable Sourcing",
+        "desc": "We partner with responsible suppliers who prioritize environmental stewardship."
+      },
+      "technical": {
+        "title": "Technical Support",
+        "desc": "Our applications team helps customers select and implement the right pigments for their specific needs."
+      },
+      "global": {
+        "title": "Global Compliance",
+        "desc": "We maintain up-to-date regulatory documentation for all major markets."
+      }
+    },
+    "certifications": {
+      "title": "Certifications"
+    }
+  },
+  "pigments": {
+    "title": "Natural Pigments",
+    "subtitle": "Comprehensive guide to our natural color solutions sourced from plant, mineral, and microbial origins.",
+    "allCategories": "All Categories",
+    "categories": {
+      "plant": "Plant-Based",
+      "mineral": "Mineral",
+      "microbial": "Microbial / Fermentation"
+    },
+    "filter": {
+      "search": "Search pigments...",
+      "application": "Application",
+      "region": "Target Market"
+    },
+    "regulatoryStatus": "Regulatory Status"
+  },
+  "products": {
+    "title": "Product Catalog",
+    "subtitle": "Ready-to-use natural color formulations including premium microbial fermentation pigments.",
+    "categories": {
+      "plant": "Plant-Based",
+      "microbial": "Microbial / Fermentation",
+      "mineral": "Mineral"
+    },
+    "custom": {
+      "title": "Need Custom Fermentation Products?",
+      "desc": "We specialize in microbial pigment development. Our fermentation team can create custom astaxanthin, carotenoid, and phycobiliprotein formulations for your specific needs.",
+      "button": "Contact Our Fermentation Team"
+    }
+  },
+  "regulations": {
+    "title": "Regulatory Information",
+    "subtitle": "Navigate global regulations for natural colors with our comprehensive compliance guides.",
+    "standards": "Standards & Regulations",
+    "officialResources": "Official Resources",
+    "guidance": {
+      "title": "Need Region-Specific Guidance?",
+      "desc": "Our regulatory affairs team can provide detailed compliance documentation and support for your target markets.",
+      "button": "Contact Regulatory Affairs"
+    }
+  },
+  "contact": {
+    "title": "Contact Us",
+    "subtitle": "Get in touch with our team for product inquiries, technical support, or regulatory questions.",
+    "success": {
+      "title": "Message Sent!",
+      "desc": "Thank you for reaching out. Our team will respond within 24-48 hours."
+    },
+    "form": {
+      "name": "Name *",
+      "namePlaceholder": "Your full name",
+      "email": "Email *",
+      "emailPlaceholder": "you@company.com",
+      "company": "Company",
+      "companyPlaceholder": "Your company name",
+      "subject": "Subject",
+      "message": "Message *",
+      "messagePlaceholder": "How can we help you?",
+      "send": "Send Message",
+      "sending": "Sending...",
+      "subjects": {
+        "product": "Product Inquiry",
+        "technical": "Technical Support",
+        "regulatory": "Regulatory Documentation",
+        "samples": "Sample Request",
+        "partnership": "Partnership",
+        "other": "Other"
+      }
+    },
+    "info": {
+      "general": {
+        "title": "General Inquiries",
+        "email": "contact@earthhue.net"
+      },
+      "tech": {
+        "title": "Technical Support",
+        "email": "tech@earthhue.net"
+      },
+      "hours": {
+        "title": "Office Hours",
+        "days": "Monday – Friday",
+        "time": "9:00 AM – 6:00 PM (GMT+8)"
+      },
+      "response": {
+        "title": "Response Time",
+        "text": "We typically respond within 24-48 business hours. For urgent inquiries, please indicate in your message."
+      }
+    }
+  },
+  "footer": {
+    "tagline": "Natural colors from nature, for the world",
+    "contact": "contact@earthhue.net",
+    "products": "Products",
+    "company": "Company",
+    "naturalPigments": "Natural Pigments",
+    "productCatalog": "Product Catalog",
+    "regulations": "Regulations",
+    "aboutUs": "About Us",
+    "contactUs": "Contact",
+    "technicalResources": "Technical Resources",
+    "links": {
+      "privacy": "Privacy Policy",
+      "terms": "Terms of Use"
+    }
+  }
+}
