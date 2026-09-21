@@ -2,7 +2,7 @@
 
 - GitHub repo: `heyaoshengwu/earthhue`
 - Source: `root@139.180.223.181:/var/www/earthhue`
-- Synced at: 2026-09-21T20:10:12+08:00
+- Synced at: 2026-09-21T20:20:14+08:00
 - Is raw-material site: **yes**
 
 ## Common excludes (all sites)
