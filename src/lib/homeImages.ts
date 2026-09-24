@@ -58,6 +58,17 @@ export function deleteHomeImage(key: string): boolean {
   return res.changes > 0;
 }
 
+export function updateHomeImageMeta(key: string, alt: string | null, caption: string | null): HomeImage | null {
+  const db = getDb();
+  const res = db
+    .prepare(
+      "UPDATE home_images SET alt = ?, caption = ?, updated_at = datetime('now') WHERE key = ?"
+    )
+    .run(alt, caption, key);
+  if (res.changes === 0) return null;
+  return getHomeImage(key);
+}
+
 export function isValidHomeImageKey(key: string): key is HomeImageKey {
   return HOME_IMAGE_SLOTS.some((s) => s.key === key);
 }

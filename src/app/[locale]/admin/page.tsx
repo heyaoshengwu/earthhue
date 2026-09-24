@@ -126,6 +126,18 @@ function slugify(input: string): string {
     .replace(/^-|-$/g, "");
 }
 
+function useUnsavedWarning(active: boolean) {
+  useEffect(() => {
+    if (!active) return;
+    const handler = (e: BeforeUnloadEvent) => {
+      e.preventDefault();
+      e.returnValue = "";
+    };
+    window.addEventListener("beforeunload", handler);
+    return () => window.removeEventListener("beforeunload", handler);
+  }, [active]);
+}
+
 export default function AdminPage() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [password, setPassword] = useState("");
@@ -477,6 +489,14 @@ function ArticleEditor({
   );
   const [saving, setSaving] = useState(false);
   const [autoSlug, setAutoSlug] = useState(isNew);
+  const [dirty, setDirty] = useState(false);
+
+  useUnsavedWarning(dirty);
+
+  function tryClose() {
+    if (dirty && !confirm("Discard unsaved changes?")) return;
+    onClose();
+  }
 
   function ensureLocale(loc: Locale): ArticleTranslation {
     if (!translations[loc]) {
@@ -491,6 +511,7 @@ function ArticleEditor({
       ...prev,
       [loc]: { ...(prev[loc] || { title: "", excerpt: "", body: "" }), [key]: value },
     }));
+    setDirty(true);
     if (isNew && autoSlug && key === "title" && loc === "zh") {
       setSlug(slugify(String(value)));
     }
@@ -502,6 +523,7 @@ function ArticleEditor({
     try {
       const url = await uploadFile(file, "articles");
       setCoverImage(url);
+      setDirty(true);
     } catch (err: any) {
       onError(err?.message || "Upload failed");
     }
@@ -533,6 +555,7 @@ function ArticleEditor({
         });
       }
       await onSaved();
+      setDirty(false);
     } catch (err: any) {
       onError(err?.message || "Save failed");
     } finally {
@@ -548,8 +571,9 @@ function ArticleEditor({
         <div className="p-6 border-b border-earth-200 flex justify-between items-center sticky top-0 bg-white z-10">
           <h2 className="text-xl font-bold text-earth-900">
             {article ? "Edit Article" : "New Article"}
+            {dirty && <span className="ml-2 text-xs text-amber-700 bg-amber-50 px-2 py-0.5 rounded align-middle">Unsaved</span>}
           </h2>
-          <button onClick={onClose} className="text-earth-500 hover:text-earth-700">
+          <button type="button" onClick={tryClose} className="text-earth-500 hover:text-earth-700">
             ✕
           </button>
         </div>
@@ -562,6 +586,7 @@ function ArticleEditor({
                 onChange={(e) => {
                   setSlug(slugify(e.target.value));
                   setAutoSlug(false);
+                  setDirty(true);
                 }}
                 placeholder="my-article"
                 className="w-full px-3 py-2 border border-earth-300 rounded-lg"
@@ -573,7 +598,10 @@ function ArticleEditor({
                 <input
                   type="checkbox"
                   checked={published}
-                  onChange={(e) => setPublished(e.target.checked)}
+                  onChange={(e) => {
+                    setPublished(e.target.checked);
+                    setDirty(true);
+                  }}
                 />
                 Published
               </label>
@@ -599,7 +627,10 @@ function ArticleEditor({
               {coverImage && (
                 <button
                   type="button"
-                  onClick={() => setCoverImage(null)}
+                  onClick={() => {
+                    setCoverImage(null);
+                    setDirty(true);
+                  }}
                   className="text-red-600 text-sm hover:text-red-700"
                 >
                   Remove
@@ -664,11 +695,11 @@ function ArticleEditor({
               disabled={saving}
               className="flex-1 bg-sage-600 text-white py-2 rounded-lg font-medium hover:bg-sage-700 transition-colors disabled:opacity-50"
             >
-              {saving ? "Saving…" : "Save"}
+              {saving ? "Saving…" : dirty ? "Save *" : "Save"}
             </button>
             <button
               type="button"
-              onClick={onClose}
+              onClick={tryClose}
               className="flex-1 bg-earth-200 text-earth-700 py-2 rounded-lg font-medium hover:bg-earth-300 transition-colors"
             >
               Cancel
@@ -835,6 +866,14 @@ function ProductEditor({
   const [images, setImages] = useState<ProductImage[]>([]);
   const [saving, setSaving] = useState(false);
   const [autoSlug, setAutoSlug] = useState(isNew);
+  const [dirty, setDirty] = useState(false);
+
+  useUnsavedWarning(dirty);
+
+  function tryClose() {
+    if (dirty && !confirm("Discard unsaved changes?")) return;
+    onClose();
+  }
 
   useEffect(() => {
     if (!product) return;
@@ -860,6 +899,7 @@ function ProductEditor({
       ...prev,
       [loc]: { ...(prev[loc] || { name: "", description: "", applications: [] }), [key]: value },
     }));
+    setDirty(true);
     if (isNew && autoSlug && key === "name" && loc === "zh") {
       setSlug(slugify(String(value)));
     }
@@ -929,6 +969,7 @@ function ProductEditor({
         });
       }
       await onSaved();
+      setDirty(false);
     } catch (err: any) {
       onError(err?.message || "Save failed");
     } finally {
@@ -944,8 +985,9 @@ function ProductEditor({
         <div className="p-6 border-b border-earth-200 flex justify-between items-center sticky top-0 bg-white z-10">
           <h2 className="text-xl font-bold text-earth-900">
             {product ? "Edit Product" : "New Product"}
+            {dirty && <span className="ml-2 text-xs text-amber-700 bg-amber-50 px-2 py-0.5 rounded align-middle">Unsaved</span>}
           </h2>
-          <button onClick={onClose} className="text-earth-500 hover:text-earth-700">
+          <button type="button" onClick={tryClose} className="text-earth-500 hover:text-earth-700">
             ✕
           </button>
         </div>
@@ -958,6 +1000,7 @@ function ProductEditor({
                 onChange={(e) => {
                   setSlug(slugify(e.target.value));
                   setAutoSlug(false);
+                  setDirty(true);
                 }}
                 placeholder="eh-product"
                 className="w-full px-3 py-2 border border-earth-300 rounded-lg"
@@ -969,7 +1012,10 @@ function ProductEditor({
               <input
                 type="color"
                 value={color}
-                onChange={(e) => setColor(e.target.value)}
+                onChange={(e) => {
+                  setColor(e.target.value);
+                  setDirty(true);
+                }}
                 className="w-full h-10 border border-earth-300 rounded-lg"
               />
             </div>
@@ -977,7 +1023,10 @@ function ProductEditor({
               <label className="block text-sm font-medium text-earth-700 mb-1">Base Pigment</label>
               <input
                 value={base}
-                onChange={(e) => setBase(e.target.value)}
+                onChange={(e) => {
+                  setBase(e.target.value);
+                  setDirty(true);
+                }}
                 className="w-full px-3 py-2 border border-earth-300 rounded-lg"
               />
             </div>
@@ -985,7 +1034,10 @@ function ProductEditor({
               <label className="block text-sm font-medium text-earth-700 mb-1">Form</label>
               <input
                 value={form}
-                onChange={(e) => setForm(e.target.value)}
+                onChange={(e) => {
+                  setForm(e.target.value);
+                  setDirty(true);
+                }}
                 className="w-full px-3 py-2 border border-earth-300 rounded-lg"
               />
             </div>
@@ -994,7 +1046,10 @@ function ProductEditor({
               <input
                 type="number"
                 value={sortOrder}
-                onChange={(e) => setSortOrder(Number(e.target.value))}
+                onChange={(e) => {
+                  setSortOrder(Number(e.target.value));
+                  setDirty(true);
+                }}
                 className="w-full px-3 py-2 border border-earth-300 rounded-lg"
               />
             </div>
@@ -1003,7 +1058,10 @@ function ProductEditor({
                 <input
                   type="checkbox"
                   checked={published}
-                  onChange={(e) => setPublished(e.target.checked)}
+                  onChange={(e) => {
+                    setPublished(e.target.checked);
+                    setDirty(true);
+                  }}
                 />
                 Published
               </label>
@@ -1107,11 +1165,11 @@ function ProductEditor({
               disabled={saving}
               className="flex-1 bg-sage-600 text-white py-2 rounded-lg font-medium hover:bg-sage-700 transition-colors disabled:opacity-50"
             >
-              {saving ? "Saving…" : "Save"}
+              {saving ? "Saving…" : dirty ? "Save *" : "Save"}
             </button>
             <button
               type="button"
-              onClick={onClose}
+              onClick={tryClose}
               className="flex-1 bg-earth-200 text-earth-700 py-2 rounded-lg font-medium hover:bg-earth-300 transition-colors"
             >
               Cancel
@@ -1139,12 +1197,22 @@ function AboutTab({
   const [activeLocale, setActiveLocale] = useState<Locale>("zh");
   const [data, setData] = useState<Record<string, AboutTranslations>>(translations);
   const [saving, setSaving] = useState(false);
+  const [dirty, setDirty] = useState(false);
 
   useEffect(() => setData(translations), [translations]);
+
+  useUnsavedWarning(dirty);
 
   const cur: AboutTranslations = data[activeLocale] || {};
   function setField<K extends keyof AboutTranslations>(key: K, value: AboutTranslations[K]) {
     setData((prev) => ({ ...prev, [activeLocale]: { ...(prev[activeLocale] || {}), [key]: value } }));
+    setDirty(true);
+  }
+
+  function reset() {
+    if (dirty && !confirm("Discard unsaved changes to About content?")) return;
+    setData(translations);
+    setDirty(false);
   }
 
   async function save() {
@@ -1155,6 +1223,7 @@ function AboutTab({
         body: JSON.stringify({ translations: data }),
       });
       onFlash("About content saved");
+      setDirty(false);
       await onChange();
     } catch (e: any) {
       onError(e?.message || "Save failed");
@@ -1235,30 +1304,44 @@ function AboutTab({
   return (
     <div className="space-y-6">
       <div className="bg-white rounded-xl border border-earth-200 p-6">
-        <div className="flex items-center justify-between mb-5">
-          <div className="flex gap-2">
-            {LOCALES.map((loc) => (
+<div className="flex items-center justify-between mb-5">
+            <div className="flex gap-2">
+              {LOCALES.map((loc) => (
+                <button
+                  key={loc}
+                  onClick={() => setActiveLocale(loc)}
+                  className={`px-3 py-1 rounded text-sm font-medium ${
+                    activeLocale === loc
+                      ? "bg-sage-600 text-white"
+                      : "bg-earth-100 text-earth-700 hover:bg-earth-200"
+                  }`}
+                >
+                  {LOCALE_LABEL[loc]}
+                </button>
+              ))}
+              {dirty && (
+                <span className="ml-2 self-center text-xs text-amber-700 bg-amber-50 px-2 py-1 rounded">
+                  Unsaved changes
+                </span>
+              )}
+            </div>
+            <div className="flex gap-2">
               <button
-                key={loc}
-                onClick={() => setActiveLocale(loc)}
-                className={`px-3 py-1 rounded text-sm font-medium ${
-                  activeLocale === loc
-                    ? "bg-sage-600 text-white"
-                    : "bg-earth-100 text-earth-700 hover:bg-earth-200"
-                }`}
+                onClick={reset}
+                disabled={saving || !dirty}
+                className="bg-earth-200 text-earth-700 px-4 py-2 rounded-lg font-medium hover:bg-earth-300 transition-colors disabled:opacity-40"
               >
-                {LOCALE_LABEL[loc]}
+                Reset
               </button>
-            ))}
+              <button
+                onClick={save}
+                disabled={saving}
+                className="bg-sage-600 text-white px-5 py-2 rounded-lg font-medium hover:bg-sage-700 transition-colors disabled:opacity-50"
+              >
+                {saving ? "Saving…" : dirty ? "Save Content *" : "Save Content"}
+              </button>
+            </div>
           </div>
-          <button
-            onClick={save}
-            disabled={saving}
-            className="bg-sage-600 text-white px-5 py-2 rounded-lg font-medium hover:bg-sage-700 transition-colors disabled:opacity-50"
-          >
-            {saving ? "Saving…" : "Save Content"}
-          </button>
-        </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <Field label="Page Title">
@@ -1413,6 +1496,13 @@ function HomeImagesTab({
     return images.find((i) => i.key === key);
   }
 
+  function altDirty(key: string): boolean {
+    if (!images.find((i) => i.key === key)) return false;
+    const cur = images.find((i) => i.key === key)?.alt ?? "";
+    const input = altInputs[key] ?? cur;
+    return input !== cur;
+  }
+
   async function handleUpload(key: string, file: File) {
     setBusyKey(key);
     try {
@@ -1428,6 +1518,26 @@ function HomeImagesTab({
       await onChange();
     } catch (err: any) {
       onError(err?.message || "上传失败");
+    } finally {
+      setBusyKey(null);
+    }
+  }
+
+  async function handleSaveAlt(key: string) {
+    setBusyKey(key);
+    try {
+      const alt = altInputs[key] ?? "";
+      const res = await fetch("/api/home/images", {
+        method: "PUT",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ key, alt: alt.trim() || null }),
+      });
+      if (!res.ok) throw new Error(await res.text());
+      onFlash(`${key} Alt 已保存`);
+      setAltInputs((prev) => ({ ...prev, [key]: "" }));
+      await onChange();
+    } catch (err: any) {
+      onError(err?.message || "Alt 保存失败");
     } finally {
       setBusyKey(null);
     }
@@ -1492,6 +1602,16 @@ function HomeImagesTab({
                   placeholder="描述图片内容，便于 SEO/无障碍"
                   className="w-full px-3 py-2 border border-earth-300 rounded-lg text-sm"
                 />
+                {current && altDirty(slot.key) && (
+                  <button
+                    type="button"
+                    onClick={() => handleSaveAlt(slot.key)}
+                    disabled={busyKey === slot.key}
+                    className="w-full bg-sage-600 text-white py-1.5 rounded text-sm font-medium hover:bg-sage-700 disabled:opacity-50"
+                  >
+                    {busyKey === slot.key ? "保存中…" : "保存 Alt"}
+                  </button>
+                )}
 
                 <input
                   ref={(el) => {

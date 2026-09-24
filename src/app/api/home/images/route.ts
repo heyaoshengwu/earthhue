@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import { listHomeImages, upsertHomeImage, isValidHomeImageKey, HOME_IMAGE_SLOTS } from "@/lib/homeImages";
+import { listHomeImages, upsertHomeImage, isValidHomeImageKey, updateHomeImageMeta, HOME_IMAGE_SLOTS } from "@/lib/homeImages";
 import { saveUpload } from "@/lib/upload";
 
 export const dynamic = "force-dynamic";
@@ -30,4 +30,20 @@ export async function POST(req: NextRequest) {
   } catch (err) {
     return NextResponse.json({ error: (err as Error).message }, { status: 400 });
   }
+}
+
+export async function PUT(req: NextRequest) {
+  let body: { key?: string; alt?: string | null; caption?: string | null };
+  try {
+    body = await req.json();
+  } catch {
+    return NextResponse.json({ error: "Invalid JSON" }, { status: 400 });
+  }
+  const key = String(body.key || "").trim();
+  if (!isValidHomeImageKey(key)) {
+    return NextResponse.json({ error: "Invalid key" }, { status: 400 });
+  }
+  const item = updateHomeImageMeta(key, body.alt ?? null, body.caption ?? null);
+  if (!item) return NextResponse.json({ error: "No image uploaded for this key yet" }, { status: 404 });
+  return NextResponse.json({ ok: true, item });
 }
