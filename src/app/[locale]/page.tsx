@@ -2,7 +2,7 @@ import Link from "next/link";
 import { getTranslations } from "next-intl/server";
 import { Metadata } from "next";
 import { OrganizationJsonLd, WebsiteJsonLd } from "@/components/JsonLd";
-import { listProducts } from "@/lib/products";
+import { listProducts, getFirstProductImagesMap } from "@/lib/products";
 import { listArticles } from "@/lib/articles";
 import { listHomeImages } from "@/lib/homeImages";
 import { pickTranslation } from "@/lib/i18n";
@@ -60,6 +60,7 @@ export default async function HomePage({
   const t = await getTranslations("home");
 
   const products = listProducts({ onlyPublished: true }).slice(0, 3);
+  const productFirstImages = getFirstProductImagesMap(products.map((p) => p.id));
   const articles = listArticles({ onlyPublished: true }).slice(0, 3);
   const homeImageMap = Object.fromEntries(listHomeImages().map((i) => [i.key, i]));
   const heroImg = homeImageMap.hero;
@@ -181,14 +182,22 @@ export default async function HomePage({
                     className="group block bg-earth-50 rounded-2xl overflow-hidden hover:shadow-md transition-shadow"
                   >
                     <div
-                      className="aspect-[4/3] flex items-center justify-center"
+                      className="aspect-[4/3] flex items-center justify-center overflow-hidden"
                       style={{
                         background: p.color
                           ? `linear-gradient(135deg, ${p.color}22, ${p.color}55)`
                           : "linear-gradient(135deg, #f5f0e6, #e9e0cc)",
                       }}
                     >
-                      <div className="w-20 h-20 rounded-full shadow-inner" style={{ backgroundColor: p.color || "#bbb" }} />
+                      {productFirstImages[p.id] ? (
+                        <img
+                          src={productFirstImages[p.id]}
+                          alt={tr?.name || p.slug}
+                          className="w-full h-full object-cover"
+                        />
+                      ) : (
+                        <div className="w-20 h-20 rounded-full shadow-inner" style={{ backgroundColor: p.color || "#bbb" }} />
+                      )}
                     </div>
                     <div className="p-5">
                       <h3 className="font-serif text-lg font-semibold text-earth-900 mb-1 group-hover:text-sage-700 transition-colors">

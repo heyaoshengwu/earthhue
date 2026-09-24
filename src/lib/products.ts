@@ -158,6 +158,26 @@ export function listProductImages(productId: number): ProductImage[] {
     .all(productId) as ProductImage[];
 }
 
+export function getFirstProductImagesMap(productIds: number[]): Record<number, string> {
+  if (!productIds.length) return {};
+  const db = getDb();
+  const placeholders = productIds.map(() => "?").join(",");
+  const rows = db
+    .prepare(
+      `SELECT product_id, url FROM product_images
+       WHERE product_id IN (${placeholders})
+         AND id IN (
+           SELECT MIN(id) FROM product_images
+           WHERE product_id IN (${placeholders})
+           GROUP BY product_id
+         )`
+    )
+    .all(...productIds, ...productIds) as { product_id: number; url: string }[];
+  const map: Record<number, string> = {};
+  for (const r of rows) map[r.product_id] = r.url;
+  return map;
+}
+
 export function addProductImage(input: {
   product_id: number;
   url: string;
