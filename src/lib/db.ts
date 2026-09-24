@@ -65,6 +65,14 @@ CREATE TABLE IF NOT EXISTS settings (
   value TEXT
 );
 
+CREATE TABLE IF NOT EXISTS home_images (
+  key TEXT PRIMARY KEY,
+  url TEXT NOT NULL,
+  alt TEXT,
+  caption TEXT,
+  updated_at TEXT NOT NULL DEFAULT (datetime('now'))
+);
+
 CREATE INDEX IF NOT EXISTS idx_articles_published ON articles(published, created_at);
 CREATE INDEX IF NOT EXISTS idx_products_published ON products(published, sort_order);
 CREATE INDEX IF NOT EXISTS idx_product_images_product ON product_images(product_id, sort_order);

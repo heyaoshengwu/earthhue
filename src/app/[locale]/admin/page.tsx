@@ -18,7 +18,7 @@ const LOCALE_LABEL: Record<Locale, string> = {
   de: "DE",
 };
 
-type Tab = "articles" | "products" | "about";
+type Tab = "articles" | "products" | "about" | "home";
 
 type ArticleTranslation = { title: string; excerpt: string; body: string };
 type ProductTranslation = { name: string; description: string; applications: string[] };
@@ -61,6 +61,20 @@ type AboutImage = {
   caption: string | null;
   sort_order: number;
 };
+
+type HomeImage = {
+  key: string;
+  url: string;
+  alt: string | null;
+  caption: string | null;
+  updated_at: string;
+};
+
+const HOME_IMAGE_SLOTS: { key: string; label: string; desc: string }[] = [
+  { key: "hero", label: "Hero 主图", desc: "首页顶部主视觉，建议 16:9 或更宽（≥ 1600×900）。" },
+  { key: "brand", label: "品牌/工艺图", desc: "展示在 Hero 下方，用于介绍公司/工艺流程。" },
+  { key: "aesthetics", label: "色彩美学预览图", desc: "首页底部『进入色彩美学』旁的小图，建议方形或竖图。" },
+];
 
 type AboutTranslations = {
   title?: string;
@@ -122,6 +136,7 @@ export default function AdminPage() {
   const [productImagesMap, setProductImagesMap] = useState<Record<number, string>>({});
   const [aboutTranslations, setAboutTranslations] = useState<Record<string, AboutTranslations>>({});
   const [aboutImages, setAboutImages] = useState<AboutImage[]>([]);
+  const [homeImages, setHomeImages] = useState<HomeImage[]>([]);
   const [saved, setSaved] = useState<string | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState(true);
@@ -141,16 +156,18 @@ export default function AdminPage() {
     setLoading(true);
     setError(null);
     try {
-      const [articlesRes, productsRes, aboutRes, aboutImagesRes] = await Promise.all([
+      const [articlesRes, productsRes, aboutRes, aboutImagesRes, homeImagesRes] = await Promise.all([
         apiGet<{ items: Article[] }>("/api/articles"),
         apiGet<{ items: Product[] }>("/api/products"),
         apiGet<{ translations: Record<string, AboutTranslations> }>("/api/about/content"),
         apiGet<{ items: AboutImage[] }>("/api/about/images"),
+        apiGet<{ items: HomeImage[] }>("/api/home/images"),
       ]);
       setArticles(articlesRes.items);
       setProducts(productsRes.items);
       setAboutTranslations(aboutRes.translations || {});
       setAboutImages(aboutImagesRes.items || []);
+      setHomeImages(homeImagesRes.items || []);
 
       const firstImageMap: Record<number, string> = {};
       for (const p of productsRes.items) {
@@ -255,7 +272,7 @@ export default function AdminPage() {
         )}
 
         <div className="flex gap-4 mb-6 border-b border-earth-200">
-          {(["articles", "products", "about"] as Tab[]).map((tab) => (
+          {(["articles", "products", "about", "home"] as Tab[]).map((tab) => (
             <button
               key={tab}
               onClick={() => setActiveTab(tab)}
@@ -268,6 +285,7 @@ export default function AdminPage() {
               {tab === "articles" && `Articles (${articles.length})`}
               {tab === "products" && `Products (${products.length})`}
               {tab === "about" && "About Us"}
+              {tab === "home" && "Home Images"}
             </button>
           ))}
         </div>
@@ -297,6 +315,14 @@ export default function AdminPage() {
               <AboutTab
                 translations={aboutTranslations}
                 images={aboutImages}
+                onChange={refresh}
+                onFlash={flash}
+                onError={setError}
+              />
+            )}
+            {activeTab === "home" && (
+              <HomeImagesTab
+                images={homeImages}
                 onChange={refresh}
                 onFlash={flash}
                 onError={setError}
@@ -1364,6 +1390,142 @@ function Field({
     <div className={full ? "md:col-span-2" : ""}>
       <label className="block text-sm font-medium text-earth-700 mb-1">{label}</label>
       {children}
+    </div>
+  );
+}
+
+function HomeImagesTab({
+  images,
+  onChange,
+  onFlash,
+  onError,
+}: {
+  images: HomeImage[];
+  onChange: () => Promise<void>;
+  onFlash: (msg: string) => void;
+  onError: (msg: string) => void;
+}) {
+  const [busyKey, setBusyKey] = useState<string | null>(null);
+  const [altInputs, setAltInputs] = useState<Record<string, string>>({});
+  const fileInputsRef = useRef<Record<string, HTMLInputElement | null>>({});
+
+  function findImage(key: string): HomeImage | undefined {
+    return images.find((i) => i.key === key);
+  }
+
+  async function handleUpload(key: string, file: File) {
+    setBusyKey(key);
+    try {
+      const fd = new FormData();
+      fd.append("file", file);
+      fd.append("key", key);
+      const alt = altInputs[key]?.trim();
+      if (alt) fd.append("alt", alt);
+      const res = await fetch("/api/home/images", { method: "POST", body: fd });
+      if (!res.ok) throw new Error(await res.text());
+      onFlash(`${key} 图已更新`);
+      setAltInputs((prev) => ({ ...prev, [key]: "" }));
+      await onChange();
+    } catch (err: any) {
+      onError(err?.message || "上传失败");
+    } finally {
+      setBusyKey(null);
+    }
+  }
+
+  async function handleDelete(key: string) {
+    if (!confirm(`删除「${key}」位置的图片？此操作会同时移除服务器上的文件。`)) return;
+    setBusyKey(key);
+    try {
+      const res = await fetch(`/api/home/images/${key}`, { method: "DELETE" });
+      if (!res.ok) throw new Error(await res.text());
+      onFlash(`${key} 图已删除`);
+      await onChange();
+    } catch (err: any) {
+      onError(err?.message || "删除失败");
+    } finally {
+      setBusyKey(null);
+    }
+  }
+
+  return (
+    <div className="space-y-4">
+      <div className="bg-white p-4 rounded-xl border border-earth-200">
+        <h3 className="font-semibold text-earth-900 mb-1">首页图片</h3>
+        <p className="text-sm text-earth-600">
+          首页共 3 个固定槽位：Hero 主图、品牌/工艺图、色彩美学预览图。每个槽位只保留一张图，上传会自动替换。
+        </p>
+      </div>
+
+      <div className="grid md:grid-cols-3 gap-4">
+        {HOME_IMAGE_SLOTS.map((slot) => {
+          const current = findImage(slot.key);
+          return (
+            <div key={slot.key} className="bg-white rounded-xl border border-earth-200 overflow-hidden">
+              <div className="p-4 border-b border-earth-100">
+                <h4 className="font-semibold text-earth-900">{slot.label}</h4>
+                <p className="text-xs text-earth-500 mt-1">{slot.desc}</p>
+                <p className="text-xs text-earth-400 mt-1 font-mono">key: {slot.key}</p>
+              </div>
+
+              <div className="aspect-video bg-earth-50 flex items-center justify-center overflow-hidden">
+                {current ? (
+                  <img src={current.url} alt={current.alt || ""} className="w-full h-full object-cover" />
+                ) : (
+                  <div className="text-center text-earth-400 px-4 py-8">
+                    <svg className="w-10 h-10 mx-auto mb-2 opacity-40" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                    </svg>
+                    <p className="text-xs">暂无图片</p>
+                  </div>
+                )}
+              </div>
+
+              <div className="p-4 space-y-3">
+                <label className="block text-sm font-medium text-earth-700">
+                  Alt 文本（可选）
+                </label>
+                <input
+                  type="text"
+                  value={altInputs[slot.key] ?? current?.alt ?? ""}
+                  onChange={(e) => setAltInputs((prev) => ({ ...prev, [slot.key]: e.target.value }))}
+                  placeholder="描述图片内容，便于 SEO/无障碍"
+                  className="w-full px-3 py-2 border border-earth-300 rounded-lg text-sm"
+                />
+
+                <input
+                  ref={(el) => {
+                    fileInputsRef.current[slot.key] = el;
+                  }}
+                  type="file"
+                  accept="image/*"
+                  className="block w-full text-sm"
+                  onChange={(e) => {
+                    const f = e.target.files?.[0];
+                    if (f) handleUpload(slot.key, f);
+                    e.target.value = "";
+                  }}
+                />
+
+                {current && (
+                  <div className="flex items-center justify-between pt-2 border-t border-earth-100">
+                    <div className="text-xs text-earth-500 truncate" title={current.url}>
+                      {current.url.split("/").pop()}
+                    </div>
+                    <button
+                      onClick={() => handleDelete(slot.key)}
+                      disabled={busyKey === slot.key}
+                      className="text-xs text-red-600 hover:text-red-700 disabled:opacity-50"
+                    >
+                      {busyKey === slot.key ? "处理中…" : "删除"}
+                    </button>
+                  </div>
+                )}
+              </div>
+            </div>
+          );
+        })}
+      </div>
     </div>
   );
 }

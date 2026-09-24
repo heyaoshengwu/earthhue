@@ -14,7 +14,7 @@ export function Header() {
   const navItems = [
     { href: `/${locale}`, label: t("home") },
     { href: `/${locale}/products`, label: t("products") },
-    { href: `/${locale}/pigments`, label: t("pigments") },
+    { href: `/${locale}/c2c`, label: t("pigments") },
     { href: `/${locale}/articles`, label: t("articles") },
     { href: `/${locale}/regulations`, label: t("regulations") },
     { href: `/${locale}/about`, label: t("about") },

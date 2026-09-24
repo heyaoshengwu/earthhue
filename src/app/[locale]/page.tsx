@@ -4,6 +4,7 @@ import { Metadata } from "next";
 import { OrganizationJsonLd, WebsiteJsonLd } from "@/components/JsonLd";
 import { listProducts } from "@/lib/products";
 import { listArticles } from "@/lib/articles";
+import { listHomeImages } from "@/lib/homeImages";
 
 export const dynamic = "force-dynamic";
 
@@ -59,6 +60,10 @@ export default async function HomePage({
 
   const products = listProducts({ onlyPublished: true }).slice(0, 3);
   const articles = listArticles({ onlyPublished: true }).slice(0, 3);
+  const homeImageMap = Object.fromEntries(listHomeImages().map((i) => [i.key, i]));
+  const heroImg = homeImageMap.hero;
+  const brandImg = homeImageMap.brand;
+  const aestheticsImg = homeImageMap.aesthetics;
 
   return (
     <>
@@ -68,19 +73,30 @@ export default async function HomePage({
       {/* Hero — focused on B2B ingredients */}
       <section className="relative bg-gradient-to-br from-earth-100 via-earth-50 to-sage-50 section-padding">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <p className="text-sage-700 font-medium mb-3 uppercase tracking-wider text-sm">
-              {t("hero.eyebrow")}
-            </p>
-            <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl font-bold text-earth-900 leading-tight mb-6">
-              {t("hero.title")}
-            </h1>
-            <p className="text-lg md:text-xl text-earth-700 max-w-3xl mx-auto">
-              {t("hero.subtitle")}
-            </p>
+          <div className={`grid gap-12 items-center ${heroImg ? "md:grid-cols-2" : ""}`}>
+            <div className="text-center md:text-left">
+              <p className="text-sage-700 font-medium mb-3 uppercase tracking-wider text-sm">
+                {t("hero.eyebrow")}
+              </p>
+              <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl font-bold text-earth-900 leading-tight mb-6">
+                {t("hero.title")}
+              </h1>
+              <p className="text-lg md:text-xl text-earth-700 max-w-3xl md:max-w-none mx-auto md:mx-0">
+                {t("hero.subtitle")}
+              </p>
+            </div>
+            {heroImg && (
+              <div className="rounded-3xl overflow-hidden shadow-xl aspect-[4/3]">
+                <img
+                  src={heroImg.url}
+                  alt={heroImg.alt || ""}
+                  className="w-full h-full object-cover"
+                />
+              </div>
+            )}
           </div>
 
-          <div className="flex flex-wrap justify-center gap-4">
+          <div className="flex flex-wrap justify-center md:justify-start gap-4 mt-12">
             <Link
               href={`/${locale}/products`}
               className="inline-flex items-center gap-2 bg-sage-600 text-white px-8 py-4 rounded-full font-medium hover:bg-sage-700 transition-colors shadow-sm"
@@ -96,6 +112,21 @@ export default async function HomePage({
           </div>
         </div>
       </section>
+
+      {/* Brand / craftsmanship image */}
+      {brandImg && (
+        <section className="bg-white">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16">
+            <div className="rounded-3xl overflow-hidden shadow-lg aspect-[21/9]">
+              <img
+                src={brandImg.url}
+                alt={brandImg.alt || ""}
+                className="w-full h-full object-cover"
+              />
+            </div>
+          </div>
+        </section>
+      )}
 
       {/* Quick links */}
       <section className="bg-white py-6 border-b border-earth-200">
@@ -292,14 +323,27 @@ export default async function HomePage({
 
       {/* 色彩美学 link */}
       <section className="bg-earth-50 border-t border-earth-200">
-        <div className="max-w-4xl mx-auto px-4 py-8 text-center">
-          <p className="text-earth-600 mb-2">{t("aestheticsLink.prompt")}</p>
-          <Link
-            href={`/${locale}/c2c`}
-            className="inline-flex items-center gap-2 text-sage-700 font-medium hover:text-sage-900"
-          >
-            {t("aestheticsLink.cta")} →
-          </Link>
+        <div className="max-w-6xl mx-auto px-4 py-12">
+          <div className={`grid gap-8 items-center ${aestheticsImg ? "md:grid-cols-[1fr,1.4fr]" : ""}`}>
+            {aestheticsImg && (
+              <div className="rounded-2xl overflow-hidden shadow-md aspect-[4/3]">
+                <img
+                  src={aestheticsImg.url}
+                  alt={aestheticsImg.alt || ""}
+                  className="w-full h-full object-cover"
+                />
+              </div>
+            )}
+            <div className="text-center md:text-left">
+              <p className="text-earth-600 mb-3 text-lg">{t("aestheticsLink.prompt")}</p>
+              <Link
+                href={`/${locale}/c2c`}
+                className="inline-flex items-center gap-2 text-sage-700 font-medium hover:text-sage-900 text-lg"
+              >
+                {t("aestheticsLink.cta")} →
+              </Link>
+            </div>
+          </div>
         </div>
       </section>
     </>
