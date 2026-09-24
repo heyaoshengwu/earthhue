@@ -2,26 +2,29 @@ import Link from "next/link";
 import { getTranslations } from "next-intl/server";
 import { Metadata } from "next";
 import { OrganizationJsonLd, WebsiteJsonLd } from "@/components/JsonLd";
+import { listProducts } from "@/lib/products";
+import { listArticles } from "@/lib/articles";
+
+export const dynamic = "force-dynamic";
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params;
   const titles: Record<string, string> = {
-    en: "EarthHue — Natural Pigments for Industry & Aesthetic Color Stories",
-    zh: "EarthHue — 面向工业的天然色素 与 美学色彩故事",
-    ja: "EarthHue — 産業向け天然色素 と 色彩の美学ストーリー",
-    ko: "EarthHue — 산업용 천연 색소 와 미학 컬러 스토리",
-    es: "EarthHue — Pigmentos Naturales para la Industria e Historias de Color Estéticas",
-    fr: "EarthHue — Pigments Naturels pour l'Industrie et Récits Esthétiques",
-    de: "EarthHue — Natürliche Pigmente für die Industrie und ästhetische Farbgeschichten",
+    en: "EarthHue — Natural Pigments for Food, Cosmetics & Pharma",
+    zh: "EarthHue — 食品、化妆品、制药用天然色素",
+    ja: "EarthHue — 食品・化粧品・製薬向け天然色素",
+    ko: "EarthHue — 식품·화장품·제약용 천연 색소",
+    es: "EarthHue — Pigmentos Naturales para Alimentación, Cosmética y Farmacéutica",
+    fr: "EarthHue — Pigments Naturels pour l'Agroalimentaire, la Cosmétique et la Pharmacie",
+    de: "EarthHue — Natürliche Pigmente für Lebensmittel, Kosmetik und Pharma",
   };
   const descs: Record<string, string> = {
-    en: "Two zones, one palette of nature. B2B raw-material catalog for formulators; C2C color stories, science, and aesthetic gallery for color enthusiasts.",
-    zh: "同一调色板，两种入口。B 端面向配方师的天然原料；C 端面向色彩爱好者的故事、科学与图库。",
-    ja: "二つのゾーン、一つの天然パレット。B2B は処方者向け原料、C2C は色彩愛好家向けのストーリー・科学・ギャラリー。",
-    ko: "두 개의 존, 하나의 자연 팔레트. B2B는 제형가용 원료, C2C는 컬러 애호가용 스토리·과학·갤러리.",
-    es: "Dos zonas, una paleta de la naturaleza. B2B con catálogo para formuladores; C2C con historias, ciencia y galería.",
-    fr: "Deux zones, une palette de la nature. B2B pour formulateurs ; C2C pour passionnés : histoires, science, galerie.",
-    de: "Zwei Zonen, eine Palette der Natur. B2B für Formulierer; C2C für Farbbegeisterte: Geschichten, Wissenschaft, Galerie.",
+    en: "Premium natural pigments for food, cosmetics and pharmaceutical manufacturers. Regulatory-compliant, sustainably sourced, globally delivered.",
+    zh: "面向食品、化妆品、制药制造商的优质天然色素。合规、可持续、全球交付。",
+    ja: "食品・化粧品・製薬メーカー向けプレミアム天然色素。法令準拠、持続可能な調達、世界規模で供給。",
+    ko: "식품·화장품·제약 제조업체를 위한 프리미엄 천연 색소. 규제 준수, 지속 가능한 공급, 글로벌 배송.",
+    es: "Pigmentos naturales premium para fabricantes de alimentación, cosmética y farmacéutica.",
+    de: "Premium-Naturpigmente für Hersteller von Lebensmitteln, Kosmetik und Pharma.",
   };
 
   return {
@@ -46,11 +49,6 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   };
 }
 
-const zones = [
-  { key: "b2b", icon: "🏭", href: "b2b", accent: "from-earth-700 to-earth-900" },
-  { key: "c2c", icon: "🎨", href: "c2c", accent: "from-sage-600 to-sage-800" },
-] as const;
-
 export default async function HomePage({
   params,
 }: {
@@ -59,12 +57,15 @@ export default async function HomePage({
   const { locale } = await params;
   const t = await getTranslations("home");
 
+  const products = listProducts({ onlyPublished: true }).slice(0, 3);
+  const articles = listArticles({ onlyPublished: true }).slice(0, 3);
+
   return (
     <>
       <OrganizationJsonLd />
       <WebsiteJsonLd locale={locale} />
 
-      {/* Hero — B/C Dual-Zone Entry */}
+      {/* Hero — focused on B2B ingredients */}
       <section className="relative bg-gradient-to-br from-earth-100 via-earth-50 to-sage-50 section-padding">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
@@ -79,41 +80,34 @@ export default async function HomePage({
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-6 max-w-5xl mx-auto">
-            {zones.map((z) => (
-              <Link
-                key={z.key}
-                href={`/${locale}/${z.href}`}
-                className={`group relative block bg-gradient-to-br ${z.accent} text-white rounded-2xl p-8 md:p-10 overflow-hidden hover:scale-[1.02] transition-transform`}
-              >
-                <div className="absolute top-4 right-4 text-6xl opacity-20 group-hover:opacity-30 transition-opacity">
-                  {z.icon}
-                </div>
-                <div className="relative">
-                  <p className="text-xs uppercase tracking-widest opacity-80 mb-3">
-                    {t(`hero.zones.${z.key}.eyebrow`)}
-                  </p>
-                  <h2 className="font-serif text-2xl md:text-3xl font-bold mb-4">
-                    {t(`hero.zones.${z.key}.title`)}
-                  </h2>
-                  <p className="opacity-90 mb-6 leading-relaxed">
-                    {t(`hero.zones.${z.key}.desc`)}
-                  </p>
-                  <span className="inline-flex items-center gap-2 font-medium border-b border-white/50 pb-1 group-hover:border-white">
-                    {t(`hero.zones.${z.key}.cta`)} →
-                  </span>
-                </div>
-              </Link>
-            ))}
+          <div className="flex flex-wrap justify-center gap-4">
+            <Link
+              href={`/${locale}/products`}
+              className="inline-flex items-center gap-2 bg-sage-600 text-white px-8 py-4 rounded-full font-medium hover:bg-sage-700 transition-colors shadow-sm"
+            >
+              {t("hero.primaryCta")}
+            </Link>
+            <Link
+              href={`/${locale}/contact`}
+              className="inline-flex items-center gap-2 bg-white text-sage-700 border border-sage-300 px-8 py-4 rounded-full font-medium hover:bg-sage-50 transition-colors"
+            >
+              {t("hero.secondaryCta")}
+            </Link>
           </div>
         </div>
       </section>
 
-      {/* Cross-link strip */}
+      {/* Quick links */}
       <section className="bg-white py-6 border-b border-earth-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-wrap justify-center gap-x-8 gap-y-2 text-sm">
+          <Link href={`/${locale}/products`} className="text-earth-700 hover:text-sage-700">
+            {t("quicklinks.products")}
+          </Link>
           <Link href={`/${locale}/pigments`} className="text-earth-700 hover:text-sage-700">
             {t("quicklinks.pigments")}
+          </Link>
+          <Link href={`/${locale}/articles`} className="text-earth-700 hover:text-sage-700">
+            {t("quicklinks.articles")}
           </Link>
           <Link href={`/${locale}/regulations`} className="text-earth-700 hover:text-sage-700">
             {t("quicklinks.regulations")}
@@ -127,7 +121,66 @@ export default async function HomePage({
         </div>
       </section>
 
-      {/* Features Section */}
+      {/* Featured Products */}
+      {products.length > 0 && (
+        <section className="section-padding bg-white">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="flex items-end justify-between mb-8">
+              <div>
+                <h2 className="font-serif text-3xl md:text-4xl font-bold text-earth-900 mb-2">
+                  {t("featuredProducts.title")}
+                </h2>
+                <p className="text-earth-600">{t("featuredProducts.subtitle")}</p>
+              </div>
+              <Link
+                href={`/${locale}/products`}
+                className="text-sage-700 hover:text-sage-900 font-medium hidden sm:inline"
+              >
+                {t("featuredProducts.allCta")} →
+              </Link>
+            </div>
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+              {products.map((p) => {
+                const tr = p.translations[locale] || p.translations.en || Object.values(p.translations)[0];
+                return (
+                  <Link
+                    key={p.id}
+                    href={`/${locale}/products/${p.slug}`}
+                    className="group block bg-earth-50 rounded-2xl overflow-hidden hover:shadow-md transition-shadow"
+                  >
+                    <div
+                      className="aspect-[4/3] flex items-center justify-center"
+                      style={{
+                        background: p.color
+                          ? `linear-gradient(135deg, ${p.color}22, ${p.color}55)`
+                          : "linear-gradient(135deg, #f5f0e6, #e9e0cc)",
+                      }}
+                    >
+                      <div className="w-20 h-20 rounded-full shadow-inner" style={{ backgroundColor: p.color || "#bbb" }} />
+                    </div>
+                    <div className="p-5">
+                      <h3 className="font-serif text-lg font-semibold text-earth-900 mb-1 group-hover:text-sage-700 transition-colors">
+                        {tr?.name || p.slug}
+                      </h3>
+                      <p className="text-sm text-earth-600 line-clamp-2 mb-2">{tr?.description || ""}</p>
+                      <div className="flex flex-wrap gap-1 text-xs">
+                        {p.base && (
+                          <span className="px-2 py-0.5 bg-earth-100 text-earth-600 rounded">{p.base}</span>
+                        )}
+                        {p.form && (
+                          <span className="px-2 py-0.5 bg-sage-50 text-sage-700 rounded">{p.form}</span>
+                        )}
+                      </div>
+                    </div>
+                  </Link>
+                );
+              })}
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* Features */}
       <section className="section-padding bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="font-serif text-3xl md:text-4xl font-bold text-center text-earth-900 mb-4">
@@ -152,7 +205,7 @@ export default async function HomePage({
         </div>
       </section>
 
-      {/* Applications Section */}
+      {/* Applications */}
       <section className="section-padding bg-earth-900 text-earth-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="font-serif text-3xl md:text-4xl font-bold text-center mb-12">
@@ -162,9 +215,7 @@ export default async function HomePage({
             {(["food", "cosmetics", "pharmaceuticals"] as const).map((app) => (
               <div key={app} className="bg-earth-800 rounded-2xl p-8 hover:bg-earth-700 transition-colors">
                 <h3 className="font-serif text-xl font-semibold mb-4">{t(`applications.${app}`)}</h3>
-                <p className="text-earth-300 mb-4">
-                  {t(`applications.${app}Desc`)}
-                </p>
+                <p className="text-earth-300 mb-4">{t(`applications.${app}Desc`)}</p>
                 <Link
                   href={`/${locale}/pigments?application=${app}`}
                   className="text-sage-400 hover:text-sage-300 text-sm font-medium inline-flex items-center gap-1"
@@ -180,20 +231,74 @@ export default async function HomePage({
         </div>
       </section>
 
-      {/* CTA Section */}
+      {/* Latest Articles */}
+      {articles.length > 0 && (
+        <section className="section-padding bg-earth-50">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="flex items-end justify-between mb-8">
+              <h2 className="font-serif text-3xl md:text-4xl font-bold text-earth-900">
+                {t("articles.title")}
+              </h2>
+              <Link
+                href={`/${locale}/articles`}
+                className="text-sage-700 hover:text-sage-900 font-medium hidden sm:inline"
+              >
+                {t("articles.allCta")} →
+              </Link>
+            </div>
+            <div className="grid md:grid-cols-3 gap-6">
+              {articles.map((a) => {
+                const tr = a.translations[locale] || a.translations.en || Object.values(a.translations)[0];
+                return (
+                  <Link
+                    key={a.id}
+                    href={`/${locale}/articles/${a.slug}`}
+                    className="group block bg-white rounded-2xl border border-earth-100 overflow-hidden hover:shadow-md transition-shadow"
+                  >
+                    {a.cover_image && (
+                      <div className="aspect-[16/9] overflow-hidden">
+                        <img src={a.cover_image} alt="" className="w-full h-full object-cover group-hover:scale-105 transition-transform" />
+                      </div>
+                    )}
+                    <div className="p-5">
+                      <h3 className="font-serif text-lg font-semibold text-earth-900 mb-2 group-hover:text-sage-700 transition-colors">
+                        {tr?.title || a.slug}
+                      </h3>
+                      {tr?.excerpt && (
+                        <p className="text-sm text-earth-600 line-clamp-3">{tr.excerpt}</p>
+                      )}
+                    </div>
+                  </Link>
+                );
+              })}
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* CTA */}
       <section className="section-padding bg-gradient-to-r from-sage-600 to-sage-700 text-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="font-serif text-3xl md:text-4xl font-bold mb-4">
-            {t("cta.title")}
-          </h2>
-          <p className="text-sage-100 mb-8 max-w-2xl mx-auto">
-            {t("cta.desc")}
-          </p>
+          <h2 className="font-serif text-3xl md:text-4xl font-bold mb-4">{t("cta.title")}</h2>
+          <p className="text-sage-100 mb-8 max-w-2xl mx-auto">{t("cta.desc")}</p>
           <Link
             href={`/${locale}/regulations`}
             className="inline-flex items-center gap-2 bg-white text-sage-700 px-6 py-3 rounded-lg font-medium hover:bg-earth-100 transition-colors"
           >
             {t("cta.button")}
+          </Link>
+        </div>
+      </section>
+
+      {/* 色彩美学 link */}
+      <section className="bg-earth-50 border-t border-earth-200">
+        <div className="max-w-4xl mx-auto px-4 py-8 text-center">
+          <p className="text-earth-600 mb-2">{t("aestheticsLink.prompt")}</p>
+          <Link
+            href={`/${locale}/c2c`}
+            className="inline-flex items-center gap-2 text-sage-700 font-medium hover:text-sage-900"
+          >
+            {t("aestheticsLink.cta")} →
           </Link>
         </div>
       </section>

@@ -7,29 +7,15 @@
     "regulations": "法规信息",
     "resources": "技术资源",
     "contact": "联系我们",
-    "b2b": "企业原料",
-    "c2c": "色彩美学"
+    "articles": "文章"
   },
   "home": {
     "hero": {
       "title": "自然色彩，尽善尽美",
       "subtitle": "优质天然色素应用于食品与化妆品——可持续来源，符合全球标准",
-      "cta": "探索我们的色素",
-      "eyebrow": "同一自然调色板，两种入口",
-      "zones": {
-        "b2b": {
-          "eyebrow": "B 端 —— 企业与配方师",
-          "title": "面向工业的天然原料目录",
-          "desc": "食品、化妆品、制药用天然色素。规格书、样品、合规文件、技术支持一站直达。",
-          "cta": "进入企业原料"
-        },
-        "c2c": {
-          "eyebrow": "C 端 —— 色彩爱好者",
-          "title": "来自自然的色彩故事",
-          "desc": "植物色素、天然染色实验、每种色调背后的科学 —— 写给设计师、创作者和好奇的你。",
-          "cta": "进入色彩美学"
-        }
-      }
+      "eyebrow": "面向工业的优质天然色素",
+      "primaryCta": "查看产品",
+      "secondaryCta": "联系我们"
     },
     "features": {
       "title": "为什么选择天然",
@@ -72,7 +58,22 @@
       "pigments": "色素目录",
       "regulations": "法规",
       "about": "关于",
-      "contact": "联系"
+      "contact": "联系",
+      "products": "产品",
+      "articles": "文章"
+    },
+    "featuredProducts": {
+      "title": "精选产品",
+      "subtitle": "即用型配方精选。",
+      "allCta": "查看全部"
+    },
+    "articles": {
+      "title": "最新文章",
+      "allCta": "阅读更多"
+    },
+    "aestheticsLink": {
+      "prompt": "对色彩本身感兴趣？",
+      "cta": "进入色彩美学"
     }
   },
   "about": {
@@ -141,7 +142,12 @@
       "title": "需要定制发酵产品？",
       "desc": "我们专注于微生物色素开发。我们的发酵团队可以根据您的具体需求，定制虾青素、类胡萝卜素和藻蓝蛋白配方。",
       "button": "联系我们的发酵团队"
-    }
+    },
+    "empty": "暂无产品。",
+    "inquire": "询价",
+    "applications": "应用领域",
+    "backToList": "返回产品列表",
+    "breadcrumbHome": "首页"
   },
   "regulations": {
     "title": "法规信息",
@@ -212,37 +218,30 @@
     "regulations": "法规信息",
     "aboutUs": "关于我们",
     "contactUs": "联系我们",
-    "technicalResources": "技术资源",
     "links": {
       "privacy": "隐私政策",
       "terms": "使用条款"
     },
-    "b2b": "企业原料",
-    "c2c": "色彩美学",
-    "b2bOverview": "B 端总览",
-    "b2bCapability": "产能与质控",
-    "b2bCertifications": "资质认证",
-    "b2bSamples": "样品申请",
-    "b2bContact": "B 端联系",
-    "c2cOverview": "C 端总览",
-    "c2cStories": "色彩故事",
-    "c2cScience": "色彩科学",
-    "c2cGallery": "美学图库"
+    "articles": "文章",
+    "aesthetics": "色彩美学",
+    "aestheticsOverview": "总览",
+    "aestheticsStories": "色彩故事",
+    "aestheticsScience": "色彩科学",
+    "aestheticsGallery": "美学图库"
   },
   "b2b": {
-    "sectionTitle": "B 端",
     "navOverview": "总览",
     "navCapability": "产能",
     "navCertifications": "认证",
     "navSamples": "样品",
     "navFactoryVisit": "参观",
     "navContact": "联系",
-    "crossLinkPrompt": "对色彩本身感兴趣？去 C 端看看故事、科学和图库。",
+    "crossLinkPrompt": "对色彩本身感兴趣？去 色彩美学看看故事、科学和图库。",
     "crossLinkCta": "进入色彩美学",
     "metaTitle": "企业原料 —— 天然色素原料目录 | EarthHue",
     "metaDescription": "食品、化妆品、制药用优质天然色素。规格、样品、认证和直接技术支持，服务配方师与采购团队。",
     "title": "企业原料",
-    "eyebrow": "B 端 —— 企业与配方师",
+    "eyebrow": "企业与配方师",
     "heroTitle": "面向工业的天然色素原料",
     "heroSubtitle": "为配方师与采购团队打造。规格、样品、认证和直接技术支持 —— 没有营销辞令。",
     "learnMore": "了解更多",
@@ -269,7 +268,7 @@
         "desc": "预约现场参观我们的生产设施。"
       },
       "contact": {
-        "title": "B 端联系",
+        "title": "联系我们",
         "desc": "报价、合作、样品 —— 任选一种联系方式。"
       }
     },
@@ -430,9 +429,9 @@
       }
     },
     "contact": {
-      "metaTitle": "B 端联系 | EarthHue",
-      "metaDescription": "联系 B 端团队获取报价、样品、合作与参观预约。",
-      "title": "B 端联系",
+      "metaTitle": "联系我们 | EarthHue",
+      "metaDescription": "联系我们的团队获取报价、样品、合作与参观预约。",
+      "title": "联系我们",
       "subtitle": "选择一种方式 —— 我们会在一个工作日内把需求分派给对应专家。",
       "form": {
         "company": "公司",
@@ -453,17 +452,16 @@
     }
   },
   "c2c": {
-    "sectionTitle": "C 端",
     "navOverview": "总览",
     "navStories": "故事",
     "navScience": "科学",
     "navGallery": "图库",
-    "crossLinkPrompt": "在做商业配方？去 B 端看规格、样品和认证。",
-    "crossLinkCta": "进入企业原料",
-    "metaTitle": "色彩美学 —— 色彩故事、科学、图库 | EarthHue",
+    "crossLinkPrompt": "在做商业配方？查看规格、样品和认证。",
+    "crossLinkCta": "查看产品",
+    "metaTitle": "色彩美学 | EarthHue",
     "metaDescription": "植物色素、天然染色，以及每种色调背后的科学 —— 写给设计师、创作者和色彩爱好者。",
     "title": "色彩美学",
-    "eyebrow": "C 端 —— 色彩爱好者",
+    "eyebrow": "",
     "heroTitle": "以自然的方式看颜色",
     "heroSubtitle": "植物与微生物色素的故事、天然 vs 合成染料的科学，以及帮你起步的图库。",
     "explore": "探索",
@@ -564,5 +562,12 @@
       },
       "comingSoon": "更多精选合集 —— 色素 × 织物、色素 × 化妆品 —— 即将上线。"
     }
+  },
+  "articles": {
+    "title": "文章与洞察",
+    "subtitle": "行业洞察、法规更新和色彩科学。",
+    "empty": "暂无文章。",
+    "backToList": "返回文章列表",
+    "breadcrumbHome": "首页"
   }
 }
