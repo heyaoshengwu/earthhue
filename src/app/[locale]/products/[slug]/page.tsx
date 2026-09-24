@@ -4,6 +4,7 @@ import { getTranslations } from "next-intl/server";
 import { Metadata } from "next";
 import { getProductBySlug, listProductImages } from "@/lib/products";
 import { BreadcrumbJsonLd, ProductJsonLd } from "@/components/JsonLd";
+import { pickTranslation } from "@/lib/i18n";
 
 export const dynamic = "force-dynamic";
 
@@ -15,7 +16,7 @@ export async function generateMetadata({
   const { locale, slug } = await params;
   const product = getProductBySlug(slug);
   if (!product) return {};
-  const tr = product.translations[locale] || product.translations.en;
+  const tr = pickTranslation(product.translations, locale);
   return {
     title: `${tr?.name || product.slug} | EarthHue`,
     description: tr?.description || "",
@@ -41,10 +42,7 @@ export default async function ProductDetailPage({
   const product = getProductBySlug(slug);
   if (!product || !product.published) notFound();
   const t = await getTranslations("products");
-  const tr =
-    product.translations[locale] ||
-    product.translations.en ||
-    Object.values(product.translations)[0];
+  const tr = pickTranslation(product.translations, locale);
   const images = listProductImages(product.id);
 
   return (

@@ -5,6 +5,7 @@ import { OrganizationJsonLd, WebsiteJsonLd } from "@/components/JsonLd";
 import { listProducts } from "@/lib/products";
 import { listArticles } from "@/lib/articles";
 import { listHomeImages } from "@/lib/homeImages";
+import { pickTranslation } from "@/lib/i18n";
 
 export const dynamic = "force-dynamic";
 
@@ -172,7 +173,7 @@ export default async function HomePage({
             </div>
             <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
               {products.map((p) => {
-                const tr = p.translations[locale] || p.translations.en || Object.values(p.translations)[0];
+                const tr = pickTranslation(p.translations, locale);
                 return (
                   <Link
                     key={p.id}
@@ -279,7 +280,7 @@ export default async function HomePage({
             </div>
             <div className="grid md:grid-cols-3 gap-6">
               {articles.map((a) => {
-                const tr = a.translations[locale] || a.translations.en || Object.values(a.translations)[0];
+                const tr = pickTranslation(a.translations, locale);
                 return (
                   <Link
                     key={a.id}

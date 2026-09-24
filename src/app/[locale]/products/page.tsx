@@ -3,6 +3,7 @@ import { getTranslations } from "next-intl/server";
 import { Metadata } from "next";
 import { listProducts, listProductImages } from "@/lib/products";
 import { getDb } from "@/lib/db";
+import { pickTranslation } from "@/lib/i18n";
 import { BreadcrumbJsonLd } from "@/components/JsonLd";
 
 export const dynamic = "force-dynamic";
@@ -65,7 +66,7 @@ export default async function ProductsPage({ params }: { params: Promise<{ local
           ) : (
             <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
               {products.map((p) => {
-                const tr = p.translations[locale] || p.translations.en || Object.values(p.translations)[0];
+                const tr = pickTranslation(p.translations, locale);
                 const firstImage = firstImageStmt.get(p.id) as { url: string } | undefined;
                 return (
                   <Link

@@ -4,6 +4,7 @@ import { getTranslations } from "next-intl/server";
 import { Metadata } from "next";
 import { getArticleBySlug } from "@/lib/articles";
 import { BreadcrumbJsonLd } from "@/components/JsonLd";
+import { pickTranslation } from "@/lib/i18n";
 
 export const dynamic = "force-dynamic";
 
@@ -15,7 +16,7 @@ export async function generateMetadata({
   const { locale, slug } = await params;
   const article = getArticleBySlug(slug);
   if (!article) return {};
-  const tr = article.translations[locale] || article.translations.en;
+  const tr = pickTranslation(article.translations, locale);
   return {
     title: `${tr?.title || article.slug} | EarthHue`,
     description: tr?.excerpt || tr?.body?.slice(0, 160) || "",
@@ -41,10 +42,7 @@ export default async function ArticleDetailPage({
   const article = getArticleBySlug(slug);
   if (!article || !article.published) notFound();
   const t = await getTranslations("articles");
-  const tr =
-    article.translations[locale] ||
-    article.translations.en ||
-    Object.values(article.translations)[0];
+  const tr = pickTranslation(article.translations, locale);
 
   return (
     <>

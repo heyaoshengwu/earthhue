@@ -2,6 +2,7 @@ import { getTranslations } from "next-intl/server";
 import { Metadata } from "next";
 import { OrganizationJsonLd, BreadcrumbJsonLd } from "@/components/JsonLd";
 import { getAbout, listAboutImages } from "@/lib/about";
+import { pickTranslation } from "@/lib/i18n";
 
 export const dynamic = "force-dynamic";
 
@@ -42,7 +43,7 @@ export default async function AboutPage({ params }: { params: Promise<{ locale: 
   const t = await getTranslations("about");
 
   const { translations } = getAbout();
-  const data = translations[locale] || translations.en || {};
+  const data = pickTranslation(translations, locale) || {};
   const heroImages = listAboutImages("hero");
   const teamImages = listAboutImages("team");
   const factoryImages = listAboutImages("factory");

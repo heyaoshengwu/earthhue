@@ -3,6 +3,7 @@ import { getTranslations } from "next-intl/server";
 import { Metadata } from "next";
 import { listArticles } from "@/lib/articles";
 import { BreadcrumbJsonLd } from "@/components/JsonLd";
+import { pickTranslation } from "@/lib/i18n";
 
 export const dynamic = "force-dynamic";
 
@@ -58,10 +59,7 @@ export default async function ArticlesPage({ params }: { params: Promise<{ local
           ) : (
             <div className="grid md:grid-cols-2 gap-6">
               {articles.map((a) => {
-                const tr =
-                  a.translations[locale] ||
-                  a.translations.en ||
-                  Object.values(a.translations)[0];
+                const tr = pickTranslation(a.translations, locale);
                 return (
                   <Link
                     key={a.id}
