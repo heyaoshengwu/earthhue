@@ -1,15 +1,24 @@
 import { NextRequest, NextResponse } from "next/server";
+import { isWriteAuthorized } from "@/lib/adminAuth";
 import { listHomeImages, upsertHomeImage, isValidHomeImageKey, updateHomeImageMeta, HOME_IMAGE_SLOTS } from "@/lib/homeImages";
 import { saveUpload } from "@/lib/upload";
 
 export const dynamic = "force-dynamic";
 
-export async function GET() {
+export async function GET(req: NextRequest) {
+  if (!isWriteAuthorized(req)) {
+    return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+  }
+
   const items = listHomeImages();
   return NextResponse.json({ items, slots: HOME_IMAGE_SLOTS });
 }
 
 export async function POST(req: NextRequest) {
+  if (!isWriteAuthorized(req)) {
+    return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+  }
+
   const form = await req.formData();
   const file = form.get("file");
   const key = String(form.get("key") || "").trim();
@@ -33,6 +42,10 @@ export async function POST(req: NextRequest) {
 }
 
 export async function PUT(req: NextRequest) {
+  if (!isWriteAuthorized(req)) {
+    return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+  }
+
   let body: { key?: string; alt?: string | null; caption?: string | null };
   try {
     body = await req.json();

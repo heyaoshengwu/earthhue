@@ -3,6 +3,7 @@ import { Metadata } from "next";
 import { OrganizationJsonLd, BreadcrumbJsonLd } from "@/components/JsonLd";
 import { getAbout, listAboutImages } from "@/lib/about";
 import { pickTranslation } from "@/lib/i18n";
+import { localeAlternates } from "@/lib/seo";
 
 export const dynamic = "force-dynamic";
 
@@ -20,6 +21,8 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   };
 
   return {
+
+    alternates: localeAlternates(locale, "/about"),
     title: titles[locale] || t("title"),
     description: t("subtitle"),
     openGraph: {
@@ -29,12 +32,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
       locale,
       type: "website",
     },
-    alternates: {
-      canonical: `https://earthhue.net/${locale}/about`,
-      languages: Object.fromEntries(
-        ["en", "zh", "ja", "ko", "es", "fr", "de"].map((l) => [l, `https://earthhue.net/${l}/about`])
-      ),
-    },
+
   };
 }
 
@@ -68,7 +66,7 @@ export default async function AboutPage({ params }: { params: Promise<{ locale: 
             <div className="mb-10 grid grid-cols-1 sm:grid-cols-2 gap-4">
               {heroImages.map((img) => (
                 <figure key={img.id} className="rounded-2xl overflow-hidden">
-                  <img src={img.url} alt={img.alt || ""} className="w-full h-full object-cover" />
+                  <img src={img.url} alt={img.alt || ""} className="w-full h-full object-cover" loading="lazy" decoding="async" />
                   {img.caption && (
                     <figcaption className="text-xs text-earth-500 mt-2 px-2">
                       {img.caption}
@@ -118,7 +116,7 @@ export default async function AboutPage({ params }: { params: Promise<{ locale: 
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
                 {factoryImages.map((img) => (
                   <figure key={img.id} className="rounded-xl overflow-hidden">
-                    <img src={img.url} alt={img.alt || ""} className="w-full h-48 object-cover" />
+                    <img src={img.url} alt={img.alt || ""} className="w-full h-48 object-cover" loading="lazy" decoding="async" />
                   </figure>
                 ))}
               </div>
@@ -166,7 +164,7 @@ export default async function AboutPage({ params }: { params: Promise<{ locale: 
               <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
                 {teamImages.map((img) => (
                   <figure key={img.id} className="rounded-xl overflow-hidden">
-                    <img src={img.url} alt={img.alt || ""} className="w-full h-40 object-cover" />
+                    <img src={img.url} alt={img.alt || ""} className="w-full h-40 object-cover" loading="lazy" decoding="async" />
                     {img.caption && (
                       <figcaption className="text-xs text-earth-500 mt-1">
                         {img.caption}

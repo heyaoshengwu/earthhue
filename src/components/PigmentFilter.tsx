@@ -61,7 +61,8 @@ export function PigmentFilter() {
           return (
             <article
               key={pigment.id}
-              className="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition-shadow border border-earth-100"
+              id={pigment.id}
+              className="scroll-mt-20 bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition-shadow border border-earth-100"
             >
               <div className="h-32 flex" style={{ backgroundColor: "#f5f0e8" }}>
                 {pigment.colors.map((color, i) => (
@@ -87,6 +88,9 @@ export function PigmentFilter() {
                   <div className="text-xs text-earth-500">
                     <span className="font-medium">CAS:</span> {pigment.casNumber}
                   </div>
+                  <div className="text-xs text-earth-500">
+                    <span className="font-medium">EINECS:</span> {pigment.einecsNumber}
+                  </div>
                   <div className="flex flex-wrap gap-2">
                     {displayApps.map((app) => (
                       <span key={app} className="px-2 py-1 text-xs bg-earth-50 text-earth-600 rounded">
@@ -94,12 +98,32 @@ export function PigmentFilter() {
                       </span>
                     ))}
                   </div>
+                  {pigment.formulations.length > 0 && (
+                    <div className="text-xs text-earth-500">
+                      <span className="font-medium">{t("formulations")}:</span>{" "}
+                      {pigment.formulations.join(", ")}
+                    </div>
+                  )}
                 </div>
                 <div className="border-t border-earth-100 pt-4">
                   <p className="text-xs text-earth-500 mb-2">{t("regulatoryStatus")}:</p>
                   <div className="flex flex-wrap gap-1 text-xs">
-                    <span className="px-2 py-1 bg-earth-50 rounded">{pigment.regulations.eu}</span>
-                    <span className="px-2 py-1 bg-earth-50 rounded">{pigment.regulations.us}</span>
+                    <span className="px-2 py-1 bg-earth-50 rounded">
+                      <span className="font-medium">{t("regions.eu")}:</span>{" "}
+                      {pigment.regulations.eu}
+                    </span>
+                    <span className="px-2 py-1 bg-earth-50 rounded">
+                      <span className="font-medium">{t("regions.us")}:</span>{" "}
+                      {pigment.regulations.us}
+                    </span>
+                    <span className="px-2 py-1 bg-earth-50 rounded">
+                      <span className="font-medium">{t("regions.japan")}:</span>{" "}
+                      {pigment.regulations.japan}
+                    </span>
+                    <span className="px-2 py-1 bg-earth-50 rounded">
+                      <span className="font-medium">{t("regions.korea")}:</span>{" "}
+                      {pigment.regulations.korea}
+                    </span>
                   </div>
                 </div>
               </div>

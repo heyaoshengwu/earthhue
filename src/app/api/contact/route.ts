@@ -1,27 +1,44 @@
 import { NextRequest, NextResponse } from "next/server";
+import { getDb } from "@/lib/db";
+import { sendInquiryEmail, mailConfigured } from "@/lib/mailer";
+import { isAdminAuthorized } from "@/lib/adminAuth";
 
-// Configure your contact email here
-const CONTACT_EMAIL = "contact@earthhue.net";
-const ADMIN_EMAIL = "admin@earthhue.net";
+export const runtime = "nodejs";
+export const dynamic = "force-dynamic";
 
-interface ContactSubmission {
-  name: string;
-  email: string;
-  company?: string;
-  subject: string;
-  message: string;
-  timestamp: string;
+/**
+ * Contact form.
+ *
+ * Every submission is written to the database first, so an inquiry can never
+ * be lost — not if SMTP is down, not if the mail provider rate-limits us, not
+ * if the server restarts. Delivery by email is a second step on top of that,
+ * and its outcome is recorded on the row.
+ *
+ * Reading submissions back requires an admin session token.
+ */
+
+const MAX_FIELD = 5000;
+
+function clean(value: unknown, max = MAX_FIELD): string {
+  return String(value ?? "").trim().slice(0, max);
 }
-
-// Store submissions in memory (for demo - use a database in production)
-const submissions: ContactSubmission[] = [];
 
 export async function POST(request: NextRequest) {
   try {
-    const body = await request.json();
-    const { name, email, company, subject, message } = body;
+    let raw: unknown;
+    try {
+      raw = await request.json();
+    } catch {
+      return NextResponse.json({ error: "Invalid request body" }, { status: 400 });
+    }
+    const body = (raw && typeof raw === "object" ? raw : {}) as Record<string, unknown>;
+    const name = clean(body.name, 200);
+    const email = clean(body.email, 200);
+    const company = clean(body.company, 200);
+    const subject = clean(body.subject, 200) || "general";
+    const message = clean(body.message);
+    const locale = clean(body.locale, 10);
 
-    // Validate required fields
     if (!name || !email || !message) {
       return NextResponse.json(
         { error: "Name, email, and message are required" },
@@ -29,47 +46,44 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    // Validate email format
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(email)) {
-      return NextResponse.json(
-        { error: "Invalid email format" },
-        { status: 400 }
-      );
+      return NextResponse.json({ error: "Invalid email format" }, { status: 400 });
     }
 
-    const submission: ContactSubmission = {
-      name,
-      email,
-      company: company || "",
-      subject: subject || "General Inquiry",
-      message,
-      timestamp: new Date().toISOString(),
-    };
+    const db = getDb();
+    const info = db
+      .prepare(
+        `INSERT INTO contact_submissions
+           (name, email, company, subject, message, locale, delivery_status, ip, user_agent)
+         VALUES (?, ?, ?, ?, ?, ?, 'stored', ?, ?)`
+      )
+      .run(
+        name,
+        email,
+        company,
+        subject,
+        message,
+        locale,
+        request.headers.get("x-forwarded-for") || "",
+        clean(request.headers.get("user-agent"), 300)
+      );
 
-    // Store submission
-    submissions.push(submission);
+    const id = Number(info.lastInsertRowid);
 
-    // Log submission (in production, you would send email or save to database)
-    console.log("=== New Contact Submission ===");
-    console.log(`Name: ${name}`);
-    console.log(`Email: ${email}`);
-    console.log(`Company: ${company || "N/A"}`);
-    console.log(`Subject: ${subject}`);
-    console.log(`Message: ${message}`);
-    console.log(`Time: ${submission.timestamp}`);
-    console.log("===========================");
-
-    // In production, you could:
-    // 1. Send email using Resend, SendGrid, etc.
-    // 2. Save to database (Neon, Prisma, etc.)
-    // 3. Send to Slack/Discord webhook
-    // 4. Integrate with CRM
+    // Persisted first, delivered second. A mail failure never loses the lead.
+    const mail = await sendInquiryEmail({ name, email, company, subject, message, locale });
+    db.prepare("UPDATE contact_submissions SET delivery_status = ?, delivery_error = ? WHERE id = ?").run(
+      mail.delivered ? "sent" : "stored",
+      mail.error ?? null,
+      id
+    );
 
     return NextResponse.json({
       success: true,
       message: "Thank you for your message. We will respond within 24-48 hours.",
-      submissionId: submissions.length,
+      id,
+      emailDelivered: mail.delivered,
     });
   } catch (error) {
     console.error("Contact form error:", error);
@@ -80,12 +94,20 @@ export async function POST(request: NextRequest) {
   }
 }
 
-// Get all submissions (for admin - in production, add authentication)
-export async function GET() {
+/** List stored inquiries. Admin session token required. */
+export async function GET(req: NextRequest) {
+  if (!isAdminAuthorized(req)) {
+    return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+  }
+  const db = getDb();
+  const limit = Math.min(Number(req.nextUrl.searchParams.get("limit") || 200), 1000);
+  const rows = db
+    .prepare("SELECT * FROM contact_submissions ORDER BY id DESC LIMIT ?")
+    .all(limit);
+  const total = db.prepare("SELECT COUNT(*) AS c FROM contact_submissions").get() as { c: number };
   return NextResponse.json({
-    submissions,
-    total: submissions.length,
-    // Don't expose in production without auth
-    message: "Contact submissions (admin only)",
+    submissions: rows,
+    total: total.c,
+    mailConfigured: mailConfigured(),
   });
 }

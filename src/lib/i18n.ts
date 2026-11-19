@@ -1,4 +1,13 @@
-export const FALLBACK_LOCALES = ["zh", "en"] as const;
+/**
+ * Fallback order when the requested locale has no translation.
+ *
+ * English comes first: it is the site's default locale and the language the
+ * source material is authored in, so a reader who lands on a locale we have
+ * not translated yet gets readable English rather than a Chinese fallback on a
+ * Japanese, Korean, Spanish, French or German page. Chinese stays as the
+ * second fallback because it is the best-maintained translation.
+ */
+export const FALLBACK_LOCALES = ["en", "zh"] as const;
 
 export function pickTranslation<T>(
   translations: Record<string, T | undefined> | undefined | null,
@@ -23,5 +32,5 @@ export function getTranslationLocale(translations: Record<string, unknown>, pref
   for (const key of Object.keys(translations)) {
     if (translations[key] != null) return key;
   }
-  return preferred || "zh";
+  return preferred || "en";
 }

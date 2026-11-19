@@ -3,23 +3,26 @@ import { regulationTranslations } from "@/content/regulations/translations";
 import Link from "next/link";
 import { getTranslations } from "next-intl/server";
 import { Metadata } from "next";
-import { BreadcrumbJsonLd } from "@/components/JsonLd";
+import { BreadcrumbJsonLd, RegulationCatalogJsonLd } from "@/components/JsonLd";
 import type { Locale } from "@/content/regulations/translations";
+import { localeAlternates } from "@/lib/seo";
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "regulations" });
   const titles: Record<string, string> = {
-    en: "Regulatory Information - Global Compliance for Natural Pigments | EarthHue",
-    zh: "法规信息 - 天然色素全球合规指南 | EarthHue",
-    ja: "規制情報 - 天然色素のグローバル規制対応 | EarthHue",
-    ko: "규제 정보 - 천연 색소 글로벌 규제 준수 | EarthHue",
-    es: "Información Regulatoria - Cumplimiento Global para Pigmentos Naturales | EarthHue",
-    fr: "Information Réglementaire - Conformité Mondiale pour Pigments Naturels | EarthHue",
-    de: "Regulatorische Informationen - Globale Compliance für Natürliche Pigmente | EarthHue",
+    en: "Regulatory Information - Global Compliance for Natural Pigments",
+    zh: "法规信息 - 天然色素全球合规指南",
+    ja: "規制情報 - 天然色素のグローバル規制対応",
+    ko: "규제 정보 - 천연 색소 글로벌 규제 준수",
+    es: "Información Regulatoria - Cumplimiento Global para Pigmentos Naturales",
+    fr: "Information Réglementaire - Conformité Mondiale pour Pigments Naturels",
+    de: "Regulatorische Informationen - Globale Compliance für Natürliche Pigmente",
   };
 
   return {
+
+    alternates: localeAlternates(locale, "/regulations"),
     title: titles[locale] || t("title"),
     description: t("subtitle"),
     openGraph: {
@@ -29,12 +32,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
       locale,
       type: "website",
     },
-    alternates: {
-      canonical: `https://earthhue.net/${locale}/regulations`,
-      languages: Object.fromEntries(
-        ["en", "zh", "ja", "ko", "es", "fr", "de"].map((l) => [l, `https://earthhue.net/${l}/regulations`])
-      ),
-    },
+
   };
 }
 
@@ -50,6 +48,11 @@ export default async function RegulationsPage({ params }: { params: Promise<{ lo
           { name: "Home", url: `https://earthhue.net/${locale}` },
           { name: t("title"), url: `https://earthhue.net/${locale}/regulations` },
         ]}
+      />
+      <RegulationCatalogJsonLd
+        locale={locale}
+        name={t("title")}
+        regulations={regulations}
       />
 
       <div className="section-padding">

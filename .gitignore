@@ -3,6 +3,7 @@ node_modules/
 
 # Build output
 .next/
+.next.bak-*/
 out/
 dist/
 
@@ -40,3 +41,6 @@ next-env.d.ts
 # Site content storage (runtime-generated)
 data/
 public/uploads/
+
+# Stray local dev server log
+server.log

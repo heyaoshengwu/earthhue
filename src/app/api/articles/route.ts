@@ -1,16 +1,25 @@
 import { NextRequest, NextResponse } from "next/server";
+import { isWriteAuthorized } from "@/lib/adminAuth";
 import { createArticle, listArticles, articleSlugExists } from "@/lib/articles";
 import type { ArticleTranslation } from "@/lib/articles";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
 
-export async function GET() {
+export async function GET(req: NextRequest) {
+  if (!isWriteAuthorized(req)) {
+    return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+  }
+
   const items = listArticles({ onlyPublished: false });
   return NextResponse.json({ items });
 }
 
 export async function POST(req: NextRequest) {
+  if (!isWriteAuthorized(req)) {
+    return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+  }
+
   const body = await req.json();
   const slug = String(body.slug || "").trim().toLowerCase();
   const translations = body.translations || {};

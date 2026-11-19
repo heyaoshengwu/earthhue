@@ -11,69 +11,220 @@
   },
   "home": {
     "hero": {
-      "title": "자연의 팔레트, 완벽하게",
-      "subtitle": "식품 및 화장품용 프리미엄 천연 색소 — 지속 가능한 조달, 글로벌 기준 충족",
-      "eyebrow": "산업용 프리미엄 천연 색소",
-      "primaryCta": "제품 보기",
-      "secondaryCta": "문의하기"
+      "eyebrow": "정밀 발효 · 천연 카로티노이드",
+      "title": "아스타잔틴, 루테인, 라이코펜 —— 정밀 발효로 생산",
+      "subtitle": "EarthHue는 식품, 영양건강식품, 화장품, 의약품 제제업체를 위해 발효 유래 천연 카로티노이드를 제조합니다. 로트 단위 COA와 MSDS, 유럽·미국·일본·한국 법규 대응 문서, MOQ 1 kg.",
+      "primaryCta": "발효 시리즈 보기",
+      "secondaryCta": "샘플 요청",
+      "chips": [
+        "모든 로트에 COA와 MSDS 동봉",
+        "MOQ 1 kg —— 샘플 7일 이내 출고",
+        "유럽 · 미국 · 일본 · 한국 법규 대응 문서"
+      ]
     },
-    "features": {
-      "title": "천연을 선택하는 이유",
-      "trusted": "일관된 품질과 규제 준수로 전 세계 제조사에서 신뢰",
+    "series": {
+      "eyebrow": "핵심 시리즈",
+      "title": "세 가지 카로티노이드, 하나의 발효 플랫폼",
+      "subtitle": "각 시리즈는 기록화된 균주를 제어된 발효 조건에서 배양한 뒤 정제·건조·표준화하여 저장 안정적인 분말 또는 유액상 현탁액으로 마무리됩니다.",
+      "cta": "전체 카탈로그 보기"
+    },
+    "why": {
+      "eyebrow": "발효가 바꾸는 것",
+      "title": "발효 유래 카로티노이드, 한 문단으로 설명",
+      "answer": "발효 유래 카로티노이드는 특정 효모 또는 미세조류 균주를 밀폐형 바이오리액터에서 배양한 뒤 색소를 추출·정제해 얻는 착색 분자입니다. 이 경로는 수확과 계절별 수확량을 방정식에서 제거합니다. 동일한 균주와 동일한 발효 프로토콜을 쓰면 로트마다 같은 함량과 같은 색상을 확보하고, 생산은 연중 이어집니다. 제제업체 입장에서는 파일럿 탱크에서도 10톤 규모에서도 예측 가능한 색상을 뜻합니다.",
+      "points": [
+        {
+          "title": "함량으로 계획할 수 있는 기준",
+          "desc": "모든 로트를 HPLC로 표준품 대비 정량하며, 분석성적서가 동봉됩니다."
+        },
+        {
+          "title": "수확에 좌우되지 않는 공급",
+          "desc": "밀폐 탱크 발효로 작물 실패·기상·계절 변동과 공급을 분리합니다."
+        },
+        {
+          "title": "보관된 균주 라이브러리",
+          "desc": "생산 균주는 유전자형 확인 후 사내에서 보관·관리하므로, 2년 후 재주문해도 당초 규격과 일치합니다."
+        }
+      ]
+    },
+    "compare": {
+      "eyebrow": "원산지 비교",
+      "title": "아스타잔틴: 효모, 미세조류, 합성",
+      "subtitle": "같은 분자, 세 가지 경로. 어떤 것이 적합한지는 “자연”이라는 표현이 아니라 목표 색상, 제형, 법규 파일에 달려 있습니다.",
+      "headers": [
+        "",
+        "효모(Phaffia rhodozyma)",
+        "미세조류(Haematococcus)",
+        "합성"
+      ],
+      "rows": [
+        {
+          "label": "생산 경로",
+          "cells": [
+            "밀폐 발효",
+            "노천 배양 후 추출",
+            "화학 합성"
+          ]
+        },
+        {
+          "label": "시판 제품 일반 함량",
+          "cells": [
+            "유액상 현탁액 기준 2–5%",
+            "유액상 현탁액 기준 1–5%",
+            "결정형 또는 에스테르형 10–90%"
+          ]
+        },
+        {
+          "label": "유효 성분 1 kg당 상대 비용",
+          "cells": [
+            "낮음",
+            "높음",
+            "가장 낮음"
+          ]
+        },
+        {
+          "label": "자연으로 표기 가능한지",
+          "cells": [
+            "가능",
+            "가능",
+            "불가"
+          ]
+        },
+        {
+          "label": "주요 용도",
+          "cells": [
+            "식품 착색, 사료, 영양건강식품",
+            "프리미엄 영양건강식품 착색",
+            "양식용 사료, 고농도 착색"
+          ]
+        }
+      ]
+    },
+    "capability": {
+      "eyebrow": "제조",
+      "title": "숫자로 보는 생산능력과 품질관리",
       "items": [
         {
-          "title": "규제 준수",
-          "desc": "EU, FDA, 일본, 한국 기준 충족"
+          "value": "1,200+ t/yr",
+          "label": "연간 색소 생산능력"
         },
         {
-          "title": "지속 가능한 조달",
-          "desc": "원산지부터 배송까지 환경 고려"
+          "value": "8",
+          "label": "생산 라인"
         },
         {
-          "title": "입증된 안정성",
-          "desc": "내열·내광 처방"
+          "value": "30+",
+          "label": "로트당 QC 확인 지점"
         },
         {
-          "title": "기술 지원",
-          "desc": "전문 응용 기술 지도"
+          "value": "12%",
+          "label": "매출 중 R&D 재투자 비율"
+        }
+      ]
+    },
+    "process": {
+      "eyebrow": "제조 방식",
+      "title": "균주 저장고에서 밀폐 드럼까지",
+      "steps": [
+        {
+          "title": "균주 선별과 보존",
+          "desc": "생산 균주는 유전자형 확인 후 기탁·보관하고 사내에서 유지하여, 수년 후에도 동일한 규격을 재현할 수 있도록 합니다."
+        },
+        {
+          "title": "제어 발효",
+          "desc": "균주는 밀폐식 스테인리스 바이오리액터에서 배양하며 pH, 용존산소, 온도를 감시합니다."
+        },
+        {
+          "title": "세포 회수와 색소 방출",
+          "desc": "바이오매스를 회수하고 세포벽을 파쇄해 색소를 청정·저고형물 스트림으로 방출합니다."
+        },
+        {
+          "title": "정제와 농축",
+          "desc": "색소를 막분리와 크로마토그래피로 정제한 뒤 목표 함량까지 농축합니다."
+        },
+        {
+          "title": "건조, 분쇄, QC 출하",
+          "desc": "분말 또는 유액상 현탁액을 표준화해 밀폐 드럼에 충전하고, HPLC·ICP-MS·미생물 검사를 모두 통과한 후 출하합니다."
         }
       ]
     },
     "applications": {
-      "title": "적용 분야",
+      "title": "카로티노이드가 쓰이는 곳",
       "food": "식품 및 음료",
-      "foodDesc": "식품 산업용 천연 색소",
+      "foodDesc": "음료, 유제품, 제빵, 제과, 육류 대체식품 등 클린 라벨 착색이 필요한 분야.",
+      "nutraceutical": "영양건강식품 · 영양보충제",
+      "nutraceuticalDesc": "눈 건강, 피부, 운동 영양, 항산화 포지션을 겨냥한 캡슐, 정제, 분말, 소프트겔.",
       "cosmetics": "화장품 및 퍼스널 케어",
-      "cosmeticsDesc": "클린 라벨 색상 솔루션",
-      "pharmaceuticals": "제약",
-      "pharmaceuticalsDesc": "규제 준수 제약 색소",
-      "viewPigments": "색소 보기"
+      "cosmeticsDesc": "유분산형과 현탁형 등급을 적용한 세럼, 크림, 컬러 화장품, 헤어케어 제품.",
+      "pharmaceuticals": "의약품",
+      "pharmaceuticalsDesc": "필름코팅 정제, 캡슐, 외용 제제에 사용하는 의약첨가제 등급 착색제.",
+      "viewPigments": "카탈로그 둘러보기"
+    },
+    "quality": {
+      "title": "공급업체 심사를 견디는 문서 체계",
+      "desc": "모든 출하물에는 COA와 MSDS가 포함됩니다. 법규 파일, 알레르겐 및 GMO 진술, 할랄·코셔 인증, 안정성 데이터는 SKU별로 제공 가능합니다.",
+      "items": [
+        "HPLC 및 UV-Vis 동일성·함량 시험",
+        "ICP-MS 중금속(Pb, As, Cd, Hg)",
+        "미생물 한도는 USP/EP 기준",
+        "40 °C / 75 % RH 가속 안정성"
+      ],
+      "cta": "인증 확인하기"
+    },
+    "faq": {
+      "title": "제제업체가 가장 먼저 묻는 질문",
+      "items": [
+        {
+          "q": "발효 아스타잔틴과 Haematococcus 아스타잔틴은 어떻게 다른가요?",
+          "a": "두 제품 모두 동일한 활성 분자인 3S,3′-S 아스타잔틴을 제공합니다. 차이는 경로와 비용입니다. Phaffia rhodozyma 유래 효모 아스타잔틴은 밀폐 발효조에서 제조되어 연중 공급이 가능하고, 유효 성분 kg당 단가가 낮으며 목표 함량에 맞춰 조정할 수 있습니다. Haematococcus pluvialis는 노천에서 배양·수확하므로 유효 성분 kg당 단가는 높지만, 하나의 충분히 규격화된 단일 성분을 원하는 구매자가 기준 등급으로 지목하는 경우가 많습니다. 사양이 목표 색상과 가격이라면 효모가 유리하고, 특정 원산지에 묶인 공개 임상 자료가 필요하다면 조류가 더 확실한 참조입니다."
+        },
+        {
+          "q": "모든 로트에 COA와 MSDS를 제공할 수 있나요?",
+          "a": "그렇습니다. 모든 로트는 동일성, 함량, 중금속, 미생물, 잔류 용매를 다루는 분석성적서와 MSDS와 함께 출하됩니다. 유럽(Regulation (EC) No 1333/2008), 미국, 일본, 한국 신고에 필요한 보조 법규 문서는 요청 시 제공합니다."
+        },
+        {
+          "q": "최소 주문 수량은 얼마인가요?",
+          "a": "표준 등급은 1 kg으로, 색상 매칭, 안정성, 관능 평가를 포함한 완전한 벤치 트라이얼에 충분한 양입니다. 더 큰 물량은 용도와 수량에 따라 별도 견적을 드립니다. 자격을 갖춘 신청자에게는 최대 5개 시리즈의 샘플을 무상으로 7일 이내에 발송합니다."
+        },
+        {
+          "q": "이 색소들의 안정성은 어느 정도인가요?",
+          "a": "유기체 형태의 카로티노이드는 빛, 산소, 열에 민감합니다. 우리는 항산화 시스템, 불투명 포장, 그리고 적용이 허용되는 경우 유분산형이나 마이크로캡슐화 등급을 통해 처방 단계에서 대응합니다. 모든 로트에는 40 °C, 상대습도 75 % 가속 안정성 데이터가 포함되며, 애플리케이션팀이 적합한 등급을 권고합니다."
+        },
+        {
+          "q": "물량을 확정하기 전에 샘플을 받을 수 있나요?",
+          "a": "그렇습니다. 평가에 필요한 시리즈, 등급, 수량을 알려주시면, 자격을 갖춘 프로젝트에 대해 시리즈당 100 g, 최대 5개 시리즈를 무상으로 추적 발송해 드립니다. 평가 후에도 처방 조정을 위해 기술 담당자를 계속 배정해 드립니다."
+        },
+        {
+          "q": "맞춤형 발효 제품을 개발할 수 있나요?",
+          "a": "그렇습니다. 맞춤 균주 개발, 함량 목표, 담체, 캡슐화 모두 범위에 포함됩니다. R&D 팀이 사내에서 균주 선별과 발효 최적화를 수행하며, 공정 개발에는 대학과 협력합니다. 목표 색상, 적용처, 물량, 일정을 알려주시면 가능성 검토 결과와 개발 계획을 회신드립니다."
+        }
+      ]
     },
     "cta": {
-      "title": "기술 사양이 필요하십니까?",
-      "desc": "제품 데이터시트 및 규제 문서를 다운로드하세요",
-      "button": "기술 자료 액세스"
+      "title": "사양을 보내주세요",
+      "desc": "목표 색상, 적용처, 물량, 대상 시장을 알려주세요. 사양서, 샘플 COA, 가격으로 보통 영업일 기준 1일 이내에 회신드립니다.",
+      "button": "견적 요청"
     },
     "quicklinks": {
-      "pigments": "Pigment catalog",
-      "regulations": "Regulations",
-      "about": "About",
-      "contact": "Contact",
+      "pigments": "색소 레퍼런스",
+      "regulations": "법규 정보",
+      "about": "회사 소개",
+      "contact": "문의",
       "products": "제품",
-      "articles": "기사"
+      "articles": "아티클"
     },
     "featuredProducts": {
-      "title": "추천 제품",
-      "subtitle": "바로 사용 가능한 제형을 엄선하여 소개합니다.",
-      "allCta": "전체 보기"
+      "title": "카탈로그",
+      "subtitle": "바로 사용할 수 있는 색소 처방.",
+      "allCta": "전체 제품 보기"
     },
     "articles": {
-      "title": "최근 기사",
-      "allCta": "더 보기"
+      "title": "최신 아티클",
+      "allCta": "더 읽기"
     },
     "aestheticsLink": {
-      "prompt": "색 자체에 관심이 있으신가요?",
-      "cta": "컬러 미학 보기"
+      "prompt": "색 자체가 궁금하신가요?",
+      "cta": "컬러 미학 방문"
     }
   },
   "about": {
@@ -128,24 +279,40 @@
       "application": "적용",
       "region": "목표 시장"
     },
-    "regulatoryStatus": "규제 상태"
+    "regulatoryStatus": "규제 상태",
+    "regions": {
+      "eu": "EU",
+      "us": "미국",
+      "japan": "일본",
+      "korea": "한국"
+    },
+    "formulations": "제형"
   },
   "products": {
-    "title": "제품 카탈로그",
-    "subtitle": "프리미엄 미생물 발효 색소를 포함한 즉시 사용 가능한 천연 색상 처방.",
+    "title": "발효 유래 카로티노이드 및 천연 색소",
+    "subtitle": "바로 사용할 수 있는 천연 착색 제형. 핵심 라인업은 발효 유래 아스타잔틴, 루테인, 라이코펜, 베타 카로틴, 제아산틴이며, 식품·영양건강식품·화장품·의약품용 식물성 및 광물성 착색제가 이를 뒷받침합니다.",
     "categories": {
-      "plant": "식물 유래",
-      "microbial": "미생물/발효 유래",
+      "fermentation": "발효 유래",
+      "algae": "조류 유래",
+      "botanical": "식물 유래",
       "mineral": "광물 유래"
     },
+    "allCategories": "전체 시리즈",
     "custom": {
-      "title": "맞춤형 발효 제품이 필요하십니까?",
-      "desc": "미생물 색소 개발을 전문으로 합니다. 발효 팀이 귀하의 특정 요구에 맞는 아스타잔틴, 카로티노이드 및 피코빌리蛋白质 처방을 만들 수 있습니다.",
-      "button": "발효 팀에 문의"
+      "title": "맞춤형 발효 제품이 필요하신가요?",
+      "desc": "맞춤 균주 개발, 함량 목표, 담체, 캡슐화 모두 가능합니다. 발효 팀이 목표 색상, 적용처, 대상 시장에 맞춰 카로티노이드 제형을 설계해 드립니다.",
+      "button": "발효 팀 문의"
     },
-    "empty": "제품이 아직 없습니다.",
+    "empty": "아직 등록된 제품이 없습니다.",
     "inquire": "견적 요청",
     "applications": "용도",
+    "specs": "규격",
+    "faq": "자주 묻는 질문",
+    "related": "관련 제품",
+    "overview": "개요",
+    "requestSample": "샘플 요청",
+    "requestCoa": "COA 및 MSDS 요청",
+    "seriesLabel": "시리즈",
     "backToList": "제품 목록으로",
     "breadcrumbHome": "홈"
   },
@@ -189,12 +356,8 @@
       }
     },
     "info": {
-      "general": {
-        "title": "일반 문의",
-        "email": "contact@earthhue.net"
-      },
-      "tech": {
-        "title": "기술 지원",
+      "inquiry": {
+        "title": "문의 및 기술 지원",
         "email": "tech@earthhue.net"
       },
       "hours": {
@@ -210,7 +373,7 @@
   },
   "footer": {
     "tagline": "자연에서, 세계로",
-    "contact": "contact@earthhue.net",
+    "contact": "tech@earthhue.net",
     "products": "제품",
     "company": "회사",
     "naturalPigments": "천연 색소",
@@ -238,7 +401,7 @@
     "navContact": "Contact",
     "crossLinkPrompt": "Color-curious? Explore our 色彩美学 zone for stories, science and gallery.",
     "crossLinkCta": "Open 色彩美学 zone",
-    "metaTitle": "For Business — Natural Pigment Raw Materials | EarthHue",
+    "metaTitle": "For Business — Natural Pigment Raw Materials",
     "metaDescription": "Premium natural pigments for food, cosmetics and pharma. Capability, certifications, samples and direct support for formulators and procurement teams.",
     "title": "For Business",
     "eyebrow": "기업 및 제형가",
@@ -273,7 +436,7 @@
       }
     },
     "capability": {
-      "metaTitle": "Capability — Production & QC | EarthHue 企业",
+      "metaTitle": "Capability — Production & QC",
       "metaDescription": "Production capacity, fermentation lines, QC processes and R&D investment.",
       "title": "Capability",
       "subtitle": "From raw plant, mineral, and microbial inputs to compliant pigment powder — under one roof.",
@@ -315,7 +478,7 @@
       }
     },
     "certifications": {
-      "metaTitle": "Certifications | EarthHue 企业",
+      "metaTitle": "Certifications",
       "metaDescription": "Food, cosmetic, pharma, ISO and religious certifications backing every EarthHue pigment.",
       "title": "Certifications",
       "subtitle": "Documents available on request — sample COA, MSDS, and statements of compliance.",
@@ -374,7 +537,7 @@
       "downloadHint": "Need a specific certificate? Send a request via the contact form and we'll send the latest PDF."
     },
     "samples": {
-      "metaTitle": "Sample Request | EarthHue 企业",
+      "metaTitle": "Sample Request",
       "metaDescription": "How to evaluate EarthHue natural pigments — request flow, fees and shipping.",
       "title": "Sample Request",
       "subtitle": "Evaluate the pigment in your own formulation before scaling up.",
@@ -400,7 +563,7 @@
       "cta": "Start a sample request"
     },
     "factoryVisit": {
-      "metaTitle": "Factory Visit | EarthHue 企业",
+      "metaTitle": "Factory Visit",
       "metaDescription": "Tour our extraction, fermentation, QC and packaging lines.",
       "title": "Factory Visit",
       "subtitle": "See the production lines, QC lab and packaging in person.",
@@ -429,7 +592,7 @@
       }
     },
     "contact": {
-      "metaTitle": "문의하기 | EarthHue",
+      "metaTitle": "문의하기",
       "metaDescription": "견적, 샘플, 파트너십 및 공장 방문을 위해 팀에 연락하세요.",
       "title": "문의하기",
       "subtitle": "Pick a channel — we route every inquiry to the right specialist within one business day.",
@@ -458,7 +621,7 @@
     "navGallery": "Gallery",
     "crossLinkPrompt": "상업용 제형을 작업 중이신가요? 사양, 샘플, 인증을 확인하세요.",
     "crossLinkCta": "제품 보기",
-    "metaTitle": "컬러 미학 | EarthHue",
+    "metaTitle": "컬러 미학",
     "metaDescription": "Plant pigments, natural dyeing, and the science behind every shade — for designers, makers and color enthusiasts.",
     "title": "컬러 미학",
     "eyebrow": "",
@@ -480,7 +643,7 @@
       }
     },
     "stories": {
-      "metaTitle": "Color Stories | EarthHue 色彩美学",
+      "metaTitle": "Color Stories",
       "metaDescription": "Where natural pigments come from — biology, history, the people behind them.",
       "title": "Color Stories",
       "subtitle": "Every pigment has a plant (or a microbe), a place, and a person behind it.",
@@ -514,7 +677,7 @@
       "ctaLink": "Read the science section"
     },
     "science": {
-      "metaTitle": "Science | EarthHue 色彩美学",
+      "metaTitle": "Science",
       "metaDescription": "Natural vs synthetic, sustainability, stability, safety — short, sourced, no jargon.",
       "title": "Science",
       "subtitle": "Short, sourced, jargon-free articles on the questions we get asked most.",
@@ -544,7 +707,7 @@
       "externalLink": "See global compliance"
     },
     "gallery": {
-      "metaTitle": "Gallery | EarthHue 色彩美学",
+      "metaTitle": "Gallery",
       "metaDescription": "Dyeing experiments and color references for your next project.",
       "title": "Gallery",
       "subtitle": "A small starting set. More coming as our community contributes.",
@@ -568,6 +731,31 @@
     "subtitle": "산업 인사이트, 규제 업데이트, 컬러 과학.",
     "empty": "기사가 아직 없습니다.",
     "backToList": "기사 목록으로",
-    "breadcrumbHome": "홈"
+    "breadcrumbHome": "홈",
+    "cta": {
+      "title": "자체 제형에서 먼저 테스트",
+      "desc": "대량 발주 전에 실험실 샘플을 먼저 요청하세요.",
+      "sample": "샘플 요청",
+      "contact": "기술팀 상담"
+    }
+  },
+  "series": {
+    "label": "시리즈",
+    "fermentation": {
+      "title": "발효 유래",
+      "desc": "효모와 미세조류 균주를 제어된 발효로 제조. 연중 공급과 로트 간 함량 관리."
+    },
+    "algae": {
+      "title": "조류 유래",
+      "desc": "배양한 시아노박테리아와 미세조류에서 얻는 천연 조류 카로티노이드와 피코빌리단백질."
+    },
+    "botanical": {
+      "title": "식물 유래",
+      "desc": "식물 유래 착색제: 큐르민, 비트, 안토시아닌, 클로로필, 메리골드 루테인."
+    },
+    "mineral": {
+      "title": "광물 유래",
+      "desc": "화장품 및 산업용 무기 착색제."
+    }
   }
 }

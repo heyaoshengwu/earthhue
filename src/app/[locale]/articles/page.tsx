@@ -2,8 +2,9 @@ import Link from "next/link";
 import { getTranslations } from "next-intl/server";
 import { Metadata } from "next";
 import { listArticles } from "@/lib/articles";
-import { BreadcrumbJsonLd } from "@/components/JsonLd";
+import { BreadcrumbJsonLd, ItemListJsonLd } from "@/components/JsonLd";
 import { pickTranslation } from "@/lib/i18n";
+import { localeAlternates } from "@/lib/seo";
 
 export const dynamic = "force-dynamic";
 
@@ -11,23 +12,19 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "articles" });
   const titles: Record<string, string> = {
-    en: "Articles & Insights | EarthHue",
-    zh: "文章与洞察 | EarthHue",
-    ja: "記事・洞察 | EarthHue",
-    ko: "기사 & 인사이트 | EarthHue",
-    es: "Artículos e Ideas | EarthHue",
-    fr: "Articles & Perspectives | EarthHue",
-    de: "Artikel & Einblicke | EarthHue",
+    en: "Articles & Insights",
+    zh: "文章与洞察",
+    ja: "記事・洞察",
+    ko: "기사 & 인사이트",
+    es: "Artículos e Ideas",
+    fr: "Articles & Perspectives",
+    de: "Artikel & Einblicke",
   };
   return {
+    alternates: localeAlternates(locale, "/articles"),
     title: titles[locale] || t("title"),
     description: t("subtitle"),
-    alternates: {
-      canonical: `https://earthhue.net/${locale}/articles`,
-      languages: Object.fromEntries(
-        ["en", "zh", "ja", "ko", "es", "fr", "de"].map((l) => [l, `https://earthhue.net/${l}/articles`])
-      ),
-    },
+
   };
 }
 
@@ -43,6 +40,17 @@ export default async function ArticlesPage({ params }: { params: Promise<{ local
           { name: "Home", url: `https://earthhue.net/${locale}` },
           { name: t("title"), url: `https://earthhue.net/${locale}/articles` },
         ]}
+      />
+      <ItemListJsonLd
+        locale={locale}
+        name={t("title")}
+        items={articles.map((a) => {
+          const tr = pickTranslation(a.translations, locale);
+          return {
+            name: tr?.title || a.slug,
+            url: `https://earthhue.net/${locale}/articles/${a.slug}`,
+          };
+        })}
       />
 
       <div className="section-padding">
@@ -71,6 +79,8 @@ export default async function ArticlesPage({ params }: { params: Promise<{ local
                         <img
                           src={a.cover_image}
                           alt={tr?.title || a.slug}
+                          loading="lazy"
+                          decoding="async"
                           className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                         />
                       </div>

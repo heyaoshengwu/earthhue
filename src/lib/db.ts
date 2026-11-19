@@ -73,11 +73,45 @@ CREATE TABLE IF NOT EXISTS home_images (
   updated_at TEXT NOT NULL DEFAULT (datetime('now'))
 );
 
+CREATE TABLE IF NOT EXISTS contact_submissions (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  name TEXT NOT NULL,
+  email TEXT NOT NULL,
+  company TEXT DEFAULT '',
+  subject TEXT DEFAULT '',
+  message TEXT NOT NULL,
+  locale TEXT DEFAULT '',
+  delivery_status TEXT NOT NULL DEFAULT 'stored',
+  delivery_error TEXT,
+  ip TEXT DEFAULT '',
+  user_agent TEXT DEFAULT '',
+  created_at TEXT NOT NULL DEFAULT (datetime('now'))
+);
+
 CREATE INDEX IF NOT EXISTS idx_articles_published ON articles(published, created_at);
 CREATE INDEX IF NOT EXISTS idx_products_published ON products(published, sort_order);
 CREATE INDEX IF NOT EXISTS idx_product_images_product ON product_images(product_id, sort_order);
 CREATE INDEX IF NOT EXISTS idx_about_images_slot ON about_images(slot, sort_order);
+CREATE INDEX IF NOT EXISTS idx_contact_submissions_created ON contact_submissions(created_at);
 `;
+
+/**
+ * Additive, idempotent column migrations.
+ * SQLite has no "ADD COLUMN IF NOT EXISTS", so we inspect the table first.
+ */
+function migrate(db: Database.Database) {
+  const addColumn = (table: string, column: string, ddl: string) => {
+    const cols = db.prepare(`PRAGMA table_info(${table})`).all() as { name: string }[];
+    if (!cols.some((c) => c.name === column)) {
+      db.exec(`ALTER TABLE ${table} ADD COLUMN ${ddl}`);
+    }
+  };
+  // Product taxonomy + locale-keyed payload (specs / FAQ) used by the
+  // fermentation-series product pages and the GEO answer blocks.
+  addColumn("products", "series", "series TEXT");
+  addColumn("products", "specs", "specs TEXT");
+  addColumn("products", "faq", "faq TEXT");
+}
 
 let _db: Database.Database | null = null;
 
@@ -87,6 +121,7 @@ export function getDb(): Database.Database {
   db.pragma("journal_mode = WAL");
   db.pragma("foreign_keys = ON");
   db.exec(SCHEMA);
+  migrate(db);
   db.prepare("INSERT OR IGNORE INTO about (id, translations) VALUES (1, ?)").run("{}");
   _db = db;
   return db;

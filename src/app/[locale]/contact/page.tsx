@@ -1,10 +1,15 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useTranslations } from "next-intl";
 
 export default function ContactPage() {
   const t = useTranslations("contact");
+  const tc = useTranslations("articles");
+  const pathname = usePathname();
+  const locale = pathname.split("/")[1] || "en";
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -25,7 +30,7 @@ export default function ContactPage() {
       const response = await fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(formData),
+        body: JSON.stringify({ ...formData, locale }),
       });
 
       if (!response.ok) {
@@ -122,12 +127,25 @@ export default function ContactPage() {
 
           <div className="space-y-8">
             <div>
-              <h3 className="font-semibold text-earth-900 mb-3">{t("info.general.title")}</h3>
-              <p className="text-earth-600">{t("info.general.email")}</p>
+              <h3 className="font-semibold text-earth-900 mb-3">{t("info.inquiry.title")}</h3>
+              <p className="text-earth-600">
+                <a
+                  href={`mailto:${t("info.inquiry.email")}`}
+                  className="hover:text-sage-700 hover:underline underline-offset-2"
+                >
+                  {t("info.inquiry.email")}
+                </a>
+              </p>
             </div>
-            <div>
-              <h3 className="font-semibold text-earth-900 mb-3">{t("info.tech.title")}</h3>
-              <p className="text-earth-600">{t("info.tech.email")}</p>
+            <div className="rounded-xl bg-sage-50 border border-sage-200 p-5">
+              <h3 className="font-semibold text-earth-900 mb-2">{tc("cta.title")}</h3>
+              <p className="text-earth-600 text-sm mb-4">{tc("cta.desc")}</p>
+              <Link
+                href={`/${locale}/b2b/samples`}
+                className="inline-flex items-center gap-2 bg-sage-600 text-white px-5 py-2.5 rounded-lg font-medium hover:bg-sage-700 transition-colors"
+              >
+                {tc("cta.sample")}
+              </Link>
             </div>
             <div>
               <h3 className="font-semibold text-earth-900 mb-3">{t("info.hours.title")}</h3>

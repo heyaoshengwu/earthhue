@@ -1,15 +1,17 @@
 import { Metadata } from "next";
 import { getTranslations } from "next-intl/server";
 import Link from "next/link";
-import { BreadcrumbJsonLd } from "@/components/JsonLd";
+import { BreadcrumbJsonLd, HowToJsonLd } from "@/components/JsonLd";
+import { localeAlternates } from "@/lib/seo";
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "b2b.samples" });
   return {
+    alternates: localeAlternates(locale, "/b2b/samples"),
     title: t("metaTitle"),
     description: t("metaDescription"),
-    alternates: { canonical: `https://earthhue.net/${locale}/b2b/samples` },
+
   };
 }
 
@@ -26,6 +28,15 @@ export default async function SamplesPage({ params }: { params: Promise<{ locale
         { name: "B2B", url: `https://earthhue.net/${locale}/b2b` },
         { name: t("title"), url: `https://earthhue.net/${locale}/b2b/samples` },
       ]} />
+      <HowToJsonLd
+        locale={locale}
+        name={t("title")}
+        description={t("subtitle")}
+        steps={steps.map((s) => ({
+          name: t(`steps.${s}.title`),
+          text: t(`steps.${s}.desc`),
+        }))}
+      />
 
       <section className="section-padding">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">

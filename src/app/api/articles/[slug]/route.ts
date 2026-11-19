@@ -1,11 +1,16 @@
 import { NextRequest, NextResponse } from "next/server";
+import { isWriteAuthorized } from "@/lib/adminAuth";
 import { deleteArticle, getArticleBySlug, updateArticle, articleSlugExists } from "@/lib/articles";
 import type { ArticleTranslation } from "@/lib/articles";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
 
-export async function GET(_req: NextRequest, ctx: { params: Promise<{ slug: string }> }) {
+export async function GET(req: NextRequest, ctx: { params: Promise<{ slug: string }> }) {
+  if (!isWriteAuthorized(req)) {
+    return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+  }
+
   const { slug } = await ctx.params;
   const article = getArticleBySlug(slug);
   if (!article) return NextResponse.json({ error: "not found" }, { status: 404 });
@@ -13,6 +18,10 @@ export async function GET(_req: NextRequest, ctx: { params: Promise<{ slug: stri
 }
 
 export async function PUT(req: NextRequest, ctx: { params: Promise<{ slug: string }> }) {
+  if (!isWriteAuthorized(req)) {
+    return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+  }
+
   const { slug } = await ctx.params;
   const existing = getArticleBySlug(slug);
   if (!existing) return NextResponse.json({ error: "not found" }, { status: 404 });
@@ -33,7 +42,11 @@ export async function PUT(req: NextRequest, ctx: { params: Promise<{ slug: strin
   return NextResponse.json({ ok: true, item: updated });
 }
 
-export async function DELETE(_req: NextRequest, ctx: { params: Promise<{ slug: string }> }) {
+export async function DELETE(req: NextRequest, ctx: { params: Promise<{ slug: string }> }) {
+  if (!isWriteAuthorized(req)) {
+    return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+  }
+
   const { slug } = await ctx.params;
   const existing = getArticleBySlug(slug);
   if (!existing) return NextResponse.json({ error: "not found" }, { status: 404 });

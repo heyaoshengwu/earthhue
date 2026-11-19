@@ -11,51 +11,202 @@
   },
   "home": {
     "hero": {
-      "title": "Nature's Palette, Perfected",
-      "subtitle": "Premium natural pigments for food and cosmetics — sourced sustainably, meeting global standards",
-      "eyebrow": "Premium natural pigments for industry",
-      "primaryCta": "Browse Products",
-      "secondaryCta": "Contact Our Team"
+      "eyebrow": "Precision fermentation · Natural carotenoids",
+      "title": "Astaxanthin, Lutein and Lycopene — Produced by Precision Fermentation",
+      "subtitle": "EarthHue manufactures fermentation-derived natural carotenoids for food, nutraceutical, cosmetic and pharmaceutical formulators. Batch-level COA and MSDS, EU/US/Japan/Korea documentation, MOQ 1 kg.",
+      "primaryCta": "See the fermentation series",
+      "secondaryCta": "Request a sample",
+      "chips": [
+        "COA and MSDS with every batch",
+        "MOQ 1 kg — samples shipped in 7 days",
+        "EU · US · Japan · Korea documentation"
+      ]
     },
-    "features": {
-      "title": "Why Choose Natural",
-      "trusted": "Trusted by manufacturers worldwide for consistent quality and regulatory compliance",
+    "series": {
+      "eyebrow": "Core series",
+      "title": "Three carotenoids, one fermentation platform",
+      "subtitle": "Each series runs on a documented strain under controlled fermentation, then is purified, dried and standardised into a shelf-stable powder or oil suspension.",
+      "cta": "View the full catalogue"
+    },
+    "why": {
+      "eyebrow": "What fermentation changes",
+      "title": "Fermentation-derived carotenoids, explained in one paragraph",
+      "answer": "Fermentation-derived carotenoids are colour molecules made by culturing a specific yeast or microalgal strain in a closed bioreactor and then extracting and purifying the pigment. The route removes harvest and seasonal yield from the equation: the same strain and the same fermentation protocol deliver the same assay and the same hue batch after batch, and production runs all year round. For a formulator that means a colour that behaves predictably in the pilot tank and still behaves predictably at ten-tonne scale.",
+      "points": [
+        {
+          "title": "Assay you can plan around",
+          "desc": "Every lot is assayed by HPLC against a reference standard, and the certificate of analysis travels with the shipment."
+        },
+        {
+          "title": "Supply independent of the harvest",
+          "desc": "Closed-tank fermentation decouples your supply from crop failure, weather and seasonality."
+        },
+        {
+          "title": "A banked strain library",
+          "desc": "Production strains are genotyped and maintained in-house, so a re-order two years later still matches the original specification."
+        }
+      ]
+    },
+    "compare": {
+      "eyebrow": "Source comparison",
+      "title": "Astaxanthin: yeast, microalgae or synthetic",
+      "subtitle": "Same molecule, three routes. Which one fits your formula comes down to colour target, dosage form and regulatory file — not on the word “natural”.",
+      "headers": [
+        "",
+        "Yeast (Phaffia rhodozyma)",
+        "Microalgae (Haematococcus)",
+        "Synthetic"
+      ],
+      "rows": [
+        {
+          "label": "Production route",
+          "cells": [
+            "Closed fermentation",
+            "Outdoor cultivation, then extraction",
+            "Chemical synthesis"
+          ]
+        },
+        {
+          "label": "Typical commercial assay",
+          "cells": [
+            "2–5% in oil suspension",
+            "1–5% in oil suspension",
+            "10–90% crystalline or ester"
+          ]
+        },
+        {
+          "label": "Relative cost per kg of active",
+          "cells": [
+            "Low",
+            "High",
+            "Lowest"
+          ]
+        },
+        {
+          "label": "May be declared natural",
+          "cells": [
+            "Yes",
+            "Yes",
+            "No"
+          ]
+        },
+        {
+          "label": "Typical use",
+          "cells": [
+            "Food colour, feed, nutraceuticals",
+            "Premium nutraceutical colour",
+            "Aquafeed, high-strength colouring"
+          ]
+        }
+      ]
+    },
+    "capability": {
+      "eyebrow": "Manufacturing",
+      "title": "Capacity and quality control, in numbers",
       "items": [
         {
-          "title": "Regulatory Compliance",
-          "desc": "Meets EU, FDA, Japan, Korea standards"
+          "value": "1,200+ t/yr",
+          "label": "Annual pigment capacity"
         },
         {
-          "title": "Sustainable Sourcing",
-          "desc": "Eco-friendly from origin to delivery"
+          "value": "8",
+          "label": "Production lines"
         },
         {
-          "title": "Proven Stability",
-          "desc": "Heat and light resistant formulations"
+          "value": "30+",
+          "label": "QC checkpoints per lot"
         },
         {
-          "title": "Technical Support",
-          "desc": "Expert application guidance"
+          "value": "12%",
+          "label": "Revenue reinvested in R&D"
+        }
+      ]
+    },
+    "process": {
+      "eyebrow": "How we make it",
+      "title": "From strain bank to sealed drum",
+      "steps": [
+        {
+          "title": "Strain selection and banking",
+          "desc": "Production strains are genotyped, deposited and maintained in-house so a specification can be reproduced years later."
+        },
+        {
+          "title": "Controlled fermentation",
+          "desc": "Strains are cultivated in closed stainless-steel bioreactors with monitored pH, dissolved oxygen and temperature."
+        },
+        {
+          "title": "Cell harvest and pigment release",
+          "desc": "Biomass is harvested and the cell wall broken to release the pigment into a clean, low-solids stream."
+        },
+        {
+          "title": "Purification and concentration",
+          "desc": "Pigment is purified by membrane and chromatography steps, then concentrated to the target assay."
+        },
+        {
+          "title": "Drying, milling and QC release",
+          "desc": "Powder or oil suspension is standardised and filled into sealed drums, released only after HPLC, ICP-MS and microbiology pass."
         }
       ]
     },
     "applications": {
-      "title": "Applications",
+      "title": "Where our carotenoids end up",
       "food": "Food & Beverage",
-      "foodDesc": "Natural colors for the food industry",
+      "foodDesc": "Beverages, dairy, bakery, confectionery and meat analogues that need clean-label colour.",
+      "nutraceutical": "Nutraceutical & Dietary Supplement",
+      "nutraceuticalDesc": "Capsules, tablets, powders and softgels for eye health, skin, sports nutrition and antioxidant positions.",
       "cosmetics": "Cosmetics & Personal Care",
-      "cosmeticsDesc": "Clean-label color solutions",
+      "cosmeticsDesc": "Serums, creams, colour cosmetics and haircare using the oil-dispersible and suspension grades.",
       "pharmaceuticals": "Pharmaceuticals",
-      "pharmaceuticalsDesc": "Regulatory-compliant pigments",
-      "viewPigments": "View pigments"
+      "pharmaceuticalsDesc": "Excipient-grade colour for film-coated tablets, capsules and topical preparations.",
+      "viewPigments": "Browse the catalogue"
+    },
+    "quality": {
+      "title": "Documentation that survives a supplier audit",
+      "desc": "Every shipment ships with a COA and MSDS. Regulatory files, allergen and GMO statements, halal and kosher certification and stability data are available per SKU.",
+      "items": [
+        "HPLC and UV-Vis identity and assay",
+        "ICP-MS heavy metals (Pb, As, Cd, Hg)",
+        "Microbial limits to USP/EP",
+        "40 °C / 75 % RH accelerated stability"
+      ],
+      "cta": "See certifications"
+    },
+    "faq": {
+      "title": "Questions formulators ask us first",
+      "items": [
+        {
+          "q": "What is the difference between fermentation astaxanthin and Haematococcus astaxanthin?",
+          "a": "Both deliver the same active molecule, 3S,3′-S astaxanthin. The difference is the route and the cost. Yeast astaxanthin from Phaffia rhodozyma is made in closed fermenters, so it is available all year, costs less per kilogram of active and can be tuned to a target assay. Haematococcus pluvialis is cultivated outdoors and harvested, so it costs more per kilogram of active but is the reference grade most buyers name when they want one single well-characterised ingredient. If your specification is a colour target and a price, yeast wins; if it is a published clinical dossier tied to one specific source, algae is the safer reference."
+        },
+        {
+          "q": "Can you supply a COA and MSDS for every batch?",
+          "a": "Yes. Every lot ships with a certificate of analysis covering identity, assay, heavy metals, microbiology and residual solvents, plus an MSDS. Supporting regulatory documentation for EU (Regulation (EC) No 1333/2008), United States, Japan and Korea filing is available on request."
+        },
+        {
+          "q": "What is your minimum order quantity?",
+          "a": "One kilogram for standard grades, which is enough to run a complete bench trial including colour matching, stability and a sensory panel. Larger volumes are quoted per application and quantity. Samples of up to five series are free for qualified applicants and ship within seven days."
+        },
+        {
+          "q": "How stable are these pigments?",
+          "a": "Free-form carotenoids are sensitive to light, oxygen and heat. We address that at formulation level with antioxidant systems, opaque packaging and, where the application allows it, oil-dispersible or microencapsulated grades. Every batch carries accelerated stability data at 40 °C and 75 % relative humidity, and our application team will recommend the right grade for your matrix."
+        },
+        {
+          "q": "Do you supply samples before we commit to a volume?",
+          "a": "Yes. Tell us the series, grade and quantity you need for evaluation and we will ship up to five series at 100 g each, free for qualified projects, with tracked international shipping. A technical contact stays on the file for formulation tuning afterwards."
+        },
+        {
+          "q": "Can you develop a custom fermentation product?",
+          "a": "Yes. Custom strain development, assay targets, carriers and encapsulation are all in scope. Our R&D team runs strain selection and fermentation optimisation in-house, with university partners on process development. Share the target colour, application, volume and timeline and we will come back with a feasibility view and a development plan."
+        }
+      ]
     },
     "cta": {
-      "title": "Need Technical Specifications?",
-      "desc": "Download our comprehensive product data sheets and regulatory documentation",
-      "button": "Access Technical Resources"
+      "title": "Send us your specification",
+      "desc": "Tell us the target colour, application, volume and target market. We come back with a specification sheet, a sample COA and a price — usually within one business day.",
+      "button": "Request a quote"
     },
     "quicklinks": {
-      "pigments": "Pigment catalog",
+      "pigments": "Pigment reference",
       "regulations": "Regulations",
       "about": "About",
       "contact": "Contact",
@@ -63,16 +214,16 @@
       "articles": "Articles"
     },
     "featuredProducts": {
-      "title": "Featured Products",
-      "subtitle": "A snapshot of our ready-to-use formulations.",
-      "allCta": "View all"
+      "title": "Catalogue",
+      "subtitle": "Ready-to-use pigment formulations.",
+      "allCta": "View all products"
     },
     "articles": {
       "title": "Latest Articles",
       "allCta": "Read more"
     },
     "aestheticsLink": {
-      "prompt": "Curious about the colors themselves?",
+      "prompt": "Curious about the colours themselves?",
       "cta": "Visit Color Aesthetics"
     }
   },
@@ -128,24 +279,40 @@
       "application": "Application",
       "region": "Target Market"
     },
-    "regulatoryStatus": "Regulatory Status"
+    "regulatoryStatus": "Regulatory Status",
+    "regions": {
+      "eu": "EU",
+      "us": "US",
+      "japan": "Japan",
+      "korea": "Korea"
+    },
+    "formulations": "Formulations"
   },
   "products": {
-    "title": "Product Catalog",
-    "subtitle": "Ready-to-use natural color formulations including premium microbial fermentation pigments.",
+    "title": "Fermentation-Derived Carotenoids & Natural Pigments",
+    "subtitle": "Ready-to-use natural colour formulations. The core range is fermentation-derived astaxanthin, lutein, lycopene, beta-carotene and zeaxanthin, supported by botanical and mineral colourants for food, nutraceutical, cosmetic and pharmaceutical use.",
     "categories": {
-      "plant": "Plant-Based",
-      "microbial": "Microbial / Fermentation",
+      "fermentation": "Fermentation-Derived",
+      "algae": "Algal",
+      "botanical": "Botanical",
       "mineral": "Mineral"
     },
+    "allCategories": "All series",
     "custom": {
-      "title": "Need Custom Fermentation Products?",
-      "desc": "We specialize in microbial pigment development. Our fermentation team can create custom astaxanthin, carotenoid, and phycobiliprotein formulations for your specific needs.",
+      "title": "Need a Custom Fermentation Product?",
+      "desc": "Custom strain development, assay targets, carriers and encapsulation are all in scope. Our fermentation team can build a carotenoid formulation around your colour target, application and target market.",
       "button": "Contact Our Fermentation Team"
     },
     "empty": "No products yet.",
     "inquire": "Request Quote",
     "applications": "Applications",
+    "specs": "Specifications",
+    "faq": "Frequently asked questions",
+    "related": "Related products",
+    "overview": "Overview",
+    "requestSample": "Request a sample",
+    "requestCoa": "Request COA & MSDS",
+    "seriesLabel": "Series",
     "backToList": "Back to products",
     "breadcrumbHome": "Home"
   },
@@ -189,12 +356,8 @@
       }
     },
     "info": {
-      "general": {
-        "title": "General Inquiries",
-        "email": "contact@earthhue.net"
-      },
-      "tech": {
-        "title": "Technical Support",
+      "inquiry": {
+        "title": "Inquiry & Technical Support",
         "email": "tech@earthhue.net"
       },
       "hours": {
@@ -210,7 +373,7 @@
   },
   "footer": {
     "tagline": "Natural colors from nature, for the world",
-    "contact": "contact@earthhue.net",
+    "contact": "tech@earthhue.net",
     "products": "Products",
     "company": "Company",
     "naturalPigments": "Natural Pigments",
@@ -273,7 +436,7 @@
       }
     },
     "capability": {
-      "metaTitle": "Capability — Production & QC | EarthHue 企业",
+      "metaTitle": "Capability — Production & QC",
       "metaDescription": "Production capacity, fermentation lines, QC processes and R&D investment.",
       "title": "Capability",
       "subtitle": "From raw plant, mineral, and microbial inputs to compliant pigment powder — under one roof.",
@@ -315,7 +478,7 @@
       }
     },
     "certifications": {
-      "metaTitle": "Certifications | EarthHue 企业",
+      "metaTitle": "Certifications",
       "metaDescription": "Food, cosmetic, pharma, ISO and religious certifications backing every EarthHue pigment.",
       "title": "Certifications",
       "subtitle": "Documents available on request — sample COA, MSDS, and statements of compliance.",
@@ -374,7 +537,7 @@
       "downloadHint": "Need a specific certificate? Send a request via the contact form and we'll send the latest PDF."
     },
     "samples": {
-      "metaTitle": "Sample Request | EarthHue 企业",
+      "metaTitle": "Sample Request",
       "metaDescription": "How to evaluate EarthHue natural pigments — request flow, fees and shipping.",
       "title": "Sample Request",
       "subtitle": "Evaluate the pigment in your own formulation before scaling up.",
@@ -400,7 +563,7 @@
       "cta": "Start a sample request"
     },
     "factoryVisit": {
-      "metaTitle": "Factory Visit | EarthHue 企业",
+      "metaTitle": "Factory Visit",
       "metaDescription": "Tour our extraction, fermentation, QC and packaging lines.",
       "title": "Factory Visit",
       "subtitle": "See the production lines, QC lab and packaging in person.",
@@ -429,7 +592,7 @@
       }
     },
     "contact": {
-      "metaTitle": "Contact | EarthHue",
+      "metaTitle": "Contact",
       "metaDescription": "Reach our team for quotes, samples, partnership and factory visits.",
       "title": "Get in touch",
       "subtitle": "Pick a channel — we route every inquiry to the right specialist within one business day.",
@@ -480,7 +643,7 @@
       }
     },
     "stories": {
-      "metaTitle": "Color Stories | EarthHue 色彩美学",
+      "metaTitle": "Color Stories",
       "metaDescription": "Where natural pigments come from — biology, history, the people behind them.",
       "title": "Color Stories",
       "subtitle": "Every pigment has a plant (or a microbe), a place, and a person behind it.",
@@ -514,7 +677,7 @@
       "ctaLink": "Read the science section"
     },
     "science": {
-      "metaTitle": "Science | EarthHue 色彩美学",
+      "metaTitle": "Science",
       "metaDescription": "Natural vs synthetic, sustainability, stability, safety — short, sourced, no jargon.",
       "title": "Science",
       "subtitle": "Short, sourced, jargon-free articles on the questions we get asked most.",
@@ -544,7 +707,7 @@
       "externalLink": "See global compliance"
     },
     "gallery": {
-      "metaTitle": "Gallery | EarthHue 色彩美学",
+      "metaTitle": "Gallery",
       "metaDescription": "Dyeing experiments and color references for your next project.",
       "title": "Gallery",
       "subtitle": "A small starting set. More coming as our community contributes.",
@@ -568,6 +731,31 @@
     "subtitle": "Industry insights, regulatory updates, and color science from our team.",
     "empty": "No articles yet.",
     "backToList": "Back to articles",
-    "breadcrumbHome": "Home"
+    "breadcrumbHome": "Home",
+    "cta": {
+      "title": "Test it in your own formulation",
+      "desc": "Request a lab sample before you commit to a bulk order.",
+      "sample": "Request a sample",
+      "contact": "Talk to our technical team"
+    }
+  },
+  "series": {
+    "label": "Series",
+    "fermentation": {
+      "title": "Fermentation-Derived",
+      "desc": "Made by controlled fermentation of yeast and microalgal strains. Year-round supply and batch-to-batch assay control."
+    },
+    "algae": {
+      "title": "Algal",
+      "desc": "Natural algal carotenoids and phycobiliproteins from cultivated cyanobacteria and microalgae."
+    },
+    "botanical": {
+      "title": "Botanical",
+      "desc": "Plant-derived colourants: curcumin, beet, anthocyanin, chlorophyll and marigold lutein."
+    },
+    "mineral": {
+      "title": "Mineral",
+      "desc": "Inorganic colourants for cosmetic and industrial applications."
+    }
   }
 }

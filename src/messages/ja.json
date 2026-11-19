@@ -11,68 +11,219 @@
   },
   "home": {
     "hero": {
-      "title": "自然のパレット、を完美に",
-      "subtitle": "食品・化粧品向けプレミアム天然色素 — 持続可能な調達、グローバル基準対応",
-      "eyebrow": "産業向けプレミアム天然色素",
-      "primaryCta": "製品を見る",
-      "secondaryCta": "お問い合わせ"
+      "eyebrow": "精密発酵 · 天然カロテノイド",
+      "title": "アスタキサンチン、ルテイン、リコピン —— 精密発酵による生産",
+      "subtitle": "EarthHue は、食品・栄養補助食品・化粧品・医薬品の製剤向けに発酵由来の天然カロテノイドを製造しています。ロット単位の COA と MSDS、欧州・米国・日本・韓国の法規対応文書、MOQ 1 kg。",
+      "primaryCta": "発酵シリーズを見る",
+      "secondaryCta": "サンプルを請求する",
+      "chips": [
+        "全ロットに COA と MSDS を添付",
+        "MOQ 1 kg —— サンプルは 7 日以内に出荷",
+        "欧州 · 米国 · 日本 · 韓国の法規対応文書"
+      ]
     },
-    "features": {
-      "title": "天然が選ばれる理由",
-      "trusted": "世界中の製造者から安定した品質と規制適合性で信頼されています",
+    "series": {
+      "eyebrow": "コアシリーズ",
+      "title": "3 種のカロテノイド、1 つの発酵プラットフォーム",
+      "subtitle": "各シリーズとも、記録された菌株を制御条件下で発酵させ、精製・乾燥・標準化を経て、貯蔵安定な粉末または油懸濁液に仕上げます。",
+      "cta": "製品カタログ全体を見る"
+    },
+    "why": {
+      "eyebrow": "発酵が変えるもの",
+      "title": "発酵由来のカロテノイドを一段落で解説",
+      "answer": "発酵由来のカロテノイドとは、特定の酵母または微藻の菌株を密閉型バイオリアクターで培養し、その色素を抽出・精製して得られる着色分子です。この製造ルートは収穫と季節収量を方程式から取り除きます。同じ菌株と同じ発酵プロトコルを使えば、ロットごとに同じ含量値と同じ色相が得られ、生産は一年中途切れずに続きます。製剤にとってこれは、パイロットタンクでも 10 トン規模でも挙動を予測できる色調を意味します。",
+      "points": [
+        {
+          "title": "含量値を前提に計画できる",
+          "desc": "全ロットを HPLC で標準品と比較定量し、分析証明書は出荷に同梱されます。"
+        },
+        {
+          "title": "収穫に左右されない供給",
+          "desc": "密閉タンク発酵により、作物不作・天候・季節変動と供給を切り離せます。"
+        },
+        {
+          "title": "菌株保蔵ライブラリー",
+          "desc": "生産菌株は遺伝子型解析のうえ社内で保蔵するため、2 年後の再発注でも当初の規格に適合します。"
+        }
+      ]
+    },
+    "compare": {
+      "eyebrow": "原料ソース比較",
+      "title": "アスタキサンチン：酵母、微藻、化学合成",
+      "subtitle": "同じ分子、3 つのルート。どちらが配合に適するかは、「天然」という言葉ではなく、目標色、剤型、法規ファイルで決まります。",
+      "headers": [
+        "",
+        "酵母（Phaffia rhodozyma）",
+        "微藻（Haematococcus）",
+        "化学合成"
+      ],
+      "rows": [
+        {
+          "label": "製造ルート",
+          "cells": [
+            "密閉発酵",
+            "屋外培養後に抽出",
+            "化学合成"
+          ]
+        },
+        {
+          "label": "市販品の一般含量",
+          "cells": [
+            "油懸濁液中で 2–5%",
+            "油懸濁液中で 1–5%",
+            "結晶型またはエステル型で 10–90%"
+          ]
+        },
+        {
+          "label": "有効成分 1 kg 当たりの相対コスト",
+          "cells": [
+            "低い",
+            "高い",
+            "最も低い"
+          ]
+        },
+        {
+          "label": "天然と表示できるか",
+          "cells": [
+            "できる",
+            "できる",
+            "できない"
+          ]
+        },
+        {
+          "label": "主な用途",
+          "cells": [
+            "食品着色、飼料、栄養補助食品",
+            "高級な栄養補助食品向けの着色",
+            "水産飼料、高濃度着色"
+          ]
+        }
+      ]
+    },
+    "capability": {
+      "eyebrow": "製造",
+      "title": "数字で見る生産能力と品質管理",
       "items": [
         {
-          "title": "規制対応",
-          "desc": "EU、FDA、日本、韓国基準に適合"
+          "value": "1,200+ t/yr",
+          "label": "年間色素生産能力"
         },
         {
-          "title": "持続可能な調達",
-          "desc": "起源から納品まで環境配慮"
+          "value": "8",
+          "label": "生産ライン"
         },
         {
-          "title": "確かな安定性",
-          "desc": "耐熱・耐光処方"
+          "value": "30+",
+          "label": "ロットあたりの QC チェックポイント"
         },
         {
-          "title": "技術サポート",
-          "desc": "専門的なアプリケーション指導"
+          "value": "12%",
+          "label": "売上を R&D に再投資する割合"
+        }
+      ]
+    },
+    "process": {
+      "eyebrow": "製造方法",
+      "title": "菌株バンクから密閉ドラムまで",
+      "steps": [
+        {
+          "title": "菌株の選定と保蔵",
+          "desc": "生産菌株は遺伝子型解析のうえ外部機関へ寄贈し社内でも維持することで、数年後に同じ規格を再現できるようにしています。"
+        },
+        {
+          "title": "制御発酵",
+          "desc": "菌株は密閉式のステンレス製バイオリアクターで培養し、pH、溶存酸素、温度を監視します。"
+        },
+        {
+          "title": "細胞の回収と色素の溶出",
+          "desc": "バイオマスを回収し、細胞壁を破って色素を清浄な低固形分の物流に溶出します。"
+        },
+        {
+          "title": "精製と濃縮",
+          "desc": "色素を膜分離とクロマトグラフィーで精製し、目標含量まで濃縮します。"
+        },
+        {
+          "title": "乾燥、粉砕、QC リリース",
+          "desc": "粉末または油懸濁液を標準化し密閉ドラムに充填します。HPLC、ICP-MS、微生物試験のすべてで合格した時点で出荷します。"
         }
       ]
     },
     "applications": {
-      "title": "応用分野",
+      "title": "当社のカロテノイドが使われる分野",
       "food": "食品・飲料",
-      "foodDesc": "食品産業向け天然着色料",
+      "foodDesc": "飲料、乳製品、製パン、製菓、肉代替品など、クリーンラベル対応の色が求められる分野。",
+      "nutraceutical": "栄養補助食品・サプリメント",
+      "nutraceuticalDesc": "眼部健康、肌、スポーツ栄養、抗酸化作用を訴求するカプセル、錠剤、粉体、ソフトゲル。",
       "cosmetics": "化粧品・パーソナルケア",
-      "cosmeticsDesc": "クリーンラベル色彩ソリューション",
-      "pharmaceuticals": "製薬",
-      "pharmaceuticalsDesc": "規制適合型製薬色素",
-      "viewPigments": "色素を見る"
+      "cosmeticsDesc": "油分散型および懸濁型のグレードを採用したセラム、クリーム、カラーコスメ、ヘアケア製品。",
+      "pharmaceuticals": "医薬品",
+      "pharmaceuticalsDesc": "フィルムコート錠、カプセル、外用製剤向けの药用辅料グレードの色素。",
+      "viewPigments": "製品カタログを見る"
+    },
+    "quality": {
+      "title": "サプライヤー監査に耐える書類",
+      "desc": "すべての出荷に COA と MSDS が付属します。法規ファイル、アレルゲンおよび GMO ステートメント、ハラル・コシャー認証、安定性データは SKU 単位でご用意できます。",
+      "items": [
+        "HPLC および UV-Vis による同一性と含量測定",
+        "ICP-MS による重金属（Pb、As、Cd、Hg）",
+        "微生物限度は USP/EP 準拠",
+        "40 °C / 75 % RH での加速安定性試験"
+      ],
+      "cta": "認証・証明を見る"
+    },
+    "faq": {
+      "title": "製剤からよく寄せられる質問",
+      "items": [
+        {
+          "q": "発酵由来のアスタキサンチンと Haematococcus 由来のアスタキサンチンの違いは何ですか？",
+          "a": "どちらも同一の活性成分である 3S,3′-S アスタキサンチンを提供します。違いは製造ルートとコストです。Phaffia rhodozyma 由来の酵母アスタキサンチンは密閉発酵槽で製造されるため年中供給でき、有効成分 1 kg 当たりのコストが低く、目標含量に合わせて調整できます。Haematococcus pluvialis は屋外で培養して収穫するため、有効成分 1 kg 当たりのコストは高いものの、単一の十分に特性化された原料を前提とする場合に、多くのバイヤーが基準品として挙げるのがこちらです。仕様が目標色と価格であれば酵母が有利です。特定の由来に紐づく公開臨床データが必要であれば、藻類がより安全な参照になります。"
+        },
+        {
+          "q": "全ロットに COA と MSDS をもらえますか。",
+          "a": "はい。すべてのロットに、同一性、含量、重金属、微生物、残留溶媒をカバーする分析証明書と MSDS を同梱して出荷します。欧州（Regulation (EC) No 1333/2008）、米国、日本、韓国の申請に必要な法規書類は、ご要望に応じて提供します。"
+        },
+        {
+          "q": "最小発注数量はどのくらいですか。",
+          "a": "標準グレードは 1 kg です。色合わせ、安定性、官能評価を含む完全なベンチ試験に十分な量です。より大きな数量は用途と数量に応じてお見積りします。適格な申請者には最大 5 シリーズ分のサンプルを無償で、7 日以内に発送します。"
+        },
+        {
+          "q": "これらの色素はどれくらい安定ですか。",
+          "a": "遊離型カロテノイドは光、酸素、熱に敏感です。当社は酸化防止剤システム、不透明包装、さらに用途が許す場合の油分散型やマイクロカプセル化のグレードにより、配合段階で対応します。全ロットに 40 °C、相対湿度 75 % での加速安定性データを添付し、アプリケーションチームが配合物に適合したグレードをご提案します。"
+        },
+        {
+          "q": "数量を確定する前にサンプルをいただけますか。",
+          "a": "はい。評価に必要なシリーズ、グレード、数量をお知らせください。適格な案件には、各シリーズ 100 g ずつ、最大 5 シリーズ分を無償で、追跡付きの国際輸送にて発送します。評価後も、配合調整のために技術担当者を担当として継続します。"
+        },
+        {
+          "q": "カスタム発酵製品を開発できますか。",
+          "a": "はい。カスタム菌株開発、含量目標、キャリア、エンカプセル化はすべて対応可能です。研究開発チームは菌株選抜と発酵の最適化を社内で実施し、プロセス開発では大学と連携しています。目標色、用途、数量、納期をお知らせいただければ、実現可能性の見解と開発計画をご返答します。"
+        }
+      ]
     },
     "cta": {
-      "title": "技術仕様が必要ですか？",
-      "desc": "製品データシートと規制文書をダウンロードできます",
-      "button": "技術資料にアクセス"
+      "title": "仕様をお送りください",
+      "desc": "目標色、用途、数量、対象市場をお知らせください。仕様書、COA サンプル、価格をご返答します。通常は 1 営業日以内です。",
+      "button": "お見積りを依頼"
     },
     "quicklinks": {
-      "pigments": "Pigment catalog",
-      "regulations": "Regulations",
-      "about": "About",
-      "contact": "Contact",
+      "pigments": "色素リファレンス",
+      "regulations": "法規情報",
+      "about": "会社概要",
+      "contact": "お問い合わせ",
       "products": "製品",
       "articles": "記事"
     },
     "featuredProducts": {
-      "title": "注目製品",
-      "subtitle": "即使用処方の一部をご紹介します。",
-      "allCta": "すべて見る"
+      "title": "製品カタログ",
+      "subtitle": "すぐに使用できる色素フォーミュレーション。",
+      "allCta": "すべての製品を見る"
     },
     "articles": {
       "title": "最新記事",
-      "allCta": "もっと読む"
+      "allCta": "続きを読む"
     },
     "aestheticsLink": {
-      "prompt": "色そのものに興味がありますか？",
+      "prompt": "色そのものに興味がありますか。",
       "cta": "色彩美学を見る"
     }
   },
@@ -128,24 +279,40 @@
       "application": "用途",
       "region": "対象市場"
     },
-    "regulatoryStatus": "規制状況"
+    "regulatoryStatus": "規制状況",
+    "regions": {
+      "eu": "EU",
+      "us": "米国",
+      "japan": "日本",
+      "korea": "韓国"
+    },
+    "formulations": "剤型"
   },
   "products": {
-    "title": "製品カタログ",
-    "subtitle": "プレミアム微生物発酵色素を含む即使用可能な天然着色配方。",
+    "title": "発酵由来カロテノイドと天然色素",
+    "subtitle": "すぐに使用できる天然着色フォーミュレーション。主力は発酵由来のアスタキサンチン、ルテイン、リコピン、ベータカロテン、ゼアサンチンで、食品・栄養補助食品・化粧品・医薬品向けの植物由来および鉱物由来の着色剤がこれを補完します。",
     "categories": {
-      "plant": "植物由来",
-      "microbial": "微生物/発酵由来",
+      "fermentation": "発酵由来",
+      "algae": "藻類由来",
+      "botanical": "植物由来",
       "mineral": "鉱物由来"
     },
+    "allCategories": "すべてのシリーズ",
     "custom": {
-      "title": "カスタム発酵製品が必要ですか？",
-      "desc": "微生物色素の開発を専門としています。発酵チームがお客様の特定のニーズに合わせたアスタキサンチン、カロテノイド、フィコビリ蛋白質のカスタム処方を作成できます。",
+      "title": "カスタム発酵製品が必要ですか。",
+      "desc": "カスタム菌株開発、含量目標、キャリア、エンカプセル化はすべて対応可能です。発酵チームは、目標色、用途、対象市場に合わせたカロテノイドフォーミュレーションを開発できます。",
       "button": "発酵チームに連絡"
     },
-    "empty": "製品はまだありません。",
-    "inquire": "見積もりを依頼",
+    "empty": "まだ製品がありません。",
+    "inquire": "お見積り依頼",
     "applications": "用途",
+    "specs": "仕様",
+    "faq": "よくある質問",
+    "related": "関連製品",
+    "overview": "概要",
+    "requestSample": "サンプルを請求",
+    "requestCoa": "COA と MSDS を請求",
+    "seriesLabel": "シリーズ",
     "backToList": "製品一覧へ戻る",
     "breadcrumbHome": "ホーム"
   },
@@ -189,12 +356,8 @@
       }
     },
     "info": {
-      "general": {
-        "title": "一般のお問い合わせ",
-        "email": "contact@earthhue.net"
-      },
-      "tech": {
-        "title": "技術サポート",
+      "inquiry": {
+        "title": "お問い合わせ・技術サポート",
         "email": "tech@earthhue.net"
       },
       "hours": {
@@ -210,7 +373,7 @@
   },
   "footer": {
     "tagline": "自然から、世界へ",
-    "contact": "contact@earthhue.net",
+    "contact": "tech@earthhue.net",
     "products": "製品",
     "company": "会社情報",
     "naturalPigments": "天然色素",
@@ -238,7 +401,7 @@
     "navContact": "Contact",
     "crossLinkPrompt": "Color-curious? Explore our 色彩美学 zone for stories, science and gallery.",
     "crossLinkCta": "Open 色彩美学 zone",
-    "metaTitle": "For Business — Natural Pigment Raw Materials | EarthHue",
+    "metaTitle": "For Business — Natural Pigment Raw Materials",
     "metaDescription": "Premium natural pigments for food, cosmetics and pharma. Capability, certifications, samples and direct support for formulators and procurement teams.",
     "title": "For Business",
     "eyebrow": "企業・処方者",
@@ -273,7 +436,7 @@
       }
     },
     "capability": {
-      "metaTitle": "Capability — Production & QC | EarthHue 企业",
+      "metaTitle": "Capability — Production & QC",
       "metaDescription": "Production capacity, fermentation lines, QC processes and R&D investment.",
       "title": "Capability",
       "subtitle": "From raw plant, mineral, and microbial inputs to compliant pigment powder — under one roof.",
@@ -315,7 +478,7 @@
       }
     },
     "certifications": {
-      "metaTitle": "Certifications | EarthHue 企业",
+      "metaTitle": "Certifications",
       "metaDescription": "Food, cosmetic, pharma, ISO and religious certifications backing every EarthHue pigment.",
       "title": "Certifications",
       "subtitle": "Documents available on request — sample COA, MSDS, and statements of compliance.",
@@ -374,7 +537,7 @@
       "downloadHint": "Need a specific certificate? Send a request via the contact form and we'll send the latest PDF."
     },
     "samples": {
-      "metaTitle": "Sample Request | EarthHue 企业",
+      "metaTitle": "Sample Request",
       "metaDescription": "How to evaluate EarthHue natural pigments — request flow, fees and shipping.",
       "title": "Sample Request",
       "subtitle": "Evaluate the pigment in your own formulation before scaling up.",
@@ -400,7 +563,7 @@
       "cta": "Start a sample request"
     },
     "factoryVisit": {
-      "metaTitle": "Factory Visit | EarthHue 企业",
+      "metaTitle": "Factory Visit",
       "metaDescription": "Tour our extraction, fermentation, QC and packaging lines.",
       "title": "Factory Visit",
       "subtitle": "See the production lines, QC lab and packaging in person.",
@@ -429,7 +592,7 @@
       }
     },
     "contact": {
-      "metaTitle": "お問い合わせ | EarthHue",
+      "metaTitle": "お問い合わせ",
       "metaDescription": "見積もり、サンプル、合作、工場見学についてお問い合わせください。",
       "title": "お問い合わせ",
       "subtitle": "Pick a channel — we route every inquiry to the right specialist within one business day.",
@@ -458,7 +621,7 @@
     "navGallery": "Gallery",
     "crossLinkPrompt": "商業処方に取り組んでいますか？仕様・サンプル・認証をご覧ください。",
     "crossLinkCta": "製品を見る",
-    "metaTitle": "色彩美学 | EarthHue",
+    "metaTitle": "色彩美学",
     "metaDescription": "Plant pigments, natural dyeing, and the science behind every shade — for designers, makers and color enthusiasts.",
     "title": "色彩美学",
     "eyebrow": "",
@@ -480,7 +643,7 @@
       }
     },
     "stories": {
-      "metaTitle": "Color Stories | EarthHue 色彩美学",
+      "metaTitle": "Color Stories",
       "metaDescription": "Where natural pigments come from — biology, history, the people behind them.",
       "title": "Color Stories",
       "subtitle": "Every pigment has a plant (or a microbe), a place, and a person behind it.",
@@ -514,7 +677,7 @@
       "ctaLink": "Read the science section"
     },
     "science": {
-      "metaTitle": "Science | EarthHue 色彩美学",
+      "metaTitle": "Science",
       "metaDescription": "Natural vs synthetic, sustainability, stability, safety — short, sourced, no jargon.",
       "title": "Science",
       "subtitle": "Short, sourced, jargon-free articles on the questions we get asked most.",
@@ -544,7 +707,7 @@
       "externalLink": "See global compliance"
     },
     "gallery": {
-      "metaTitle": "Gallery | EarthHue 色彩美学",
+      "metaTitle": "Gallery",
       "metaDescription": "Dyeing experiments and color references for your next project.",
       "title": "Gallery",
       "subtitle": "A small starting set. More coming as our community contributes.",
@@ -568,6 +731,31 @@
     "subtitle": "業界の洞察、規制更新、色彩科学。",
     "empty": "記事はまだありません。",
     "backToList": "記事一覧へ戻る",
-    "breadcrumbHome": "ホーム"
+    "breadcrumbHome": "ホーム",
+    "cta": {
+      "title": "自社製法でまず試す",
+      "desc": "量産発注の前に、研究用サンプルをご依頼ください。",
+      "sample": "サンプルを請求",
+      "contact": "技術担当者に相談"
+    }
+  },
+  "series": {
+    "label": "シリーズ",
+    "fermentation": {
+      "title": "発酵由来",
+      "desc": "酵母および微藻の菌株を制御条件下で発酵させて製造。年中供給とロット間の含量管理。"
+    },
+    "algae": {
+      "title": "藻類由来",
+      "desc": "培養したシアノバクテリアと微藻から得る天然の藻類カロテノイドとフィコビリン蛋白。"
+    },
+    "botanical": {
+      "title": "植物由来",
+      "desc": "植物由来の着色剤：クルミン、ビート、アントシアニン、クロロフィル、マリーゴールド由来のルテイン。"
+    },
+    "mineral": {
+      "title": "鉱物由来",
+      "desc": "化粧品および産業用途向けの無機着色剤。"
+    }
   }
 }

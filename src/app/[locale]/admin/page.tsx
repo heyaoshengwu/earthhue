@@ -3,8 +3,18 @@
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 
-const ADMIN_PASSWORD = "earthhue2024";
-const SESSION_KEY = "earthhue_admin_auth";
+const TOKEN_KEY = "earthhue_admin_token";
+
+/**
+ * The admin password is never shipped to the browser. The server verifies it
+ * and hands back a signed, expiring token, which is attached to every admin
+ * API call as `x-admin-token`.
+ */
+let adminToken: string | null = null;
+
+function authHeaders(): Record<string, string> {
+  return adminToken ? { "x-admin-token": adminToken } : {};
+}
 
 type Locale = "en" | "zh" | "ja" | "ko" | "es" | "fr" | "de";
 const LOCALES: Locale[] = ["en", "zh", "ja", "ko", "es", "fr", "de"];
@@ -18,7 +28,7 @@ const LOCALE_LABEL: Record<Locale, string> = {
   de: "DE",
 };
 
-type Tab = "articles" | "products" | "about" | "home";
+type Tab = "articles" | "products" | "about" | "home" | "inquiries";
 
 type ArticleTranslation = { title: string; excerpt: string; body: string };
 type ProductTranslation = { name: string; description: string; applications: string[] };
@@ -70,6 +80,19 @@ type HomeImage = {
   updated_at: string;
 };
 
+type Inquiry = {
+  id: number;
+  name: string;
+  email: string;
+  company: string;
+  subject: string;
+  message: string;
+  locale: string;
+  delivery_status: string;
+  delivery_error: string | null;
+  created_at: string;
+};
+
 const HOME_IMAGE_SLOTS: { key: string; label: string; desc: string }[] = [
   { key: "hero", label: "Hero 主图", desc: "首页顶部主视觉，建议 16:9 或更宽（≥ 1600×900）。" },
   { key: "brand", label: "品牌/工艺图", desc: "展示在 Hero 下方，用于介绍公司/工艺流程。" },
@@ -92,7 +115,7 @@ type AboutTranslations = {
 };
 
 async function apiGet<T>(url: string): Promise<T> {
-  const res = await fetch(url, { cache: "no-store" });
+  const res = await fetch(url, { cache: "no-store", headers: authHeaders() });
   if (!res.ok) throw new Error(await res.text());
   return res.json();
 }
@@ -100,7 +123,11 @@ async function apiGet<T>(url: string): Promise<T> {
 async function apiSend<T>(url: string, init?: RequestInit): Promise<T> {
   const res = await fetch(url, {
     ...init,
-    headers: { "Content-Type": "application/json", ...(init?.headers || {}) },
+    headers: {
+      "Content-Type": "application/json",
+      ...authHeaders(),
+      ...((init?.headers as Record<string, string>) || {}),
+    },
   });
   if (!res.ok) throw new Error(await res.text());
   return res.json();
@@ -110,7 +137,7 @@ async function uploadFile(file: File, subdir = "general"): Promise<string> {
   const fd = new FormData();
   fd.append("file", file);
   fd.append("subdir", subdir);
-  const res = await fetch("/api/upload", { method: "POST", body: fd });
+  const res = await fetch("/api/upload", { method: "POST", body: fd, headers: authHeaders() });
   if (!res.ok) throw new Error(await res.text());
   const data = await res.json();
   return data.url as string;
@@ -141,7 +168,9 @@ function useUnsavedWarning(active: boolean) {
 export default function AdminPage() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [password, setPassword] = useState("");
-  const [authError, setAuthError] = useState(false);
+  const [authError, setAuthError] = useState<string | null>(null);
+  const [authBusy, setAuthBusy] = useState(false);
+  const [authChecking, setAuthChecking] = useState(true);
   const [activeTab, setActiveTab] = useState<Tab>("articles");
   const [articles, setArticles] = useState<Article[]>([]);
   const [products, setProducts] = useState<Product[]>([]);
@@ -149,20 +178,43 @@ export default function AdminPage() {
   const [aboutTranslations, setAboutTranslations] = useState<Record<string, AboutTranslations>>({});
   const [aboutImages, setAboutImages] = useState<AboutImage[]>([]);
   const [homeImages, setHomeImages] = useState<HomeImage[]>([]);
+  const [inquiries, setInquiries] = useState<Inquiry[]>([]);
   const [saved, setSaved] = useState<string | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState(true);
 
+  // Restore a previous session by validating the stored token against the
+  // server — a stale or tampered token simply drops back to the login form.
   useEffect(() => {
-    if (sessionStorage.getItem(SESSION_KEY) === "true") {
-      setIsAuthenticated(true);
+    const token = sessionStorage.getItem(TOKEN_KEY);
+    if (!token) {
+      setAuthChecking(false);
+      return;
     }
+    adminToken = token;
+    void (async () => {
+      try {
+        const res = await fetch("/api/articles", { cache: "no-store", headers: authHeaders() });
+        if (!res.ok) throw new Error("invalid token");
+        setIsAuthenticated(true);
+      } catch {
+        adminToken = null;
+        sessionStorage.removeItem(TOKEN_KEY);
+      } finally {
+        setAuthChecking(false);
+      }
+    })();
   }, []);
 
   useEffect(() => {
     if (!isAuthenticated) return;
     void refresh();
   }, [isAuthenticated]);
+
+  useEffect(() => {
+    if (!isAuthenticated || activeTab !== "inquiries") return;
+    void loadInquiries();
+  }, [activeTab, isAuthenticated]);
 
   async function refresh() {
     setLoading(true);
@@ -199,20 +251,60 @@ export default function AdminPage() {
     setTimeout(() => setSaved(null), 2200);
   }
 
-  function handleLogin(e: React.FormEvent) {
+  async function handleLogin(e: React.FormEvent) {
     e.preventDefault();
-    if (password === ADMIN_PASSWORD) {
+    setAuthError(null);
+    setAuthBusy(true);
+    try {
+      const res = await fetch("/api/admin/session", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ password }),
+      });
+      if (!res.ok) {
+        let msg = "Incorrect password. Please try again.";
+        try {
+          const err = await res.json();
+          if (err?.error) msg = String(err.error);
+        } catch {
+          /* keep the default message */
+        }
+        setAuthError(msg);
+        setPassword("");
+        return;
+      }
+      const data = await res.json();
+      adminToken = data.token;
+      sessionStorage.setItem(TOKEN_KEY, data.token);
       setIsAuthenticated(true);
-      setAuthError(false);
-      sessionStorage.setItem(SESSION_KEY, "true");
-    } else {
-      setAuthError(true);
+    } catch {
+      setAuthError("Could not reach the server. Please try again.");
+    } finally {
+      setAuthBusy(false);
     }
   }
 
   function handleLogout() {
     setIsAuthenticated(false);
-    sessionStorage.removeItem(SESSION_KEY);
+    adminToken = null;
+    sessionStorage.removeItem(TOKEN_KEY);
+  }
+
+  async function loadInquiries() {
+    try {
+      const res = await apiGet<{ submissions: Inquiry[] }>("/api/contact?limit=200");
+      setInquiries(res.submissions || []);
+    } catch (e: any) {
+      setError(e?.message || "Failed to load inquiries");
+    }
+  }
+
+  if (authChecking && !isAuthenticated) {
+    return (
+      <div className="min-h-screen flex items-center justify-center bg-earth-50">
+        <div className="text-earth-500">Checking session...</div>
+      </div>
+    );
   }
 
   if (!isAuthenticated) {
@@ -241,11 +333,15 @@ export default function AdminPage() {
             </div>
             {authError && (
               <div className="mb-4 p-3 bg-red-50 text-red-600 rounded-lg text-sm">
-                Incorrect password. Please try again.
+                {authError}
               </div>
             )}
-            <button type="submit" className="w-full bg-sage-600 text-white py-3 rounded-lg font-medium hover:bg-sage-700 transition-colors">
-              Login
+            <button
+              type="submit"
+              disabled={authBusy}
+              className="w-full bg-sage-600 text-white py-3 rounded-lg font-medium hover:bg-sage-700 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+            >
+              {authBusy ? "Checking..." : "Login"}
             </button>
           </form>
           <div className="mt-6 text-center">
@@ -284,7 +380,7 @@ export default function AdminPage() {
         )}
 
         <div className="flex gap-4 mb-6 border-b border-earth-200">
-          {(["articles", "products", "about", "home"] as Tab[]).map((tab) => (
+          {(["articles", "products", "about", "home", "inquiries"] as Tab[]).map((tab) => (
             <button
               key={tab}
               onClick={() => setActiveTab(tab)}
@@ -298,6 +394,7 @@ export default function AdminPage() {
               {tab === "products" && `Products (${products.length})`}
               {tab === "about" && "About Us"}
               {tab === "home" && "Home Images"}
+              {tab === "inquiries" && `Inquiries (${inquiries.length})`}
             </button>
           ))}
         </div>
@@ -338,6 +435,12 @@ export default function AdminPage() {
                 onChange={refresh}
                 onFlash={flash}
                 onError={setError}
+              />
+            )}
+            {activeTab === "inquiries" && (
+              <InquiriesTab
+                inquiries={inquiries}
+                onChange={loadInquiries}
               />
             )}
           </>
@@ -1511,7 +1614,7 @@ function HomeImagesTab({
       fd.append("key", key);
       const alt = altInputs[key]?.trim();
       if (alt) fd.append("alt", alt);
-      const res = await fetch("/api/home/images", { method: "POST", body: fd });
+      const res = await fetch("/api/home/images", { method: "POST", body: fd, headers: authHeaders() });
       if (!res.ok) throw new Error(await res.text());
       onFlash(`${key} 图已更新`);
       setAltInputs((prev) => ({ ...prev, [key]: "" }));
@@ -1529,7 +1632,7 @@ function HomeImagesTab({
       const alt = altInputs[key] ?? "";
       const res = await fetch("/api/home/images", {
         method: "PUT",
-        headers: { "Content-Type": "application/json" },
+        headers: { "Content-Type": "application/json", ...authHeaders() },
         body: JSON.stringify({ key, alt: alt.trim() || null }),
       });
       if (!res.ok) throw new Error(await res.text());
@@ -1547,7 +1650,7 @@ function HomeImagesTab({
     if (!confirm(`删除「${key}」位置的图片？此操作会同时移除服务器上的文件。`)) return;
     setBusyKey(key);
     try {
-      const res = await fetch(`/api/home/images/${key}`, { method: "DELETE" });
+      const res = await fetch(`/api/home/images/${key}`, { method: "DELETE", headers: authHeaders() });
       if (!res.ok) throw new Error(await res.text());
       onFlash(`${key} 图已删除`);
       await onChange();
@@ -1646,6 +1749,98 @@ function HomeImagesTab({
           );
         })}
       </div>
+    </div>
+  );
+}
+
+function InquiriesTab({
+  inquiries,
+  onChange,
+}: {
+  inquiries: Inquiry[];
+  onChange: () => Promise<void> | void;
+}) {
+  const [openId, setOpenId] = useState<number | null>(null);
+
+  return (
+    <div className="space-y-4">
+      <div className="bg-white p-4 rounded-xl border border-earth-200">
+        <h3 className="font-semibold text-earth-900 mb-1">Inquiries ({inquiries.length})</h3>
+        <p className="text-sm text-earth-600">
+          Contact-form submissions. Every submission is written to the database first and then
+          emailed to the sales inbox, so nothing is lost if mail delivery fails.
+        </p>
+      </div>
+
+      {inquiries.length === 0 ? (
+        <div className="bg-white p-8 rounded-xl border border-earth-200 text-center text-earth-500">
+          No inquiries yet.
+        </div>
+      ) : (
+        inquiries.map((q) => (
+          <div key={q.id} className="bg-white rounded-xl border border-earth-200 overflow-hidden">
+            <button
+              onClick={() => setOpenId(openId === q.id ? null : q.id)}
+              className="w-full text-left px-4 py-3 flex items-start justify-between gap-4 hover:bg-earth-50"
+            >
+              <div className="min-w-0">
+                <div className="font-medium text-earth-900 truncate">
+                  {q.name}
+                  {q.company ? ` · ${q.company}` : ""}
+                </div>
+                <div className="text-sm text-earth-600 truncate">
+                  <a
+                    href={`mailto:${q.email}`}
+                    className="text-sage-700 hover:underline"
+                    onClick={(e) => e.stopPropagation()}
+                  >
+                    {q.email}
+                  </a>
+                  {` · ${q.subject || "general"}`}
+                </div>
+              </div>
+              <div className="text-right shrink-0">
+                <span
+                  className={`inline-block text-xs px-2 py-1 rounded-full ${
+                    q.delivery_status === "sent"
+                      ? "bg-sage-100 text-sage-700"
+                      : "bg-amber-100 text-amber-700"
+                  }`}
+                >
+                  {q.delivery_status === "sent" ? "Emailed" : "Stored only"}
+                </span>
+                <div className="text-xs text-earth-500 mt-1">{q.created_at}</div>
+              </div>
+            </button>
+
+            {openId === q.id && (
+              <div className="px-4 pb-4 border-t border-earth-200">
+                <p className="text-sm text-earth-800 whitespace-pre-wrap mt-3">{q.message}</p>
+                {q.delivery_error && (
+                  <p className="text-xs text-red-600 mt-3">Delivery note: {q.delivery_error}</p>
+                )}
+                <div className="mt-3 flex items-center gap-4">
+                  <a
+                    href={`mailto:${q.email}?subject=${encodeURIComponent(
+                      "Re: " + (q.subject || "Your inquiry")
+                    )}`}
+                    className="text-sm text-sage-700 hover:underline"
+                  >
+                    Reply by email
+                  </a>
+                  <span className="text-xs text-earth-500">Locale: {q.locale || "-"}</span>
+                  <button
+                    onClick={() => void onChange()}
+                    className="text-xs text-earth-600 hover:underline"
+                  >
+                    Refresh
+                  </button>
+                </div>
+              </div>
+            )}
+          </div>
+        ))
+      )}
     </div>
   );
 }

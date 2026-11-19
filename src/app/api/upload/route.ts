@@ -1,10 +1,15 @@
 import { NextRequest, NextResponse } from "next/server";
+import { isWriteAuthorized } from "@/lib/adminAuth";
 import { saveUpload } from "@/lib/upload";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
 
 export async function POST(req: NextRequest) {
+  if (!isWriteAuthorized(req)) {
+    return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+  }
+
   try {
     const formData = await req.formData();
     const file = formData.get("file");

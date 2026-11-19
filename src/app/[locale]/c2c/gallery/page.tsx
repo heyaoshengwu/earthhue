@@ -1,14 +1,16 @@
 import { Metadata } from "next";
 import { getTranslations } from "next-intl/server";
 import { BreadcrumbJsonLd } from "@/components/JsonLd";
+import { localeAlternates } from "@/lib/seo";
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "c2c.gallery" });
   return {
+    alternates: localeAlternates(locale, "/c2c/gallery"),
     title: t("metaTitle"),
     description: t("metaDescription"),
-    alternates: { canonical: `https://earthhue.net/${locale}/c2c/gallery` },
+
   };
 }
 
@@ -45,7 +47,7 @@ export default async function GalleryPage({ params }: { params: Promise<{ locale
                     src={it.img}
                     alt={t(`items.${it.key}.alt`)}
                     className="w-full h-full object-cover"
-                  />
+ loading="lazy" decoding="async" />
                 </div>
                 <figcaption className="p-4">
                   <h2 className="font-serif text-lg font-semibold text-earth-900 mb-1">

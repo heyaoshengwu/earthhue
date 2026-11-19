@@ -19,7 +19,11 @@ export function Footer() {
               <span className="font-serif text-xl font-semibold">EarthHue</span>
             </div>
             <p className="text-earth-300 max-w-md text-sm">{t("tagline")}</p>
-            <p className="text-earth-400 mt-4 text-sm">{t("contact")}</p>
+            <p className="text-earth-400 mt-4 text-sm">
+              <a href={`mailto:${t("contact")}`} className="hover:text-white transition-colors">
+                {t("contact")}
+              </a>
+            </p>
           </div>
 
           <div>

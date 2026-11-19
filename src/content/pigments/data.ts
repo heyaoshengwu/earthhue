@@ -81,8 +81,8 @@ export const pigments: Pigment[] = [
     regulations: {
       eu: "E140 - Approved",
       us: "FDA GRAS",
-      japan: "Approved",
-      korea: "Approved"
+      japan: "Approved - JSFA",
+      korea: "Approved - MFDS"
     }
   },
   {
@@ -102,8 +102,8 @@ export const pigments: Pigment[] = [
     regulations: {
       eu: "E163 - Approved",
       us: "FDA GRAS",
-      japan: "Approved",
-      korea: "Approved"
+      japan: "Approved - JSFA",
+      korea: "Approved - MFDS"
     }
   },
   {
@@ -123,8 +123,8 @@ export const pigments: Pigment[] = [
     regulations: {
       eu: "E160a - Approved",
       us: "FDA GRAS",
-      japan: "Approved",
-      korea: "Approved"
+      japan: "Approved - JSFA",
+      korea: "Approved - MFDS"
     }
   },
   {
@@ -145,7 +145,7 @@ export const pigments: Pigment[] = [
       eu: "E160c - Approved",
       us: "FDA GRAS",
       japan: "Approved - JSFA",
-      korea: "Approved"
+      korea: "Approved - MFDS"
     }
   },
   {
@@ -165,8 +165,8 @@ export const pigments: Pigment[] = [
     regulations: {
       eu: "E164 - Approved",
       us: "FDA GRAS",
-      japan: "Approved",
-      korea: "Approved"
+      japan: "Approved - JSFA",
+      korea: "Approved - MFDS"
     }
   },
   {
@@ -186,8 +186,8 @@ export const pigments: Pigment[] = [
     regulations: {
       eu: "E161b - Approved",
       us: "FDA GRAS",
-      japan: "Approved",
-      korea: "Approved"
+      japan: "Approved - JSFA",
+      korea: "Approved - MFDS"
     }
   },
 
@@ -230,8 +230,8 @@ export const pigments: Pigment[] = [
     regulations: {
       eu: "E161j - Approved",
       us: "FDA GRAS",
-      japan: "Approved",
-      korea: "Approved"
+      japan: "Approved - JSFA",
+      korea: "Approved - MFDS"
     }
   },
   {
@@ -251,8 +251,8 @@ export const pigments: Pigment[] = [
     regulations: {
       eu: "E160a - Approved",
       us: "FDA GRAS",
-      japan: "Approved",
-      korea: "Approved"
+      japan: "Approved - JSFA",
+      korea: "Approved - MFDS"
     }
   },
   {
@@ -272,8 +272,8 @@ export const pigments: Pigment[] = [
     regulations: {
       eu: "E161b - Approved",
       us: "FDA GRAS",
-      japan: "Approved",
-      korea: "Approved"
+      japan: "Approved - JSFA",
+      korea: "Approved - MFDS"
     }
   },
   {
@@ -293,8 +293,8 @@ export const pigments: Pigment[] = [
     regulations: {
       eu: "E161g - Approved (restricted use)",
       us: "FDA 21 CFR 73.95",
-      japan: "Approved",
-      korea: "Approved"
+      japan: "Approved - JSFA",
+      korea: "Approved - MFDS"
     }
   },
   {
@@ -314,8 +314,8 @@ export const pigments: Pigment[] = [
     regulations: {
       eu: "Under evaluation",
       us: "FDA GRAS (self-affirmed)",
-      japan: "Not listed",
-      korea: "Under review"
+      japan: "Not listed - JSFA",
+      korea: "Under review - MFDS"
     }
   },
   {
@@ -356,8 +356,8 @@ export const pigments: Pigment[] = [
     regulations: {
       eu: "Novel food application pending",
       us: "FDA GRAS (self-affirmed)",
-      japan: "Under review",
-      korea: "Under review"
+      japan: "Under review - JSFA",
+      korea: "Under review - MFDS"
     }
   },
   {
@@ -378,7 +378,7 @@ export const pigments: Pigment[] = [
       eu: "E164 - Approved",
       us: "FDA GRAS",
       japan: "Approved - JSFA",
-      korea: "Approved"
+      korea: "Approved - MFDS"
     }
   },
   {
@@ -398,8 +398,8 @@ export const pigments: Pigment[] = [
     regulations: {
       eu: "Approved (citrinin-free)",
       us: "FDA GRAS",
-      japan: "Approved",
-      korea: "Approved"
+      japan: "Approved - JSFA",
+      korea: "Approved - MFDS"
     }
   },
   {
@@ -419,8 +419,8 @@ export const pigments: Pigment[] = [
     regulations: {
       eu: "Novel food status",
       us: "FDA GRAS",
-      japan: "Not listed",
-      korea: "Under review"
+      japan: "Not listed - JSFA",
+      korea: "Under review - MFDS"
     }
   },
   {
@@ -440,8 +440,8 @@ export const pigments: Pigment[] = [
     regulations: {
       eu: "E161h - Approved",
       us: "FDA GRAS",
-      japan: "Approved",
-      korea: "Approved"
+      japan: "Approved - JSFA",
+      korea: "Approved - MFDS"
     }
   },
   {
@@ -462,7 +462,7 @@ export const pigments: Pigment[] = [
       eu: "E164 - Approved",
       us: "FDA GRAS",
       japan: "Approved - JSFA",
-      korea: "Approved"
+      korea: "Approved - MFDS"
     }
   },
 
@@ -485,7 +485,7 @@ export const pigments: Pigment[] = [
       eu: "E172 - Approved",
       us: "FDA 21 CFR 73.1200",
       japan: "Approved - CI 77491, 77492, 77499",
-      korea: "Approved"
+      korea: "Approved - MFDS"
     }
   },
   {
@@ -505,8 +505,8 @@ export const pigments: Pigment[] = [
     regulations: {
       eu: "E171 - Approved (restricted in cosmetics)",
       us: "FDA GRAS - 21 CFR 73.1",
-      japan: "Approved",
-      korea: "Approved"
+      japan: "Approved - JSFA",
+      korea: "Approved - MFDS"
     }
   },
   {
@@ -527,7 +527,7 @@ export const pigments: Pigment[] = [
       eu: "Approved - CI 77019",
       us: "FDA 21 CFR 73.1",
       japan: "Approved - CI 77019",
-      korea: "Approved"
+      korea: "Approved - MFDS"
     }
   }
 ];

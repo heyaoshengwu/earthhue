@@ -11,69 +11,220 @@
   },
   "home": {
     "hero": {
-      "title": "La paleta de la naturaleza, perfeccionada",
-      "subtitle": "Pigmentos naturales premium para alimentos y cosméticos — origen sostenible, estándares globales",
-      "eyebrow": "Pigmentos naturales premium para la industria",
-      "primaryCta": "Ver productos",
-      "secondaryCta": "Contactar"
+      "eyebrow": "Fermentación de precisión · Carotenoides naturales",
+      "title": "Astaxantina, luteína y licopeno —— producido por fermentación de precisión",
+      "subtitle": "EarthHue fabrica carotenoides naturales obtenidos por fermentación para formuladores de alimentos, nutracéuticos, cosméticos y farmacéuticos. COA y MSDS por lote, documentación para UE/EE. UU./Japón/Corea, MOQ 1 kg.",
+      "primaryCta": "Ver la serie de fermentación",
+      "secondaryCta": "Solicitar una muestra",
+      "chips": [
+        "COA y MSDS en cada lote",
+        "MOQ 1 kg — muestras enviadas en 7 días",
+        "Documentación para UE · EE. UU. · Japón · Corea"
+      ]
     },
-    "features": {
-      "title": "Por qué elegir natural",
-      "trusted": "Confiado por fabricantes de todo el mundo por su calidad constante y cumplimiento normativo",
+    "series": {
+      "eyebrow": "Series principales",
+      "title": "Tres carotenoides, una plataforma de fermentación",
+      "subtitle": "Cada serie se produce con una cepa documentada bajo fermentación controlada y después se purifica, seca y estandariza hasta obtener un polvo o una suspensión oleosa estables en almacenamiento.",
+      "cta": "Ver el catálogo completo"
+    },
+    "why": {
+      "eyebrow": "Qué cambia con la fermentación",
+      "title": "Los carotenoides obtenidos por fermentación, explicados en un párrafo",
+      "answer": "Los carotenoides obtenidos por fermentación son moléculas colorantes que se producen cultivando una cepa concreta de levadura o microalga en un biorreactor cerrado y extrayendo y purificando después el pigmento. Esta ruta elimina la cosecha y el rendimiento estacional de la ecuación: la misma cepa y el mismo protocolo de fermentación entregan el mismo contenido y el mismo tono lote tras lote, y la producción funciona todo el año. Para un formulador, eso significa un color que se comporta de forma previsible en el tanque piloto y sigue siendo previsible a escala de diez toneladas.",
+      "points": [
+        {
+          "title": "Un contenido sobre el que puede planificar",
+          "desc": "Cada lote se cuantifica por HPLC frente a un patrón de referencia, y el certificado de análisis acompaña al envío."
+        },
+        {
+          "title": "Suministro independiente de la cosecha",
+          "desc": "La fermentación en tanque cerrado desacopla su suministro del fallo de cultivo, del clima y de la estacionalidad."
+        },
+        {
+          "title": "Una biblioteca de cepas conservadas",
+          "desc": "Las cepas de producción se genotipan y se mantienen en las instalaciones, de modo que un pedido dos años después sigue coincidiendo con la especificación original."
+        }
+      ]
+    },
+    "compare": {
+      "eyebrow": "Comparativa de origen",
+      "title": "Astaxantina: levadura, microalga o sintética",
+      "subtitle": "La misma molécula, tres rutas. La que encaje con su fórmula depende del color objetivo, la forma farmacéutica y el expediente regulatorio, no de la palabra «natural».",
+      "headers": [
+        "",
+        "Levadura (Phaffia rhodozyma)",
+        "Microalga (Haematococcus)",
+        "Sintética"
+      ],
+      "rows": [
+        {
+          "label": "Ruta de producción",
+          "cells": [
+            "Fermentación cerrada",
+            "Cultivo exterior y posterior extracción",
+            "Síntesis química"
+          ]
+        },
+        {
+          "label": "Contenido comercial habitual",
+          "cells": [
+            "2–5% en suspensión oleosa",
+            "1–5% en suspensión oleosa",
+            "10–90% en forma cristalina o de éster"
+          ]
+        },
+        {
+          "label": "Coste relativo por kg de principio activo",
+          "cells": [
+            "Bajo",
+            "Alto",
+            "El más bajo"
+          ]
+        },
+        {
+          "label": "Puede declararse natural",
+          "cells": [
+            "Sí",
+            "Sí",
+            "No"
+          ]
+        },
+        {
+          "label": "Uso habitual",
+          "cells": [
+            "Coloración de alimentos, pienso, nutracéuticos",
+            "Coloración nutracéutica de alta gama",
+            "Pienso acuático, coloración de alta intensidad"
+          ]
+        }
+      ]
+    },
+    "capability": {
+      "eyebrow": "Fabricación",
+      "title": "Capacidad y control de calidad, en cifras",
       "items": [
         {
-          "title": "Cumplimiento normativo",
-          "desc": "Estándares UE, FDA, Japón, Corea"
+          "value": "1,200+ t/yr",
+          "label": "Capacidad anual de pigmento"
         },
         {
-          "title": "Origen sostenible",
-          "desc": "Ecológico del origen al destino"
+          "value": "8",
+          "label": "Líneas de producción"
         },
         {
-          "title": "Estabilidad comprobada",
-          "desc": "Fórmulas resistentes al calor y luz"
+          "value": "30+",
+          "label": "Puntos de control de calidad por lote"
         },
         {
-          "title": "Soporte técnico",
-          "desc": "Orientación técnica especializada"
+          "value": "12%",
+          "label": "Ingresos reinvertidos en I+D"
+        }
+      ]
+    },
+    "process": {
+      "eyebrow": "Cómo lo fabricamos",
+      "title": "Del banco de cepas al tambor sellado",
+      "steps": [
+        {
+          "title": "Selección y conservación de cepas",
+          "desc": "Las cepas de producción se genotipan, se depositan y se mantienen en las instalaciones, de modo que una especificación pueda reproducirse años después."
+        },
+        {
+          "title": "Fermentación controlada",
+          "desc": "Las cepas se cultivan en biorreactores cerrados de acero inoxidable con pH, oxígeno disuelto y temperatura monitorizados."
+        },
+        {
+          "title": "Recolección celular y liberación del pigmento",
+          "desc": "Se recoge la biomasa y se rompe la pared celular para liberar el pigmento en una corriente limpia y de bajo contenido en sólidos."
+        },
+        {
+          "title": "Purificación y concentración",
+          "desc": "El pigmento se purifica mediante membrana y cromatografía y después se concentra hasta el contenido objetivo."
+        },
+        {
+          "title": "Secado, molienda y liberación de control de calidad",
+          "desc": "El polvo o la suspensión oleosa se estandariza y se envasa en tambores sellados, y solo se libera tras superar las pruebas de HPLC, ICP-MS y microbiología."
         }
       ]
     },
     "applications": {
-      "title": "Aplicaciones",
-      "food": "Alimentos y Bebidas",
-      "foodDesc": "Colores naturales para la industria alimentaria",
-      "cosmetics": "Cosméticos y Cuidado Personal",
-      "cosmeticsDesc": "Soluciones de color de etiqueta limpia",
+      "title": "Dónde acaban nuestros carotenoides",
+      "food": "Alimentos y bebidas",
+      "foodDesc": "Bebidas, lácteos, panadería, confitería y análogos de carne que necesitan color de etiqueta limpia.",
+      "nutraceutical": "Nutracéuticos y complementos alimentarios",
+      "nutraceuticalDesc": "Cápsulas, comprimidos, polvos y cápsulas blandas para la salud ocular, la piel, la nutrición deportiva y las posiciones antioxidantes.",
+      "cosmetics": "Cosmética y cuidado personal",
+      "cosmeticsDesc": "Sérums, cremas, cosmética de color y productos capilares que usan los grados dispersables en aceite y en suspensión.",
       "pharmaceuticals": "Farmacéuticos",
-      "pharmaceuticalsDesc": "Pigmentos conformes a regulaciones",
-      "viewPigments": "Ver pigmentos"
+      "pharmaceuticalsDesc": "Color de grado para excipientes destinado a comprimidos recubiertos con película, cápsulas y preparados tópicos.",
+      "viewPigments": "Explorar el catálogo"
+    },
+    "quality": {
+      "title": "Documentación que supera una auditoría de proveedor",
+      "desc": "Cada envío incluye COA y MSDS. Los expedientes regulatorios, las declaraciones de alérgenos y OGM, las certificaciones halal y kosher y los datos de estabilidad están disponibles por SKU.",
+      "items": [
+        "Identidad y contenido por HPLC y UV-Vis",
+        "Metales pesados por ICP-MS (Pb, As, Cd, Hg)",
+        "Límites microbiológicos según USP/EP",
+        "Estabilidad acelerada a 40 °C / 75 % HR"
+      ],
+      "cta": "Ver certificaciones"
+    },
+    "faq": {
+      "title": "Las primeras preguntas de los formuladores",
+      "items": [
+        {
+          "q": "¿Cuál es la diferencia entre la astaxantina de fermentación y la astaxantina de Haematococcus?",
+          "a": "Ambas aportan la misma molécula activa, la 3S,3′-S astaxantina. La diferencia está en la ruta y en el coste. La astaxantina de levadura de Phaffia rhodozyma se fabrica en fermentadores cerrados, por lo que está disponible todo el año, cuesta menos por kilo de principio activo y puede ajustarse a un contenido objetivo. Haematococcus pluvialis se cultiva al aire libre y se cosecha, de modo que cuesta más por kilo de principio activo, pero es el grado de referencia que la mayoría de los compradores menciona cuando quiere un único ingrediente bien caracterizado. Si su especificación es un color objetivo y un precio, gana la levadura; si necesita un expediente clínico publicado vinculado a una fuente concreta, el alga es la referencia más segura."
+        },
+        {
+          "q": "¿Pueden facilitar COA y MSDS para cada lote?",
+          "a": "Sí. Cada lote se envía con un certificado de análisis que cubre identidad, contenido, metales pesados, microbiología y disolventes residuales, además del MSDS. La documentación regulatoria de apoyo para la UE (Reglamento (CE) n.º 1333/2008), Estados Unidos, Japón y Corea está disponible bajo petición."
+        },
+        {
+          "q": "¿Cuál es su cantidad mínima de pedido?",
+          "a": "Un kilogramo para los grados estándar, suficiente para realizar un ensayo completo de laboratorio con correspondencia de color, estabilidad y panel sensorial. Los volúmenes mayores se cotizan según aplicación y cantidad. Las muestras de hasta cinco series son gratuitas para solicitantes cualificados y se envían en siete días."
+        },
+        {
+          "q": "¿Qué estabilidad tienen estos pigmentos?",
+          "a": "Los carotenoides en forma libre son sensibles a la luz, al oxígeno y al calor. Lo abordamos a nivel de formulación con sistemas antioxidantes, envases opacos y, cuando la aplicación lo permite, grados dispersables en aceite o microencapsulados. Cada lote incluye datos de estabilidad acelerada a 40 °C y 75 % de humedad relativa, y nuestro equipo de aplicaciones recomendará el grado adecuado para su matriz."
+        },
+        {
+          "q": "¿Envían muestras antes de que nos comprometamos a un volumen?",
+          "a": "Sí. Indíquenos la serie, el grado y la cantidad que necesita para evaluar y le enviaremos hasta cinco series de 100 g cada una, de forma gratuita para proyectos cualificados, con envío internacional rastreado. Un contacto técnico queda asignado para continuar con el ajuste de la formulación."
+        },
+        {
+          "q": "¿Pueden desarrollar un producto de fermentación a medida?",
+          "a": "Sí. El desarrollo de cepas a medida, los objetivos de contenido, los vehículos y la encapsulación entran todos en el alcance. Nuestro equipo de I+D realiza la selección de cepas y la optimización de la fermentación en las instalaciones, con socios universitarios en el desarrollo de proceso. Comparta el color objetivo, la aplicación, el volumen y el plazo, y le devolveremos una valoración de viabilidad y un plan de desarrollo."
+        }
+      ]
     },
     "cta": {
-      "title": "¿Necesita especificaciones técnicas?",
-      "desc": "Descargue nuestras fichas técnicas y documentación regulatoria",
-      "button": "Acceder a Recursos Técnicos"
+      "title": "Envíenos su especificación",
+      "desc": "Indíquenos el color objetivo, la aplicación, el volumen y el mercado de destino. Le devolvemos una ficha de especificación, una muestra de COA y un precio, normalmente en un día laborable.",
+      "button": "Solicitar cotización"
     },
     "quicklinks": {
-      "pigments": "Pigment catalog",
-      "regulations": "Regulations",
-      "about": "About",
-      "contact": "Contact",
+      "pigments": "Referencia de pigmentos",
+      "regulations": "Normativa",
+      "about": "Quiénes somos",
+      "contact": "Contacto",
       "products": "Productos",
       "articles": "Artículos"
     },
     "featuredProducts": {
-      "title": "Productos destacados",
-      "subtitle": "Una muestra de nuestras formulaciones listas para usar.",
-      "allCta": "Ver todo"
+      "title": "Catálogo",
+      "subtitle": "Formulaciones de pigmento listas para usar.",
+      "allCta": "Ver todos los productos"
     },
     "articles": {
       "title": "Últimos artículos",
       "allCta": "Leer más"
     },
     "aestheticsLink": {
-      "prompt": "¿Te interesan los colores en sí?",
-      "cta": "Ver estética del color"
+      "prompt": "¿Le interesan los colores en sí?",
+      "cta": "Visitar Estética del color"
     }
   },
   "about": {
@@ -128,24 +279,40 @@
       "application": "Aplicación",
       "region": "Mercado objetivo"
     },
-    "regulatoryStatus": "Estado regulatorio"
+    "regulatoryStatus": "Estado regulatorio",
+    "regions": {
+      "eu": "UE",
+      "us": "EE. UU.",
+      "japan": "Japón",
+      "korea": "Corea"
+    },
+    "formulations": "Formulaciones"
   },
   "products": {
-    "title": "Catálogo de Productos",
-    "subtitle": "Formulaciones de color natural listas para usar, incluyendo pigmentos premium de fermentación microbiana.",
+    "title": "Carotenoides obtenidos por fermentación y pigmentos naturales",
+    "subtitle": "Formulaciones de color natural listas para usar. La gama principal son astaxantina, luteína, licopeno, beta-caroteno y zeaxantina obtenidos por fermentación, complementados con colorantes botánicos y minerales para uso alimentario, nutracéutico, cosmético y farmacéutico.",
     "categories": {
-      "plant": "Origen Vegetal",
-      "microbial": "Microbiano/Fermentación",
-      "mineral": "Origen Mineral"
+      "fermentation": "Obtenido por fermentación",
+      "algae": "De algas",
+      "botanical": "Botánico",
+      "mineral": "Mineral"
     },
+    "allCategories": "Todas las series",
     "custom": {
-      "title": "¿Necesita productos de fermentación personalizados?",
-      "desc": "Nos especializamos en el desarrollo de pigmentos microbianos. Nuestro equipo de fermentación puede crear formulaciones personalizadas de astaxantina, carotenoides y ficobiliproteínas.",
-      "button": "Contactar Equipo de Fermentación"
+      "title": "¿Necesita un producto de fermentación a medida?",
+      "desc": "El desarrollo de cepas a medida, los objetivos de contenido, los vehículos y la encapsulación entran todos en el alcance. Nuestro equipo de fermentación puede desarrollar una formulación de carotenoides en torno a su color objetivo, su aplicación y su mercado de destino.",
+      "button": "Contactar con el equipo de fermentación"
     },
-    "empty": "Aún no hay productos.",
+    "empty": "Todavía no hay productos.",
     "inquire": "Solicitar cotización",
     "applications": "Aplicaciones",
+    "specs": "Especificaciones",
+    "faq": "Preguntas frecuentes",
+    "related": "Productos relacionados",
+    "overview": "Resumen",
+    "requestSample": "Solicitar una muestra",
+    "requestCoa": "Solicitar COA y MSDS",
+    "seriesLabel": "Serie",
     "backToList": "Volver a productos",
     "breadcrumbHome": "Inicio"
   },
@@ -189,12 +356,8 @@
       }
     },
     "info": {
-      "general": {
-        "title": "Consultas Generales",
-        "email": "contact@earthhue.net"
-      },
-      "tech": {
-        "title": "Soporte Técnico",
+      "inquiry": {
+        "title": "Consultas y Soporte Técnico",
         "email": "tech@earthhue.net"
       },
       "hours": {
@@ -210,7 +373,7 @@
   },
   "footer": {
     "tagline": "Colores naturales de la naturaleza, para el mundo",
-    "contact": "contact@earthhue.net",
+    "contact": "tech@earthhue.net",
     "products": "Productos",
     "company": "Empresa",
     "naturalPigments": "Pigmentos Naturales",
@@ -238,7 +401,7 @@
     "navContact": "Contact",
     "crossLinkPrompt": "Color-curious? Explore our 色彩美学 zone for stories, science and gallery.",
     "crossLinkCta": "Open 色彩美学 zone",
-    "metaTitle": "For Business — Natural Pigment Raw Materials | EarthHue",
+    "metaTitle": "For Business — Natural Pigment Raw Materials",
     "metaDescription": "Premium natural pigments for food, cosmetics and pharma. Capability, certifications, samples and direct support for formulators and procurement teams.",
     "title": "For Business",
     "eyebrow": "Empresas y formuladores",
@@ -273,7 +436,7 @@
       }
     },
     "capability": {
-      "metaTitle": "Capability — Production & QC | EarthHue 企业",
+      "metaTitle": "Capability — Production & QC",
       "metaDescription": "Production capacity, fermentation lines, QC processes and R&D investment.",
       "title": "Capability",
       "subtitle": "From raw plant, mineral, and microbial inputs to compliant pigment powder — under one roof.",
@@ -315,7 +478,7 @@
       }
     },
     "certifications": {
-      "metaTitle": "Certifications | EarthHue 企业",
+      "metaTitle": "Certifications",
       "metaDescription": "Food, cosmetic, pharma, ISO and religious certifications backing every EarthHue pigment.",
       "title": "Certifications",
       "subtitle": "Documents available on request — sample COA, MSDS, and statements of compliance.",
@@ -374,7 +537,7 @@
       "downloadHint": "Need a specific certificate? Send a request via the contact form and we'll send the latest PDF."
     },
     "samples": {
-      "metaTitle": "Sample Request | EarthHue 企业",
+      "metaTitle": "Sample Request",
       "metaDescription": "How to evaluate EarthHue natural pigments — request flow, fees and shipping.",
       "title": "Sample Request",
       "subtitle": "Evaluate the pigment in your own formulation before scaling up.",
@@ -400,7 +563,7 @@
       "cta": "Start a sample request"
     },
     "factoryVisit": {
-      "metaTitle": "Factory Visit | EarthHue 企业",
+      "metaTitle": "Factory Visit",
       "metaDescription": "Tour our extraction, fermentation, QC and packaging lines.",
       "title": "Factory Visit",
       "subtitle": "See the production lines, QC lab and packaging in person.",
@@ -429,7 +592,7 @@
       }
     },
     "contact": {
-      "metaTitle": "Contacto | EarthHue",
+      "metaTitle": "Contacto",
       "metaDescription": "Contacta con nuestro equipo para cotizaciones, muestras, alianzas y visitas a fábrica.",
       "title": "Contacto",
       "subtitle": "Pick a channel — we route every inquiry to the right specialist within one business day.",
@@ -458,7 +621,7 @@
     "navGallery": "Gallery",
     "crossLinkPrompt": "¿Trabajando en una formulación comercial? Consulta especificaciones, muestras y certificaciones.",
     "crossLinkCta": "Ver productos",
-    "metaTitle": "Estética del color | EarthHue",
+    "metaTitle": "Estética del color",
     "metaDescription": "Plant pigments, natural dyeing, and the science behind every shade — for designers, makers and color enthusiasts.",
     "title": "Estética del color",
     "eyebrow": "",
@@ -480,7 +643,7 @@
       }
     },
     "stories": {
-      "metaTitle": "Color Stories | EarthHue 色彩美学",
+      "metaTitle": "Color Stories",
       "metaDescription": "Where natural pigments come from — biology, history, the people behind them.",
       "title": "Color Stories",
       "subtitle": "Every pigment has a plant (or a microbe), a place, and a person behind it.",
@@ -514,7 +677,7 @@
       "ctaLink": "Read the science section"
     },
     "science": {
-      "metaTitle": "Science | EarthHue 色彩美学",
+      "metaTitle": "Science",
       "metaDescription": "Natural vs synthetic, sustainability, stability, safety — short, sourced, no jargon.",
       "title": "Science",
       "subtitle": "Short, sourced, jargon-free articles on the questions we get asked most.",
@@ -544,7 +707,7 @@
       "externalLink": "See global compliance"
     },
     "gallery": {
-      "metaTitle": "Gallery | EarthHue 色彩美学",
+      "metaTitle": "Gallery",
       "metaDescription": "Dyeing experiments and color references for your next project.",
       "title": "Gallery",
       "subtitle": "A small starting set. More coming as our community contributes.",
@@ -568,6 +731,31 @@
     "subtitle": "Perspectivas del sector, actualizaciones regulatorias y ciencia del color.",
     "empty": "Aún no hay artículos.",
     "backToList": "Volver a artículos",
-    "breadcrumbHome": "Inicio"
+    "breadcrumbHome": "Inicio",
+    "cta": {
+      "title": "Pruébalo en su propia formulación",
+      "desc": "Solicite una muestra de laboratorio antes de pasar a un pedido a granel.",
+      "sample": "Solicitar una muestra",
+      "contact": "Hable con nuestro equipo técnico"
+    }
+  },
+  "series": {
+    "label": "Serie",
+    "fermentation": {
+      "title": "Obtenido por fermentación",
+      "desc": "Fabricado mediante fermentación controlada de cepas de levadura y microalgas. Suministro todo el año y control de contenido lote a lote."
+    },
+    "algae": {
+      "title": "De algas",
+      "desc": "Carotenoides algales naturales y ficobiliproteínas procedentes de cianobacterias y microalgas cultivadas."
+    },
+    "botanical": {
+      "title": "Botánico",
+      "desc": "Colorantes de origen vegetal: curcumina, remolacha, antocianinas, clorofila y luteína de caléndula."
+    },
+    "mineral": {
+      "title": "Mineral",
+      "desc": "Colorantes inorgánicos para aplicaciones cosméticas e industriales."
+    }
   }
 }

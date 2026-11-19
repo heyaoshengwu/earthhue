@@ -2,19 +2,16 @@ import { Metadata } from "next";
 import { getTranslations } from "next-intl/server";
 import Link from "next/link";
 import { OrganizationJsonLd, BreadcrumbJsonLd } from "@/components/JsonLd";
+import { localeAlternates } from "@/lib/seo";
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "b2b" });
   return {
+    alternates: localeAlternates(locale, "/b2b"),
     title: t("metaTitle"),
     description: t("metaDescription"),
-    alternates: {
-      canonical: `https://earthhue.net/${locale}/b2b`,
-      languages: Object.fromEntries(
-        ["en","zh","ja","ko","es","fr","de"].map((l) => [l, `https://earthhue.net/${l}/b2b`])
-      ),
-    },
+
   };
 }
 

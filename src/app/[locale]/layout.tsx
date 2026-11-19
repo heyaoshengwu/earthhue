@@ -1,9 +1,9 @@
 import { NextIntlClientProvider } from "next-intl";
 import { getMessages } from "next-intl/server";
+import { notFound } from "next/navigation";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
-
-const locales = ["en", "zh", "ja", "ko", "es", "fr", "de"];
+import { LOCALES } from "@/lib/seo";
 
 export default async function LocaleLayout({
   children,
@@ -13,36 +13,24 @@ export default async function LocaleLayout({
   params: Promise<{ locale: string }>;
 }) {
   const { locale } = await params;
+  if (!(LOCALES as readonly string[]).includes(locale)) {
+    notFound();
+  }
   const messages = await getMessages();
-
-  const hreflangLinks = locales.map((loc) => ({
-    hreflang: loc,
-    href: `https://earthhue.net/${loc}`,
-  }));
 
   return (
     <html lang={locale}>
       <head>
-        <link rel="canonical" href={`https://earthhue.net/${locale}`} />
-        {hreflangLinks.map((link) => (
-          <link
-            key={link.hreflang}
-            rel="alternate"
-            hrefLang={link.hreflang}
-            href={link.href}
+        {/* Canonical + hreflang are emitted per-page via metadata.alternates —
+            a layout-level canonical would point every subpage back at the home page. */}
+        <meta property="og:locale" content={locale.replace("-", "_")} />
+        {LOCALES.filter((l) => l !== locale).map((l) => (
+          <meta
+            key={l}
+            property="og:locale:alternate"
+            content={l.replace("-", "_")}
           />
         ))}
-        <link rel="alternate" hrefLang="x-default" href="https://earthhue.net/en" />
-        <meta property="og:locale" content={locale.replace("-", "_")} />
-        {locales
-          .filter((l) => l !== locale)
-          .map((l) => (
-            <meta
-              key={l}
-              property="og:locale:alternate"
-              content={l.replace("-", "_")}
-            />
-          ))}
       </head>
       <body className="font-sans min-h-screen flex flex-col">
         <NextIntlClientProvider messages={messages}>

@@ -1,15 +1,24 @@
 import { NextRequest, NextResponse } from "next/server";
+import { isWriteAuthorized } from "@/lib/adminAuth";
 import { createProduct, listProducts, productSlugExists } from "@/lib/products";
 import type { ProductTranslation } from "@/lib/products";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
 
-export async function GET() {
+export async function GET(req: NextRequest) {
+  if (!isWriteAuthorized(req)) {
+    return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+  }
+
   return NextResponse.json({ items: listProducts({ onlyPublished: false }) });
 }
 
 export async function POST(req: NextRequest) {
+  if (!isWriteAuthorized(req)) {
+    return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+  }
+
   const body = await req.json();
   const slug = String(body.slug || "").trim().toLowerCase();
   if (!slug) return NextResponse.json({ error: "slug required" }, { status: 400 });
@@ -23,6 +32,9 @@ export async function POST(req: NextRequest) {
     base: body.base || null,
     form: body.form || null,
     color: body.color || null,
+    series: body.series || null,
+    specs: body.specs || null,
+    faq: body.faq || null,
     sort_order: Number(body.sort_order) || 0,
     published: body.published !== false,
   });
