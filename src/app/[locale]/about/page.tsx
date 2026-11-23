@@ -3,7 +3,7 @@ import { Metadata } from "next";
 import { OrganizationJsonLd, BreadcrumbJsonLd } from "@/components/JsonLd";
 import { getAbout, listAboutImages } from "@/lib/about";
 import { pickTranslation } from "@/lib/i18n";
-import { localeAlternates } from "@/lib/seo";
+import { localeAlternates, openGraphFor } from "@/lib/seo";
 
 export const dynamic = "force-dynamic";
 
@@ -25,13 +25,12 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
     alternates: localeAlternates(locale, "/about"),
     title: titles[locale] || t("title"),
     description: t("subtitle"),
-    openGraph: {
-      title: titles[locale] || t("title"),
-      description: t("subtitle"),
-      url: `https://earthhue.net/${locale}/about`,
+    openGraph: openGraphFor(
       locale,
-      type: "website",
-    },
+      "/about",
+      titles[locale] || t("title"),
+      t("subtitle")
+    ),
 
   };
 }
@@ -48,7 +47,7 @@ export default async function AboutPage({ params }: { params: Promise<{ locale: 
 
   return (
     <>
-      <OrganizationJsonLd />
+      <OrganizationJsonLd locale={locale} />
       <BreadcrumbJsonLd
         items={[
           { name: "Home", url: `https://earthhue.net/${locale}` },

@@ -4,7 +4,7 @@ import { Metadata } from "next";
 import { listArticles } from "@/lib/articles";
 import { BreadcrumbJsonLd, ItemListJsonLd } from "@/components/JsonLd";
 import { pickTranslation } from "@/lib/i18n";
-import { localeAlternates } from "@/lib/seo";
+import { localeAlternates, openGraphFor } from "@/lib/seo";
 
 export const dynamic = "force-dynamic";
 
@@ -24,6 +24,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
     alternates: localeAlternates(locale, "/articles"),
     title: titles[locale] || t("title"),
     description: t("subtitle"),
+    openGraph: openGraphFor(locale, "/articles", titles[locale] || t("title"), t("subtitle")),
 
   };
 }

@@ -12,7 +12,7 @@ import { listProducts, getFirstProductImagesMap, getProductSpecs } from "@/lib/p
 import { listArticles } from "@/lib/articles";
 import { listHomeImages } from "@/lib/homeImages";
 import { pickTranslation } from "@/lib/i18n";
-import { localeAlternates, BASE_URL } from "@/lib/seo";
+import { localeAlternates, BASE_URL, openGraphFor } from "@/lib/seo";
 
 export const dynamic = "force-dynamic";
 
@@ -21,7 +21,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   const titles: Record<string, string> = {
     en: "Astaxanthin, Lutein & Lycopene Supplier — Fermentation-Derived Natural Carotenoids | EarthHue",
     zh: "虾青素、叶黄素、番茄红素供应商 — 发酵法天然类胡萝卜素 | EarthHue",
-    ja: "アスタxeranthin、Lutein、Lycopen Supplier — 発酵由来天然カロテノイド | EarthHue",
+    ja: "アスタキサンチン、ルテイン、リコペンのサプライヤー — 発酵由来天然カロテノイド | EarthHue",
     ko: "아스타잔틴·루틴·라이코펜 공급업체 — 발효 유래 천연 카로티노이드 | EarthHue",
     es: "Proveedor de astaxantina, luteína y licopeno — carotenoides naturales obtenidos por fermentación | EarthHue",
     fr: "Fournisseur d'astaxanthine, lutéine et lycopène — caroténoïdes naturels obtenus par fermentation | EarthHue",
@@ -30,8 +30,8 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   const descs: Record<string, string> = {
     en: "EarthHue manufactures fermentation-derived astaxanthin, lutein, lycopene, beta-carotene and zeaxanthin for food, nutraceutical, cosmetic and pharmaceutical formulators. Batch-level COA and MSDS, 1,200+ t/yr capacity, MOQ 1 kg.",
     zh: "EarthHue 生产发酵法虾青素、叶黄素、番茄红素、β-胡萝卜素与玉米黄素，供应食品、营养保健、化妆品及制药企业。批批出具 COA 与 MSDS，年产能 1,200 吨以上，起订量 1 公斤。",
-    ja: "EarthHue は発酵由来のアスタxeranthin、ルテイン、リコペン、β-カロテン、ゼアxeranthinを製造し、食品、栄養化粧品、化粧品、医薬品のFrailtyに供給します。ロットごとのCOA・MSDS、年産1,200トン以上、MOQ 1kg。",
-    ko: "EarthHue는 발효 유래 아스타잔틴, 루틴, 라이코펜, 베타카로틴, 제아잔틴을 제조하여 식품·기능성식품·화장품·제약 impreso 업체에 공급합니다. 배치별 COA·MSDS, 연산 1,200톤 이상, MOQ 1kg.",
+    ja: "EarthHue は発酵由来のアスタキサンチン、ルテイン、リコペン、β-カロテン、ゼアキサンチンを製造し、食品、栄養化粧品、化粧品、医薬品の原料として供給します。ロットごとにCOA・MSDSを添付、年産1,200トン以上、MOQ 1kg。",
+    ko: "EarthHue는 발효 유래 아스타잔틴, 루틴, 라이코펜, 베타카로틴, 제아잔틴을 제조하여 식품·기능성식품·화장품·제약업체에 공급합니다. 배치별 COA·MSDS, 연간 1,200톤 이상, MOQ 1kg.",
     es: "EarthHue fabrica astaxantina, luteína, licopeno, beta-caroteno y zeaxantina obtenidos por fermentación para fabricantes de alimentos, nutracéuticos, cosméticos y farmacéuticos. COA y MSDS por lote, 1.200+ t/año, MOQ 1 kg.",
     fr: "EarthHue fabrique de l'astaxanthine, de la lutéine, du lycopène, du bêta-carotène et de la zéaxanthine obtenus par fermentation, pour les formulateurs alimentaires, nutraceutiques, cosmétiques et pharmaceutiques. COA et MSDS par lot, 1 200 t/an, MOQ 1 kg.",
     de: "EarthHue fertigt durch Fermentation gewonnenes Astaxanthin, Lutein, Lycopin, Beta-Carotin und Zeaxanthin für Lebensmittel-, Nutraceutical-, Kosmetik- und Pharmaformulierer. COA und MSDS je Charge, 1.200+ t/Jahr, MOQ 1 kg.",
@@ -41,22 +41,12 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
     alternates: localeAlternates(locale, ""),
     title: { absolute: titles[locale] || titles.en },
     description: descs[locale] || descs.en,
-    openGraph: {
-      title: { absolute: titles[locale] || titles.en },
-      description: descs[locale] || descs.en,
-      url: `https://earthhue.net/${locale}`,
-      siteName: "EarthHue",
+    openGraph: openGraphFor(
       locale,
-      type: "website",
-      images: [
-        {
-          url: "https://earthhue.net/og-image.png",
-          width: 1200,
-          height: 630,
-          alt: "EarthHue — fermentation-derived natural carotenoids for food, nutraceutical and cosmetic formulations",
-        },
-      ],
-    },
+      "",
+      { absolute: titles[locale] || titles.en },
+      descs[locale] || descs.en
+    ),
   };
 }
 
@@ -91,7 +81,7 @@ export default async function HomePage({
 
   return (
     <>
-      <OrganizationJsonLd />
+      <OrganizationJsonLd locale={locale} />
       <WebsiteJsonLd locale={locale} />
       <FAQJsonLd items={faqItems} locale={locale} />
       <HowToJsonLd

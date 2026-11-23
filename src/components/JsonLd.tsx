@@ -1,17 +1,13 @@
-export function OrganizationJsonLd() {
-  const jsonLd = {
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    name: "EarthHue",
-    url: "https://earthhue.net",
-    logo: "https://earthhue.net/logo.png",
+/**
+ * Per-locale Organization copy. The organisation used to describe itself in
+ * English on every one of the seven language trees, which is a weak signal for
+ * a multilingual site — the same page in Chinese still claimed to be an
+ * English-language manufacturer.
+ */
+const ORGANIZATION_COPY: Record<string, { description: string; knowsAbout: string[] }> = {
+  en: {
     description:
       "Manufacturer and supplier of fermentation-derived natural carotenoids — astaxanthin, lutein, lycopene, beta-carotene and zeaxanthin — for food, nutraceutical, cosmetic and pharmaceutical formulations.",
-    foundingDate: "2019",
-    sameAs: [
-      "https://dev.to/@earthhue",
-      "https://mastodon.social/@earthhue",
-    ],
     knowsAbout: [
       "astaxanthin",
       "lutein",
@@ -24,6 +20,121 @@ export function OrganizationJsonLd() {
       "natural food colorants",
       "clean label colorants",
     ],
+  },
+  zh: {
+    description:
+      "发酵法天然类胡萝卜素制造商与供应商 —— 虾青素、叶黄素、番茄红素、β-胡萝卜素与玉米黄素 —— 面向食品、营养保健、化妆品与制药配方企业。",
+    knowsAbout: [
+      "虾青素",
+      "叶黄素",
+      "番茄红素",
+      "β-胡萝卜素",
+      "玉米黄素",
+      "圆红酵母",
+      "天然类胡萝卜素",
+      "发酵法色素",
+      "食品天然着色剂",
+      "清洁标签着色剂",
+    ],
+  },
+  ja: {
+    description:
+      "発酵由来の天然カロテノイド（アスタキサンチン、ルテイン、リコペン、β-カロテン、ゼアキサンチン）の製造・販売企業。食品、栄養化粧品、化粧品、医薬品のフォミュレーターを対象としています。",
+    knowsAbout: [
+      "アスタキサンチン",
+      "ルテイン",
+      "リコペン",
+      "β-カロテン",
+      "ゼアキサンチン",
+      "トルラロディン",
+      "天然カロテノイド",
+      "発酵由来色素",
+      "食品用天然着色料",
+      "クリーンラベル着色料",
+    ],
+  },
+  ko: {
+    description:
+      "발효 유래 천연 카로티노이드(아스타잔틴, 루틴, 라이코펜, 베타카로틴, 제아잔틴) 제조·공급 업체. 식품, 건강기능식품, 화장품 및 제약 조달 담당 회사를 대상으로 합니다.",
+    knowsAbout: [
+      "아스타잔틴",
+      "루틴",
+      "라이코펜",
+      "베타카로틴",
+      "제아잔틴",
+      "투룰로딘",
+      "천연 카로티노이드",
+      "발효 유래 색소",
+      "식품용 천연착색제",
+      "클린라벨 착색제",
+    ],
+  },
+  es: {
+    description:
+      "Fabricante y proveedor de carotenoides naturales obtenidos por fermentación — astaxantina, luteína, licopeno, beta-caroteno y zeaxantina — para formuladores de alimentos, nutracéuticos, cosméticos y farmacéuticos.",
+    knowsAbout: [
+      "astaxantina",
+      "luteína",
+      "licopeno",
+      "beta-caroteno",
+      "zeaxantina",
+      "torularhodina",
+      "carotenoides naturales",
+      "pigmentos de fermentación",
+      "colorantes naturales de alimentos",
+      "colorantes de etiqueta limpia",
+    ],
+  },
+  fr: {
+    description:
+      "Fabricant et fournisseur de caroténoïdes naturels obtenus par fermentation — astaxanthine, lutéine, lycopène, bêta-carotène et zéaxanthine — pour les formulateurs alimentaires, nutraceutiques, cosmétiques et pharmaceutiques.",
+    knowsAbout: [
+      "astaxanthine",
+      "lutéine",
+      "lycopène",
+      "bêta-carotène",
+      "zéaxanthine",
+      "torularhodine",
+      "caroténoïdes naturels",
+      "pigments de fermentation",
+      "colorants naturels alimentaires",
+      "colorants clean label",
+    ],
+  },
+  de: {
+    description:
+      "Hersteller und Lieferant von durch Fermentation gewonnenen natürlichen Carotinoiden — Astaxanthin, Lutein, Lycopin, Beta-Carotin und Zeaxanthin — für Lebensmittel-, Nutraceutical-, Kosmetik- und Pharmaformulierer.",
+    knowsAbout: [
+      "Astaxanthin",
+      "Lutein",
+      "Lycopin",
+      "Beta-Carotin",
+      "Zeaxanthin",
+      "Torularhodin",
+      "natürliche Carotinoide",
+      "Fermentationspigmente",
+      "natürliche Lebensmittelfarbstoffe",
+      "Clean-Label-Farbstoffe",
+    ],
+  },
+};
+
+export function OrganizationJsonLd({ locale = "en" }: { locale?: string }) {
+  const copy = ORGANIZATION_COPY[locale] || ORGANIZATION_COPY.en;
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    name: "EarthHue",
+    url: "https://earthhue.net",
+    logo: "https://earthhue.net/logo.png",
+    description: copy.description,
+    inLanguage: locale,
+    foundingDate: "2019",
+    sameAs: [
+      "https://dev.to/@earthhue",
+      "https://mastodon.social/@earthhue",
+    ],
+    knowsAbout: copy.knowsAbout,
     contactPoint: [
       {
         "@type": "ContactPoint",

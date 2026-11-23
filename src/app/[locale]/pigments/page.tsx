@@ -2,7 +2,7 @@ import { PigmentFilter } from "@/components/PigmentFilter";
 import { getTranslations } from "next-intl/server";
 import { Metadata } from "next";
 import { BreadcrumbJsonLd, PigmentCatalogJsonLd } from "@/components/JsonLd";
-import { localeAlternates } from "@/lib/seo";
+import { localeAlternates, openGraphFor } from "@/lib/seo";
 import { pigments } from "@/content/pigments/data";
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
@@ -23,13 +23,12 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
     alternates: localeAlternates(locale, "/pigments"),
     title: titles[locale] || t("title"),
     description: t("subtitle"),
-    openGraph: {
-      title: titles[locale] || t("title"),
-      description: t("subtitle"),
-      url: `https://earthhue.net/${locale}/pigments`,
+    openGraph: openGraphFor(
       locale,
-      type: "website",
-    },
+      "/pigments",
+      titles[locale] || t("title"),
+      t("subtitle")
+    ),
 
   };
 }

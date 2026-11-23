@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { getTranslations } from "next-intl/server";
-import { localeAlternates, BASE_URL } from "@/lib/seo";
+import { localeAlternates, openGraphFor } from "@/lib/seo";
 import { ContactPageJsonLd } from "@/components/JsonLd";
 
 const CONTACT_EMAIL = "tech@earthhue.net";
@@ -47,13 +47,12 @@ export async function generateMetadata({
     title: titles[locale] || t("title"),
     description: descriptions[locale] || t("subtitle"),
     alternates: localeAlternates(locale, "/contact"),
-    openGraph: {
-      title: titles[locale] || t("title"),
-      description: descriptions[locale] || t("subtitle"),
-      url: `${BASE_URL}/${locale}/contact`,
+    openGraph: openGraphFor(
       locale,
-      type: "website",
-    },
+      "/contact",
+      titles[locale] || t("title"),
+      descriptions[locale] || t("subtitle")
+    ),
   };
 }
 

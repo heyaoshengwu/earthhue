@@ -4,7 +4,7 @@ import { Metadata } from "next";
 import { listProducts, listProductImages } from "@/lib/products";
 import { pickTranslation } from "@/lib/i18n";
 import { BreadcrumbJsonLd, ItemListJsonLd } from "@/components/JsonLd";
-import { localeAlternates, BASE_URL } from "@/lib/seo";
+import { localeAlternates, BASE_URL, openGraphFor } from "@/lib/seo";
 
 export const dynamic = "force-dynamic";
 
@@ -16,7 +16,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   const titles: Record<string, string> = {
     en: "Astaxanthin, Lutein & Lycopene — Fermentation-Derived Natural Carotenoids",
     zh: "虾青素、叶黄素与番茄红素 — 发酵法天然类胡萝卜素产品目录",
-    ja: "アスタxeranthin、ルテイン、リコペン — 発酵由来天然カロテノイド 製品カタログ",
+    ja: "アスタキサンチン、ルテイン、リコペン — 発酵由来天然カロテノイドの製品カタログ",
     ko: "아스타잔틴, 루틴, 라이코펜 — 발효 유래 천연 카로티노이드 제품 카탈로그",
     es: "Astaxantina, luteína y licopeno — carotenoides naturales obtenidos por fermentación",
     fr: "Astaxanthine, lutéine et lycopène — caroténoïdes naturels obtenus par fermentation",
@@ -25,7 +25,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   const descriptions: Record<string, string> = {
     en: "Ready-to-use natural colour formulations: fermentation-derived astaxanthin, lutein, lycopene, beta-carotene and zeaxanthin, plus botanical and mineral colourants. MOQ 1 kg, batch-level COA and MSDS.",
     zh: "即用型天然色素配方目录：发酵法虾青素、叶黄素、番茄红素、β-胡萝卜素与玉米黄素，另有植物源与矿物源色素。起订量 1 公斤，批批出具 COA 与 MSDS。",
-    ja: "即使用天然色素の製品カタログ：発酵由来アスタxeranthin、ルテイン、リコペン、β-カロテン、ゼアxeranthin、および植物性・鉱物性色素。MOQ 1kg、ロットごとにCOA・MSSDSIssu。",
+    ja: "すぐ使える天然色素の製品カタログ：発酵由来アスタキサンチン、ルテイン、リコペン、β-カロテン、ゼアキサンチン、および植物性・鉱物性色素。MOQ 1kg、ロットごとにCOA・MSDSを添付。",
     ko: "바로 사용 가능한 천연 색소 제형 카탈로그: 발효 유래 아스타잔틴, 루틴, 라이코펜, 베타카로틴, 제아잔틴 및 식물·광물 색소. MOQ 1kg, 배치별 COA·MSDS.",
     es: "Formulaciones de color natural listas para usar: astaxantina, luteína, licopeno, beta-caroteno y zeaxantina obtenidos por fermentación, además de colorantes botánicos y minerales. MOQ 1 kg, COA y MSDS por lote.",
     fr: "Formulations de colourants naturels prêtes à l'emploi : astaxanthine, lutéine, lycopène, bêta-carotène et zéaxanthine obtenus par fermentation, ainsi que des colorants botaniques et minéraux. MOQ 1 kg, COA et MSDS par lot.",
@@ -36,13 +36,12 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
     title: titles[locale] || t("title"),
     description: descriptions[locale] || t("subtitle"),
     alternates: localeAlternates(locale, "/products"),
-    openGraph: {
-      title: titles[locale] || t("title"),
-      description: descriptions[locale] || t("subtitle"),
-      url: `${BASE_URL}/${locale}/products`,
+    openGraph: openGraphFor(
       locale,
-      type: "website",
-    },
+      "/products",
+      titles[locale] || t("title"),
+      descriptions[locale] || t("subtitle")
+    ),
   };
 }
 

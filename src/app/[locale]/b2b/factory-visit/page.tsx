@@ -2,7 +2,7 @@ import { Metadata } from "next";
 import { getTranslations } from "next-intl/server";
 import Link from "next/link";
 import { BreadcrumbJsonLd } from "@/components/JsonLd";
-import { localeAlternates } from "@/lib/seo";
+import { localeAlternates, openGraphFor } from "@/lib/seo";
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params;
@@ -11,6 +11,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
     alternates: localeAlternates(locale, "/b2b/factory-visit"),
     title: t("metaTitle"),
     description: t("metaDescription"),
+    openGraph: openGraphFor(locale, "/b2b/factory-visit", t("metaTitle"), t("metaDescription")),
 
   };
 }
