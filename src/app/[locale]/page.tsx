@@ -63,7 +63,9 @@ export default async function HomePage({
   const fermentation = allProducts.filter((p) => p.series === "fermentation");
   const featured = (fermentation.length >= 3 ? fermentation : allProducts).slice(0, 3);
   const productFirstImages = getFirstProductImagesMap(featured.map((p) => p.id));
-  const articles = listArticles({ onlyPublished: true }).slice(0, 3);
+  // Six of the eight published guides, so the new long-form pieces reach the
+  // home page instead of sitting behind the articles index.
+  const articles = listArticles({ onlyPublished: true }).slice(0, 6);
   const homeImageMap = Object.fromEntries(listHomeImages().map((i) => [i.key, i]));
   const heroImg = homeImageMap.hero;
   const brandImg = homeImageMap.brand;

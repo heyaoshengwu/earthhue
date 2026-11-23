@@ -11,7 +11,7 @@ import {
 } from "@/lib/products";
 import { BreadcrumbJsonLd, ProductJsonLd, FAQJsonLd, ItemListJsonLd } from "@/components/JsonLd";
 import { pickTranslation } from "@/lib/i18n";
-import { localeAlternates, BASE_URL } from "@/lib/seo";
+import { localeAlternates, BASE_URL, ogImages } from "@/lib/seo";
 
 export const dynamic = "force-dynamic";
 
@@ -29,6 +29,7 @@ export async function generateMetadata({
   const title = `${tr?.name || product.slug}${assay ? ` — ${assay}` : ""}`;
   const description = tr?.description || "";
   const canonical = `${BASE_URL}/${locale}/products/${product.slug}`;
+  const cover = listProductImages(product.id)[0]?.url;
 
   return {
     title,
@@ -40,14 +41,9 @@ export async function generateMetadata({
       url: canonical,
       locale,
       type: "website",
-      images: [
-        {
-          url: "https://earthhue.net/og-image.png",
-          width: 1200,
-          height: 630,
-          alt: title,
-        },
-      ],
+      // The product photograph is a far better share card than the generic
+      // site card, and every product in the catalogue carries one.
+      images: cover ? [{ url: `${BASE_URL}${cover}`, alt: title }] : ogImages(locale),
     },
   };
 }

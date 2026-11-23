@@ -6,7 +6,7 @@ import { getArticleBySlug } from "@/lib/articles";
 import { BreadcrumbJsonLd, ArticleJsonLd, FAQJsonLd } from "@/components/JsonLd";
 import { Markdown } from "@/components/Markdown";
 import { pickTranslation } from "@/lib/i18n";
-import { localeAlternates, BASE_URL } from "@/lib/seo";
+import { localeAlternates, BASE_URL, ogImages } from "@/lib/seo";
 
 export const dynamic = "force-dynamic";
 
@@ -88,14 +88,11 @@ export async function generateMetadata({
       url: canonical,
       locale,
       type: "article",
-      images: [
-        {
-          url: "https://earthhue.net/og-image.png",
-          width: 1200,
-          height: 630,
-          alt: title,
-        },
-      ],
+      // The article's own cover is a far better share card than the generic
+      // site card — every article in the library carries one.
+      images: article.cover_image
+        ? [{ url: `${BASE_URL}${article.cover_image}`, alt: title }]
+        : ogImages(locale),
     },
   };
 }

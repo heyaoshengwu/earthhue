@@ -33,24 +33,56 @@ const stories = [
     image: "/uploads/products/1790564543912-b9586e06edb3a186.jpg",
     product: "eh-phycocyanin-140",
     article: "only-natural-blue-colorant",
+    swatch: "#0066CC",
   },
   {
     key: "saffron",
     image: "/uploads/products/1790561152179-68e2d2a93e79c0ef.jpg",
     product: "eh-beet-20",
     article: "synthetic-dye-phaseout-natural-alternatives",
+    swatch: "#FFB300",
   },
   {
     key: "beetroot",
     image: "/uploads/products/1790561149224-dfd331d92956e5ad.jpg",
     product: "eh-beet-20",
-    article: "synthetic-dye-phaseout-natural-alternatives",
+    article: "beet-red-in-plant-based-meat",
+    swatch: "#C41E3A",
   },
   {
     key: "spirulina",
     image: "/uploads/products/1790564528670-23cf0b6dccff35e8.jpg",
     product: "eh-phycocyanin-140",
     article: "only-natural-blue-colorant",
+    swatch: "#0055AA",
+  },
+  {
+    key: "turmeric",
+    image: "/uploads/products/1790566700013-9f76a23fea4aabe4.jpg",
+    product: "eh-curcumin-10",
+    article: "carotenoid-hue-scale-and-colour-control",
+    swatch: "#E6A800",
+  },
+  {
+    key: "chlorophyll",
+    image: "/uploads/products/1790563621273-7d737a934d005ac5.jpg",
+    product: "eh-chlorophyll-40",
+    article: "copper-free-chlorophyll-for-clean-label",
+    swatch: "#3A6B1E",
+  },
+  {
+    key: "anthocyanin",
+    image: "/uploads/products/1790563167670-965fe789091cdba5.jpg",
+    product: "eh-anthocyanin-30",
+    article: "anthocyanin-ph-colour-shift",
+    swatch: "#6B2D5C",
+  },
+  {
+    key: "betacarotene",
+    image: "/uploads/products/eh-betacarotene-ferment-140.jpg",
+    product: "eh-betacarotene-ferment-140",
+    article: "carotenoid-hue-scale-and-colour-control",
+    swatch: "#FF8C00",
   },
 ] as const;
 
@@ -72,7 +104,26 @@ export default async function StoriesPage({ params }: { params: Promise<{ locale
           <h1 className="font-serif text-4xl md:text-5xl font-bold text-earth-900 mb-4">
             {t("title")}
           </h1>
-          <p className="text-lg text-earth-700 mb-12">{t("subtitle")}</p>
+          <p className="text-lg text-earth-700 mb-8">{t("subtitle")}</p>
+
+          {/* The palette of the section, in one strip — every chip is a colour
+              you can click straight through to the pigment behind it. */}
+          <nav aria-label="Colour stories" className="flex flex-wrap gap-2 mb-14">
+            {stories.map((story) => (
+              <a
+                key={story.key}
+                href={`#${story.key}`}
+                className="group inline-flex items-center gap-2 rounded-full border border-earth-200 bg-white py-1 pl-1 pr-4 text-sm text-earth-700 hover:border-sage-400 hover:text-earth-900 transition-colors"
+              >
+                <span
+                  aria-hidden="true"
+                  className="h-6 w-6 rounded-full ring-1 ring-inset ring-black/10"
+                  style={{ backgroundColor: story.swatch }}
+                />
+                {t(`items.${story.key}.tag`)}
+              </a>
+            ))}
+          </nav>
 
           <div className="space-y-16">
             {stories.map((story) => {
@@ -86,7 +137,8 @@ export default async function StoriesPage({ params }: { params: Promise<{ locale
               return (
                 <article
                   key={story.key}
-                  className="grid md:grid-cols-[1fr_1.1fr] gap-6 md:gap-10 items-start"
+                  id={story.key}
+                  className="grid md:grid-cols-[1fr_1.1fr] gap-6 md:gap-10 items-start scroll-mt-24"
                 >
                   <Link
                     href={`/${locale}/products/${story.product}`}
@@ -135,6 +187,15 @@ export default async function StoriesPage({ params }: { params: Promise<{ locale
                         {tq("products")}: {productName} →
                       </Link>
                     </div>
+
+                    <p className="mt-4 text-sm">
+                      <Link
+                        href={`/${locale}/c2c/science`}
+                        className="inline-flex items-center gap-2 text-sage-700 hover:text-sage-900"
+                      >
+                        {t("scienceLink")} →
+                      </Link>
+                    </p>
                   </div>
                 </article>
               );

@@ -399,8 +399,8 @@
     "navSamples": "Samples",
     "navFactoryVisit": "Factory visit",
     "navContact": "Contact",
-    "crossLinkPrompt": "Color-curious? Explore our 色彩美学 zone for stories, science and gallery.",
-    "crossLinkCta": "Open 色彩美学 zone",
+    "crossLinkPrompt": "Color-curious? Explore our color aesthetics zone for stories, science and gallery.",
+    "crossLinkCta": "Open color aesthetics zone",
     "metaTitle": "For Business — Natural Pigment Raw Materials | EarthHue",
     "metaDescription": "Premium natural pigments for food, cosmetics and pharma. Capability, certifications, samples and direct support for formulators and procurement teams.",
     "title": "For Business",
@@ -671,10 +671,35 @@
           "title": "Spirulina — Blue from a Cyanobacterium",
           "lede": "Phycocyanin gives spirulina its blue colour.",
           "body": "Cyanobacteria were among the first oxygen-producing life forms on Earth. Phycocyanin, the blue pigment they share with spirulina, is one of the few natural blues that survives both heat and a neutral pH."
+        },
+        "turmeric": {
+          "tag": "Turmeric",
+          "title": "Turmeric — The Gold That Needs Oil",
+          "lede": "Curcumin is almost insoluble in water and fat-soluble in almost everything else.",
+          "body": "The pigment that makes turmeric golden is curcumin, and it behaves like an oil-soluble molecule in every way that matters. Its hue — a warm, slightly orange gold — comes from a conjugated chain that dissolves into the fat phase rather than the water phase, which is why a pinch of turmeric powder in water turns yellow-brown while a pinch in milk turns properly gold. That single solubility fact decides most of what a formulator needs to know about it, and it is also why the same pigment has to be carried in an oil-dispersible form rather than a water-dispersible one."
+        },
+        "chlorophyll": {
+          "tag": "Chlorophyll",
+          "title": "Chlorophyll — The Colour of a Leaf",
+          "lede": "The only green most of us will ever use comes from a molecule held together by a single metal ion.",
+          "body": "Chlorophyll is a porphyrin ring with a magnesium ion in the middle, and that magnesium is both the reason the colour is so green and the reason it is so fragile. Pull the magnesium out and the pigment degrades into a khaki brown within minutes. It is the reason natural greens are rare, the reason copper was added to make the molecule stable, and the reason a clean-label green is still an open formulation problem rather than a solved one."
+        },
+        "anthocyanin": {
+          "tag": "Anthocyanin",
+          "title": "Anthocyanin — The Colour That Reads the pH",
+          "lede": "It is the only natural colour that changes hue on purpose.",
+          "body": "Anthocyanins read the acidity of whatever they are dissolved in, and they answer in colour: red in a sports drink, violet in a still water, a dusty pink in a yoghurt. That is not instability — it is a chemical equilibrium doing exactly what it does. It is also why a purple that holds its hue at pH 5 is a technical achievement rather than a matter of luck, and why anthocyanin is usually chosen for the story it tells rather than for the colour it holds still."
+        },
+        "betacarotene": {
+          "tag": "Beta-carotene",
+          "title": "Beta-Carotene — Orange, Concentrated",
+          "lede": "One hectare of carrots gives tonnes of pigment. Fermentation gives kilograms.",
+          "body": "Beta-carotene is the pigment that makes a carrot orange and, for that matter, a mango orange and a pumpkin gold. Extracted from crops it is bound to the harvest; produced by fermentation it is bound to a bioreactor. The molecule is the same in both cases, and so is the colour — which is why the interesting differences show up in assay consistency and supply security rather than in the shade."
         }
       },
       "cta": "Want to go deeper on the science?",
-      "ctaLink": "Read the science section"
+      "ctaLink": "Read the science section",
+      "scienceLink": "Read the science"
     },
     "science": {
       "metaTitle": "Science",
@@ -701,10 +726,39 @@
           "title": "Are natural pigments safer?",
           "lede": "Generally, but \"natural\" isn't a regulatory category.",
           "body": "Some natural pigments (e.g. lawone from henna) are potent skin sensitizers. Some synthetic pigments (e.g. iron oxides) are among the safest colorants we have. The label \"natural\" tells you origin, not safety."
+        },
+        "color-measurement": {
+          "title": "Colour measurement, and what a ΔE actually means",
+          "lede": "Two batches at the same assay can be different colours.",
+          "body": "Colour is measured in Lab values and compared with ΔE, and neither number means anything without a method and a substrate attached to it. This is the shortest useful explanation of why the colour on a pigment certificate is not the colour of your product, and of how to close that gap with a written specification rather than with an argument at goods-in."
+        },
+        "extraction-vs-fermentation": {
+          "title": "Extraction or fermentation: what actually changes",
+          "lede": "The same molecule, a different kind of supply risk.",
+          "body": "A crop-derived pigment and a fermentation-derived pigment are chemically the same compound, and the difference is not in the colour. It is in whether your supply is exposed to a harvest window, a crop yield and a weather season, or whether it is exposed to a controlled bioreactor with a verified assay on every lot. For a buyer, that is the difference between a colour you can plan around and a colour you have to hope for."
+        },
+        "clean-label": {
+          "title": "What a clean label actually rules out",
+          "lede": "It is a list of specific exclusions, not a feeling.",
+          "body": "Clean label is neither a legal category nor a single rule. It is a short list of things a label will not carry — synthetic dyes, non-natural chelates, certain carriers, certain processing aids — and the list differs by retailer, by market and by product claim. The useful question is therefore not whether a pigment is natural, but which specific exclusions it collides with."
+        },
+        "blue-challenge": {
+          "title": "Why natural blue is so hard",
+          "lede": "One commercially available natural food blue, and it comes from a cyanobacterium.",
+          "body": "Almost every other hue has several natural sources to choose from. Blue has one: phycocyanin, extracted from spirulina. The reason is chemistry — the chromophore has to absorb strongly in the orange-red part of the spectrum while staying stable enough to survive processing, and very few natural molecules do both at once."
         }
       },
       "externalNote": "Looking for the regulatory view across regions?",
-      "externalLink": "See global compliance"
+      "externalLink": "See global compliance",
+      "table": {
+        "title": "Pigment quick reference",
+        "note": "Colour, source and EU status for the pigments used in this section. Full identifiers — CAS, EINECS, and the status in the United States, Japan and Korea — are listed in the pigment index.",
+        "pigment": "Pigment",
+        "colour": "Colour",
+        "source": "Source",
+        "eu": "EU status"
+      },
+      "readGuide": "Read the guide"
     },
     "gallery": {
       "metaTitle": "Gallery",
