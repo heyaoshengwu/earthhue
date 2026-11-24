@@ -142,6 +142,24 @@ else
   fail "llms.txt lists only $LLMS_ARTICLES article links"
 fi
 
+# ------------------------------------------------------------ IndexNow
+# The push protocol only works while the key file stays reachable at the site
+# root. If it breaks, every submission is rejected with 403 and the site goes
+# quiet in the indexes without any visible symptom.
+echo
+IDX_FILE=$(ls "$APP"/public/indexnow-*.txt 2>/dev/null | head -1)
+if [ -n "$IDX_FILE" ]; then
+  IDX_NAME=$(basename "$IDX_FILE" .txt)
+  IDX_BODY=$(curl -s --max-time 20 "$PUBLIC/$IDX_NAME.txt")
+  if [ "$IDX_BODY" = "$IDX_NAME" ]; then
+    ok "indexnow key file is published and matches its name"
+  else
+    fail "indexnow key file at $PUBLIC/$IDX_NAME.txt does not return the key"
+  fi
+else
+  warn "no indexnow key file in $APP/public — pushes would be rejected"
+fi
+
 # ------------------------------------------------------------ catalogues
 echo
 if command -v python3 >/dev/null 2>&1; then
