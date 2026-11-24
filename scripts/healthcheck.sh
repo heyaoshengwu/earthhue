@@ -169,6 +169,17 @@ if command -v python3 >/dev/null 2>&1; then
     fail "message catalogue check failed"
     REPORT="${REPORT}$(cat /tmp/eh_msgs_check.txt)"$'\n'
   fi
+
+  # The product and article copy lives in the database, not in the message
+  # files, so the machine-translation residue check runs against it there.
+  if [ -f "$APP/scripts/check-translations.py" ]; then
+    if python3 "$APP/scripts/check-translations.py" >/tmp/eh_trans_check.txt 2>&1; then
+      ok "translated catalogues have no machine-translation residue"
+    else
+      fail "translation residue check failed"
+      REPORT="${REPORT}$(cat /tmp/eh_trans_check.txt)"$'\n'
+    fi
+  fi
 else
   fail "python3 not available for the catalogue check"
 fi
