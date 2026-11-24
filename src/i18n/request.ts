@@ -1,4 +1,5 @@
 import { getRequestConfig } from "next-intl/server";
+import { routing } from "./routing";
 
 /**
  * Message loading with an English base.
@@ -35,10 +36,18 @@ function mergeMessages(
 }
 
 export default getRequestConfig(async ({ requestLocale }) => {
-  const locale = (await requestLocale) || "en";
+  const requested = (await requestLocale) || routing.defaultLocale;
+
+  // An unsupported locale has no catalogue. Importing the catalogue that does
+  // not exist turns a junk URL into a 500, which is exactly what a crawler
+  // probing for paths gets to see. Fall back to English here and let the
+  // locale layout turn the unsupported locale into a proper 404.
+  const supported = routing.locales as readonly string[];
+  const locale = supported.includes(requested) ? requested : routing.defaultLocale;
+
   const base = (await import(`../messages/en.json`)).default as Record<string, unknown>;
 
-  if (locale === "en") {
+  if (locale === routing.defaultLocale) {
     return { locale, messages: base };
   }
 

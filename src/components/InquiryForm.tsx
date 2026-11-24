@@ -172,7 +172,18 @@ export default function InquiryForm({
   }
 
   return (
-    <form onSubmit={handleSubmit} className={`space-y-5 ${className}`}>
+    // The form posts to the API directly as well as through fetch. If the
+    // script never loads, the submission still reaches the database instead of
+    // reloading the page and losing every field that was filled in.
+    <form
+      action="/api/contact"
+      method="post"
+      onSubmit={handleSubmit}
+      className={`space-y-5 ${className}`}
+    >
+      <input type="hidden" name="locale" value={locale} />
+      <input type="hidden" name="subject" value={values.subject} />
+
       {status === "error" && (
         <div className="p-4 bg-red-50 border border-red-200 rounded-lg text-red-700">{error}</div>
       )}
