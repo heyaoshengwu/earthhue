@@ -88,6 +88,21 @@ CREATE TABLE IF NOT EXISTS contact_submissions (
   created_at TEXT NOT NULL DEFAULT (datetime('now'))
 );
 
+CREATE TABLE IF NOT EXISTS analytics_events (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  created_at TEXT NOT NULL DEFAULT (datetime('now')),
+  type TEXT NOT NULL,
+  locale TEXT DEFAULT '',
+  path TEXT DEFAULT '',
+  referrer TEXT DEFAULT '',
+  referrer_class TEXT DEFAULT '',
+  target TEXT DEFAULT '',
+  target_kind TEXT DEFAULT '',
+  session TEXT DEFAULT '',
+  ua TEXT DEFAULT '',
+  ip_hash TEXT DEFAULT ''
+);
+
 CREATE INDEX IF NOT EXISTS idx_articles_published ON articles(published, created_at);
 CREATE INDEX IF NOT EXISTS idx_products_published ON products(published, sort_order);
 CREATE INDEX IF NOT EXISTS idx_product_images_product ON product_images(product_id, sort_order);
@@ -111,6 +126,21 @@ function migrate(db: Database.Database) {
   addColumn("products", "series", "series TEXT");
   addColumn("products", "specs", "specs TEXT");
   addColumn("products", "faq", "faq TEXT");
+
+  // Inquiry qualification and attribution. Without these an inquiry arrives
+  // as a name and a sentence: there is no way to route it, no way to report
+  // which page produced it, and no way to mine the question it asked back
+  // into the page that should have answered it.
+  addColumn("contact_submissions", "source_page", "source_page TEXT");
+  addColumn("contact_submissions", "referrer", "referrer TEXT");
+  addColumn("contact_submissions", "product", "product TEXT");
+  addColumn("contact_submissions", "application", "application TEXT");
+  addColumn("contact_submissions", "market", "market TEXT");
+  addColumn("contact_submissions", "volume", "volume TEXT");
+  addColumn("contact_submissions", "grade", "grade TEXT");
+  addColumn("contact_submissions", "quantity", "quantity TEXT");
+  addColumn("contact_submissions", "intent", "intent TEXT");
+  addColumn("contact_submissions", "status", "status TEXT DEFAULT 'new'");
 }
 
 let _db: Database.Database | null = null;

@@ -328,6 +328,8 @@
     }
   },
   "contact": {
+    "metaDescription": "Contactez EarthHue pour des échantillons de pigments naturels, des devis, la documentation réglementaire et un support technique pour les formulations alimentaires, cosmétiques et nutraceutiques.",
+    "metaTitle": "Contact - Échantillons de pigments naturels, devis et support technique",
     "title": "Contactez-nous",
     "subtitle": "Contactez notre équipe pour des demandes de produits, un support technique ou des questions réglementaires.",
     "success": {
@@ -537,6 +539,8 @@
       "downloadHint": "Need a specific certificate? Send a request via the contact form and we'll send the latest PDF."
     },
     "samples": {
+      "formHint": "Indiquez-nous le pigment, la qualité et la quantité souhaitée. Les échantillons sont expédiés dans le monde entier sous 7 jours.",
+      "formTitle": "Demander un échantillon",
       "metaTitle": "Sample Request",
       "metaDescription": "How to evaluate EarthHue natural pigments — request flow, fees and shipping.",
       "title": "Sample Request",

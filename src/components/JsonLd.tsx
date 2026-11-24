@@ -130,8 +130,11 @@ export function OrganizationJsonLd({ locale = "en" }: { locale?: string }) {
     description: copy.description,
     inLanguage: locale,
     foundingDate: "2019",
+    // Entity corroboration. Every entry here is a claim that this profile
+    // belongs to EarthHue, so a dead link is worse than no link: it tells a
+    // consumer that the entity cannot be verified. The dev.to profile was
+    // removed because it returns 404.
     sameAs: [
-      "https://dev.to/@earthhue",
       "https://mastodon.social/@earthhue",
     ],
     knowsAbout: copy.knowsAbout,

@@ -39,6 +39,19 @@ export async function POST(request: NextRequest) {
     const message = clean(body.message);
     const locale = clean(body.locale, 10);
 
+    // Qualification and attribution. These are the fields that turn an
+    // inquiry into something that can be routed, counted and mined back into
+    // the page that should have answered the question.
+    const product = clean(body.product, 200);
+    const application = clean(body.application, 200);
+    const market = clean(body.market, 100);
+    const volume = clean(body.volume, 100);
+    const grade = clean(body.grade, 100);
+    const quantity = clean(body.quantity, 100);
+    const intent = clean(body.intent, 100);
+    const sourcePage = clean(body.source_page, 300);
+    const referrer = clean(body.referrer, 500);
+
     if (!name || !email || !message) {
       return NextResponse.json(
         { error: "Name, email, and message are required" },
@@ -55,8 +68,10 @@ export async function POST(request: NextRequest) {
     const info = db
       .prepare(
         `INSERT INTO contact_submissions
-           (name, email, company, subject, message, locale, delivery_status, ip, user_agent)
-         VALUES (?, ?, ?, ?, ?, ?, 'stored', ?, ?)`
+           (name, email, company, subject, message, locale,
+            product, application, market, volume, grade, quantity, intent,
+            source_page, referrer, delivery_status, ip, user_agent)
+         VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 'stored', ?, ?)`
       )
       .run(
         name,
@@ -65,6 +80,15 @@ export async function POST(request: NextRequest) {
         subject,
         message,
         locale,
+        product,
+        application,
+        market,
+        volume,
+        grade,
+        quantity,
+        intent,
+        sourcePage,
+        referrer,
         request.headers.get("x-forwarded-for") || "",
         clean(request.headers.get("user-agent"), 300)
       );

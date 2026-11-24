@@ -8,17 +8,21 @@ export const dynamic = "force-dynamic";
  * the content is meant to be cited, and /llms.txt carries the clean index.
  */
 const AI_CRAWLERS = [
-  "GPTBot",
+  // Retrieval and search crawlers — these decide whether a page can be cited
+  // in a live answer, so they must stay allowed.
   "OAI-SearchBot",
   "ChatGPT-User",
-  "ClaudeBot",
+  "Claude-SearchBot",
   "Claude-User",
-  "anthropic-ai",
   "PerplexityBot",
   "Perplexity-User",
   "Google-Extended",
   "Applebot-Extended",
   "Bingbot",
+  // Training and control crawlers — a policy choice, not a citation lever.
+  "GPTBot",
+  "ClaudeBot",
+  "anthropic-ai",
   "CCBot",
   "Bytespider",
   "Meta-ExternalAgent",
@@ -39,9 +43,15 @@ export default function robots(): MetadataRoute.Robots {
       // generic rule keeps it away from ordinary crawlers so the HTML pages
       // stay canonical, but the AI groups below open it explicitly instead of
       // relying on the more-specific-agent-wins reading of RFC 9309.
+      //
+      // Because RFC 9309 gives the most specific user-agent group the whole
+      // decision, the AI groups do NOT inherit the generic rule's disallow
+      // list — they have to restate it, or /admin and /api/ end up open to
+      // every crawler that follows this file.
       ...AI_CRAWLERS.map((userAgent) => ({
         userAgent,
         allow: ["/", "/md/"],
+        disallow: ["/admin", "/api/"],
       })),
     ],
     sitemap: `${BASE_URL}/sitemap.xml`,

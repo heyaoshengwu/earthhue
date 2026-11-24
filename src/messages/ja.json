@@ -1,4 +1,58 @@
 {
+  "inquiry": {
+    "intent": "ご相談内容",
+    "product": "ご検討の製品",
+    "productAny": "未定",
+    "application": "用途",
+    "applicationAny": "未定",
+    "market": "対象市場",
+    "marketAny": "その他 / 未定",
+    "volume": "年間使用予定量",
+    "volumeUnknown": "未定",
+    "grade": "必要なグレード",
+    "gradeAny": "未定",
+    "quantity": "サンプル数量",
+    "quantityPlaceholder": "例：100 g、1 kg",
+    "send": "問い合わせを送信",
+    "sending": "送信中...",
+    "successTitle": "お問い合わせを受け付けました",
+    "successDesc": "1 営業日以内にご連絡いたします。",
+    "error": "送信に失敗しました。再度お試しいただくか、tech@earthhue.net までメールをご連絡ください。",
+    "apps": {
+      "food": "食品",
+      "beverage": "飲料",
+      "bakery": "パン・菓子",
+      "dairy": "乳製品",
+      "meat": "肉製品・植物性食品",
+      "nutraceutical": "ヘルスケア・サプリメント",
+      "cosmetics": "化粧品・パーソナルケア",
+      "pharma": "医薬品",
+      "other": "その他"
+    },
+    "markets": {
+      "eu": "EU",
+      "us": "米国",
+      "jp": "日本",
+      "kr": "韓国",
+      "cn": "中国",
+      "sea": "東南アジア",
+      "other": "その他"
+    },
+    "volumes": {
+      "lt1": "年間 1 トン未満",
+      "t1to10": "年間 1-10 トン",
+      "t10to50": "年間 10-50 トン",
+      "gt50": "年間 50 トン超",
+      "unknown": "未定"
+    },
+    "grades": {
+      "food": "食品グレード",
+      "cosmetic": "化粧品グレード",
+      "pharma": "医薬品グレード",
+      "industrial": "工業用グレード",
+      "other": "その他"
+    }
+  },
   "nav": {
     "home": "ホーム",
     "about": "会社概要",
@@ -328,6 +382,8 @@
     }
   },
   "contact": {
+    "metaDescription": "天然色素のサンプル、見積、規制書類、および食品・化粧品・ヘルスケア用途の技術支援について EarthHue へお問い合わせください。",
+    "metaTitle": "お問い合わせ - 天然色素サンプル・見積・技術サポート",
     "title": "お問い合わせ",
     "subtitle": "製品に関するお問い合わせ、技術サポート、規制に関するご質問はこちらから。",
     "success": {
@@ -537,6 +593,8 @@
       "downloadHint": "Need a specific certificate? Send a request via the contact form and we'll send the latest PDF."
     },
     "samples": {
+      "formHint": "ご希望の色素、グレード、必要な数量をお知らせください。サンプルは 7 日以内に出荷します。",
+      "formTitle": "サンプル請求",
       "metaTitle": "Sample Request",
       "metaDescription": "How to evaluate EarthHue natural pigments — request flow, fees and shipping.",
       "title": "Sample Request",

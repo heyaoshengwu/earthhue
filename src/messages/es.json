@@ -328,6 +328,8 @@
     }
   },
   "contact": {
+    "metaDescription": "Hable con EarthHue sobre muestras de pigmentos naturales, cotizaciones, documentación regulatoria y soporte técnico para formulaciones de alimentos, cosméticos y nutracéuticos.",
+    "metaTitle": "Contacto - Muestras de pigmentos naturales, cotizaciones y soporte técnico",
     "title": "Contáctenos",
     "subtitle": "Comuníquese con nuestro equipo para consultas de productos, soporte técnico o preguntas regulatorias.",
     "success": {
@@ -537,6 +539,8 @@
       "downloadHint": "Need a specific certificate? Send a request via the contact form and we'll send the latest PDF."
     },
     "samples": {
+      "formHint": "Indícanos el pigmento, la calidad y la cantidad que necesitas. Enviamos muestras a todo el mundo en 7 días.",
+      "formTitle": "Solicitar una muestra",
       "metaTitle": "Sample Request",
       "metaDescription": "How to evaluate EarthHue natural pigments — request flow, fees and shipping.",
       "title": "Sample Request",

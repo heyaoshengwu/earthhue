@@ -4,6 +4,7 @@ import { getMessages } from "next-intl/server";
 import { notFound } from "next/navigation";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
+import Analytics from "@/components/Analytics";
 import { BASE_URL, LOCALES, ogImages, socialMetadata } from "@/lib/seo";
 
 /**
@@ -30,6 +31,11 @@ export async function generateMetadata({
     twitter: social.twitter,
     keywords: social.keywords,
     category: social.category,
+    // Search Console verification. The token lives in .env.local, so nothing
+    // has to be committed to add or rotate it.
+    verification: process.env.GOOGLE_SITE_VERIFICATION
+      ? { google: process.env.GOOGLE_SITE_VERIFICATION }
+      : undefined,
     openGraph: {
       type: "website",
       locale,
@@ -63,12 +69,16 @@ export default async function LocaleLayout({
             a layout-level canonical would point every subpage back at the home page.
             og:locale and og:locale:alternate are emitted by the openGraph block
             below; adding them by hand as well would duplicate the tags. */}
+        {process.env.BING_SITE_VERIFICATION && (
+          <meta name="msvalidate.01" content={process.env.BING_SITE_VERIFICATION} />
+        )}
       </head>
       <body className="font-sans min-h-screen flex flex-col">
         <NextIntlClientProvider messages={messages}>
           <Header />
           <main className="flex-1">{children}</main>
           <Footer />
+          <Analytics />
         </NextIntlClientProvider>
       </body>
     </html>

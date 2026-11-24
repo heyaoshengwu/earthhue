@@ -28,7 +28,7 @@ const LOCALE_LABEL: Record<Locale, string> = {
   de: "DE",
 };
 
-type Tab = "articles" | "products" | "about" | "home" | "inquiries";
+type Tab = "articles" | "products" | "about" | "home" | "inquiries" | "analytics";
 
 type ArticleTranslation = { title: string; excerpt: string; body: string };
 type ProductTranslation = { name: string; description: string; applications: string[] };
@@ -91,6 +91,39 @@ type Inquiry = {
   delivery_status: string;
   delivery_error: string | null;
   created_at: string;
+  product?: string | null;
+  application?: string | null;
+  market?: string | null;
+  volume?: string | null;
+  grade?: string | null;
+  quantity?: string | null;
+  intent?: string | null;
+  source_page?: string | null;
+  referrer?: string | null;
+  status?: string | null;
+};
+
+type AnalyticsBucket = { bucket?: string; source?: string; product?: string; application?: string; market?: string; c: number; visitors?: number };
+type AnalyticsRow = { day?: string; path?: string; locale?: string; target?: string; target_kind?: string; referrer?: string; c?: number; views?: number; submits?: number };
+
+type AnalyticsData = {
+  days: number;
+  since: string;
+  totals: { pageViews: number; linkClicks: number; formStarts: number; formSubmits: number; inquiries: number };
+  previous: { pageViews: number; inquiries: number };
+  daily: AnalyticsRow[];
+  topPages: AnalyticsRow[];
+  referrers: AnalyticsBucket[];
+  aiReferrers: AnalyticsRow[];
+  clicked: AnalyticsRow[];
+  byLocale: AnalyticsBucket[];
+  inquiries: Inquiry[];
+  inquiryBreakdown: {
+    bySource: AnalyticsBucket[];
+    byProduct: AnalyticsBucket[];
+    byApplication: AnalyticsBucket[];
+    byMarket: AnalyticsBucket[];
+  };
 };
 
 const HOME_IMAGE_SLOTS: { key: string; label: string; desc: string }[] = [
@@ -179,6 +212,7 @@ export default function AdminPage() {
   const [aboutImages, setAboutImages] = useState<AboutImage[]>([]);
   const [homeImages, setHomeImages] = useState<HomeImage[]>([]);
   const [inquiries, setInquiries] = useState<Inquiry[]>([]);
+  const [analytics, setAnalytics] = useState<AnalyticsData | null>(null);
   const [saved, setSaved] = useState<string | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState(true);
@@ -214,6 +248,11 @@ export default function AdminPage() {
   useEffect(() => {
     if (!isAuthenticated || activeTab !== "inquiries") return;
     void loadInquiries();
+  }, [activeTab, isAuthenticated]);
+
+  useEffect(() => {
+    if (!isAuthenticated || activeTab !== "analytics") return;
+    void loadAnalytics();
   }, [activeTab, isAuthenticated]);
 
   async function refresh() {
@@ -299,6 +338,15 @@ export default function AdminPage() {
     }
   }
 
+  async function loadAnalytics() {
+    try {
+      const res = await apiGet<AnalyticsData>("/api/analytics?days=30");
+      setAnalytics(res);
+    } catch (e: any) {
+      setError(e?.message || "Failed to load analytics");
+    }
+  }
+
   if (authChecking && !isAuthenticated) {
     return (
       <div className="min-h-screen flex items-center justify-center bg-earth-50">
@@ -380,7 +428,7 @@ export default function AdminPage() {
         )}
 
         <div className="flex gap-4 mb-6 border-b border-earth-200">
-          {(["articles", "products", "about", "home", "inquiries"] as Tab[]).map((tab) => (
+          {(["articles", "products", "about", "home", "inquiries", "analytics"] as Tab[]).map((tab) => (
             <button
               key={tab}
               onClick={() => setActiveTab(tab)}
@@ -395,6 +443,7 @@ export default function AdminPage() {
               {tab === "about" && "About Us"}
               {tab === "home" && "Home Images"}
               {tab === "inquiries" && `Inquiries (${inquiries.length})`}
+              {tab === "analytics" && "Analytics"}
             </button>
           ))}
         </div>
@@ -443,6 +492,7 @@ export default function AdminPage() {
                 onChange={loadInquiries}
               />
             )}
+            {activeTab === "analytics" && <AnalyticsTab data={analytics} />}
           </>
         )}
       </div>
@@ -1841,6 +1891,177 @@ function InquiriesTab({
           </div>
         ))
       )}
+    </div>
+  );
+}
+function AnalyticsStat({
+  label,
+  value,
+  hint,
+}: {
+  label: string;
+  value: React.ReactNode;
+  hint?: string;
+}) {
+  return (
+    <div className="bg-white border border-earth-200 rounded-lg p-4">
+      <div className="text-xs uppercase tracking-wide text-earth-500">{label}</div>
+      <div className="text-2xl font-semibold text-earth-900 mt-1">{value}</div>
+      {hint && <div className="text-xs text-earth-500 mt-1">{hint}</div>}
+    </div>
+  );
+}
+
+function AnalyticsBars({
+  title,
+  rows,
+  labelOf,
+  valueOf,
+}: {
+  title: string;
+  rows: { c?: number; views?: number }[];
+  labelOf: (row: any, index: number) => string;
+  valueOf: (row: any) => number;
+}) {
+  const max = Math.max(1, ...rows.map((r) => valueOf(r)));
+  return (
+    <div className="bg-white border border-earth-200 rounded-lg p-5">
+      <h3 className="font-semibold text-earth-900 mb-3">{title}</h3>
+      {rows.length === 0 ? (
+        <p className="text-sm text-earth-500">No data yet.</p>
+      ) : (
+        <div className="space-y-2">
+          {rows.map((row, i) => {
+            const value = valueOf(row);
+            return (
+              <div key={i} className="flex items-center gap-3">
+                <span className="text-xs text-earth-600 truncate w-40 shrink-0" title={labelOf(row, i)}>
+                  {labelOf(row, i)}
+                </span>
+                <span className="flex-1 h-2 bg-earth-100 rounded overflow-hidden">
+                  <span
+                    className="block h-full bg-sage-500"
+                    style={{ width: `${Math.round((value / max) * 100)}%` }}
+                  />
+                </span>
+                <span className="text-xs text-earth-500 w-10 text-right">{value}</span>
+              </div>
+            );
+          })}
+        </div>
+      )}
+    </div>
+  );
+}
+
+function AnalyticsTab({ data }: { data: AnalyticsData | null }) {
+  if (!data) {
+    return <div className="text-earth-500 py-8">Loading analytics...</div>;
+  }
+
+  const aiVisits = data.referrers.find((r) => r.bucket === "ai")?.c || 0;
+  const totalExternal = data.referrers.reduce((sum, r) => sum + (r.c || 0), 0);
+
+  return (
+    <div className="space-y-6">
+      <p className="text-sm text-earth-600">
+        Last {data.days} days, measured from {data.since}. Comparison is the previous {data.days} days.
+      </p>
+
+      <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        <AnalyticsStat
+          label="Page views"
+          value={data.totals.pageViews}
+          hint={`previous ${data.previous.pageViews}`}
+        />
+        <AnalyticsStat
+          label="Inquiries"
+          value={data.totals.inquiries}
+          hint={`previous ${data.previous.inquiries}`}
+        />
+        <AnalyticsStat
+          label="AI referrals"
+          value={aiVisits}
+          hint={totalExternal ? `${Math.round((aiVisits / totalExternal) * 100)}% of external` : "no external yet"}
+        />
+        <AnalyticsStat label="Form submits" value={data.totals.formSubmits} hint={`${data.totals.formStarts} started`} />
+      </div>
+
+      <div className="bg-white border border-earth-200 rounded-lg p-5">
+        <h3 className="font-semibold text-earth-900 mb-3">Daily traffic</h3>
+        {data.daily.length === 0 ? (
+          <p className="text-sm text-earth-500">No data yet.</p>
+        ) : (
+          <div className="flex items-end gap-1 h-32">
+            {data.daily.map((d) => {
+              const views = Number(d.views || 0);
+              const height = Math.max(3, Math.round((views / Math.max(1, ...data.daily.map((x) => Number(x.views || 0)))) * 100));
+              return (
+                <div
+                  key={d.day}
+                  className="flex-1 bg-sage-400/70 hover:bg-sage-500 rounded-t"
+                  style={{ height: `${height}%` }}
+                  title={`${d.day}: ${views} views, ${d.submits || 0} submits`}
+                />
+              );
+            })}
+          </div>
+        )}
+      </div>
+
+      <div className="grid lg:grid-cols-2 gap-4">
+        <AnalyticsBars
+          title="Traffic by source"
+          rows={data.referrers}
+          labelOf={(r) => String(r.bucket || "")}
+          valueOf={(r) => Number(r.c || 0)}
+        />
+        <AnalyticsBars
+          title="Referrers from answer engines"
+          rows={data.aiReferrers}
+          labelOf={(r) => String(r.referrer || "")}
+          valueOf={(r) => Number(r.c || 0)}
+        />
+        <AnalyticsBars
+          title="Top pages"
+          rows={data.topPages}
+          labelOf={(r) => String(r.path || "")}
+          valueOf={(r) => Number(r.c || 0)}
+        />
+        <AnalyticsBars
+          title="Most clicked links"
+          rows={data.clicked}
+          labelOf={(r) => String(r.target || "")}
+          valueOf={(r) => Number(r.c || 0)}
+        />
+      </div>
+
+      <div className="grid lg:grid-cols-2 gap-4">
+        <AnalyticsBars
+          title="Inquiries by source page"
+          rows={data.inquiryBreakdown.bySource}
+          labelOf={(r) => String(r.source || "")}
+          valueOf={(r) => Number(r.c || 0)}
+        />
+        <AnalyticsBars
+          title="Inquiries by product"
+          rows={data.inquiryBreakdown.byProduct}
+          labelOf={(r) => String(r.product || "")}
+          valueOf={(r) => Number(r.c || 0)}
+        />
+        <AnalyticsBars
+          title="Inquiries by application"
+          rows={data.inquiryBreakdown.byApplication}
+          labelOf={(r) => String(r.application || "")}
+          valueOf={(r) => Number(r.c || 0)}
+        />
+        <AnalyticsBars
+          title="Inquiries by market"
+          rows={data.inquiryBreakdown.byMarket}
+          labelOf={(r) => String(r.market || "")}
+          valueOf={(r) => Number(r.c || 0)}
+        />
+      </div>
     </div>
   );
 }

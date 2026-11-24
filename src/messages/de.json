@@ -328,6 +328,8 @@
     }
   },
   "contact": {
+    "metaDescription": "Sprechen Sie mit EarthHue über Muster natürlicher Pigmente, Angebote, Regulierungsdokumente und technischen Support für Lebensmittel-, Kosmetik- und Nutraceutical-Rezepturen.",
+    "metaTitle": "Kontakt - Muster natürlicher Pigmente, Angebote und technischer Support",
     "title": "Kontaktieren Sie uns",
     "subtitle": "Kontaktieren Sie unser Team für Produktanfragen, technischen Support oder regulatorische Fragen.",
     "success": {
@@ -537,6 +539,8 @@
       "downloadHint": "Need a specific certificate? Send a request via the contact form and we'll send the latest PDF."
     },
     "samples": {
+      "formHint": "Nennen Sie uns Pigment, Qualität und Menge. Muster versenden wir weltweit innerhalb von 7 Tagen.",
+      "formTitle": "Muster anfordern",
       "metaTitle": "Sample Request",
       "metaDescription": "How to evaluate EarthHue natural pigments — request flow, fees and shipping.",
       "title": "Sample Request",

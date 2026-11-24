@@ -1,4 +1,58 @@
 {
+  "inquiry": {
+    "intent": "我们需要什么帮助？",
+    "product": "意向产品",
+    "productAny": "暂时不确定",
+    "application": "应用领域",
+    "applicationAny": "暂时不确定",
+    "market": "目标市场",
+    "marketAny": "其他 / 不确定",
+    "volume": "预计年用量",
+    "volumeUnknown": "尚不确定",
+    "grade": "所需等级",
+    "gradeAny": "暂时不确定",
+    "quantity": "样品数量",
+    "quantityPlaceholder": "例如 100 g、1 kg",
+    "send": "发送询盘",
+    "sending": "发送中...",
+    "successTitle": "已收到询盘",
+    "successDesc": "我们已收到您的需求，将在 1 个工作日内回复。",
+    "error": "提交失败，请重试或发送邮件至 tech@earthhue.net。",
+    "apps": {
+      "food": "食品",
+      "beverage": "饮料",
+      "bakery": "烘焙与糖果",
+      "dairy": "乳制品",
+      "meat": "肉制品与植物基食品",
+      "nutraceutical": "营养保健",
+      "cosmetics": "化妆品与个护",
+      "pharma": "制药",
+      "other": "其他"
+    },
+    "markets": {
+      "eu": "欧盟",
+      "us": "美国",
+      "jp": "日本",
+      "kr": "韩国",
+      "cn": "中国",
+      "sea": "东南亚",
+      "other": "其他"
+    },
+    "volumes": {
+      "lt1": "1 吨 / 年以下",
+      "t1to10": "1-10 吨 / 年",
+      "t10to50": "10-50 吨 / 年",
+      "gt50": "50 吨 / 年以上",
+      "unknown": "尚不确定"
+    },
+    "grades": {
+      "food": "食品级",
+      "cosmetic": "化妆品级",
+      "pharma": "药用辅料级",
+      "industrial": "工业级",
+      "other": "其他"
+    }
+  },
   "nav": {
     "home": "首页",
     "about": "关于我们",
@@ -328,6 +382,8 @@
     }
   },
   "contact": {
+    "metaDescription": "就天然色素样品、报价、法规文件与食品、化妆品、营养保健品配方技术支持联系 EarthHue。",
+    "metaTitle": "联系我们 - 天然色素样品、报价与技术支持",
     "title": "联系我们",
     "subtitle": "如有产品咨询、技术支持或法规问题，请与我们联系。",
     "success": {
@@ -537,6 +593,8 @@
       "downloadHint": "需要特定证书？通过联系表单发送申请，我们会发送最新 PDF。"
     },
     "samples": {
+      "formHint": "告诉我们色素、等级与所需数量。样品 7 天内寄出。",
+      "formTitle": "申请样品",
       "metaTitle": "样品申请",
       "metaDescription": "如何评估 EarthHue 天然色素 —— 申请流程、费用与运输。",
       "title": "样品申请",

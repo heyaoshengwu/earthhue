@@ -1,4 +1,58 @@
 {
+  "inquiry": {
+    "intent": "What can we help with?",
+    "product": "Product of interest",
+    "productAny": "Not sure yet",
+    "application": "Application",
+    "applicationAny": "Not sure yet",
+    "market": "Target market",
+    "marketAny": "Other / not sure",
+    "volume": "Estimated annual volume",
+    "volumeUnknown": "Not known yet",
+    "grade": "Grade required",
+    "gradeAny": "Not sure yet",
+    "quantity": "Sample quantity",
+    "quantityPlaceholder": "e.g. 100 g, 1 kg",
+    "send": "Send inquiry",
+    "sending": "Sending...",
+    "successTitle": "Inquiry received",
+    "successDesc": "We have your request and will respond within one business day.",
+    "error": "Something went wrong. Please try again, or email tech@earthhue.net.",
+    "apps": {
+      "food": "Food",
+      "beverage": "Beverage",
+      "bakery": "Bakery & confectionery",
+      "dairy": "Dairy",
+      "meat": "Meat & plant-based",
+      "nutraceutical": "Nutraceutical & supplement",
+      "cosmetics": "Cosmetics & personal care",
+      "pharma": "Pharmaceuticals",
+      "other": "Other"
+    },
+    "markets": {
+      "eu": "European Union",
+      "us": "United States",
+      "jp": "Japan",
+      "kr": "Korea",
+      "cn": "China",
+      "sea": "Southeast Asia",
+      "other": "Other"
+    },
+    "volumes": {
+      "lt1": "Under 1 t / year",
+      "t1to10": "1-10 t / year",
+      "t10to50": "10-50 t / year",
+      "gt50": "Over 50 t / year",
+      "unknown": "Not known yet"
+    },
+    "grades": {
+      "food": "Food grade",
+      "cosmetic": "Cosmetic grade",
+      "pharma": "Pharmaceutical grade",
+      "industrial": "Industrial grade",
+      "other": "Other"
+    }
+  },
   "nav": {
     "home": "Home",
     "about": "About Us",
@@ -328,6 +382,8 @@
     }
   },
   "contact": {
+    "metaDescription": "Talk to EarthHue about natural pigment samples, quotes, regulatory documentation and technical support for food, cosmetic and nutraceutical formulations.",
+    "metaTitle": "Contact Us - Natural Pigment Samples, Quotes & Technical Support",
     "title": "Contact Us",
     "subtitle": "Get in touch with our team for product inquiries, technical support, or regulatory questions.",
     "success": {
@@ -537,6 +593,8 @@
       "downloadHint": "Need a specific certificate? Send a request via the contact form and we'll send the latest PDF."
     },
     "samples": {
+      "formHint": "Tell us the pigment, the grade and how much you need. Samples ship worldwide within 7 days.",
+      "formTitle": "Request a sample",
       "metaTitle": "Sample Request",
       "metaDescription": "How to evaluate EarthHue natural pigments — request flow, fees and shipping.",
       "title": "Sample Request",

@@ -1,3 +1,5 @@
+import fs from "node:fs";
+import path from "node:path";
 import { BASE_URL, LOCALES, STATIC_ROUTES } from "./seo";
 import { listProducts } from "./products";
 import { listArticles } from "./articles";
@@ -433,13 +435,272 @@ export function buildLlmsFullTxt(locale = "en"): string {
 }
 
 /**
+ * Page path (locale independent) -> message namespace.
+ *
+ * The markdown mirror used to cover products, articles and single-segment
+ * static routes only, so /md/{locale}/c2c/stories and /md/{locale}/b2b/capability
+ * answered 404 while llms.txt advertised a mirror of "every page". Mapping the
+ * remaining pages onto their message namespaces closes that gap without
+ * duplicating a single line of copy.
+ */
+const MARKDOWN_NAMESPACES: Record<string, string> = {
+  "": "home",
+  "about": "about",
+  "regulations": "regulations",
+  "contact": "contact",
+  "c2c": "c2c",
+  "c2c/stories": "c2c.stories",
+  "c2c/science": "c2c.science",
+  "c2c/gallery": "c2c.gallery",
+  "b2b": "b2b",
+  "b2b/capability": "b2b.capability",
+  "b2b/certifications": "b2b.certifications",
+  "b2b/samples": "b2b.samples",
+  "b2b/contact": "b2b.contact",
+  "b2b/factory-visit": "b2b.factoryVisit",
+};
+
+/** Navigation and page furniture rather than page content. */
+const SKIP_MESSAGE_KEYS = new Set([
+  "metaTitle",
+  "metaDescription",
+  "eyebrow",
+  "heroTitle",
+  "heroSubtitle",
+  "learnMore",
+  "crossLinkPrompt",
+  "crossLinkCta",
+  "navOverview",
+  "navStories",
+  "navScience",
+  "navGallery",
+  "navCapability",
+  "navCertifications",
+  "navSamples",
+  "navFactoryVisit",
+  "navContact",
+]);
+
+/** Section headings for the keys that recur across pages. */
+const SECTION_LABELS: Record<string, string> = {
+  faq: "FAQ",
+  qc: "Quality control",
+  rd: "R&D",
+  stats: "Key numbers",
+  list: "Details",
+  items: "Items",
+  steps: "Steps",
+  points: "Points",
+};
+
+function humanizeKey(key: string): string {
+  if (SECTION_LABELS[key]) return SECTION_LABELS[key];
+  const spaced = key.replace(/([a-z0-9])([A-Z])/g, "$1 $2").replace(/[-_]+/g, " ").trim();
+  return spaced.charAt(0).toUpperCase() + spaced.slice(1);
+}
+
+/** Load one locale's message catalogue from disk. */
+function loadMessages(locale: string): Record<string, any> | null {
+  for (const dir of ["src/messages", "messages"]) {
+    try {
+      const file = path.join(process.cwd(), dir, `${locale}.json`);
+      if (fs.existsSync(file)) {
+        return JSON.parse(fs.readFileSync(file, "utf8"));
+      }
+    } catch {
+      /* try the next candidate location */
+    }
+  }
+  return null;
+}
+
+function pickPath(node: any, dotted: string): any {
+  return dotted.split(".").reduce((acc, key) => (acc == null ? undefined : acc[key]), node);
+}
+
+/** Render an arbitrary message subtree as markdown. */
+function renderMessages(node: unknown, depth = 0): string[] {
+  const out: string[] = [];
+  if (node == null) return out;
+
+  if (typeof node === "string") {
+    const text = node.trim();
+    if (text) out.push(text, "");
+    return out;
+  }
+
+  if (typeof node === "number" || typeof node === "boolean") {
+    out.push(String(node), "");
+    return out;
+  }
+
+  if (Array.isArray(node)) {
+    if (node.length === 0) return out;
+
+    if (node.every((x) => typeof x === "string")) {
+      for (const x of node as string[]) out.push(`- ${x}`);
+      out.push("");
+      return out;
+    }
+
+    if (node.every((x) => x && typeof x === "object" && !Array.isArray(x))) {
+      const items = node as Record<string, unknown>[];
+      const first = items[0];
+
+      if ("q" in first && "a" in first) {
+        for (const it of items) out.push(`### ${it.q}`, "", String(it.a), "");
+        return out;
+      }
+      if ("label" in first && Array.isArray(first.cells)) {
+        for (const it of items) {
+          out.push(`- ${it.label}: ${(it.cells as unknown[]).map(String).join(" | ")}`);
+        }
+        out.push("");
+        return out;
+      }
+      if ("value" in first && "label" in first) {
+        for (const it of items) out.push(`- ${it.label}: ${it.value}`);
+        out.push("");
+        return out;
+      }
+      if ("title" in first) {
+        for (const it of items) {
+          out.push(`### ${it.title}`, "");
+          if (it.desc) out.push(String(it.desc), "");
+          if (it.text) out.push(String(it.text), "");
+        }
+        return out;
+      }
+    }
+
+    for (const x of node) out.push(...renderMessages(x, depth));
+    return out;
+  }
+
+  if (typeof node === "object") {
+    for (const [key, value] of Object.entries(node as Record<string, unknown>)) {
+      if (SKIP_MESSAGE_KEYS.has(key)) continue;
+      if (value == null) continue;
+
+      if (value && typeof value === "object" && !Array.isArray(value)) {
+        const dict = value as Record<string, unknown>;
+
+        // A "value" + "label" pair is one line, not two sections.
+        if ("value" in dict && "label" in dict && Object.keys(dict).length <= 3) {
+          out.push(`- ${dict.label}: ${dict.value}`, "");
+          continue;
+        }
+
+        // Comparison blocks keep their headers and rows together as a table.
+        if (Array.isArray(dict.headers) && Array.isArray(dict.rows)) {
+          const headers = dict.headers as unknown[];
+          out.push(`## ${humanizeKey(key)}`, "");
+          out.push(`| ${headers.map(String).join(" | ")} |`);
+          out.push(`| ${headers.map(() => "---").join(" | ")} |`);
+          for (const row of dict.rows as Record<string, unknown>[]) {
+            const cells = Array.isArray(row.cells) ? (row.cells as unknown[]) : [];
+            out.push(`| ${String(row.label ?? "")} | ${cells.map(String).join(" | ")} |`);
+          }
+          out.push("");
+          continue;
+        }
+
+        out.push(`## ${humanizeKey(key)}`, "");
+        out.push(...renderMessages(value, depth + 1));
+        continue;
+      }
+
+      out.push(...renderMessages(value, depth));
+    }
+    return out;
+  }
+
+  return out;
+}
+
+/** Markdown mirror of a page that lives in the message catalogue. */
+function buildNamespaceMarkdown(locale: string, namespace: string, routePath: string): string | null {
+  const messages = loadMessages(locale);
+  if (!messages) return null;
+
+  const node = pickPath(messages, namespace);
+  if (!node || typeof node !== "object") return null;
+
+  const title =
+    pickPath(node, "metaTitle") || pickPath(node, "title") || pickPath(node, "heroTitle") || humanizeKey(namespace);
+  const subtitle = pickPath(node, "subtitle") || pickPath(node, "metaDescription") || "";
+
+  const rest: Record<string, unknown> = { ...(node as Record<string, unknown>) };
+  for (const key of ["metaTitle", "metaDescription", "title", "subtitle", "heroTitle", "heroSubtitle"]) {
+    delete rest[key];
+  }
+
+  const out: string[] = [];
+  out.push(`# ${title}`);
+  out.push("");
+  if (subtitle) out.push(String(subtitle), "");
+  out.push(...renderMessages(rest, 0));
+  out.push(`Full page: ${BASE_URL}/${locale}${routePath ? `/${routePath}` : ""}`);
+  out.push("");
+  return out.join("\n");
+}
+
+/** Markdown mirror of the pigment index — the CAS and regulatory payload. */
+function buildPigmentIndexMarkdown(locale: string): string {
+  const out: string[] = [];
+  out.push(`# Natural pigment reference — ${BASE_URL}/${locale}/pigments`);
+  out.push("");
+  out.push(...pigmentIndexLines(locale));
+  out.push(`Full page: ${BASE_URL}/${locale}/pigments`);
+  out.push("");
+  return out.join("\n");
+}
+
+/** Markdown mirror of the product catalogue. */
+function buildProductIndexMarkdown(locale: string): string {
+  const products = listProducts({ onlyPublished: true });
+  const out: string[] = [];
+  out.push(`# Product catalogue — ${BASE_URL}/${locale}/products`);
+  out.push("");
+  for (const p of products) {
+    const tr = pickTranslation(p.translations, locale);
+    const specs = p.specs?.[locale] || p.specs?.en || [];
+    const assay = specs.find((s: ProductSpec) => /assay|content|purity/i.test(s.label))?.value;
+    const name = tr?.name || p.slug;
+    const detail = [assay, tr?.description].filter(Boolean).join(" — ");
+    out.push(`- [${name}](${BASE_URL}/${locale}/products/${p.slug})${detail ? ` — ${detail}` : ""}`);
+  }
+  out.push("");
+  out.push(`Full page: ${BASE_URL}/${locale}/products`);
+  out.push("");
+  return out.join("\n");
+}
+
+/** Markdown mirror of the guide index. */
+function buildArticleIndexMarkdown(locale: string): string {
+  const articles = listArticles({ onlyPublished: true });
+  const out: string[] = [];
+  out.push(`# Guides and technical articles — ${BASE_URL}/${locale}/articles`);
+  out.push("");
+  for (const a of articles) {
+    const tr = pickTranslation(a.translations, locale);
+    const summary = cleanSummary(tr?.excerpt, tr?.body);
+    const name = tr?.title || a.slug;
+    out.push(`- [${name}](${BASE_URL}/${locale}/articles/${a.slug})${summary ? ` — ${summary}` : ""}`);
+  }
+  out.push("");
+  out.push(`Full page: ${BASE_URL}/${locale}/articles`);
+  out.push("");
+  return out.join("\n");
+}
+
+/**
  * Markdown mirror of a single page, for retrieval-oriented crawlers.
  * Returns null when the path does not resolve to a known page.
  */
 export function buildMarkdownFor(locale: string, path: string[]): string | null {
   const parts = path.filter(Boolean);
-  if (parts.length === 0) return null;
-
+  // An empty path is the locale home page — /md/en mirrors /en.
   const loc = normalizeLocale(locale);
   const products = listProducts({ onlyPublished: true });
   const articles = listArticles({ onlyPublished: true });
@@ -505,15 +766,21 @@ export function buildMarkdownFor(locale: string, path: string[]): string | null 
     return out.join("\n");
   }
 
-  if (parts.length === 1 && STATIC_ROUTES.some((r) => r.path === `/${parts[0]}`)) {
-    return [
-      `# ${parts[0]}`,
-      "",
-      `EarthHue page: ${BASE_URL}/${loc}/${parts[0]}`,
-      "",
-      "EarthHue manufactures fermentation-derived natural carotenoids — astaxanthin, lutein, lycopene, beta-carotene and zeaxanthin — for food, nutraceutical, cosmetic and pharmaceutical formulators.",
-      "",
-    ].join("\n");
+  if (parts[0] === "pigments") {
+    return buildPigmentIndexMarkdown(loc);
+  }
+
+  if (parts.length === 1 && parts[0] === "products") {
+    return buildProductIndexMarkdown(loc);
+  }
+
+  if (parts.length === 1 && parts[0] === "articles") {
+    return buildArticleIndexMarkdown(loc);
+  }
+
+  const namespace = MARKDOWN_NAMESPACES[parts.join("/")];
+  if (namespace) {
+    return buildNamespaceMarkdown(loc, namespace, parts.join("/"));
   }
 
   return null;

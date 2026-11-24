@@ -2,6 +2,9 @@ import { Metadata } from "next";
 import { getTranslations } from "next-intl/server";
 import Link from "next/link";
 import { BreadcrumbJsonLd, HowToJsonLd } from "@/components/JsonLd";
+import InquiryForm from "@/components/InquiryForm";
+import { listProducts } from "@/lib/products";
+import { pickTranslation } from "@/lib/i18n";
 import { localeAlternates, openGraphFor } from "@/lib/seo";
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
@@ -21,6 +24,11 @@ const steps = ["request", "review", "ship", "feedback"] as const;
 export default async function SamplesPage({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
   const t = await getTranslations("b2b.samples");
+
+  const products = listProducts({ onlyPublished: true }).map((p) => ({
+    slug: p.slug,
+    name: pickTranslation(p.translations, locale)?.name || p.slug,
+  }));
 
   return (
     <>
@@ -62,14 +70,29 @@ export default async function SamplesPage({ params }: { params: Promise<{ locale
             ))}
           </ol>
 
-          <div className="bg-sage-50 border border-sage-200 rounded-xl p-6">
+          <div className="bg-sage-50 border border-sage-200 rounded-xl p-6 mb-10">
             <p className="text-earth-700 mb-4">{t("policy")}</p>
+            <p className="text-sm text-earth-600 mb-5">{t("formHint")}</p>
             <Link
               href={`/${locale}/b2b/contact`}
               className="inline-flex items-center gap-2 bg-sage-600 text-white px-6 py-3 rounded-lg font-medium hover:bg-sage-700 transition-colors"
             >
               {t("cta")} →
             </Link>
+          </div>
+
+          {/*
+            The sample request used to be a link to the generic B2B contact
+            page, which lost the intent and asked for a name and a sentence.
+            The form sits on the page the request came from, pre-set to the
+            sample subject, so a formulator can ask for exactly what they
+            need to evaluate.
+          */}
+          <div className="bg-white border border-earth-200 rounded-xl p-6">
+            <h2 className="font-serif text-2xl font-semibold text-earth-900 mb-4">
+              {t("formTitle")}
+            </h2>
+            <InquiryForm variant="samples" products={products} showQuantity />
           </div>
         </div>
       </section>
