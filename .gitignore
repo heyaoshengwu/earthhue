@@ -42,5 +42,9 @@ next-env.d.ts
 data/
 public/uploads/
 
+# IndexNow key file: minted per host, published at the site root, never in git
+public/indexnow-*.txt
+.indexnow-key
+
 # Stray local dev server log
 server.log
