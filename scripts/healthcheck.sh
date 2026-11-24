@@ -61,6 +61,14 @@ for path in /en /zh /en/c2c/stories /en/c2c/science /en/pigments /en/products \
   check_code "local $path" "$LOCAL$path" 200
 done
 
+# The bare root redirects to the default locale, which is correct behaviour.
+root_code=$(curl -s -o /dev/null -w '%{http_code}' --max-time 20 "$LOCAL/")
+if [ "$root_code" = "200" ] || [ "$root_code" = "307" ]; then
+  ok "local / redirects or serves ($root_code)"
+else
+  fail "local / -> $root_code"
+fi
+
 echo
 REPORT="${REPORT}-- markdown mirror (local) --"$'\n'
 MD_OK=0
@@ -178,11 +186,18 @@ fi
 # ----------------------------------------------------------------- public
 echo
 REPORT="${REPORT}-- public edge --"$'\n'
-for path in / /en /zh /en/c2c/stories /en/c2c/science /en/pigments /en/articles \
+for path in /en /zh /en/c2c/stories /en/c2c/science /en/pigments /en/articles \
             /en/b2b/samples /en/b2b/contact /en/contact /en/llms.txt /llms.txt \
             /sitemap.xml /robots.txt; do
   check_code "public $path" "$PUBLIC$path" 200
 done
+
+pub_root=$(curl -s -o /dev/null -w '%{http_code}' --max-time 20 "$PUBLIC/")
+if [ "$pub_root" = "200" ] || [ "$pub_root" = "307" ]; then
+  ok "public / redirects or serves ($pub_root)"
+else
+  fail "public / -> $pub_root"
+fi
 
 PUB_ROBOTS=$(curl -s --max-time 20 "$PUBLIC/robots.txt")
 for token in OAI-SearchBot Claude-SearchBot; do
