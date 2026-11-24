@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { notFound } from "next/navigation";
+import { notFound, permanentRedirect } from "next/navigation";
 import { getTranslations } from "next-intl/server";
 import { Metadata } from "next";
 import { pigments, type Pigment } from "@/content/pigments/data";
@@ -109,6 +109,11 @@ export default async function PigmentDetailPage({
   params: Promise<{ locale: string; slug: string }>;
 }) {
   const { locale, slug } = await params;
+
+  // The pigment was published under a misspelled slug. The address is a
+  // permanent asset, so the old one redirects rather than 404s.
+  if (slug === "arrankin-red") permanentRedirect(`/${locale}/pigments/arpink-red`);
+
   const pigment = getPigment(slug);
   const content = pigment ? pigmentContent[pigment.id] : undefined;
 

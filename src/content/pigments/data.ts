@@ -1,3 +1,5 @@
+import regulations from "./regulations.json";
+
 export interface Pigment {
   id: string;
   name: string;
@@ -36,12 +38,7 @@ export const pigments: Pigment[] = [
     casNumber: "458-37-7",
     einecsNumber: "207-280-5",
     formulations: ["Oil dispersible", "Water dispersible", "Standard"],
-    regulations: {
-      eu: "E100 - Approved",
-      us: "FDA GRAS - GRAS Notice 000131",
-      japan: "Approved - JSFA IV",
-      korea: "Approved - MFDS"
-    }
+    regulations: regulations.curcumin,
   },
   {
     id: "beet-red",
@@ -57,12 +54,7 @@ export const pigments: Pigment[] = [
     casNumber: "7659-50-9",
     einecsNumber: "231-628-5",
     formulations: ["Powder", "Liquid", "Microencapsulated"],
-    regulations: {
-      eu: "E162 - Approved",
-      us: "FDA GRAS",
-      japan: "Approved - JSFA IV",
-      korea: "Approved - MFDS"
-    }
+    regulations: regulations["beet-red"],
   },
   {
     id: "chlorophyll",
@@ -78,12 +70,7 @@ export const pigments: Pigment[] = [
     casNumber: "479-61-8",
     einecsNumber: "207-536-6",
     formulations: ["Oil soluble", "Water dispersible", "Copper complex"],
-    regulations: {
-      eu: "E140 - Approved",
-      us: "FDA GRAS",
-      japan: "Approved - JSFA",
-      korea: "Approved - MFDS"
-    }
+    regulations: regulations.chlorophyll,
   },
   {
     id: "anthocyanin",
@@ -99,12 +86,7 @@ export const pigments: Pigment[] = [
     casNumber: "11088-48-9",
     einecsNumber: "234-840-6",
     formulations: ["Grape-based", "Black carrot", "Purple sweet potato"],
-    regulations: {
-      eu: "E163 - Approved",
-      us: "FDA GRAS",
-      japan: "Approved - JSFA",
-      korea: "Approved - MFDS"
-    }
+    regulations: regulations.anthocyanin,
   },
   {
     id: "carotenoid",
@@ -120,12 +102,7 @@ export const pigments: Pigment[] = [
     casNumber: "7235-40-7",
     einecsNumber: "230-636-6",
     formulations: ["Oil suspension", "Powder", "Emulsion"],
-    regulations: {
-      eu: "E160a - Approved",
-      us: "FDA GRAS",
-      japan: "Approved - JSFA",
-      korea: "Approved - MFDS"
-    }
+    regulations: regulations.carotenoid,
   },
   {
     id: "paprika-oleoresin",
@@ -141,12 +118,7 @@ export const pigments: Pigment[] = [
     casNumber: "90131-83-2",
     einecsNumber: "290-375-6",
     formulations: ["Oil soluble", "Standardized ASTA units", "Emulsifiable"],
-    regulations: {
-      eu: "E160c - Approved",
-      us: "FDA GRAS",
-      japan: "Approved - JSFA",
-      korea: "Approved - MFDS"
-    }
+    regulations: regulations["paprika-oleoresin"],
   },
   {
     id: "saffron",
@@ -162,12 +134,7 @@ export const pigments: Pigment[] = [
     casNumber: "2022-79-5",
     einecsNumber: "217-956-6",
     formulations: ["Standardized extracts", "Powder", "Liquid"],
-    regulations: {
-      eu: "Colouring food - no E number (saffron is a spice, not an additive)",
-      us: "FDA GRAS",
-      japan: "Approved - JSFA",
-      korea: "Approved - MFDS"
-    }
+    regulations: regulations.saffron,
   },
   {
     id: "lutein-plant",
@@ -183,12 +150,7 @@ export const pigments: Pigment[] = [
     casNumber: "127-40-2",
     einecsNumber: "204-840-0",
     formulations: ["Oil suspension", "Water dispersible", "Powder"],
-    regulations: {
-      eu: "E161b - Approved",
-      us: "FDA GRAS",
-      japan: "Approved - JSFA",
-      korea: "Approved - MFDS"
-    }
+    regulations: regulations["lutein-plant"],
   },
 
   // === MICROBIAL / FERMENTATION ===
@@ -206,12 +168,7 @@ export const pigments: Pigment[] = [
     casNumber: "472-61-7",
     einecsNumber: "207-451-4",
     formulations: ["Oil suspension", "Powder (1-10%)\"", "Water dispersible", "Standardized Beadlets"],
-    regulations: {
-      eu: "Novel food for supplements - not an authorised food colour",
-      us: "FDA GRAS - GRAS Notice 000450",
-      japan: "Approved - JSFA",
-      korea: "Approved - MFDS"
-    }
+    regulations: regulations.astaxanthin,
   },
   {
     id: "astaxanthin-synthetic-biological",
@@ -224,15 +181,10 @@ export const pigments: Pigment[] = [
     applications: ["food", "aquaculture", "cosmetics"],
     description: "Yeast-derived astaxanthin from Xanthophyllomyces dendrorhous (Phaffia rhodozyma). Used extensively in aquaculture for salmon coloring.",
     source: "Xanthophyllomyces dendrorhous (Phaffia rhodozyma)",
-    casNumber: "11024-84-7",
-    einecsNumber: "234-248-9",
+    casNumber: "472-61-7",
+    einecsNumber: "207-451-4",
     formulations: ["Powder", "Oil suspension", "Granular"],
-    regulations: {
-      eu: "Not an authorised food colour - E 161j covers Haematococcus astaxanthin only",
-      us: "FDA GRAS",
-      japan: "Approved - JSFA",
-      korea: "Approved - MFDS"
-    }
+    regulations: regulations["astaxanthin-synthetic-biological"],
   },
   {
     id: "beta-carotene-fermentation",
@@ -248,12 +200,7 @@ export const pigments: Pigment[] = [
     casNumber: "7235-40-7",
     einecsNumber: "230-636-6",
     formulations: ["Crystalline", "Powder (1-10%)", "Oil suspension", "Emulsion"],
-    regulations: {
-      eu: "E160a - Approved",
-      us: "FDA GRAS",
-      japan: "Approved - JSFA",
-      korea: "Approved - MFDS"
-    }
+    regulations: regulations["beta-carotene-fermentation"],
   },
   {
     id: "lutein-fermentation",
@@ -269,12 +216,7 @@ export const pigments: Pigment[] = [
     casNumber: "127-40-2",
     einecsNumber: "204-840-0",
     formulations: ["Oil suspension", "Powder", "Water dispersible"],
-    regulations: {
-      eu: "E161b - Approved",
-      us: "FDA GRAS",
-      japan: "Approved - JSFA",
-      korea: "Approved - MFDS"
-    }
+    regulations: regulations["lutein-fermentation"],
   },
   {
     id: "canthaxanthin",
@@ -290,12 +232,7 @@ export const pigments: Pigment[] = [
     casNumber: "514-78-3",
     einecsNumber: "208-187-2",
     formulations: ["Powder", "Oil suspension", "Beadlets"],
-    regulations: {
-      eu: "Not authorised for food - medicinal products only",
-      us: "FDA 21 CFR 73.95",
-      japan: "Approved - JSFA",
-      korea: "Approved - MFDS"
-    }
+    regulations: regulations.canthaxanthin,
   },
   {
     id: "torularhodin",
@@ -311,12 +248,7 @@ export const pigments: Pigment[] = [
     casNumber: "547-74-6",
     einecsNumber: "208-943-9",
     formulations: ["Powder", "Liquid", "Fermentation biomass"],
-    regulations: {
-      eu: "Under evaluation",
-      us: "FDA GRAS (self-affirmed)",
-      japan: "Not listed - JSFA",
-      korea: "Under review - MFDS"
-    }
+    regulations: regulations.torularhodin,
   },
   {
     id: "monascus-red",
@@ -332,15 +264,10 @@ export const pigments: Pigment[] = [
     casNumber: "6852-11-7",
     einecsNumber: "229-912-6",
     formulations: ["Powder", "Oil soluble", "Water dispersible"],
-    regulations: {
-      eu: "Colouring food - no E number (E 160c is paprika extract)",
-      us: "FDA GRAS (citrinin-free grades)",
-      japan: "Approved - JSFA",
-      korea: "Approved - MFDS"
-    }
+    regulations: regulations["monascus-red"],
   },
   {
-    id: "arrankin-red",
+    id: "arpink-red",
     name: "Arpink Red",
     nameZh: "阿宾红",
     nameJa: "アーピンクリンレッド",
@@ -353,12 +280,7 @@ export const pigments: Pigment[] = [
     casNumber: "N/A (novel)",
     einecsNumber: "N/A",
     formulations: ["Powder", "Liquid", "Oil dispersible"],
-    regulations: {
-      eu: "Novel food application pending",
-      us: "FDA GRAS (self-affirmed)",
-      japan: "Under review - JSFA",
-      korea: "Under review - MFDS"
-    }
+    regulations: regulations["arpink-red"],
   },
   {
     id: "phycocyanin",
@@ -374,12 +296,7 @@ export const pigments: Pigment[] = [
     casNumber: "11024-84-7",
     einecsNumber: "234-248-9",
     formulations: ["Powder (10-40% purity)", "Liquid", "Standardized extracts"],
-    regulations: {
-      eu: "Colouring food - no E number (not an authorised additive)",
-      us: "FDA GRAS",
-      japan: "Approved - JSFA",
-      korea: "Approved - MFDS"
-    }
+    regulations: regulations.phycocyanin,
   },
   {
     id: "phycoerythrin",
@@ -395,12 +312,7 @@ export const pigments: Pigment[] = [
     casNumber: "11024-48-7",
     einecsNumber: "N/A",
     formulations: ["Powder", "Liquid", "Standardized extracts"],
-    regulations: {
-      eu: "Approved (citrinin-free)",
-      us: "FDA GRAS",
-      japan: "Approved - JSFA",
-      korea: "Approved - MFDS"
-    }
+    regulations: regulations.phycoerythrin,
   },
   {
     id: "violaxanthin",
@@ -416,12 +328,7 @@ export const pigments: Pigment[] = [
     casNumber: "74434-36-9",
     einecsNumber: "N/A",
     formulations: ["Oil suspension", "Powder", "Emulsion"],
-    regulations: {
-      eu: "Novel food status",
-      us: "FDA GRAS",
-      japan: "Not listed - JSFA",
-      korea: "Under review - MFDS"
-    }
+    regulations: regulations.violaxanthin,
   },
   {
     id: "zeaxanthin-microbial",
@@ -437,12 +344,7 @@ export const pigments: Pigment[] = [
     casNumber: "144-68-3",
     einecsNumber: "205-648-2",
     formulations: ["Oil suspension", "Powder", "Beadlets"],
-    regulations: {
-      eu: "Not authorised as a food colour - food ingredient and supplement use",
-      us: "FDA GRAS",
-      japan: "Approved - JSFA",
-      korea: "Approved - MFDS"
-    }
+    regulations: regulations["zeaxanthin-microbial"],
   },
   {
     id: "spirulina-blue",
@@ -458,12 +360,7 @@ export const pigments: Pigment[] = [
     casNumber: "11024-84-7",
     einecsNumber: "234-248-9",
     formulations: ["Powder", "Liquid", "Standardized extracts"],
-    regulations: {
-      eu: "Colouring food - no E number (not an authorised additive)",
-      us: "FDA GRAS",
-      japan: "Approved - JSFA",
-      korea: "Approved - MFDS"
-    }
+    regulations: regulations["spirulina-blue"],
   },
 
   // === MINERAL ===
@@ -481,12 +378,7 @@ export const pigments: Pigment[] = [
     casNumber: "1332-37-2",
     einecsNumber: "215-570-8",
     formulations: ["Natural", "Synthetic-identical", "Coated"],
-    regulations: {
-      eu: "E172 - Approved",
-      us: "FDA 21 CFR 73.1200",
-      japan: "Approved - CI 77491, 77492, 77499",
-      korea: "Approved - MFDS"
-    }
+    regulations: regulations["iron-oxide"],
   },
   {
     id: "titanium-dioxide",
@@ -502,12 +394,7 @@ export const pigments: Pigment[] = [
     casNumber: "13463-67-7",
     einecsNumber: "236-675-5",
     formulations: ["Rutile", "Anatase", "Surface treated"],
-    regulations: {
-      eu: "Not authorised for food since 7 Aug 2022 (Reg. (EU) 2022/63) - medicinal use only",
-      us: "FDA GRAS - 21 CFR 73.1",
-      japan: "Approved - JSFA",
-      korea: "Approved - MFDS"
-    }
+    regulations: regulations["titanium-dioxide"],
   },
   {
     id: "mica-pearl",
@@ -523,11 +410,6 @@ export const pigments: Pigment[] = [
     casNumber: "12001-26-2",
     einecsNumber: "310-127-6",
     formulations: ["Powder", "Pearl flake", "Fine grain"],
-    regulations: {
-      eu: "Approved - CI 77019",
-      us: "FDA 21 CFR 73.1",
-      japan: "Approved - CI 77019",
-      korea: "Approved - MFDS"
-    }
+    regulations: regulations["mica-pearl"],
   }
 ];

@@ -117,23 +117,20 @@ export function PigmentFilter() {
                 </div>
                 <div className="border-t border-earth-100 pt-4">
                   <p className="text-xs text-earth-500 mb-2">{t("regulatoryStatus")}:</p>
-                  <div className="flex flex-wrap gap-1 text-xs">
-                    <span className="px-2 py-1 bg-earth-50 rounded">
-                      <span className="font-medium">{t("regions.eu")}:</span>{" "}
-                      {pigment.regulations.eu}
-                    </span>
-                    <span className="px-2 py-1 bg-earth-50 rounded">
-                      <span className="font-medium">{t("regions.us")}:</span>{" "}
-                      {pigment.regulations.us}
-                    </span>
-                    <span className="px-2 py-1 bg-earth-50 rounded">
-                      <span className="font-medium">{t("regions.japan")}:</span>{" "}
-                      {pigment.regulations.japan}
-                    </span>
-                    <span className="px-2 py-1 bg-earth-50 rounded">
-                      <span className="font-medium">{t("regions.korea")}:</span>{" "}
-                      {pigment.regulations.korea}
-                    </span>
+                  {/* The status text is a sentence, not a label, so it is set
+                      as a list. A badge stretched around a sentence reads
+                      badly and wraps unpredictably. */}
+                  <div className="space-y-1 text-xs text-earth-500">
+                    {[
+                      [t("regions.eu"), pigment.regulations.eu],
+                      [t("regions.us"), pigment.regulations.us],
+                      [t("regions.japan"), pigment.regulations.japan],
+                      [t("regions.korea"), pigment.regulations.korea],
+                    ].map(([label, value]) => (
+                      <div key={label}>
+                        <span className="font-medium">{label}:</span> {value}
+                      </div>
+                    ))}
                   </div>
                 </div>
               </div>

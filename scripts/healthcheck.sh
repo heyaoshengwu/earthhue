@@ -180,6 +180,17 @@ if command -v python3 >/dev/null 2>&1; then
       REPORT="${REPORT}$(cat /tmp/eh_trans_check.txt)"$'\n'
     fi
   fi
+
+  # The regulatory table is the part of the site a buyer acts on, so a wrong
+  # status there is a compliance problem rather than a content problem.
+  if [ -f "$APP/scripts/check-regulations.py" ]; then
+    if python3 "$APP/scripts/check-regulations.py" "$APP" >/tmp/eh_reg_check.txt 2>&1; then
+      ok "pigment regulatory statuses match their sources"
+    else
+      fail "pigment regulatory check failed"
+      REPORT="${REPORT}$(cat /tmp/eh_reg_check.txt)"$'\n'
+    fi
+  fi
 else
   fail "python3 not available for the catalogue check"
 fi
