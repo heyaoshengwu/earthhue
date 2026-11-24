@@ -523,6 +523,72 @@ export function PigmentCatalogJsonLd({
   );
 }
 
+/**
+ * One pigment on its own page.
+ *
+ * The catalogue page emitted an ItemList with an anchor per pigment, which
+ * tells a crawler that twenty-four things exist without telling it anything
+ * about any one of them. A dedicated page can carry the identifiers and the
+ * four regulatory markets as properties of the pigment itself, which is what
+ * a question about a single colorant needs.
+ */
+export function PigmentJsonLd({
+  name,
+  description,
+  slug,
+  category,
+  casNumber,
+  einecsNumber,
+  source,
+  formulations,
+  applications,
+  regulations,
+}: {
+  name: string;
+  description: string;
+  slug: string;
+  category: string;
+  casNumber: string;
+  einecsNumber: string;
+  source: string;
+  formulations: string[];
+  applications: string[];
+  regulations: { eu: string; us: string; japan: string; korea: string };
+}) {
+  const url = `https://earthhue.net/en/pigments/${slug}`;
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    name,
+    description,
+    url,
+    category,
+    brand: { "@type": "Brand", name: "EarthHue" },
+    manufacturer: { "@type": "Organization", name: "EarthHue" },
+    additionalProperty: [
+      { "@type": "PropertyValue", name: "CAS Number", value: casNumber },
+      { "@type": "PropertyValue", name: "EINECS Number", value: einecsNumber },
+      { "@type": "PropertyValue", name: "Source", value: source },
+      { "@type": "PropertyValue", name: "EU Regulation", value: regulations.eu },
+      { "@type": "PropertyValue", name: "US Regulation", value: regulations.us },
+      { "@type": "PropertyValue", name: "Japan Regulation", value: regulations.japan },
+      { "@type": "PropertyValue", name: "Korea Regulation", value: regulations.korea },
+      ...formulations.map((f) => ({
+        "@type": "PropertyValue",
+        name: "Formulation",
+        value: f,
+      })),
+    ],
+  };
+
+  return (
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+    />
+  );
+}
+
 export type RegulationSchemaItem = {
   id: string;
   region: string;

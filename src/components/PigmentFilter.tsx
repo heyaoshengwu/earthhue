@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import Link from "next/link";
 import { useTranslations, useLocale } from "next-intl";
 import { pigments as defaultPigments, type Pigment } from "@/content/pigments/data";
 import { pigmentTranslations } from "@/content/pigments/translations";
@@ -72,7 +73,16 @@ export function PigmentFilter() {
               <div className="p-6">
                 <div className="flex items-start justify-between mb-3">
                   <div>
-                    <h2 className="font-serif text-xl font-semibold text-earth-900">{displayName}</h2>
+                    <h2 className="font-serif text-xl font-semibold text-earth-900">
+                      {/* Each pigment has its own page now, so the catalogue
+                          card links to it instead of only anchoring on it. */}
+                      <Link
+                        href={`/en/pigments/${pigment.id}`}
+                        className="hover:text-sage-700 transition-colors"
+                      >
+                        {displayName}
+                      </Link>
+                    </h2>
                     <p className="text-sm text-earth-500">{displaySource}</p>
                   </div>
                   <span className={`inline-block px-2 py-1 text-xs font-medium rounded ${

@@ -163,7 +163,7 @@ export const pigments: Pigment[] = [
     einecsNumber: "217-956-6",
     formulations: ["Standardized extracts", "Powder", "Liquid"],
     regulations: {
-      eu: "E164 - Approved",
+      eu: "Colouring food - no E number (saffron is a spice, not an additive)",
       us: "FDA GRAS",
       japan: "Approved - JSFA",
       korea: "Approved - MFDS"
@@ -207,7 +207,7 @@ export const pigments: Pigment[] = [
     einecsNumber: "207-451-4",
     formulations: ["Oil suspension", "Powder (1-10%)\"", "Water dispersible", "Standardized Beadlets"],
     regulations: {
-      eu: "E161j - Approved",
+      eu: "Novel food for supplements - not an authorised food colour",
       us: "FDA GRAS - GRAS Notice 000450",
       japan: "Approved - JSFA",
       korea: "Approved - MFDS"
@@ -228,7 +228,7 @@ export const pigments: Pigment[] = [
     einecsNumber: "234-248-9",
     formulations: ["Powder", "Oil suspension", "Granular"],
     regulations: {
-      eu: "E161j - Approved",
+      eu: "Not an authorised food colour - E 161j covers Haematococcus astaxanthin only",
       us: "FDA GRAS",
       japan: "Approved - JSFA",
       korea: "Approved - MFDS"
@@ -291,7 +291,7 @@ export const pigments: Pigment[] = [
     einecsNumber: "208-187-2",
     formulations: ["Powder", "Oil suspension", "Beadlets"],
     regulations: {
-      eu: "E161g - Approved (restricted use)",
+      eu: "Not authorised for food - medicinal products only",
       us: "FDA 21 CFR 73.95",
       japan: "Approved - JSFA",
       korea: "Approved - MFDS"
@@ -333,7 +333,7 @@ export const pigments: Pigment[] = [
     einecsNumber: "229-912-6",
     formulations: ["Powder", "Oil soluble", "Water dispersible"],
     regulations: {
-      eu: "E161c - Approved",
+      eu: "Colouring food - no E number (E 160c is paprika extract)",
       us: "FDA GRAS (citrinin-free grades)",
       japan: "Approved - JSFA",
       korea: "Approved - MFDS"
@@ -375,7 +375,7 @@ export const pigments: Pigment[] = [
     einecsNumber: "234-248-9",
     formulations: ["Powder (10-40% purity)", "Liquid", "Standardized extracts"],
     regulations: {
-      eu: "E164 - Approved",
+      eu: "Colouring food - no E number (not an authorised additive)",
       us: "FDA GRAS",
       japan: "Approved - JSFA",
       korea: "Approved - MFDS"
@@ -438,7 +438,7 @@ export const pigments: Pigment[] = [
     einecsNumber: "205-648-2",
     formulations: ["Oil suspension", "Powder", "Beadlets"],
     regulations: {
-      eu: "E161h - Approved",
+      eu: "Not authorised as a food colour - food ingredient and supplement use",
       us: "FDA GRAS",
       japan: "Approved - JSFA",
       korea: "Approved - MFDS"
@@ -459,7 +459,7 @@ export const pigments: Pigment[] = [
     einecsNumber: "234-248-9",
     formulations: ["Powder", "Liquid", "Standardized extracts"],
     regulations: {
-      eu: "E164 - Approved",
+      eu: "Colouring food - no E number (not an authorised additive)",
       us: "FDA GRAS",
       japan: "Approved - JSFA",
       korea: "Approved - MFDS"
@@ -503,7 +503,7 @@ export const pigments: Pigment[] = [
     einecsNumber: "236-675-5",
     formulations: ["Rutile", "Anatase", "Surface treated"],
     regulations: {
-      eu: "E171 - Approved (restricted in cosmetics)",
+      eu: "Not authorised for food since 7 Aug 2022 (Reg. (EU) 2022/63) - medicinal use only",
       us: "FDA GRAS - 21 CFR 73.1",
       japan: "Approved - JSFA",
       korea: "Approved - MFDS"

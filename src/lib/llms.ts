@@ -7,6 +7,7 @@ import { pickTranslation } from "./i18n";
 import type { ProductSpec } from "./products";
 import { pigments } from "@/content/pigments/data";
 import type { Pigment } from "@/content/pigments/data";
+import { pigmentContent } from "@/content/pigments/content";
 
 /**
  * llms.txt — a plain-text, machine-readable map of the site for LLM crawlers
@@ -743,6 +744,50 @@ export function buildMarkdownFor(locale: string, path: string[]): string | null 
     }
     out.push("");
     out.push(`Full page: ${BASE_URL}/${loc}/products/${p.slug}`);
+    out.push("");
+    return out.join("\n");
+  }
+
+  if (parts[0] === "pigments" && parts[1]) {
+    const p = pigments.find((x) => x.id === parts[1]);
+    if (!p) return null;
+    const c = pigmentContent[p.id];
+    const out: string[] = [];
+    out.push(`# ${p.name}`);
+    out.push("");
+    out.push(c?.answer || p.description);
+    out.push("");
+    out.push(`- CAS Number: ${p.casNumber}`);
+    out.push(`- EINECS Number: ${p.einecsNumber}`);
+    out.push(`- Source: ${p.source}`);
+    out.push(`- Category: ${p.category}`);
+    if (p.formulations.length) out.push(`- Formulations: ${p.formulations.join(", ")}`);
+    if (p.applications.length) out.push(`- Applications: ${p.applications.join(", ")}`);
+    out.push("");
+    out.push("## Regulatory status");
+    out.push("");
+    out.push(`- EU: ${p.regulations.eu}`);
+    out.push(`- United States: ${p.regulations.us}`);
+    out.push(`- Japan: ${p.regulations.japan}`);
+    out.push(`- Korea: ${p.regulations.korea}`);
+    if (c?.route) {
+      out.push("");
+      out.push("## Route differences");
+      out.push("");
+      out.push(c.route);
+    }
+    if (c?.faq?.length) {
+      out.push("");
+      out.push("## FAQ");
+      for (const f of c.faq) {
+        out.push("");
+        out.push(`### ${f.q}`);
+        out.push("");
+        out.push(f.a);
+      }
+    }
+    out.push("");
+    out.push(`Full page: ${BASE_URL}/en/pigments/${p.id}`);
     out.push("");
     return out.join("\n");
   }
