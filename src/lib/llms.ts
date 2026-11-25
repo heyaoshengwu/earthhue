@@ -6,8 +6,29 @@ import { listArticles } from "./articles";
 import { pickTranslation } from "./i18n";
 import type { ProductSpec } from "./products";
 import { pigments } from "@/content/pigments/data";
-import type { Pigment } from "@/content/pigments/data";
+import type { Pigment, PigmentSource } from "@/content/pigments/data";
 import { pigmentContent } from "@/content/pigments/content";
+import pigmentSourcesRaw from "@/content/pigments/sources.json";
+
+/**
+ * The citation registry, read through a typed view so the optional `tier` on
+ * a secondary source survives.
+ */
+const pigmentSources = pigmentSourcesRaw as Record<string, PigmentSource>;
+
+/**
+ * The citations behind a pigment's regulatory statements, so the markdown
+ * mirror carries the same evidence as the page it mirrors.
+ */
+function pigmentCitations(pigment: Pigment) {
+  const ids = new Set<string>();
+  for (const list of Object.values(pigment.regulations.sources || {})) {
+    for (const id of list || []) ids.add(id);
+  }
+  return [...ids]
+    .map((id) => pigmentSources[id])
+    .filter(Boolean);
+}
 
 /**
  * llms.txt — a plain-text, machine-readable map of the site for LLM crawlers
@@ -770,6 +791,16 @@ export function buildMarkdownFor(locale: string, path: string[]): string | null 
     out.push(`- United States: ${p.regulations.us}`);
     out.push(`- Japan: ${p.regulations.japan}`);
     out.push(`- Korea: ${p.regulations.korea}`);
+    const citations = pigmentCitations(p);
+    if (citations.length) {
+      out.push("");
+      out.push("## Sources");
+      out.push("");
+      for (const c of citations) {
+        const mark = c.tier === "secondary" ? " _(secondary source)_" : "";
+        out.push(`- [${c.label}](${c.url}) — ${c.detail}${mark}`);
+      }
+    }
     if (c?.route) {
       out.push("");
       out.push("## Route differences");

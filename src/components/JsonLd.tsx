@@ -543,6 +543,8 @@ export function PigmentJsonLd({
   formulations,
   applications,
   regulations,
+  citations,
+  reviewedOn,
 }: {
   name: string;
   description: string;
@@ -554,6 +556,8 @@ export function PigmentJsonLd({
   formulations: string[];
   applications: string[];
   regulations: { eu: string; us: string; japan: string; korea: string };
+  citations: { name: string; url: string; detail?: string }[];
+  reviewedOn: string;
 }) {
   const url = `https://earthhue.net/en/pigments/${slug}`;
   const jsonLd = {
@@ -563,8 +567,17 @@ export function PigmentJsonLd({
     description,
     url,
     category,
+    dateModified: reviewedOn,
     brand: { "@type": "Brand", name: "EarthHue" },
     manufacturer: { "@type": "Organization", name: "EarthHue" },
+    /* The instruments the regulatory statements come from. A status with a
+       citation behind it is a status an answer engine can quote. */
+    citation: citations.map((c) => ({
+      "@type": "CreativeWork",
+      name: c.name,
+      url: c.url,
+      description: c.detail,
+    })),
     additionalProperty: [
       { "@type": "PropertyValue", name: "CAS Number", value: casNumber },
       { "@type": "PropertyValue", name: "EINECS Number", value: einecsNumber },
@@ -573,6 +586,7 @@ export function PigmentJsonLd({
       { "@type": "PropertyValue", name: "US Regulation", value: regulations.us },
       { "@type": "PropertyValue", name: "Japan Regulation", value: regulations.japan },
       { "@type": "PropertyValue", name: "Korea Regulation", value: regulations.korea },
+      { "@type": "PropertyValue", name: "Regulatory Status Last Checked", value: reviewedOn },
       ...formulations.map((f) => ({
         "@type": "PropertyValue",
         name: "Formulation",

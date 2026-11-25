@@ -2,8 +2,9 @@ import Link from "next/link";
 import { notFound, permanentRedirect } from "next/navigation";
 import { getTranslations } from "next-intl/server";
 import { Metadata } from "next";
-import { pigments, type Pigment } from "@/content/pigments/data";
+import { pigments, type Pigment, type PigmentSource, REGULATORY_REVIEWED_ON, REGULATORY_REVIEWED_ISO } from "@/content/pigments/data";
 import { pigmentContent } from "@/content/pigments/content";
+import pigmentSourcesRaw from "@/content/pigments/sources.json";
 import { BreadcrumbJsonLd, FAQJsonLd, PigmentJsonLd } from "@/components/JsonLd";
 import { listProducts } from "@/lib/products";
 import { pickTranslation } from "@/lib/i18n";
@@ -68,6 +69,68 @@ function sameCasPeers(pigment: Pigment): Pigment[] {
   return pigments.filter(
     (p) => p.id !== pigment.id && p.casNumber === pigment.casNumber
   );
+}
+
+/**
+ * The citation registry.
+ *
+ * The JSON import infers the union of every entry's shape, which loses the
+ * optional `tier` on the ones that carry it. The registry is read through
+ * this typed view instead.
+ */
+const pigmentSources = pigmentSourcesRaw as Record<string, PigmentSource>;
+
+/**
+ * The citations behind one jurisdiction's status.
+ *
+ * A regulatory claim without a citation is an opinion. Every status on this
+ * page points at the instrument it comes from — the EU annex, the CFR section,
+ * the JSFA Codex entry — so a buyer can check it and an answer engine has
+ * something solid to quote.
+ */
+function RegulatorySources({ ids }: { ids?: string[] }) {
+  if (!ids || ids.length === 0) return null;
+  return (
+    <div className="mt-1.5 flex flex-wrap gap-x-3 gap-y-1">
+      {ids.map((id) => {
+        const source = pigmentSources[id];
+        if (!source) return null;
+        const secondary = source.tier === "secondary";
+        return (
+          <a
+            key={id}
+            href={source.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            title={source.detail}
+            className={
+              secondary
+                ? "text-xs text-earth-500 underline underline-offset-2 hover:text-earth-700"
+                : "text-xs text-sage-700 underline underline-offset-2 hover:text-sage-600"
+            }
+          >
+            {source.label}
+          </a>
+        );
+      })}
+    </div>
+  );
+}
+
+/** Every citation on the page, for the structured data. */
+function allCitations(pigment: Pigment) {
+  const ids = new Set<string>();
+  for (const list of Object.values(pigment.regulations.sources || {})) {
+    for (const id of list || []) ids.add(id);
+  }
+  return [...ids]
+    .map((id) => pigmentSources[id])
+    .filter(Boolean)
+    .map((source) => ({
+      name: source.label,
+      url: source.url,
+      detail: source.detail,
+    }));
 }
 
 export async function generateMetadata({
@@ -149,6 +212,8 @@ export default async function PigmentDetailPage({
         formulations={pigment.formulations}
         applications={pigment.applications}
         regulations={pigment.regulations}
+        citations={allCitations(pigment)}
+        reviewedOn={REGULATORY_REVIEWED_ISO}
       />
       {content.faq.length > 0 && <FAQJsonLd items={content.faq} locale={locale} />}
 
@@ -225,25 +290,45 @@ export default async function PigmentDetailPage({
               <div className="overflow-x-auto rounded-xl border border-earth-100">
                 <table className="w-full text-sm">
                   <tbody>
-                    {[
-                      [t("regions.eu"), pigment.regulations.eu],
-                      [t("regions.us"), pigment.regulations.us],
-                      [t("regions.japan"), pigment.regulations.japan],
-                      [t("regions.korea"), pigment.regulations.korea],
-                    ].map(([label, value], i) => (
-                      <tr key={label} className={i % 2 === 0 ? "bg-earth-50" : "bg-white"}>
+                    {(
+                      [
+                        ["eu", t("regions.eu"), pigment.regulations.eu],
+                        ["us", t("regions.us"), pigment.regulations.us],
+                        ["japan", t("regions.japan"), pigment.regulations.japan],
+                        ["korea", t("regions.korea"), pigment.regulations.korea],
+                      ] as const
+                    ).map(([jurisdiction, label, value], i) => (
+                      <tr key={jurisdiction} className={i % 2 === 0 ? "bg-earth-50" : "bg-white"}>
                         <th
                           scope="row"
-                          className="px-4 py-2.5 text-left font-medium text-earth-600 w-2/5"
+                          className="px-4 py-2.5 text-left font-medium text-earth-600 w-2/5 align-top"
                         >
                           {label}
                         </th>
-                        <td className="px-4 py-2.5 text-earth-800">{value}</td>
+                        <td className="px-4 py-2.5 text-earth-800">
+                          {value}
+                          <RegulatorySources
+                            ids={pigment.regulations.sources?.[jurisdiction]}
+                          />
+                        </td>
                       </tr>
                     ))}
                   </tbody>
                 </table>
               </div>
+              <p className="mt-3 text-xs text-earth-500 leading-relaxed">
+                Status last checked on {REGULATORY_REVIEWED_ON} against the
+                sources above. The Japan entries were checked one by one in the
+                JSFA Food Additives Codex and carry its entry numbers. For
+                Korea, seven pigments were confirmed against the MFDS food
+                additive code — two of them from the Korean text published in
+                the WTO notification — and the rest are marked as not
+                confirmed, because MFDS publishes its list as notices that
+                cannot be checked entry by entry from the public page. A
+                secondary source is marked as one; the authority is always the
+                MFDS food additive code. Ask us for the market confirmation
+                before you ship.
+              </p>
             </section>
           </div>
 

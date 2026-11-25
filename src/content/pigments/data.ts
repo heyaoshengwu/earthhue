@@ -1,5 +1,44 @@
 import regulations from "./regulations.json";
 
+export type RegulationJurisdiction = "eu" | "us" | "japan" | "korea";
+
+/**
+ * One entry of the citation registry.
+ *
+ * `tier` marks a source that reads an official instrument rather than being
+ * one. It is allowed only where it says so in its own detail, and the page
+ * shows it in a quieter colour, so a reader can tell an authority from a
+ * reading of one.
+ */
+export interface PigmentSource {
+  label: string;
+  detail: string;
+  url: string;
+  scope: string;
+  tier?: "secondary";
+}
+
+export interface PigmentRegulations {
+  eu: string;
+  us: string;
+  japan: string;
+  korea: string;
+  /** The entries of the source registry that back each jurisdiction. */
+  sources?: Partial<Record<RegulationJurisdiction, string[]>>;
+  /** Whether the status was checked line by line against its source. */
+  verified?: Partial<Record<RegulationJurisdiction, boolean>>;
+}
+
+/**
+ * The date the four-jurisdiction status of every pigment was last checked
+ * against its sources. It is shown on the pigment pages, so a buyer can tell
+ * how fresh a status is rather than assuming it.
+ */
+export const REGULATORY_REVIEWED_ON = "24 November 2026";
+
+/** The same review date in the format the structured data wants. */
+export const REGULATORY_REVIEWED_ISO = "2026-11-24";
+
 export interface Pigment {
   id: string;
   name: string;
@@ -14,12 +53,7 @@ export interface Pigment {
   casNumber: string;
   einecsNumber: string;
   formulations: string[];
-  regulations: {
-    eu: string;
-    us: string;
-    japan: string;
-    korea: string;
-  };
+  regulations: PigmentRegulations;
 }
 
 export const pigments: Pigment[] = [

@@ -2,173 +2,461 @@
   "curcumin": {
     "eu": "E 100 - authorised (colour)",
     "us": "FDA GRAS",
-    "japan": "Approved - JSFA",
-    "korea": "Approved - MFDS",
-    "euENumber": "E 100"
+    "japan": "Listed - JSFA (existing additive, FA008900)",
+    "korea": "Permitted - MFDS standards (use standards apply)",
+    "euENumber": "E 100",
+    "sources": {
+      "eu": ["eu-annex-ii"],
+      "us": ["us-gras-inventory"],
+      "japan": ["jp-codex"],
+      "korea": ["kr-mfds", "kr-codex", "kr-index-curcumin"]
+    },
+    "verified": {
+      "eu": true,
+      "us": true,
+      "japan": true,
+      "korea": true
+    }
   },
   "beet-red": {
     "eu": "E 162 - authorised (colour)",
     "us": "FDA GRAS",
-    "japan": "Approved - JSFA",
-    "korea": "Approved - MFDS",
-    "euENumber": "E 162"
+    "japan": "Listed - JSFA (existing additive, FA047100)",
+    "korea": "Permitted - MFDS standards (use standards apply)",
+    "euENumber": "E 162",
+    "sources": {
+      "eu": ["eu-annex-ii"],
+      "us": ["us-gras-inventory"],
+      "japan": ["jp-codex"],
+      "korea": ["kr-mfds", "kr-codex", "kr-index-beet-red"]
+    },
+    "verified": {
+      "eu": true,
+      "us": true,
+      "japan": true,
+      "korea": true
+    }
   },
   "chlorophyll": {
     "eu": "E 140 - authorised (colour)",
     "us": "FDA GRAS",
-    "japan": "Approved - JSFA",
-    "korea": "Approved - MFDS",
-    "euENumber": "E 140"
+    "japan": "Listed - JSFA (existing additive, FA021500)",
+    "korea": "Permitted - MFDS standards (copper chlorophyll listed; use standards apply)",
+    "euENumber": "E 140",
+    "sources": {
+      "eu": ["eu-annex-ii"],
+      "us": ["us-gras-inventory"],
+      "japan": ["jp-codex"],
+      "korea": ["kr-mfds", "kr-codex", "kr-wto-772"]
+    },
+    "verified": {
+      "eu": true,
+      "us": true,
+      "japan": true,
+      "korea": true
+    }
   },
   "anthocyanin": {
     "eu": "E 163 - authorised (colour)",
     "us": "FDA GRAS",
-    "japan": "Approved - JSFA",
-    "korea": "Approved - MFDS",
-    "euENumber": "E 163"
+    "japan": "Listed - JSFA (existing additive, FA051600)",
+    "korea": "Permitted - MFDS standards (use standards apply)",
+    "euENumber": "E 163",
+    "sources": {
+      "eu": ["eu-annex-ii"],
+      "us": ["us-gras-inventory"],
+      "japan": ["jp-codex"],
+      "korea": ["kr-mfds", "kr-codex", "kr-index-grape-skin"]
+    },
+    "verified": {
+      "eu": true,
+      "us": true,
+      "japan": true,
+      "korea": true
+    }
   },
   "carotenoid": {
     "eu": "E 160a - authorised (colour)",
-    "us": "FDA GRAS; colour additive 21 CFR 73.275 (corn endosperm oil)",
-    "japan": "Approved - JSFA",
-    "korea": "Approved - MFDS",
-    "euENumber": "E 160a"
+    "us": "FDA GRAS; colour additive 21 CFR 73.315 (corn endosperm oil)",
+    "japan": "Listed - JSFA (existing additive, FA044300)",
+    "korea": "Permitted - MFDS standards (use standards apply)",
+    "euENumber": "E 160a",
+    "sources": {
+      "eu": ["eu-annex-ii"],
+      "us": ["us-gras-inventory", "us-73-315"],
+      "japan": ["jp-codex"],
+      "korea": ["kr-mfds", "kr-codex", "kr-index-beta-carotene"]
+    },
+    "verified": {
+      "eu": true,
+      "us": true,
+      "japan": true,
+      "korea": true
+    }
   },
   "paprika-oleoresin": {
     "eu": "E 160c - authorised (colour)",
     "us": "FDA GRAS",
-    "japan": "Approved - JSFA",
-    "korea": "Approved - MFDS",
-    "euENumber": "E 160c"
+    "japan": "Listed - JSFA (existing additive, FA040400)",
+    "korea": "Not confirmed - MFDS standards",
+    "euENumber": "E 160c",
+    "sources": {
+      "eu": ["eu-annex-ii"],
+      "us": ["us-gras-inventory"],
+      "japan": ["jp-codex"],
+      "korea": ["kr-mfds", "kr-codex"]
+    },
+    "verified": {
+      "eu": true,
+      "us": true,
+      "japan": true,
+      "korea": false
+    }
   },
   "saffron": {
     "eu": "No E number - not an authorised additive (saffron is a spice, not an additive)",
     "us": "FDA GRAS",
-    "japan": "Approved - JSFA",
-    "korea": "Approved - MFDS",
-    "euENumber": null
+    "japan": "Not listed - JSFA",
+    "korea": "Not confirmed - MFDS standards",
+    "euENumber": null,
+    "sources": {
+      "eu": ["eu-annex-ii"],
+      "us": ["us-gras-inventory"],
+      "japan": ["jp-codex"],
+      "korea": ["kr-mfds", "kr-codex"]
+    },
+    "verified": {
+      "eu": true,
+      "us": true,
+      "japan": true,
+      "korea": false
+    }
   },
   "lutein-plant": {
     "eu": "E 161b - authorised (colour)",
     "us": "FDA GRAS; colour additive 21 CFR 73.295 (Tagetes marigold meal and extract)",
-    "japan": "Approved - JSFA",
-    "korea": "Approved - MFDS",
-    "euENumber": "E 161b"
+    "japan": "Listed - JSFA (existing additive, FA058700)",
+    "korea": "Not confirmed - MFDS standards",
+    "euENumber": "E 161b",
+    "sources": {
+      "eu": ["eu-annex-ii"],
+      "us": ["us-gras-inventory", "us-73-295"],
+      "japan": ["jp-codex"],
+      "korea": ["kr-mfds", "kr-codex"]
+    },
+    "verified": {
+      "eu": true,
+      "us": true,
+      "japan": true,
+      "korea": false
+    }
   },
   "astaxanthin": {
     "eu": "Not an authorised EU food colour - authorised as a novel food for supplements (Reg. (EU) 2015/2283) and as a feed additive",
     "us": "FDA GRAS - GRAS Notice 580 (Haematococcus pluvialis extract); colour additive 21 CFR 73.35 (salmonid feed)",
-    "japan": "Approved - JSFA",
-    "korea": "Approved - MFDS",
+    "japan": "Listed - JSFA (existing additive, FA055800)",
+    "korea": "Not confirmed - MFDS standards",
     "euENumber": null,
-    "usGRN": "580"
+    "usGRN": "580",
+    "sources": {
+      "eu": ["eu-novel-food", "eu-union-list", "eu-annex-ii"],
+      "us": ["us-gras-580", "us-73-35"],
+      "japan": ["jp-codex"],
+      "korea": ["kr-mfds", "kr-codex"]
+    },
+    "verified": {
+      "eu": true,
+      "us": true,
+      "japan": true,
+      "korea": false
+    }
   },
   "astaxanthin-synthetic-biological": {
     "eu": "Authorised as a novel food in the EU - not a food colour (E 161j covers Haematococcus astaxanthin only)",
     "us": "Colour additive 21 CFR 73.355 (Phaffia yeast, animal feed); GRAS for human food use",
-    "japan": "Approved - JSFA",
-    "korea": "Approved - MFDS",
+    "japan": "Not listed - JSFA",
+    "korea": "Not confirmed - MFDS standards",
     "euENumber": null,
-    "mentions": ["E 161j"]
+    "mentions": ["E 161j"],
+    "sources": {
+      "eu": ["eu-union-list", "eu-annex-ii"],
+      "us": ["us-73-355"],
+      "japan": ["jp-codex"],
+      "korea": ["kr-mfds", "kr-codex"]
+    },
+    "verified": {
+      "eu": true,
+      "us": true,
+      "japan": true,
+      "korea": false
+    }
   },
   "beta-carotene-fermentation": {
     "eu": "E 160a - authorised (colour)",
-    "us": "FDA GRAS; colour additive 21 CFR 73.275 (corn endosperm oil)",
-    "japan": "Approved - JSFA",
-    "korea": "Approved - MFDS",
-    "euENumber": "E 160a"
+    "us": "FDA GRAS; colour additive 21 CFR 73.315 (corn endosperm oil)",
+    "japan": "Listed - JSFA (designated additive, FA015000)",
+    "korea": "Permitted - MFDS standards (use standards apply)",
+    "euENumber": "E 160a",
+    "sources": {
+      "eu": ["eu-annex-ii"],
+      "us": ["us-gras-inventory", "us-73-315"],
+      "japan": ["jp-codex"],
+      "korea": ["kr-mfds", "kr-codex", "kr-index-beta-carotene"]
+    },
+    "verified": {
+      "eu": true,
+      "us": true,
+      "japan": true,
+      "korea": true
+    }
   },
   "lutein-fermentation": {
     "eu": "E 161b - authorised (colour)",
     "us": "FDA GRAS; colour additive 21 CFR 73.295 (Tagetes marigold meal and extract)",
-    "japan": "Approved - JSFA",
-    "korea": "Approved - MFDS",
-    "euENumber": "E 161b"
+    "japan": "Not listed - JSFA",
+    "korea": "Not confirmed - MFDS standards",
+    "euENumber": "E 161b",
+    "sources": {
+      "eu": ["eu-annex-ii"],
+      "us": ["us-gras-inventory", "us-73-295"],
+      "japan": ["jp-codex"],
+      "korea": ["kr-mfds", "kr-codex"]
+    },
+    "verified": {
+      "eu": true,
+      "us": true,
+      "japan": true,
+      "korea": false
+    }
   },
   "canthaxanthin": {
     "eu": "Not authorised for food - medicinal products only (E 161g)",
-    "us": "Colour additive 21 CFR 73.107 and 73.75 (food NTE 30 mg/lb, drugs, animal feed)",
-    "japan": "Approved - JSFA",
-    "korea": "Approved - MFDS",
-    "euENumber": "E 161g"
+    "us": "Colour additive 21 CFR 73.1075 and 73.75 (food NTE 30 mg/lb, drugs, animal feed)",
+    "japan": "Listed - JSFA (designated additive, FA015750)",
+    "korea": "Not confirmed - MFDS standards",
+    "euENumber": "E 161g",
+    "sources": {
+      "eu": ["eu-annex-ii"],
+      "us": ["us-73-1075", "us-73-75"],
+      "japan": ["jp-codex"],
+      "korea": ["kr-mfds", "kr-codex"]
+    },
+    "verified": {
+      "eu": true,
+      "us": true,
+      "japan": true,
+      "korea": false
+    }
   },
   "torularhodin": {
     "eu": "Not authorised as an EU food colour - food ingredient and supplement use",
     "us": "FDA GRAS (self-affirmed)",
     "japan": "Not listed - JSFA",
-    "korea": "Under review - MFDS",
-    "euENumber": null
+    "korea": "Not confirmed - MFDS standards",
+    "euENumber": null,
+    "sources": {
+      "eu": ["eu-annex-ii"],
+      "us": [],
+      "japan": ["jp-codex"],
+      "korea": ["kr-mfds", "kr-codex"]
+    },
+    "verified": {
+      "eu": true,
+      "us": true,
+      "japan": true,
+      "korea": false
+    }
   },
   "monascus-red": {
     "eu": "No E number - not an authorised additive (E 160c is paprika extract)",
     "us": "FDA GRAS (citrinin-free grades)",
-    "japan": "Approved - JSFA",
-    "korea": "Approved - MFDS",
+    "japan": "Not listed - JSFA",
+    "korea": "Not confirmed - MFDS standards",
     "euENumber": null,
-    "mentions": ["E 160c"]
+    "mentions": ["E 160c"],
+    "sources": {
+      "eu": ["eu-annex-ii"],
+      "us": ["us-gras-inventory"],
+      "japan": ["jp-codex"],
+      "korea": ["kr-mfds", "kr-codex"]
+    },
+    "verified": {
+      "eu": true,
+      "us": true,
+      "japan": true,
+      "korea": false
+    }
   },
   "arpink-red": {
     "eu": "Authorised as a novel food in the EU - Arpink red (monascin and ankaflavin)",
     "us": "FDA GRAS",
-    "japan": "Under review - JSFA",
-    "korea": "Under review - MFDS",
-    "euENumber": null
+    "japan": "Not listed - JSFA",
+    "korea": "Not confirmed - MFDS standards",
+    "euENumber": null,
+    "sources": {
+      "eu": ["eu-union-list", "eu-novel-food"],
+      "us": ["us-gras-inventory"],
+      "japan": ["jp-codex"],
+      "korea": ["kr-mfds", "kr-codex"]
+    },
+    "verified": {
+      "eu": true,
+      "us": true,
+      "japan": true,
+      "korea": false
+    }
   },
   "phycocyanin": {
     "eu": "Colouring food - no E number (not an authorised additive; the enrichment factor of the extraction decides)",
     "us": "FDA GRAS",
-    "japan": "Approved - JSFA",
-    "korea": "Approved - MFDS",
-    "euENumber": null
+    "japan": "Listed - JSFA (existing additive, FA035400)",
+    "korea": "Not confirmed - MFDS standards",
+    "euENumber": null,
+    "sources": {
+      "eu": ["eu-annex-ii"],
+      "us": ["us-gras-inventory"],
+      "japan": ["jp-codex"],
+      "korea": ["kr-mfds", "kr-codex"]
+    },
+    "verified": {
+      "eu": true,
+      "us": true,
+      "japan": true,
+      "korea": false
+    }
   },
   "phycoerythrin": {
     "eu": "Not authorised as an EU food colour - no E number",
     "us": "FDA GRAS",
-    "japan": "Approved - JSFA",
-    "korea": "Approved - MFDS",
-    "euENumber": null
+    "japan": "Not listed - JSFA",
+    "korea": "Not confirmed - MFDS standards",
+    "euENumber": null,
+    "sources": {
+      "eu": ["eu-annex-ii"],
+      "us": ["us-gras-inventory"],
+      "japan": ["jp-codex"],
+      "korea": ["kr-mfds", "kr-codex"]
+    },
+    "verified": {
+      "eu": true,
+      "us": true,
+      "japan": true,
+      "korea": false
+    }
   },
   "violaxanthin": {
     "eu": "Not authorised as an EU food colour - food ingredient and supplement use",
     "us": "FDA GRAS",
     "japan": "Not listed - JSFA",
-    "korea": "Under review - MFDS",
-    "euENumber": null
+    "korea": "Not confirmed - MFDS standards",
+    "euENumber": null,
+    "sources": {
+      "eu": ["eu-annex-ii"],
+      "us": ["us-gras-inventory"],
+      "japan": ["jp-codex"],
+      "korea": ["kr-mfds", "kr-codex"]
+    },
+    "verified": {
+      "eu": true,
+      "us": true,
+      "japan": true,
+      "korea": false
+    }
   },
   "zeaxanthin-microbial": {
     "eu": "Not authorised as a food colour - food ingredient and supplement use (E 161h is not an authorised colour)",
     "us": "FDA GRAS; colour additive 21 CFR 73.352 (Paracoccus pigment)",
-    "japan": "Approved - JSFA",
-    "korea": "Approved - MFDS",
+    "japan": "Not listed - JSFA",
+    "korea": "Not confirmed - MFDS standards",
     "euENumber": null,
-    "mentions": ["E 161h"]
+    "mentions": ["E 161h"],
+    "sources": {
+      "eu": ["eu-annex-ii"],
+      "us": ["us-gras-inventory", "us-73-352"],
+      "japan": ["jp-codex"],
+      "korea": ["kr-mfds", "kr-codex"]
+    },
+    "verified": {
+      "eu": true,
+      "us": true,
+      "japan": true,
+      "korea": false
+    }
   },
   "spirulina-blue": {
     "eu": "Colouring food - no E number (not an authorised additive; the enrichment factor of the extraction decides)",
     "us": "FDA GRAS",
-    "japan": "Approved - JSFA",
-    "korea": "Approved - MFDS",
-    "euENumber": null
+    "japan": "Listed - JSFA (existing additive, FA035400)",
+    "korea": "Not confirmed - MFDS standards",
+    "euENumber": null,
+    "sources": {
+      "eu": ["eu-annex-ii"],
+      "us": ["us-gras-inventory"],
+      "japan": ["jp-codex"],
+      "korea": ["kr-mfds", "kr-codex"]
+    },
+    "verified": {
+      "eu": true,
+      "us": true,
+      "japan": true,
+      "korea": false
+    }
   },
   "iron-oxide": {
     "eu": "E 172 - authorised only in specific foods (conditions apply; no longer a general food colour)",
     "us": "Colour additive 21 CFR 73.200 (synthetic iron oxides)",
-    "japan": "Approved - CI 77491, 77492, 77499",
-    "korea": "Approved - MFDS",
-    "euENumber": "E 172"
+    "japan": "Listed - JSFA (ferric oxide, designated additive, FA027200)",
+    "korea": "Not confirmed - MFDS standards",
+    "euENumber": "E 172",
+    "sources": {
+      "eu": ["eu-annex-ii"],
+      "us": ["us-73-200"],
+      "japan": ["jp-codex"],
+      "korea": ["kr-mfds", "kr-codex"]
+    },
+    "verified": {
+      "eu": true,
+      "us": true,
+      "japan": true,
+      "korea": false
+    }
   },
   "titanium-dioxide": {
     "eu": "Not authorised for food since 7 Aug 2022 (Reg. (EU) 2022/63) - medicinal use only",
     "us": "Colour additive exempt from certification - 21 CFR 73.575 (food); not GRAS",
-    "japan": "Approved - JSFA",
-    "korea": "Approved - MFDS",
-    "euENumber": null
+    "japan": "Listed - JSFA (designated additive, FA043700)",
+    "korea": "Permitted - MFDS standards (restricted to specific food categories)",
+    "euENumber": null,
+    "sources": {
+      "eu": ["eu-2022-63", "eu-annex-ii"],
+      "us": ["us-73-575"],
+      "japan": ["jp-codex"],
+      "korea": ["kr-mfds", "kr-codex", "kr-wto-772", "kr-index-titanium-dioxide"]
+    },
+    "verified": {
+      "eu": true,
+      "us": true,
+      "japan": true,
+      "korea": true
+    }
   },
   "mica-pearl": {
     "eu": "Not an authorised EU food colour - CI 77019 is a cosmetic colour (Reg. (EC) 1223/2009)",
-    "us": "Colour additive exempt from certification - 21 CFR 73.1496 (mica)",
-    "japan": "Approved - CI 77019",
-    "korea": "Approved - MFDS",
-    "euENumber": null
+    "us": "Colour additive exempt from certification - 21 CFR 73.350 and 73.1496 (mica)",
+    "japan": "Not listed - JSFA",
+    "korea": "Not confirmed - MFDS standards",
+    "euENumber": null,
+    "sources": {
+      "eu": ["eu-cosmetics", "eu-annex-ii"],
+      "us": ["us-73-350", "us-73-1496"],
+      "japan": ["jp-codex"],
+      "korea": ["kr-mfds", "kr-codex"]
+    },
+    "verified": {
+      "eu": true,
+      "us": true,
+      "japan": true,
+      "korea": false
+    }
   }
 }

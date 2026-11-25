@@ -104,7 +104,7 @@ export const pigmentContent: Record<string, PigmentContent> = {
 
   anthocyanin: {
     answer:
-      "Anthocyanins are the red-to-purple pigments available from grape skin, black carrot and purple sweet potato, and they are what E 163 exists for. They are authorised in the EU, hold FDA GRAS status in the United States and are listed in Japan and Korea. Every anthocyanin product is pH dependent: the same material runs red at pH 3 and turns blue-purple or nearly colourless as the pH rises, so the target pH has to be fixed before the grade is chosen.",
+      "Anthocyanins are the red-to-purple pigments available from grape skin, black carrot and purple sweet potato, and they are what E 163 exists for. They are authorised in the EU, hold FDA GRAS status in the United States, and are listed in Japan — as the grape skin and purple sweet potato colourants — and in Korea. Every anthocyanin product is pH dependent: the same material runs red at pH 3 and turns blue-purple or nearly colourless as the pH rises, so the target pH has to be fixed before the grade is chosen.",
     faq: [
       {
         q: "Why does my anthocyanin change colour?",
@@ -116,7 +116,7 @@ export const pigmentContent: Record<string, PigmentContent> = {
       },
       {
         q: "Is anthocyanin approved in the EU?",
-        a: "Yes, as E 163. Anthocyanins are authorised in the EU, hold FDA GRAS status in the United States, and are listed in Japan and Korea.",
+        a: "Yes, as E 163. Anthocyanins are authorised in the EU, hold FDA GRAS status in the United States, and are listed in Japan — as the grape skin and purple sweet potato colourants — and in Korea.",
       },
       {
         q: "What is the CAS number of anthocyanin?",
@@ -152,7 +152,7 @@ export const pigmentContent: Record<string, PigmentContent> = {
 
   "paprika-oleoresin": {
     answer:
-      "Paprika oleoresin is the red-orange extract of Capsicum annuum, standardised on its colour value in ASTA units and on its capsanthin and capsorubin content. It is authorised in the EU as E 160c, holds FDA GRAS status in the United States and is listed in Japan and Korea. Unlike annatto it carries colour and a little heat at once, so the residual pungency has to be controlled when it is used as a colour rather than as a flavour.",
+      "Paprika oleoresin is the red-orange extract of Capsicum annuum, standardised on its colour value in ASTA units and on its capsanthin and capsorubin content. It is authorised in the EU as E 160c, holds FDA GRAS status in the United States and is listed in Japan. Unlike annatto it carries colour and a little heat at once, so the residual pungency has to be controlled when it is used as a colour rather than as a flavour.",
     faq: [
       {
         q: "What is an ASTA unit?",
@@ -164,7 +164,7 @@ export const pigmentContent: Record<string, PigmentContent> = {
       },
       {
         q: "Is paprika oleoresin approved in the EU?",
-        a: "Yes, as E 160c. Paprika extract is authorised in the EU, holds FDA GRAS status in the United States, and is listed in Japan and Korea.",
+        a: "Yes, as E 160c. Paprika extract is authorised in the EU, holds FDA GRAS status in the United States, and is listed in Japan.",
       },
       {
         q: "What is the difference between paprika oleoresin and annatto?",
@@ -175,7 +175,7 @@ export const pigmentContent: Record<string, PigmentContent> = {
 
   saffron: {
     answer:
-      "Saffron carotenoids are the golden-yellow pigments from Crocus sativus, built on crocin, and they have the highest colour intensity of any natural yellow. The regulatory position is the part buyers get wrong: in the EU saffron is a food, not an additive, and has never carried an E number, so saffron-based colour is declared by name. It is listed in Japan and Korea and holds FDA GRAS status in the United States.",
+      "Saffron carotenoids are the golden-yellow pigments from Crocus sativus, built on crocin, and they have the highest colour intensity of any natural yellow. The regulatory position is the part buyers get wrong: in the EU saffron is a food, not an additive, and has never carried an E number, so saffron-based colour is declared by name. It is not listed as a colour in Japan, where saffron is used as a spice and as a food ingredient rather than an additive, and it holds FDA GRAS status in the United States.",
     faq: [
       {
         q: "Does saffron have an E number in the EU?",
@@ -187,7 +187,7 @@ export const pigmentContent: Record<string, PigmentContent> = {
       },
       {
         q: "Is saffron approved in the United States?",
-        a: "Yes. Saffron and its extracts hold FDA GRAS status in the United States and are listed in Japan and Korea. The EU is the market where the classification differs, and that difference is worth stating in the specification rather than discovering at the customs broker.",
+        a: "Yes. Saffron and its extracts hold FDA GRAS status in the United States, and they are not listed as a colour in Japan either, where saffron is used as a spice and as a food ingredient. The EU is the market where buyers most often get the classification wrong, and that difference is worth stating in the specification rather than discovering at the customs broker.",
       },
       {
         q: "What is the CAS number of saffron?",
@@ -198,7 +198,7 @@ export const pigmentContent: Record<string, PigmentContent> = {
 
   "lutein-plant": {
     answer:
-      "Marigold lutein is the yellow xanthophyll extracted from Tagetes erecta petals and supplied as an oil suspension, a water-dispersible powder or a beadlet grade. It is authorised in the EU as E 161b, holds FDA GRAS status in the United States and is listed in Japan and Korea. It is the reference form of lutein in the eye-health and blue-light-protection segment, and its commercial profile is tied to marigold cultivation.",
+      "Marigold lutein is the yellow xanthophyll extracted from Tagetes erecta petals and supplied as an oil suspension, a water-dispersible powder or a beadlet grade. It is authorised in the EU as E 161b, holds FDA GRAS status in the United States and is listed in Japan. It is the reference form of lutein in the eye-health and blue-light-protection segment, and its commercial profile is tied to marigold cultivation.",
     route:
       "Marigold lutein and fermentation lutein share CAS 127-40-2 and the same E 161b authorisation, which is why they compete on identical paperwork. They do not compete on supply: marigold lutein depends on the flower crop and its growing season, while fermentation lutein is produced year-round in a closed reactor. The plant route also has to make a distinction the fermentation route does not, between free lutein and lutein esters.",
     faq: [
@@ -208,7 +208,7 @@ export const pigmentContent: Record<string, PigmentContent> = {
       },
       {
         q: "Is lutein approved in the EU?",
-        a: "Yes, as E 161b. Lutein is authorised in the EU, holds FDA GRAS status in the United States, and is listed in Japan and Korea.",
+        a: "Yes, as E 161b. Lutein is authorised in the EU, holds FDA GRAS status in the United States, and is listed in Japan.",
       },
       {
         q: "What is free lutein and why does it matter?",
@@ -223,7 +223,7 @@ export const pigmentContent: Record<string, PigmentContent> = {
 
   astaxanthin: {
     answer:
-      "Natural astaxanthin from Haematococcus pluvialis is the red-orange carotenoid that gives wild salmon its colour, and one of the strongest antioxidants in nature. The regulatory position is narrow and worth stating precisely: astaxanthin is not listed as an authorised food colour in the EU, where astaxanthin-rich oleoresin from H. pluvialis is authorised as a novel food for supplements, and astaxanthin is authorised as a feed additive for salmonid fish. In the United States it holds FDA GRAS status under GRAS Notice 580, which covers Haematococcus pluvialis extracts, and it is listed as a colour additive for salmonid feed under 21 CFR 73.35. It is listed in Japan and Korea.",
+      "Natural astaxanthin from Haematococcus pluvialis is the red-orange carotenoid that gives wild salmon its colour, and one of the strongest antioxidants in nature. The regulatory position is narrow and worth stating precisely: astaxanthin is not listed as an authorised food colour in the EU, where astaxanthin-rich oleoresin from H. pluvialis is authorised as a novel food for supplements, and astaxanthin is authorised as a feed additive for salmonid fish. In the United States it holds FDA GRAS status under GRAS Notice 580, which covers Haematococcus pluvialis extracts, and it is listed as a colour additive for salmonid feed under 21 CFR 73.35. It is listed in Japan.",
     faq: [
       {
         q: "Is astaxanthin an authorised food colour in the EU?",
@@ -246,7 +246,7 @@ export const pigmentContent: Record<string, PigmentContent> = {
 
   "astaxanthin-synthetic-biological": {
     answer:
-      "Phaffia astaxanthin, produced by Xanthophyllomyces dendrorhous, formerly Phaffia rhodozyma, is the yeast-derived route to astaxanthin and the dominant one in aquaculture feed. It is authorised as a feed additive for salmonid fish, and its oleoresin is used in some supplement applications. The EU position differs from the algal route in exactly one respect that matters on paper: E 161j refers to astaxanthin from Haematococcus pluvialis, and Phaffia-derived material has no E number as a food colour. Astaxanthin from Xanthophyllomyces dendrorhous is authorised in the EU as a novel food in its own right, so it can be sold into the EU without being declared as a colour.",
+      "Phaffia astaxanthin, produced by Xanthophyllomyces dendrorhous, formerly Phaffia rhodozyma, is the yeast-derived route to astaxanthin and the dominant one in aquaculture feed. It is authorised as a feed additive for salmonid fish, and its oleoresin is used in some supplement applications. The EU position differs from the algal route in exactly one respect that matters on paper: E 161j refers to astaxanthin from Haematococcus pluvialis, and Phaffia-derived material has no E number as a food colour. Astaxanthin from Xanthophyllomyces dendrorhous is authorised in the EU as a novel food in its own right, so it can be sold into the EU without being declared as a colour. It is not listed as a colour in Japan either, where the listed algal entry covers Haematococcus only.",
     route:
       "Both routes deliver astaxanthin with the same colour and the same antioxidant activity, and both are used in aquaculture feed, but they are not interchangeable on paper. The Haematococcus route is the one covered by E 161j and by the EU novel food authorisation for supplements, so a buyer selling into the EU should specify the algal material where a supplement claim rests on that authorisation, and the yeast material where the buyer is placing the material on the market as a novel food in its own right or as feed.",
     faq: [
@@ -296,7 +296,7 @@ export const pigmentContent: Record<string, PigmentContent> = {
 
   "lutein-fermentation": {
     answer:
-      "Fermentation lutein is produced by Chlorella vulgaris in a closed reactor and supplied as an oil suspension, a powder or a water-dispersible grade. It carries the same CAS number and EU authorisation as marigold lutein — E 161b — and holds FDA GRAS status in the United States with listings in Japan and Korea. The argument for the route is year-round availability and a documented isomer profile, independent of a flower harvest.",
+      "Fermentation lutein is produced by Chlorella vulgaris in a closed reactor and supplied as an oil suspension, a powder or a water-dispersible grade. It carries the same CAS number and EU authorisation as marigold lutein — E 161b — and holds FDA GRAS status in the United States. It is not listed as a colour in Japan, where the listed lutein entry is the marigold one. The argument for the route is year-round availability and a documented isomer profile, independent of a flower harvest.",
     route:
       "Fermentation lutein and marigold lutein are the same substance under CAS 127-40-2 and E 161b, so a finished product does not have to declare which one it used unless a claim or a supply-chain policy requires it. The route does change what can be promised: fermentation is independent of the marigold crop and its season, and it produces a free-lutein-dominant profile rather than the ester-dominated profile of a petal extract.",
     faq: [
@@ -310,7 +310,7 @@ export const pigmentContent: Record<string, PigmentContent> = {
       },
       {
         q: "Is lutein approved in the EU?",
-        a: "Yes, as E 161b. Lutein is authorised in the EU, holds FDA GRAS status in the United States, and is listed in Japan and Korea.",
+        a: "Yes, as E 161b. Lutein is authorised in the EU and holds FDA GRAS status in the United States. Japan lists lutein as the marigold extract, so the fermentation route changes the source rather than the authorisation.",
       },
       {
         q: "What is the CAS number of lutein?",
@@ -321,11 +321,11 @@ export const pigmentContent: Record<string, PigmentContent> = {
 
   canthaxanthin: {
     answer:
-      "Canthaxanthin is an orange-red carotenoid with one of the highest colour values available, and it is the pigment that makes farmed salmon flesh pink. Its regulatory position is restrictive and often misunderstood: E 161g is listed in the EU but is not authorised for food, remaining permitted in medicinal products only, while in the United States it is a colour additive exempt from certification under 21 CFR 73.107 and 73.75, for food, for ingested drugs and for animal feed.",
+      "Canthaxanthin is an orange-red carotenoid with one of the highest colour values available, and it is the pigment that makes farmed salmon flesh pink. Its regulatory position is restrictive and often misunderstood: E 161g is listed in the EU but is not authorised for food, remaining permitted in medicinal products only, while in the United States it is a colour additive exempt from certification under 21 CFR 73.1075 and 73.75, for food, for ingested drugs and for animal feed.",
     faq: [
       {
         q: "Is canthaxanthin allowed in food in the EU?",
-        a: "No. E 161g is listed but not authorised for food in the EU; it remains permitted in medicinal products. In the United States canthaxanthin is a colour additive exempt from certification under 21 CFR 73.107 and 73.75, used in food at up to 30 mg per pound, in ingested drugs and in animal feed. It is listed in Japan and Korea.",
+        a: "No. E 161g is listed but not authorised for food in the EU; it remains permitted in medicinal products. In the United States canthaxanthin is a colour additive exempt from certification under 21 CFR 73.1075 and 73.75, used in food at up to 30 mg per pound, in ingested drugs and in animal feed. It is listed in Japan as a designated additive.",
       },
       {
         q: "What is canthaxanthin used for?",
@@ -344,11 +344,11 @@ export const pigmentContent: Record<string, PigmentContent> = {
 
   torularhodin: {
     answer:
-      "Torularhodin is the red carotenoid produced by red yeasts such as Rhodotorula glutinis, and it is an emerging alternative in the natural red category. It is the one pigment in this catalogue whose market access is still being built: it is self-affirmed GRAS in the United States, not an authorised food colour in the EU, not listed in Japan and under review in Korea. A buyer looking for a red that is not beet-based is choosing a pigment whose regulatory file still has to be assembled market by market.",
+      "Torularhodin is the red carotenoid produced by red yeasts such as Rhodotorula glutinis, and it is an emerging alternative in the natural red category. It is the one pigment in this catalogue whose market access is still being built: it is self-affirmed GRAS in the United States, not an authorised food colour in the EU, and not listed as a colour in Japan. A buyer looking for a red that is not beet-based is choosing a pigment whose regulatory file still has to be assembled market by market.",
     faq: [
       {
         q: "What is the regulatory status of torularhodin?",
-        a: "It is self-affirmed GRAS in the United States, not an authorised food colour in the EU, not listed in Japan, and under review in Korea. For a project that needs an authorised status today, torularhodin is not there yet; for a project looking for a natural red with a differentiated supply story, it is worth tracking.",
+        a: "It is self-affirmed GRAS in the United States, not an authorised food colour in the EU, and not listed as a colour in Japan. For a project that needs an authorised status today, torularhodin is not there yet; for a project looking for a natural red with a differentiated supply story, it is worth tracking.",
       },
       {
         q: "Where does torularhodin come from?",
@@ -375,7 +375,7 @@ export const pigmentContent: Record<string, PigmentContent> = {
       },
       {
         q: "Does monascus red have an E number in the EU?",
-        a: "No. In the EU monascus red is used as a food ingredient rather than as an authorised additive, so it has no E number. E 160c is paprika extract, and E 161c is a reserved number in the E 161 series that has never been assigned to a food colour. It is listed in Japan and Korea and holds FDA GRAS status in the United States for citrinin-free grades.",
+        a: "No. In the EU monascus red is used as a food ingredient rather than as an authorised additive, so it has no E number. E 160c is paprika extract, and E 161c is a reserved number in the E 161 series that has never been assigned to a food colour. It is not listed as a colour in Japan and holds FDA GRAS status in the United States for citrinin-free grades.",
       },
       {
         q: "What colour does monascus red give?",
@@ -390,15 +390,15 @@ export const pigmentContent: Record<string, PigmentContent> = {
 
   "arpink-red": {
     answer:
-      "Arpink Red is a natural red pigment produced by Penicillium oxalicum, and it is the newest pigment in this catalogue. It is a genuinely novel colour: no CAS number has been assigned, the EU status is an authorised novel food, and Japan and Korea are under review, while the United States holds FDA GRAS status. Its technical profile is attractive — heat, pH and light stability — and the EU authorisation means it can be used there today, inside the conditions and the labelling the authorisation sets.",
+      "Arpink Red is a natural red pigment produced by Penicillium oxalicum, and it is the newest pigment in this catalogue. It is a genuinely novel colour: no CAS number has been assigned, the EU status is an authorised novel food, it is not listed as a colour in Japan, and the United States holds FDA GRAS status. Its technical profile is attractive — heat, pH and light stability — and the EU authorisation means it can be used there today, inside the conditions and the labelling the authorisation sets.",
     faq: [
       {
         q: "What is Arpink Red?",
-        a: "It is a natural red pigment produced by fermentation of Penicillium oxalicum. It is a novel colour with no assigned CAS number, and it has the unusual position of being authorised in the EU as a novel food while its Japan and Korea files are still open.",
+        a: "It is a natural red pigment produced by fermentation of Penicillium oxalicum. It is a novel colour with no assigned CAS number, and it has the unusual position of being authorised in the EU as a novel food while it is not listed as a colour in Japan.",
       },
       {
         q: "Is Arpink Red approved in the EU?",
-        a: "Yes, as a novel food. Arpink red, the monascin and ankaflavin fraction from Penicillium oxalicum, is authorised in the EU and sits on the Union list of novel foods. The United States status is FDA GRAS, and Japan and Korea are under review. What a launch has to respect is the permitted use levels and the labelling conditions attached to the novel food authorisation.",
+        a: "Yes, as a novel food. Arpink red, the monascin and ankaflavin fraction from Penicillium oxalicum, is authorised in the EU and sits on the Union list of novel foods. The United States status is FDA GRAS, and it is not listed as a colour in Japan. What a launch has to respect is the permitted use levels and the labelling conditions attached to the novel food authorisation.",
       },
       {
         q: "Is Arpink Red heat stable?",
@@ -413,7 +413,7 @@ export const pigmentContent: Record<string, PigmentContent> = {
 
   phycocyanin: {
     answer:
-      "Phycocyanin is the blue pigment-protein complex from Arthrospira platensis, and it is the only natural blue of commercial significance in food. In the EU it is not an authorised additive and carries no E number: it is used as a colouring food, and whether a grade stays on the ingredient side of that line turns on the enrichment factor of the extraction. It holds FDA GRAS status in the United States and is listed in Japan and Korea.",
+      "Phycocyanin is the blue pigment-protein complex from Arthrospira platensis, and it is the only natural blue of commercial significance in food. In the EU it is not an authorised additive and carries no E number: it is used as a colouring food, and whether a grade stays on the ingredient side of that line turns on the enrichment factor of the extraction. It holds FDA GRAS status in the United States and is listed in Japan.",
     route:
       "Phycocyanin and spirulina blue are the same pigment from the same organism and share CAS 11024-84-7, the number that identifies C-phycocyanin from Arthrospira platensis. What separates them commercially is the grade and the formulation: phycocyanin is sold as a standardised extract quoted on purity, while spirulina blue is sold as a colour product built around it.",
     faq: [
@@ -438,7 +438,7 @@ export const pigmentContent: Record<string, PigmentContent> = {
 
   phycoerythrin: {
     answer:
-      "Phycoerythrin is the pink-red phycobiliprotein from the red alga Porphyridium cruentum, and its distinguishing property is fluorescence — it is one of the few food pigments that emits visibly under excitation. That makes it useful well beyond colour: as a fluorescent label in flow cytometry and diagnostics, and as a natural pink in food. It holds FDA GRAS status in the United States and is listed in Japan and Korea; in the EU it is not an authorised food colour and carries no E number.",
+      "Phycoerythrin is the pink-red phycobiliprotein from the red alga Porphyridium cruentum, and its distinguishing property is fluorescence — it is one of the few food pigments that emits visibly under excitation. That makes it useful well beyond colour: as a fluorescent label in flow cytometry and diagnostics, and as a natural pink in food. It holds FDA GRAS status in the United States; in the EU it is not an authorised food colour and carries no E number, and it is not listed as a colour in Japan either.",
     faq: [
       {
         q: "What makes phycoerythrin special?",
@@ -461,7 +461,7 @@ export const pigmentContent: Record<string, PigmentContent> = {
 
   violaxanthin: {
     answer:
-      "Violaxanthin is a yellow carotenoid produced by the microalga Nannochloropsis gaditana, and it is one of the routes being developed as a sustainable alternative to synthetic zeaxanthin. Its market access is still partial: it holds FDA GRAS status in the United States, it is not an authorised food colour in the EU and is used there as a food ingredient and a supplement active, and it is not listed in Japan and under review in Korea.",
+      "Violaxanthin is a yellow carotenoid produced by the microalga Nannochloropsis gaditana, and it is one of the routes being developed as a sustainable alternative to synthetic zeaxanthin. Its market access is still partial: it holds FDA GRAS status in the United States, it is not an authorised food colour in the EU and is used there as a food ingredient and a supplement active, and it is not listed as a colour in Japan.",
     faq: [
       {
         q: "What is violaxanthin used for?",
@@ -473,7 +473,7 @@ export const pigmentContent: Record<string, PigmentContent> = {
       },
       {
         q: "What is the regulatory status of violaxanthin?",
-        a: "FDA GRAS in the United States, not an authorised food colour in the EU, not listed in Japan, and under review in Korea. It is one of the pigments in this catalogue whose regulatory file is still being assembled market by market.",
+        a: "FDA GRAS in the United States, not an authorised food colour in the EU, and not listed as a colour in Japan. It is one of the pigments in this catalogue whose regulatory file is still being assembled market by market.",
       },
       {
         q: "What is the CAS number of violaxanthin?",
@@ -484,11 +484,11 @@ export const pigmentContent: Record<string, PigmentContent> = {
 
   "zeaxanthin-microbial": {
     answer:
-      "Zeaxanthin is the yellow carotenoid that, with lutein, makes up the macular pigment of the eye, and it is also a food ingredient and a supplement active in its own right. Microbial production from Flavobacterium breve and Paracoccus zeaxanthinifaciens gives a consistent isomer profile without a crop. It holds FDA GRAS status in the United States and is listed in Japan and Korea; in the EU it is not an authorised food colour and is used as a food ingredient.",
+      "Zeaxanthin is the yellow carotenoid that, with lutein, makes up the macular pigment of the eye, and it is also a food ingredient and a supplement active in its own right. Microbial production from Flavobacterium breve and Paracoccus zeaxanthinifaciens gives a consistent isomer profile without a crop. It holds FDA GRAS status in the United States; in the EU it is not an authorised food colour and is used as a food ingredient, and it is not listed as a colour in Japan either.",
     faq: [
       {
         q: "Is zeaxanthin an authorised food colour in the EU?",
-        a: "No. Zeaxanthin is not authorised as a food colour additive in the EU or the UK; it is used as a food ingredient and a supplement active. It holds FDA GRAS status in the United States and is listed in Japan and Korea.",
+        a: "No. Zeaxanthin is not authorised as a food colour additive in the EU or the UK; it is used as a food ingredient and a supplement active. It holds FDA GRAS status in the United States and is not listed as a colour in Japan.",
       },
       {
         q: "What is the difference between zeaxanthin and lutein?",
@@ -507,7 +507,7 @@ export const pigmentContent: Record<string, PigmentContent> = {
 
   "spirulina-blue": {
     answer:
-      "Spirulina blue is the blue colour product built on phycocyanin from Arthrospira platensis, and it is the only natural blue with real commercial scale in food. The regulatory position is the thing to get right in Europe: spirulina extract is not an authorised additive and carries no E number, it is used as a colouring food, and the enrichment factor of the extraction decides whether a grade stays on that side. It holds FDA GRAS status in the United States and is listed in Japan and Korea.",
+      "Spirulina blue is the blue colour product built on phycocyanin from Arthrospira platensis, and it is the only natural blue with real commercial scale in food. The regulatory position is the thing to get right in Europe: spirulina extract is not an authorised additive and carries no E number, it is used as a colouring food, and the enrichment factor of the extraction decides whether a grade stays on that side. It holds FDA GRAS status in the United States and is listed in Japan.",
     route:
       "Spirulina blue and phycocyanin are the same pigment from the same organism and share CAS 11024-84-7. The difference is in what is being bought: phycocyanin is sold as a standardised extract quoted on purity, while spirulina blue is sold as a colour product with the pigment, the carrier and the stabilisation already built in.",
     faq: [
@@ -532,7 +532,7 @@ export const pigmentContent: Record<string, PigmentContent> = {
 
   "iron-oxide": {
     answer:
-      "Iron oxides give the earth tones — yellow, red, brown and black — and they are the most stable colourants in this catalogue: heat, light and pH are all non-issues next to a botanical pigment. E 172 is authorised in the EU only in specific food categories, with conditions attached, iron oxides are exempt from certification in the United States under 21 CFR 73.200, and Japan lists them under CI 77491, 77492 and 77499. The procurement discussion is about particle size, surface treatment and the natural versus synthetic-identical question.",
+      "Iron oxides give the earth tones — yellow, red, brown and black — and they are the most stable colourants in this catalogue: heat, light and pH are all non-issues next to a botanical pigment. E 172 is authorised in the EU only in specific food categories, with conditions attached, iron oxides are exempt from certification in the United States under 21 CFR 73.200, and Japan lists ferric oxide as a designated additive. The procurement discussion is about particle size, surface treatment and the natural versus synthetic-identical question.",
     faq: [
       {
         q: "Why is iron oxide so stable?",
@@ -544,7 +544,7 @@ export const pigmentContent: Record<string, PigmentContent> = {
       },
       {
         q: "Is iron oxide approved in the EU?",
-        a: "As E 172, which covers iron oxides and iron hydroxides — but only in specific food categories and with conditions attached, so it is no longer a general-purpose food colour in the EU. In the United States iron oxides are exempt from certification under 21 CFR 73.200, and they are listed in Japan and Korea.",
+        a: "As E 172, which covers iron oxides and iron hydroxides — but only in specific food categories and with conditions attached, so it is no longer a general-purpose food colour in the EU. In the United States iron oxides are exempt from certification under 21 CFR 73.200, and Japan lists ferric oxide as a designated additive.",
       },
       {
         q: "Is iron oxide suitable for vegan products?",
@@ -578,7 +578,7 @@ export const pigmentContent: Record<string, PigmentContent> = {
 
   "mica-pearl": {
     answer:
-      "Mica pearl is natural muscovite mica coated with titanium dioxide to produce a pearlescent effect, and it is the colourant that gives lipsticks, eyeshadows and decorative food coatings their sheen. CI 77019 is a cosmetic colour under Regulation (EC) 1223/2009 in the EU and a listed colour in Japan, and in the United States mica is a colour additive exempt from certification under 21 CFR 73.1496. It is not an authorised EU food colour. Particle size and the coating ratio set the effect: fine grain gives a soft satin sheen, larger flakes give a distinct sparkle.",
+      "Mica pearl is natural muscovite mica coated with titanium dioxide to produce a pearlescent effect, and it is the colourant that gives lipsticks, eyeshadows and decorative food coatings their sheen. CI 77019 is a cosmetic colour under Regulation (EC) 1223/2009 in the EU, and in the United States mica is a colour additive exempt from certification under 21 CFR 73.350 and 73.1496. It is not an authorised EU food colour, and it is not listed as a colour in Japan. Particle size and the coating ratio set the effect: fine grain gives a soft satin sheen, larger flakes give a distinct sparkle.",
     faq: [
       {
         q: "What is mica pearl?",
@@ -590,7 +590,7 @@ export const pigmentContent: Record<string, PigmentContent> = {
       },
       {
         q: "Is mica pearl approved in the EU?",
-        a: "For cosmetics, yes: CI 77019 covers natural mica and its titanium dioxide and iron oxide coatings under Regulation (EC) 1223/2009, and Japan lists it under the same CI number. It is not an authorised food colour in the EU, although in the United States mica is a colour additive exempt from certification under 21 CFR 73.1496.",
+        a: "For cosmetics, yes: CI 77019 covers natural mica and its titanium dioxide and iron oxide coatings under Regulation (EC) 1223/2009. It is not an authorised food colour in the EU, it is not listed as a colour in Japan, and in the United States mica is a colour additive exempt from certification under 21 CFR 73.350 and 73.1496.",
       },
       {
         q: "Is mica pearl suitable for vegan products?",

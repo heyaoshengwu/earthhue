@@ -1,0 +1,199 @@
+{
+  "eu-annex-ii": {
+    "label": "Reg. (EC) 1333/2008, Annex II",
+    "detail": "Regulation (EC) No 1333/2008 on food additives, Annex II — the lists of colours authorised in food and their conditions of use",
+    "url": "https://publications.europa.eu/resource/celex/32008R1333",
+    "scope": "eu"
+  },
+  "eu-2022-63": {
+    "label": "Reg. (EU) 2022/63",
+    "detail": "Commission Regulation (EU) 2022/63 — amendment of Annex II to Regulation (EC) No 1333/2008 that withdrew E 171 titanium dioxide from food additives with effect from 7 August 2022",
+    "url": "https://publications.europa.eu/resource/celex/32022R0063",
+    "scope": "eu"
+  },
+  "eu-novel-food": {
+    "label": "Reg. (EU) 2015/2283",
+    "detail": "Regulation (EU) 2015/2283 on novel foods — the framework under which astaxanthin-rich oleoresin from Haematococcus pluvialis is authorised",
+    "url": "https://publications.europa.eu/resource/celex/32015R2283",
+    "scope": "eu"
+  },
+  "eu-union-list": {
+    "label": "Reg. (EU) 2017/2470",
+    "detail": "Commission Implementing Regulation (EU) 2017/2470 establishing the Union list of novel foods",
+    "url": "https://publications.europa.eu/resource/celex/32017R2470",
+    "scope": "eu"
+  },
+  "eu-cosmetics": {
+    "label": "Reg. (EC) 1223/2009",
+    "detail": "Regulation (EC) No 1223/2009 on cosmetic products — Annex IV lists CI 77019 mica as a permitted cosmetic colour",
+    "url": "https://publications.europa.eu/resource/celex/32009R1223",
+    "scope": "eu"
+  },
+  "us-73-35": {
+    "label": "21 CFR 73.35",
+    "detail": "21 CFR 73.35 — Astaxanthin, a colour additive exempt from certification, used in salmonid feed at not more than 80 mg/kg",
+    "url": "https://www.ecfr.gov/current/title-21/section-73.35",
+    "scope": "us"
+  },
+  "us-73-75": {
+    "label": "21 CFR 73.75",
+    "detail": "21 CFR 73.75 — Canthaxanthin for use in animal food",
+    "url": "https://www.ecfr.gov/current/title-21/section-73.75",
+    "scope": "us"
+  },
+  "us-73-1075": {
+    "label": "21 CFR 73.1075",
+    "detail": "21 CFR 73.1075 — Canthaxanthin for ingested drugs",
+    "url": "https://www.ecfr.gov/current/title-21/section-73.1075",
+    "scope": "us"
+  },
+  "us-73-1496": {
+    "label": "21 CFR 73.1496",
+    "detail": "21 CFR 73.1496 — Mica, a colour additive exempt from certification",
+    "url": "https://www.ecfr.gov/current/title-21/section-73.1496",
+    "scope": "us"
+  },
+  "us-73-185": {
+    "label": "21 CFR 73.185",
+    "detail": "21 CFR 73.185 — Haematococcus algae meal for use in animal food",
+    "url": "https://www.ecfr.gov/current/title-21/section-73.185",
+    "scope": "us"
+  },
+  "us-73-200": {
+    "label": "21 CFR 73.200",
+    "detail": "21 CFR 73.200 — Synthetic iron oxide, a colour additive exempt from certification",
+    "url": "https://www.ecfr.gov/current/title-21/section-73.200",
+    "scope": "us"
+  },
+  "us-73-275": {
+    "label": "21 CFR 73.275",
+    "detail": "21 CFR 73.275 — Dried algae meal for use in animal food",
+    "url": "https://www.ecfr.gov/current/title-21/section-73.275",
+    "scope": "us"
+  },
+  "us-73-295": {
+    "label": "21 CFR 73.295",
+    "detail": "21 CFR 73.295 — Tagetes (Aztec marigold) meal and extract for use in animal food",
+    "url": "https://www.ecfr.gov/current/title-21/section-73.295",
+    "scope": "us"
+  },
+  "us-73-315": {
+    "label": "21 CFR 73.315",
+    "detail": "21 CFR 73.315 — Corn endosperm oil, the animal food colour additive listing that covers carotenes",
+    "url": "https://www.ecfr.gov/current/title-21/section-73.315",
+    "scope": "us"
+  },
+  "us-73-350": {
+    "label": "21 CFR 73.350",
+    "detail": "21 CFR 73.350 — Mica-based pearlescent pigments for use in food",
+    "url": "https://www.ecfr.gov/current/title-21/section-73.350",
+    "scope": "us"
+  },
+  "us-73-352": {
+    "label": "21 CFR 73.352",
+    "detail": "21 CFR 73.352 — Paracoccus pigment for use in animal food",
+    "url": "https://www.ecfr.gov/current/title-21/section-73.352",
+    "scope": "us"
+  },
+  "us-73-355": {
+    "label": "21 CFR 73.355",
+    "detail": "21 CFR 73.355 — Phaffia yeast for use in animal food",
+    "url": "https://www.ecfr.gov/current/title-21/section-73.355",
+    "scope": "us"
+  },
+  "us-73-575": {
+    "label": "21 CFR 73.575",
+    "detail": "21 CFR 73.575 — Titanium dioxide, a colour additive exempt from certification for food use",
+    "url": "https://www.ecfr.gov/current/title-21/section-73.575",
+    "scope": "us"
+  },
+  "us-73-1575": {
+    "label": "21 CFR 73.1575",
+    "detail": "21 CFR 73.1575 — Titanium dioxide for use in drugs",
+    "url": "https://www.ecfr.gov/current/title-21/section-73.1575",
+    "scope": "us"
+  },
+  "us-gras-580": {
+    "label": "FDA GRAS Notice 580",
+    "detail": "FDA GRAS Notice No. 580 — Haematococcus pluvialis extract containing astaxanthin esters",
+    "url": "https://hfpappexternal.fda.gov/scripts/fdcc/index.cfm?id=580&set=GrASNotices",
+    "scope": "us"
+  },
+  "us-gras-inventory": {
+    "label": "FDA GRAS notice inventory",
+    "detail": "The inventory of GRAS notices filed with FDA, with the substance, the file number and FDA's response letter",
+    "url": "https://hfpappexternal.fda.gov/scripts/fdcc/index.cfm?set=GrASNotices",
+    "scope": "us"
+  },
+  "us-colour-additive": {
+    "label": "FDA colour additive record",
+    "detail": "FDA regulatory status of color additives — the colour, its CAS number and its use restrictions",
+    "url": "https://hfpappexternal.fda.gov/scripts/fdcc/index.cfm?set=ColorAdditives",
+    "scope": "us"
+  },
+  "jp-codex": {
+    "label": "JSFA Codex, 10th ed., Appendix 1",
+    "detail": "Food Additives Codex, 10th edition, Appendix 1 — classification table of the additives it contains, with the entry number and the class of each additive",
+    "url": "https://www.mhlw.go.jp/content/11130500/001206779.pdf",
+    "scope": "japan"
+  },
+  "jp-codex-page": {
+    "label": "JSFA Food Additives Codex, 10th ed.",
+    "detail": "The Food Additives Codex, 10th edition — the Japanese standard that separates designated additives, existing additives and general food additives",
+    "url": "https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/kenkou_iryou/shokuhin/syokuten/kouteisho10e.html",
+    "scope": "japan"
+  },
+  "kr-mfds": {
+    "label": "MFDS food additive notices",
+    "detail": "Ministry of Food and Drug Safety notices — the standards for types and uses of food additives",
+    "url": "https://www.mfds.go.kr/brd/m_211/list.do",
+    "scope": "korea"
+  },
+  "kr-codex": {
+    "label": "MFDS food additive code",
+    "detail": "Standards and Specifications for Food Additives (식품첨가물의 기준 및 규격) — the Ministry of Food and Drug Safety administrative rule that sets the types, the specifications and the use standards for food additives in Korea",
+    "url": "https://www.law.go.kr/%ED%96%89%EC%A0%95%EA%B7%9C%EC%B9%99/%EC%8B%9D%ED%92%88%EC%B6%94%EA%B0%80%EB%AC%BC%EC%9D%98%EA%B8%B0%EC%A4%80%EB%B0%8F%EA%B7%9C%EA%B2%85",
+    "scope": "korea"
+  },
+  "kr-wto-772": {
+    "label": "WTO SPS G/SPS/N/KOR/772",
+    "detail": "Korean notice G/SPS/N/KOR/772 of 31 January 2023 revising the food additive standards — the attachment carries the Korean text of the revised use standards, including 이산화티타늄 (titanium dioxide) and 동클로로필 (copper chlorophyll)",
+    "url": "https://members.wto.org/crnattachments/2023/SPS/KOR/23_0792_00_x.pdf",
+    "scope": "korea"
+  },
+  "kr-index-curcumin": {
+    "label": "Korean status (secondary index)",
+    "detail": "Secondary index of the Korean food additive code — Part III, standards for use, for curcumin. Not an official publication; the authority is the MFDS food additive code",
+    "url": "https://foodadditiveindex.com/additives/curcumin",
+    "scope": "korea",
+    "tier": "secondary"
+  },
+  "kr-index-beet-red": {
+    "label": "Korean status (secondary index)",
+    "detail": "Secondary index of the Korean food additive code — Part III, standards for use, for beet red. Not an official publication; the authority is the MFDS food additive code",
+    "url": "https://foodadditiveindex.com/additives/beet-red",
+    "scope": "korea",
+    "tier": "secondary"
+  },
+  "kr-index-grape-skin": {
+    "label": "Korean status (secondary index)",
+    "detail": "Secondary index of the Korean food additive code — Part III, standards for use, for grape skin extract. Not an official publication; the authority is the MFDS food additive code",
+    "url": "https://foodadditiveindex.com/additives/grape-skin-extract",
+    "scope": "korea",
+    "tier": "secondary"
+  },
+  "kr-index-beta-carotene": {
+    "label": "Korean status (secondary index)",
+    "detail": "Secondary index of the Korean food additive code — Part III, standards for use, for beta-carotene. Not an official publication; the authority is the MFDS food additive code",
+    "url": "https://foodadditiveindex.com/additives/beta-carotene",
+    "scope": "korea",
+    "tier": "secondary"
+  },
+  "kr-index-titanium-dioxide": {
+    "label": "Korean status (secondary index)",
+    "detail": "Secondary index of the Korean food additive code — Part III, standards for use, for titanium dioxide. Not an official publication; the authority is the MFDS food additive code",
+    "url": "https://foodadditiveindex.com/additives/titanium-dioxide",
+    "scope": "korea",
+    "tier": "secondary"
+  }
+}
